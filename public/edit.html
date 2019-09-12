@@ -38,54 +38,55 @@
   <script type="text/x-handlebars" id="template-hogu-effect-input">
     <tr>
       <td>
-        <select class="form-control hogu-type-input" value="{{type}}">
+        <select class="hogu-type-input" style="width: 150px;">
+          {{fgo-buf-type-option type}}
         </select>
       </td>
       <td>
-        <input type="text" class="form-control hogu-tern-input" value="{{tern}}">
+        <input type="text" class="hogu-tern-input" value="{{tern}}" style="width: 30px;">
       </td>
       <td>
-        <input type="text" class="form-control hogu-count-input" value="{{count}}">
+        <input type="text" class="hogu-count-input" value="{{count}}" style="width: 30px;">
       </td>
       <td>
-        <select class="form-control hogu-target-input" value="{{target}}">
-          <option value="self">自身</option>
-          <option value="other-all">自身を除く全体</option>
-          <option value="self-other">全体</option>
-          <option value="other-single">味方単体</option>
-          <option value="enemy-single">敵単体</option>
-          <option value="enemy-all">敵全体</option>
+        <select class="hogu-target-input" style="width: 150px;">
+          <option value="self" {{selected "self" target}}>自身</option>
+          <option value="other-all" {{selected "other-all" target}}>自身を除く全体</option>
+          <option value="self-other" {{selected "self-other" target}}>全体</option>
+          <option value="other-single" {{selected "other-single" target}}>味方単体</option>
+          <option value="enemy-single" {{selected "enemy-single" target}}>敵単体</option>
+          <option value="enemy-all" {{selected "enemy-all" target}}>敵全体</option>
         </select>
       </td>
       <td>
-        <select class="form-control hogu-beforeafter-input" value="{{beforeafter}}">
-            <option value="before">前</option>
-            <option value="after">後</option>
+        <select class="hogu-beforeafter-input" style="width: 50px;">
+            <option value="before" {{selected "before" beforeafter}}>前</option>
+            <option value="after" {{selected "after" beforeafter}}>後</option>
         </select>
       </td>
       <td>
-        <select class="form-control hogu-beforeafter-input" value="{{lvoc}}">
-          <option value="lv">Level</option>
-          <option value="oc">OC</option>
+        <select class="hogu-beforeafter-input" style="width: 50px;">
+          <option value="lv" {{selected "lv" lvoc}}>Level</option>
+          <option value="oc" {{selected "oc" lvoc}}>OC</option>
         </select>
       </td>
       <td>
-        <input type="text" class="form-control hogu-desc-input" value="{{desc}}">
+        <input type="text" class="hogu-desc-input" value="{{desc}}" style="width: 300px;">
       </td>
       <td>
-        <input type="text" class="form-control hogu-val1-input" value="{{v1}}">
+        <input type="text" class="hogu-val1-input" value="{{v1}}" style="width: 30px;">
       </td>
       <td>
-        <input type="text" class="form-control hogu-val2-input" value="{{v2}}">
+        <input type="text" class="hogu-val2-input" value="{{v2}}" style="width: 30px;">
       </td>
       <td>
-        <input type="text" class="form-control hogu-val3-input" value="{{v3}}">
+        <input type="text" class="hogu-val3-input" value="{{v3}}" style="width: 30px;">
       </td>
       <td>
-        <input type="text" class="form-control hogu-val4-input" value="{{v4}}">
+        <input type="text" class="hogu-val4-input" value="{{v4}}" style="width: 30px;">
       </td>
       <td>
-        <input type="text" class="form-control hogu-val5-input" value="{{v5}}">
+        <input type="text" class="hogu-val5-input" value="{{v5}}" style="width: 30px;">
       </td>
     </tr>
   </script>
@@ -93,57 +94,58 @@
   <script type="text/x-handlebars" id="template-skill-effect-input">
     <tr>
       <td>
-        <select class="form-control skill-type-input" value="{{type}}">
+        <select class="skill-type-input" style="width: 150px;">
+          {{fgo-buf-type-option type}}
         </select>
       </td>
       <td>
-        <input type="text" class="form-control skill-tern-input" value="{{tern}}">
+        <input type="text" class="skill-tern-input" value="{{tern}}" style="width: 30px;">
       </td>
       <td>
-        <input type="text" class="form-control skill-count-input" value="{{count}}">
+        <input type="text" class="skill-count-input" value="{{count}}" style="width: 30px;">
       </td>
       <td>
-        <select class="form-control skill-target-input" value="{{target}}">
-          <option value="self">自身</option>
-          <option value="other-all">自身を除く全体</option>
-          <option value="self-other">全体</option>
-          <option value="other-single">味方単体</option>
-          <option value="enemy-single">敵単体</option>
-          <option value="enemy-all">敵全体</option>
+        <select class="skill-target-input" value="{{target}}" style="width: 150px;">
+          <option value="self" {{selected "self" target}}>自身</option>
+          <option value="other-all" {{selected "other-all" target}}>自身を除く全体</option>
+          <option value="self-other" {{selected "self-other" target}}>全体</option>
+          <option value="other-single" {{selected "other-single" target}}>味方単体</option>
+          <option value="enemy-single" {{selected "enemy-single" target}}>敵単体</option>
+          <option value="enemy-all" {{selected "enemy-all" target}}>敵全体</option>
         </select>
       </td>
       <td>
-        <input type="text" class="form-control skill-desc-input" value="{{desc}}">
+        <input type="text" class="skill-desc-input" value="{{desc}}" style="width: 300px;">
       </td>
       <td>
-        <input type="text" class="form-control skill-val1-input" value="{{v1}}">
+        <input type="text" class="skill-val1-input" value="{{v1}}" style="width: 30px;">
       </td>
       <td>
-        <input type="text" class="form-control skill-val2-input" value="{{v2}}">
+        <input type="text" class="skill-val2-input" value="{{v2}}" style="width: 30px;">
       </td>
       <td>
-        <input type="text" class="form-control skill-val3-input" value="{{v3}}">
+        <input type="text" class="skill-val3-input" value="{{v3}}" style="width: 30px;">
       </td>
       <td>
-        <input type="text" class="form-control skill-val4-input" value="{{v4}}">
+        <input type="text" class="skill-val4-input" value="{{v4}}" style="width: 30px;">
       </td>
       <td>
-        <input type="text" class="form-control skill-val5-input" value="{{v5}}">
+        <input type="text" class="skill-val5-input" value="{{v5}}" style="width: 30px;">
       </td>
       <td>
-        <input type="text" class="form-control skill-val6-input" value="{{v6}}">
+        <input type="text" class="skill-val6-input" value="{{v6}}" style="width: 30px;">
       </td>
       <td>
-        <input type="text" class="form-control skill-val6-input" value="{{v7}}">
+        <input type="text" class="skill-val6-input" value="{{v7}}" style="width: 30px;">
       </td>
       <td>
-        <input type="text" class="form-control skill-val8-input" value="{{v8}}">
+        <input type="text" class="skill-val8-input" value="{{v8}}" style="width: 30px;">
       </td>
       <td>
-        <input type="text" class="form-control skill-val9-input" value="{{v9}}">
+        <input type="text" class="skill-val9-input" value="{{v9}}" style="width: 30px;">
       </td>
       <td>
-        <input type="text" class="form-control skill-val10-input" value="{{v10}}">
+        <input type="text" class="skill-val10-input" value="{{v10}}" style="width: 30px;">
       </td>     
     </tr>
   </script>
@@ -151,14 +153,15 @@
   <script type="text/x-handlebars" id="template-classskill-effect-input">
     <tr>
       <td>
-        <select class="form-control skill-type-input" value="{{type}}">
+        <select class="skill-type-input" style="width: 150px;">
+          {{fgo-buf-type-option type}}
         </select>
       </td>
       <td>
-        <input type="text" class="form-control magnification-input" value="{{magnification}}" style="width: 50px;">
+        <input type="text" class="magnification-input" value="{{magnification}}" style="width: 50px;">
       </td>
       <td>
-        <input type="text" class="form-control desc-input" value="{{desc}}">
+        <input type="text" class="desc-input" value="{{desc}}" style="width: 300px;">
       </td>
       <td>
           <button type="button" class="btn btn-danger btn-sm delete-row-btn">削除</button>
@@ -167,7 +170,7 @@
   </script>
 
   <script type="text/x-handlebars" id="template-classskill-input">
-    <div class="col-lg-12 classskill-entry">
+    <div class="col-lg-12 classskill-entry" style="margin-bottom: 25px;">
       <div class="card border-primary delete-entry">
         <div class="card-header">
           <button type="button" class="btn btn-danger btn-sm delete-entry-btn"
@@ -243,9 +246,9 @@
       <div class="col-lg-2">
         <div class="form-group">
           <label for="class-input">クラス</label>
-          <select class="form-control" id="class-input" value="{{data.servant.clazz}}">
+          <select class="form-control" id="class-input"">
             {{#each constData.servantClass}}
-            <option value="{{id}}">{{label}}</option>
+            <option value="{{id}}" {{selected id @root.data.servant.clazz}}>{{label}}</option>
             {{/each}}
           </select>
         </div>
@@ -337,7 +340,7 @@
               <label for="tenchizin-input">相性</label>
               <select class="form-control" id="tenchizin-input" value="{{data.servant.tenchizin}}">
                 {{#each constData.tenchizin}}
-                <option value="{{id}}">{{label}}</option>
+                <option value="{{id}}" {{selected id @root.data.servant.tenchizin}}>{{label}}</option>
                 {{/each}}
               </select>
             </div>
@@ -386,7 +389,7 @@
 
             <div style="padding: 5px" id="tag-container">
               {{#each data.hidden.tag}}
-                {{include "template-tag" this}}
+                {{include "template-tag-input" this}}
               {{/each}}
             </div>
           </div>
@@ -427,21 +430,21 @@
             <table class="table text-nowrap">
               <thead>
                 <tr>
-                  <th style="width: 100px;">種別</th>
-                  <th style="width: 50px;">ターン</th>
-                  <th style="width: 50px;">回数</th>
-                  <th style="width: 100px;">対象</th>
-                  <th style="width: 400px;">説明文</th>
-                  <th style="width: 10px;">Lv1</th>
-                  <th style="width: 50px;">Lv2</th>
-                  <th style="width: 50px;">Lv3</th>
-                  <th style="width: 50px;">Lv4</th>
-                  <th style="width: 50px;">Lv5</th>
-                  <th style="width: 50px;">Lv6</th>
-                  <th style="width: 50px;">Lv7</th>
-                  <th style="width: 50px;">Lv8</th>
-                  <th style="width: 50px;">Lv9</th>
-                  <th style="width: 50px;">Lv10</th>
+                  <th>種別</th>
+                  <th>ターン</th>
+                  <th>回数</th>
+                  <th>対象</th>
+                  <th>説明文</th>
+                  <th>Lv1</th>
+                  <th>Lv2</th>
+                  <th>Lv3</th>
+                  <th>Lv4</th>
+                  <th>Lv5</th>
+                  <th>Lv6</th>
+                  <th>Lv7</th>
+                  <th>Lv8</th>
+                  <th>Lv9</th>
+                  <th>Lv10</th>
                 </tr>
               </thead>
               <tbody>
@@ -477,21 +480,21 @@
             <table class="table text-nowrap">
               <thead>
                 <tr>
-                  <th style="width: 100px;">種別</th>
-                  <th style="width: 50px;">ターン</th>
-                  <th style="width: 50px;">回数</th>
-                  <th style="width: 100px;">対象</th>
-                  <th style="width: 400px;">説明文</th>
-                  <th style="width: 10px;">Lv1</th>
-                  <th style="width: 50px;">Lv2</th>
-                  <th style="width: 50px;">Lv3</th>
-                  <th style="width: 50px;">Lv4</th>
-                  <th style="width: 50px;">Lv5</th>
-                  <th style="width: 50px;">Lv6</th>
-                  <th style="width: 50px;">Lv7</th>
-                  <th style="width: 50px;">Lv8</th>
-                  <th style="width: 50px;">Lv9</th>
-                  <th style="width: 50px;">Lv10</th>
+                  <th>種別</th>
+                  <th>ターン</th>
+                  <th>回数</th>
+                  <th>対象</th>
+                  <th>説明文</th>
+                  <th>Lv1</th>
+                  <th>Lv2</th>
+                  <th>Lv3</th>
+                  <th>Lv4</th>
+                  <th>Lv5</th>
+                  <th>Lv6</th>
+                  <th>Lv7</th>
+                  <th>Lv8</th>
+                  <th>Lv9</th>
+                  <th>Lv10</th>
                 </tr>
               </thead>
               <tbody>
@@ -527,21 +530,21 @@
             <table class="table text-nowrap">
               <thead>
                 <tr>
-                  <th style="width: 100px;">種別</th>
-                  <th style="width: 50px;">ターン</th>
-                  <th style="width: 50px;">回数</th>
-                  <th style="width: 100px;">対象</th>
-                  <th style="width: 400px;">説明文</th>
-                  <th style="width: 10px;">Lv1</th>
-                  <th style="width: 50px;">Lv2</th>
-                  <th style="width: 50px;">Lv3</th>
-                  <th style="width: 50px;">Lv4</th>
-                  <th style="width: 50px;">Lv5</th>
-                  <th style="width: 50px;">Lv6</th>
-                  <th style="width: 50px;">Lv7</th>
-                  <th style="width: 50px;">Lv8</th>
-                  <th style="width: 50px;">Lv9</th>
-                  <th style="width: 50px;">Lv10</th>
+                  <th>種別</th>
+                  <th>ターン</th>
+                  <th>回数</th>
+                  <th>対象</th>
+                  <th>説明文</th>
+                  <th>Lv1</th>
+                  <th>Lv2</th>
+                  <th>Lv3</th>
+                  <th>Lv4</th>
+                  <th>Lv5</th>
+                  <th>Lv6</th>
+                  <th>Lv7</th>
+                  <th>Lv8</th>
+                  <th>Lv9</th>
+                  <th>Lv10</th>
                 </tr>
               </thead>
               <tbody>
@@ -570,10 +573,10 @@
           <div class="col-lg-2">
             <div class="form-group">
               <label for="hogu-type-input">種別</label>
-              <select class="form-control" id="hogu-type-input" value="{{data.hogu.type}}">
-                <option value="all">全体</option>
-                <option value="single">単体</option>
-                <option value="support">補助</option>
+              <select class="form-control" id="hogu-type-input">
+                <option value="all" {{selected "all" @root.data.hogu.type}}>全体</option>
+                <option value="single" {{selected "single" @root.data.hogu.type}}>単体</option>
+                <option value="support" {{selected "support" @root.data.hogu.type}}>補助</option>
               </select>
             </div>
           </div>
@@ -581,9 +584,9 @@
             <div class="form-group">
               <label for="hogu-card-input">カード</label>
               <select class="form-control" id="hogu-card-input" value="{{data.hogu.card}}">
-                <option value="a">Arts</option>
-                <option value="q">Quick</option>
-                <option value="b">Buster</option>
+                <option value="a" {{selected "absolute" @root.data.hogu.card}}>Arts</option>
+                <option value="q" {{selected "quick" @root.data.hogu.card}}>Quick</option>
+                <option value="b" {{selected "b" @root.data.hogu.card}}>Buster</option>
               </select>
             </div>
           </div>
@@ -636,12 +639,37 @@
 
       $(function () {
         var template = Handlebars.compile($("#template-editable-form").html());
+        var constData = fgoConstData();
 
-        var html = template({
-          constData: fgoConstData()
-        });
-        $("#container").html(html);
+        var hash = location.hash;
+        var dataId = null;
 
+        if(hash === "" || hash === "#") {
+
+          var html = template({
+            constData: constData
+          });
+          $("#container").html(html);
+
+        } else {
+          
+          dataId = decodeURI(hash.substring(1));
+
+          $.ajax({
+            url:"/api/v1/"+dataId,
+            type:"GET",
+            dataType:"json",
+          }).done(function(data,textStatus,xhr) {
+            var html = template({
+              constData: constData,
+              data : data
+            });
+            $("#container").html(html);
+          }).fail(function(xhr, textStatus, e ) {
+          });
+
+        }
+        
         $(document).on("click", "#add-status-btn", function () {
           var tpl = Handlebars.compile($("#template-status-input").html());
           $("#status-container").append(tpl({}));

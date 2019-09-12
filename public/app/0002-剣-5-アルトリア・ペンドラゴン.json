@@ -182,7 +182,7 @@
                 "type" : "NP増加",
                 "tern" : 1,
                 "count" : 1,
-                "target" : "enemy-all",
+                "target" : "self",
                 "beforeafter" : "after",
                 "lvoc" : "oc",
                 "desc" : "自身のNPをリチャージ<OC:効果UP>",
