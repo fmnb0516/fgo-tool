@@ -400,6 +400,9 @@
         <button type="button" class="btn btn-primary btn-sm" id="class-skill-add-btn">追加</button>
 
         <div class="row" id="class-skill-container" style="padding: 10px;">
+          {{#each data.classskill}}
+            {{include "template-classskill-input" this}}
+          {{/each}}
         </div>
       </div>
     </div>
