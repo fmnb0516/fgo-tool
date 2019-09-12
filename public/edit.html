@@ -201,7 +201,7 @@
   </script>
 
   <script type="text/x-handlebars" id="template-tag-input">
-    <input class="tag-input" style="width: 30px;margin-left: 5px;margin-bottom: 5px;" type="text" value="{{this}}">
+    <input class="tag-input" style="width: 100px;margin-left: 5px;margin-bottom: 5px;" type="text" value="{{this}}">
   </script>
 
   <script type="text/x-handlebars" id="template-status-input">
@@ -644,7 +644,7 @@
         var hash = location.hash;
         var dataId = null;
 
-        if(hash === "" || hash === "#") {
+        if (hash === "" || hash === "#") {
 
           var html = template({
             constData: constData
@@ -652,24 +652,24 @@
           $("#container").html(html);
 
         } else {
-          
+
           dataId = decodeURI(hash.substring(1));
 
           $.ajax({
-            url:"/api/v1/"+dataId,
-            type:"GET",
-            dataType:"json",
-          }).done(function(data,textStatus,xhr) {
+            url: "/api/v1/" + dataId,
+            type: "GET",
+            dataType: "json",
+          }).done(function (data, textStatus, xhr) {
             var html = template({
               constData: constData,
-              data : data
+              data: data
             });
             $("#container").html(html);
-          }).fail(function(xhr, textStatus, e ) {
+          }).fail(function (xhr, textStatus, e) {
           });
 
         }
-        
+
         $(document).on("click", "#add-status-btn", function () {
           var tpl = Handlebars.compile($("#template-status-input").html());
           $("#status-container").append(tpl({}));
@@ -715,7 +715,228 @@
           $(this).parents(".hogu-effect-entry").find("tbody").append(tpl({}));
         });
 
+        $(document).on("click", "#save-btn", function () {
+          var data = getData();
+
+          console.log(data);
+
+          var url = dataId !== null ? "/api/v1/" + dataId : "/api/v1/create";
+          var type = dataId !== null ? "PUT" : "POST";
+
+          $.ajax({
+            url: url,
+            type: type,
+            dataType: "json",
+            data: JSON.stringify(data),
+            contentType: 'application/json',
+          }).done(function (data, textStatus, xhr) {
+            alert(data.message);
+          }).fail(function (xhr, textStatus, e) {
+            alert(e);
+          });
+        });
+
       });
+
+      function getData() {
+        return {
+          "servant": {
+            "name": "アルトリア・ペンドラゴン",
+            "clazz": "saber",
+            "rare": 5,
+            "cost": 16,
+            "tenchizin": "chi"
+          },
+
+          "card": {
+            "arts": {
+              "count": 2,
+              "hit": 2
+            },
+            "quick": {
+              "count": 1,
+              "hit": 2
+            },
+            "buster": {
+              "count": 2,
+              "hit": 1
+            }
+          },
+
+          "status": [
+            {
+              "level": 90,
+              "hp": 15150,
+              "atk": 11221
+            },
+            {
+              "level": 100,
+              "hp": 16597,
+              "atk": 12283
+            }
+          ],
+
+          "hidden": {
+            "na": 0.86,
+            "staroccurrence": 10.0,
+            "starcollection": 102,
+            "dr": 21.0,
+            "nd": 3.00,
+            "tag": [
+              "秩序", "善", "女", "騎乗", "人型", "竜", "アルトリア", "アーサー", "王", "サーヴァント"
+            ]
+          },
+
+          "classskill": [
+            {
+              "name": "対魔力A",
+              "effect": [
+                {
+                  "type": "弱体耐性アップ",
+                  "magnification": "20",
+                  "desc": "自身の弱体耐性をアップ"
+                }
+              ]
+            },
+            {
+              "name": "騎乗B",
+              "effect": [
+                {
+                  "type": "Quickカード性能アップ",
+                  "magnification": "8",
+                  "desc": "自身のQuickカードの性能をアップ"
+                }
+              ]
+            }
+          ],
+
+          "skill1": {
+            "name": "カリスマ B",
+            "ct": 7,
+            "effect": [
+              {
+                "type": "攻撃力アップ",
+                "tern": 3,
+                "count": 0,
+                "target": "self-other",
+                "desc": "味方全体の攻撃力をアップ[Lv](3T)",
+                "v1": "9",
+                "v2": "9.9",
+                "v3": "10.8",
+                "v4": "11.7",
+                "v5": "12.6",
+                "v6": "13.5",
+                "v7": "14.4",
+                "v8": "15.3",
+                "v9": "16.2",
+                "v10": "18"
+              }
+            ]
+          },
+
+          "skill2": {
+            "name": "魔力放出 A",
+            "ct": 7,
+            "effect": [
+              {
+                "type": "Busterカード性能アップ",
+                "tern": 1,
+                "count": 0,
+                "target": "self",
+                "desc": "自身のBusterカード性能をアップ[Lv](1T)",
+                "v1": "30",
+                "v2": "32",
+                "v3": "34",
+                "v4": "36",
+                "v5": "38",
+                "v6": "40",
+                "v7": "42",
+                "v8": "44",
+                "v9": "46",
+                "v10": "50"
+              }
+            ]
+          },
+
+          "skill3": {
+            "name": "輝ける路 EX",
+            "ct": 7,
+            "effect": [
+              {
+                "type": "スター獲得",
+                "tern": 1,
+                "count": 1,
+                "target": "self-other",
+                "desc": "スターを大量獲得[Lv]",
+                "v1": "5",
+                "v2": "6",
+                "v3": "7",
+                "v4": "8",
+                "v5": "9",
+                "v6": "10",
+                "v7": "11",
+                "v8": "12",
+                "v9": "13",
+                "v10": "15"
+              },
+              {
+                "type": "NP増加",
+                "tern": 1,
+                "count": 1,
+                "target": "self",
+                "desc": "NPを増やす[Lv]",
+                "v1": "20",
+                "v2": "21",
+                "v3": "22",
+                "v4": "23",
+                "v5": "24",
+                "v6": "25",
+                "v7": "26",
+                "v8": "27",
+                "v9": "28",
+                "v10": "30"
+              }
+            ]
+          },
+
+          "hogu": {
+            "name": "約束された勝利の剣",
+            "type": "all",
+            "card": "b",
+            "hit": 1,
+            "effect": [
+              {
+                "type": "攻撃",
+                "tern": 1,
+                "count": 1,
+                "target": "enemy-all",
+                "beforeafter": "before",
+                "lvoc": "lv",
+                "desc": "敵全体に強力な攻撃[Lv]",
+                "v1": "400",
+                "v2": "500",
+                "v3": "550",
+                "v4": "575",
+                "v5": "600"
+              },
+              {
+                "type": "NP増加",
+                "tern": 1,
+                "count": 1,
+                "target": "self",
+                "beforeafter": "after",
+                "lvoc": "oc",
+                "desc": "自身のNPをリチャージ<OC:効果UP>",
+                "v1": "20",
+                "v2": "27.5",
+                "v3": "35",
+                "v4": "42.5",
+                "v5": "50"
+              }
+            ]
+          }
+        }
+      };
 
     </script>
   </div>
