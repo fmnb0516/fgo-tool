@@ -237,12 +237,19 @@
     <hr/>
 
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-4">
         <div class="form-group">
           <label for="name-input">名称</label>
           <input type="text" class="form-control" id="name-input" value="{{data.servant.name}}">
         </div>
       </div>
+
+      <div class="col-lg-2">
+          <div class="form-group">
+            <label for="no-input">No</label>
+            <input type="text" class="form-control" id="no-input" value="{{data.servant.no}}">
+          </div>
+        </div>
       <div class="col-lg-2">
         <div class="form-group">
           <label for="class-input">クラス</label>
@@ -739,23 +746,23 @@
       function parseSkillEffects(container) {
         var effect = [];
 
-        container.find("tbody tr").each(function() {
+        container.find("tbody tr").each(function () {
           effect.push({
-            type : $(this).find(".skill-type-input").val(),
-            tern : parseInt($(this).find(".skill-tern-input").val()),
-            count : parseInt($(this).find(".skill-count-input").val()),
-            target : $(this).find(".skill-target-input").val(),
-            desc : $(this).find(".skill-desc-input").val(),
-            v1 : $(this).find(".skill-val1-input").val(),
-            v2 : $(this).find(".skill-val2-input").val(),
-            v3 : $(this).find(".skill-val3-input").val(),
-            v4 : $(this).find(".skill-val4-input").val(),
-            v5 : $(this).find(".skill-val5-input").val(),
-            v6 : $(this).find(".skill-val6-input").val(),
-            v7 : $(this).find(".skill-val7-input").val(),
-            v8 : $(this).find(".skill-val8-input").val(),
-            v9 : $(this).find(".skill-val9-input").val(),
-            v10 : $(this).find(".skill-val10-input").val()
+            type: $(this).find(".skill-type-input").val(),
+            tern: parseInt($(this).find(".skill-tern-input").val()),
+            count: parseInt($(this).find(".skill-count-input").val()),
+            target: $(this).find(".skill-target-input").val(),
+            desc: $(this).find(".skill-desc-input").val(),
+            v1: $(this).find(".skill-val1-input").val(),
+            v2: $(this).find(".skill-val2-input").val(),
+            v3: $(this).find(".skill-val3-input").val(),
+            v4: $(this).find(".skill-val4-input").val(),
+            v5: $(this).find(".skill-val5-input").val(),
+            v6: $(this).find(".skill-val6-input").val(),
+            v7: $(this).find(".skill-val7-input").val(),
+            v8: $(this).find(".skill-val8-input").val(),
+            v9: $(this).find(".skill-val9-input").val(),
+            v10: $(this).find(".skill-val10-input").val()
           });
         });
 
@@ -765,50 +772,50 @@
       function getData() {
         var status = [];
 
-        $("#status-container .delete-entry").each(function() {
+        $("#status-container .delete-entry").each(function () {
           var lv = $(this).find(".status-lv-input").val();
-          if(lv === "") {
+          if (lv === "") {
             return;
           }
           status.push({
-              "level": lv,
-              "hp":  parseInt($(this).find(".status-hp-input").val()),
-              "atk":  parseInt($(this).find(".status-atk-input").val())
-            });
+            "level": lv,
+            "hp": parseInt($(this).find(".status-hp-input").val()),
+            "atk": parseInt($(this).find(".status-atk-input").val())
+          });
         });
 
         var tags = [];
 
-        $("#tag-container input").each(function() {
+        $("#tag-container input").each(function () {
           tags.push($(this).val().trim());
         });
 
         var classskill = [];
 
-        $(".classskill-entry").each(function() {
+        $(".classskill-entry").each(function () {
           var name = $(this).find(".classkill-name-input").val();
           var effect = [];
 
-          $(this).find("tbody tr").each(function() {
+          $(this).find("tbody tr").each(function () {
             var type = $(this).find(".skill-type-input").val();
             var magnification = $(this).find(".magnification-input").val();
             var desc = $(this).find(".desc-input").val();
 
             effect.push({
               type: type,
-              magnification : magnification,
-              desc : desc
+              magnification: magnification,
+              desc: desc
             });
           });
 
           classskill.push({
-            name : name,
-            effect : effect
+            name: name,
+            effect: effect
           });
         });
 
         var hoguEffects = [];
-        $(".hogu-effect-entry tbody tr").each(function() {
+        $(".hogu-effect-entry tbody tr").each(function () {
           hoguEffects.push({
             "type": $(this).find(".hogu-type-input").val(),
             "tern": parseInt($(this).find(".hogu-tern-input").val()),
@@ -832,7 +839,8 @@
             "clazz": $("#class-input").val(),
             "rare": parseInt($("#rare-input").val()),
             "cost": parseInt($("#cost-input").val()),
-            "tenchizin": $("#tenchizin-input").val()
+            "tenchizin": $("#tenchizin-input").val(),
+            "no" : $("#no-input").val()
           },
 
           "card": {
