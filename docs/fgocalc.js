@@ -9,14 +9,14 @@ var fgo = (function() {
         var holder = null;
         return function() {
             if(arguments.length === 0) {
-                return holder;
+                return JSON.parse(JSON.stringify(holder));
             } else if(arguments.length === 1) {
-                holder = arguments[0];
+                holder = JSON.parse(JSON.stringify(arguments[0]));
             }
         };
-    });
+    })();
 
-    calcDamage = function(atk, hoguMagnification, card, cardBuf, classCorrection, classCompatibility, attrCompatibility, atkBuf, tokkouBuf, tokubouBuf, hoguBuf, tokkou, damageBuf) {
+    var calcDamage = function(atk, hoguMagnification, card, cardBuf, classCorrection, classCompatibility, attrCompatibility, atkBuf, tokkouBuf, tokubouBuf, hoguBuf, tokkou, damageBuf) {
         var hosei = 0.23;
 
         return (atk * hoguMagnification * hosei * (card * min(5, 1 + cardBuf))
@@ -25,8 +25,40 @@ var fgo = (function() {
             * tokkou) + min(1000, damageBuf);
     };
 
+    var classToLabel = function(clazz) {
+        if(clazz === "saber") {
+            return "剣";
+        } else if(clazz === "archer") {
+            return "弓";
+        } else if(clazz === "luncer") {
+            return "槍";
+        } else if(clazz === "caster") {
+            return "術";
+        } else if(clazz === "rider") {
+            return "騎";
+        } else if(clazz === "asasin") {
+            return "殺";
+        } else if(clazz === "barserker") {
+            return "狂";
+        } else if(clazz === "ruler") {
+            return "裁";
+        } else if(clazz === "avenger") {
+            return "讐";
+        } else if(clazz === "alterego") {
+            return "分";
+        } else if(clazz === "monncanser") {
+            return "月";
+        } else if(clazz === "foreigner") {
+            return "降";
+        } else {
+            return "UNKOWN";
+        }
+
+    };
+
     return {
         calcDamage : calcDamage,
-        data : data
+        data : data,
+        classToLabel : classToLabel
     };
 })();

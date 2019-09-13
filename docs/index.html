@@ -17,6 +17,143 @@
     </div>
 
     <div class="container" style="padding-top: 70px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div style="display: inline-block;position: absolute;top: -10px;background-color: white;">フィルター
+                        </div>
+                        <h6>サーヴァントクラス フィルター</h6>
+                        <div style="padding: 5px;" id="class-filter-container">
+                            <span data-val="saber" class="filter-badge badge badge-pill badge-secondary"
+                                style="cursor:pointer; padding: 10px 20px; margin-bottom: 5px;">セイバー</span>
+                            <span data-val="archer" class="filter-badge badge badge-pill badge-secondary"
+                                style="cursor:pointer; padding: 10px 20px; margin-bottom: 5px;">アーチャー</span>
+                            <span data-val="luncer" class="filter-badge badge badge-pill badge-secondary"
+                                style="cursor:pointer; padding: 10px 20px; margin-bottom: 5px;">ランサー</span>
+                            <span data-val="caster" class="filter-badge badge badge-pill badge-secondary"
+                                style="cursor:pointer; padding: 10px 20px; margin-bottom: 5px;">キャスター</span>
+                            <span data-val="rider" class="filter-badge badge badge-pill badge-secondary"
+                                style="cursor:pointer; padding: 10px 20px; margin-bottom: 5px;">ライダー</span>
+                            <span data-val="asasin" class="filter-badge badge badge-pill badge-secondary"
+                                style="cursor:pointer; padding: 10px 20px; margin-bottom: 5px;">アサシン</span>
+                            <span data-val="barserker" class="filter-badge badge badge-pill badge-secondary"
+                                style="cursor:pointer; padding: 10px 20px; margin-bottom: 5px;">バーサーカー</span>
+                            <span data-val="ruler" class="filter-badge badge badge-pill badge-secondary"
+                                style="cursor:pointer; padding: 10px 20px; margin-bottom: 5px;">ルーラー</span>
+                            <span data-val="avenger" class="filter-badge badge badge-pill badge-secondary"
+                                style="cursor:pointer; padding: 10px 20px; margin-bottom: 5px;">アベンジャー</span>
+                            <span data-val="alterego" class="filter-badge badge badge-pill badge-secondary"
+                                style="cursor:pointer; padding: 10px 20px; margin-bottom: 5px;">アルターエゴ</span>
+                            <span data-val="monncanser" class="filter-badge badge badge-pill badge-secondary"
+                                style="cursor:pointer; padding: 10px 20px; margin-bottom: 5px;">ムーンキャンサー</span>
+                            <span data-val="foreigner" class="filter-badge badge badge-pill badge-secondary"
+                                style="cursor:pointer; padding: 10px 20px; margin-bottom: 5px;">フォーリナー</span>
+                        </div>
+
+                        <h6>宝具種別 フィルター</h6>
+                        <div style="padding: 5px;" id="type-filter-container">
+                            <span data-val="hoguall" class="filter-badge badge badge-pill badge-secondary"
+                                style="cursor:pointer; padding: 10px 20px; margin-bottom: 5px;">全体宝具</span>
+                            <span data-val="hogusingle" class="filter-badge badge badge-pill badge-secondary"
+                                style="cursor:pointer; padding: 10px 20px; margin-bottom: 5px;">単体宝具</span>
+                            <span data-val="hogusupport" class="filter-badge badge badge-pill badge-secondary"
+                                style="cursor:pointer; padding: 10px 20px; margin-bottom: 5px;">補助宝具</span>
+                        </div>
+
+                        <h6>宝具カード フィルター</h6>
+                        <div style="padding: 5px;" id="card-filter-container">
+                            <span data-val="hoguarts" class="filter-badge badge badge-pill badge-secondary"
+                                style="cursor:pointer; padding: 10px 20px; margin-bottom: 5px;">Arts宝具</span>
+                            <span data-val="hoguquick" class="filter-badge badge badge-pill badge-secondary"
+                                style="cursor:pointer; padding: 10px 20px; margin-bottom: 5px;">Quick宝具</span>
+                            <span data-val="hogubuster" class="filter-badge badge badge-pill badge-secondary"
+                                style="cursor:pointer; padding: 10px 20px; margin-bottom: 5px;">Buster宝具</span>
+                        </div>
+
+                        <h6>サーヴァント一覧</h6>
+                        <div style="padding: 5px;" id="filter-result">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12" style="margin: 10px 0px;">
+                <div class="card">
+                    <div class="card-body">
+                        <div style="display: inline-block;position: absolute;top: -10px;background-color: white;">
+                            アタッカー
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="attacker-name">名称</label>
+                                    <input type="text" readonly class="form-control" id="attacker-name">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <div class="form-group">
+                                    <label for="attacker-level">Level</label>
+                                    <select class="form-control" id="attacker-level"></select>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="attacker-atk">ATK</label>
+                                    <input type="text" readonly class="form-control" id="attacker-atk">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="fokun-atk">フォウ君(ATK)</label>
+                                    <input type="text" class="form-control" id="fokun-atk" value="1000">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="reisou-atk">概念礼装(ATK)</label>
+                                    <input type="text" class="form-control" id="reisou-atk" value="786">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <div class="form-group">
+                                    <label for="hogu-level">宝具Lv</label>
+                                    <select class="form-control" id="hogu-level">
+                                        <option value="1" selected>Lv1</option>
+                                        <option value="2">Lv2</option>
+                                        <option value="3">Lv3</option>
+                                        <option value="4">Lv4</option>
+                                        <option value="5">Lv5</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <div class="form-group">
+                                    <label for="hogu-type">宝具種別</label>
+                                    <input type="text" readonly class="form-control" id="hogu-type">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <div class="form-group">
+                                    <label for="hogu-card">宝具カード</label>
+                                    <input type="text" readonly class="form-control" id="hogu-card">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     <div>
         <script src="jquery/jquery-3.4.1.min.js"></script>
@@ -24,6 +161,7 @@
         <script src="handlebars/handlebars-v4.2.0.js"></script>
         <script src="fgocalc.js"></script>
         <script src="servant.js"></script>
+        <script src="app.js"></script>
     </div>
 </body>
 
