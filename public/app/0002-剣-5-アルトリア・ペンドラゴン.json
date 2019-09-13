@@ -125,8 +125,8 @@
 		"effect": [
 			{
 				"type": "スター獲得",
-				"tern": 1,
-				"count": 1,
+				"tern": 0,
+				"count": 0,
 				"target": "self-other",
 				"desc": "スターを大量獲得[Lv]",
 				"v1": "5",
@@ -142,8 +142,8 @@
 			},
 			{
 				"type": "NP増加",
-				"tern": 1,
-				"count": 1,
+				"tern": 0,
+				"count": 0,
 				"target": "self",
 				"desc": "NPを増やす[Lv]",
 				"v1": "20",
@@ -167,8 +167,8 @@
 		"effect": [
 			{
 				"type": "攻撃",
-				"tern": 1,
-				"count": 1,
+				"tern": 0,
+				"count": 0,
 				"target": "enemy-all",
 				"beforeafter": "before",
 				"lvoc": "lv",
@@ -181,8 +181,8 @@
 			},
 			{
 				"type": "NP増加",
-				"tern": 1,
-				"count": 1,
+				"tern": 0,
+				"count": 0,
 				"target": "self",
 				"beforeafter": "after",
 				"lvoc": "oc",

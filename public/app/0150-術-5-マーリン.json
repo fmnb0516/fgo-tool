@@ -101,8 +101,8 @@
 			},
 			{
 				"type": "NP増加",
-				"tern": 1,
-				"count": 1,
+				"tern": 0,
+				"count": 0,
 				"target": "self-other",
 				"desc": "NPを増やす",
 				"v1": "20",
@@ -124,7 +124,7 @@
 		"effect": [
 			{
 				"type": "無敵付与",
-				"tern": 1,
+				"tern": 0,
 				"count": 0,
 				"target": "self-other",
 				"desc": "味方全体に無敵状態を付与(1T)",
