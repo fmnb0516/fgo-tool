@@ -139,6 +139,7 @@ $(function() {
     })();
     
     (function() {
+        
 
         function supportBuf(buf, index) {
             var servantNo = $("#"+index+"-select").val();
@@ -151,21 +152,21 @@ $(function() {
             if($("#"+index+"-skill1-enable").prop("checked")) {
                 var lv = parseInt($("#"+index+"-skill1-level").val());
                 data.skill1.effect.forEach(function(e) {
-                    fgo.bufMerge("support", buf, e.type, e["v"+lv]);
+                    fgo.bufMerge("support", buf, e.type, e["v"+lv], e);
                 });
             }
 
             if($("#"+index+ + "-skill2-enable").prop("checked")) {
-                var lv = parseInt($("#"+index+"skill2-level").val());
+                var lv = parseInt($("#"+index+"-skill2-level").val());
                 data.skill2.effect.forEach(function(e) {
-                    fgo.bufMerge("support", buf, e.type, e["v"+lv]);
+                    fgo.bufMerge("support", buf, e.type, e["v"+lv], e);
                 });
             }
 
             if($("#"+index+"-skill3-enable").prop("checked")) {
-                var lv = parseInt($("#"+index+"skill3-level").val());
+                var lv = parseInt($("#"+index+"-skill3-level").val());
                 data.skill3.effect.forEach(function(e) {
-                    fgo.bufMerge("support", buf, e.type, e["v"+lv]);
+                    fgo.bufMerge("support", buf, e.type, e["v"+lv], e);
                 });
             }
         };
@@ -213,42 +214,42 @@ $(function() {
 
             data.classskill.forEach(function(cskl) {
                 cskl.effect.forEach(function(e) {
-                    fgo.bufMerge("org", context.buf, e.type, e.magnification);
+                    fgo.bufMerge("org", context, e.type, e.magnification);
                 });
             });
 
             if($("#skill1-enable").prop("checked")) {
                 var lv = parseInt($("#skill1-level").val());
                 data.skill1.effect.forEach(function(e) {
-                    fgo.bufMerge("org", context.buf, e.type, e["v"+lv]);
+                    fgo.bufMerge("org", context, e.type, e["v"+lv], e);
                 });
             }
 
             if($("#skill2-enable").prop("checked")) {
                 var lv = parseInt($("#skill2-level").val());
                 data.skill2.effect.forEach(function(e) {
-                    fgo.bufMerge("org", context.buf, e.type, e["v"+lv]);
+                    fgo.bufMerge("org", context, e.type, e["v"+lv], e);
                 });
             }
 
             if($("#skill3-enable").prop("checked")) {
                 var lv = parseInt($("#skill3-level").val());
                 data.skill3.effect.forEach(function(e) {
-                    fgo.bufMerge("org", context.buf, e.type, e["v"+lv]);
+                    fgo.bufMerge("org", context, e.type, e["v"+lv], e);
                 });
             }
 
-            supportBuf(context.buf, "s1");
-            supportBuf(context.buf, "s2");
-            supportBuf(context.buf, "s3");
-            supportBuf(context.buf, "s4");
-            supportBuf(context.buf, "s5");
+            supportBuf(context, "s1");
+            supportBuf(context, "s2");
+            supportBuf(context, "s3");
+            supportBuf(context, "s4");
+            supportBuf(context, "s5");
 
             data.hogu.effect.filter(function(e) {
                 return e.beforeafter === "before";
             }).forEach(function(e) {
                 var idx = e.lvoc === "lv" ? hoguLv : hoguOc;
-                fgo.bufMerge("org", context.buf, e.type, e["v"+idx]);
+                fgo.bufMerge("org", context, e.type, e["v"+idx], e);
             });
 
             $("#result-atk").val(context.atk * context.classHosei);

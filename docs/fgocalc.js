@@ -96,7 +96,33 @@ var fgo = (function() {
 
     };
 
-    var bufMerge = function(mode, buf, type, magnification) {
+    var enableEffect = (function() {
+
+        var matrix = {
+            org : {
+                "self" : true,
+                "other-all" : false,
+                "self-other" : true,
+                "other-single" : true,
+                "enemy-single" : true,
+                "enemy-all" : true
+            },
+            support : {
+                "self" : false,
+                "other-all" : true,
+                "self-other" : true,
+                "other-single" : true,
+                "enemy-single" : true,
+                "enemy-all" : true
+            }
+        };
+
+        return function(target, mode) {
+            return matrix[mode][target];
+        };
+    });
+
+    var bufMerge = function(mode, context, type, magnification, effect) {
         console.log(mode + ":" + type + ":" + magnification);
     };
 
@@ -106,6 +132,7 @@ var fgo = (function() {
         classToLabel : classToLabel,
         getClassHosei: getClassHosei,
         getCardMag : getCardMag,
-        bufMerge : bufMerge
+        bufMerge : bufMerge,
+        enableEffect : enableEffect 
     };
 })();
