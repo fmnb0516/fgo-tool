@@ -112,7 +112,7 @@ $(function() {
             var index = $(this).attr("data-index");
             var data = fgo.data().find(function(d) { return d.servant.no === index});
 
-            $("#attacker-name").val(data.servant.name);
+            $("#attacker-name").val(data.servant.name).attr("data-index", index);
     
             var levels = "";
             for (var i = 0; i < data.status.length; i++) {
@@ -138,5 +138,45 @@ $(function() {
 
     })();
     
-    
+    (function() {
+
+        $(document).on("click", "#calc-btn", function() {
+            var index = $("#attacker-name").attr("data-index");
+            var data = fgo.data().find(function(d) { return d.servant.no === index});
+
+            var context = {};
+
+            context.atk = parseInt($("#attacker-atk").val()) + parseInt($("#fokun-atk").val()) + parseInt($("#reisou-atk").val());
+            context.buf = {
+                atk : parseFloat($("#hosei-atk").val()),
+                card: parseFloat($("#hosei-card").val()),
+                hogu: parseFloat($("#hosei-hogu").val()),
+                tokkou: parseFloat($("#hosei-tokkou").val()),
+                damage: parseFloat($("#hosei-damage").val()),
+                np : parseFloat($("#hosei-np").val())
+            };
+
+            var hoguLv = parseInt($("#hogu-level").val());
+            var hoguOc = parseInt($("#hogu-oc").val());
+            var hoguMag = 0;
+            data.hogu.effect.filter(function(e) {
+                return e.type === "攻撃";
+            }).forEach(function(e) {
+                if(e.lvoc === "lv") {
+                    hoguMag += parseFloat(e["v"+hoguLv]);
+                } else if(e.lvoc === "oc") {
+                    hoguMag += parseFloat(e["v"+hoguOc]);
+                }
+            });
+            context.hoguMag = hoguMag;
+
+            context.enemyNpHosei = parseFloat($("#result-class-select").val());
+            context.classHosei = fgo.getClassHosei(data.servant.clazz);
+            context.classCompatibility = parseFloat($("#result-compatibility").val());
+            context.hoguTokkou = 0;
+            context.overkill = parseInt($("#result-okhit").val());
+            context.useTokkou = $("#result-tokkou").prop("checked");
+        });
+
+    })();
 });

@@ -25,6 +25,36 @@ var fgo = (function() {
             * tokkou) + min(1000, damageBuf);
     };
 
+    var getClassHosei = function(clazz) {
+        if(clazz === "saber") {
+            return 1.0;
+        } else if(clazz === "archer") {
+            return 0.95;
+        } else if(clazz === "luncer") {
+            return 1.05;
+        } else if(clazz === "caster") {
+            return 0.9;
+        } else if(clazz === "rider") {
+            return 1.0;
+        } else if(clazz === "asasin") {
+            return 0.9;
+        } else if(clazz === "barserker") {
+            return 1.1;
+        } else if(clazz === "ruler") {
+            return 1.1;
+        } else if(clazz === "avenger") {
+            return 1.1;
+        } else if(clazz === "alterego") {
+            return 1.0;
+        } else if(clazz === "monncanser") {
+            return 1.0;
+        } else if(clazz === "foreigner") {
+            return 1.0;
+        } else {
+            return 1.0;
+        }
+    };
+    
     var classToLabel = function(clazz) {
         if(clazz === "saber") {
             return "剣";
@@ -59,6 +89,7 @@ var fgo = (function() {
     return {
         calcDamage : calcDamage,
         data : data,
-        classToLabel : classToLabel
+        classToLabel : classToLabel,
+        getClassHosei: getClassHosei
     };
 })();
