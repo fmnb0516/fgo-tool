@@ -54,6 +54,16 @@ var fgo = (function() {
             return 1.0;
         }
     };
+
+    var getCardMag = function(card) {
+        if(card === "a") {
+            return 1.0;
+        } else if(clazz === "q") {
+            return 0.8;
+        } else if(clazz === "b") {
+            return 1.5;
+        }
+    };
     
     var classToLabel = function(clazz) {
         if(clazz === "saber") {
@@ -86,10 +96,16 @@ var fgo = (function() {
 
     };
 
+    var bufMerge = function(mode, buf, type, magnification) {
+        console.log(mode + ":" + type + ":" + magnification);
+    };
+
     return {
         calcDamage : calcDamage,
         data : data,
         classToLabel : classToLabel,
-        getClassHosei: getClassHosei
+        getClassHosei: getClassHosei,
+        getCardMag : getCardMag,
+        bufMerge : bufMerge
     };
 })();

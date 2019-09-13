@@ -140,6 +140,36 @@ $(function() {
     
     (function() {
 
+        function supportBuf(buf, index) {
+            var servantNo = $("#"+index+"-select").val();
+            if(servantNo === "") {
+                return;
+            }
+
+            var data = fgo.data().find(function(d) { return d.servant.no === servantNo});
+
+            if($("#"+index+"-skill1-enable").prop("checked")) {
+                var lv = parseInt($("#"+index+"-skill1-level").val());
+                data.skill1.effect.forEach(function(e) {
+                    fgo.bufMerge("support", buf, e.type, e["v"+lv]);
+                });
+            }
+
+            if($("#"+index+ + "-skill2-enable").prop("checked")) {
+                var lv = parseInt($("#"+index+"skill2-level").val());
+                data.skill2.effect.forEach(function(e) {
+                    fgo.bufMerge("support", buf, e.type, e["v"+lv]);
+                });
+            }
+
+            if($("#"+index+"-skill3-enable").prop("checked")) {
+                var lv = parseInt($("#"+index+"skill3-level").val());
+                data.skill3.effect.forEach(function(e) {
+                    fgo.bufMerge("support", buf, e.type, e["v"+lv]);
+                });
+            }
+        };
+
         $(document).on("click", "#calc-btn", function() {
             var index = $("#attacker-name").attr("data-index");
             var data = fgo.data().find(function(d) { return d.servant.no === index});
@@ -176,6 +206,59 @@ $(function() {
             context.hoguTokkou = 0;
             context.overkill = parseInt($("#result-okhit").val());
             context.useTokkou = $("#result-tokkou").prop("checked");
+            context.card = data.hogu.card;
+            context.cardMag = fgo.getCardMag(data.hogu.card);
+            context.hit = data.hogu.hit;
+            context.na = data.hidden.na;
+
+            data.classskill.forEach(function(cskl) {
+                cskl.effect.forEach(function(e) {
+                    fgo.bufMerge("org", context.buf, e.type, e.magnification);
+                });
+            });
+
+            if($("#skill1-enable").prop("checked")) {
+                var lv = parseInt($("#skill1-level").val());
+                data.skill1.effect.forEach(function(e) {
+                    fgo.bufMerge("org", context.buf, e.type, e["v"+lv]);
+                });
+            }
+
+            if($("#skill2-enable").prop("checked")) {
+                var lv = parseInt($("#skill2-level").val());
+                data.skill2.effect.forEach(function(e) {
+                    fgo.bufMerge("org", context.buf, e.type, e["v"+lv]);
+                });
+            }
+
+            if($("#skill3-enable").prop("checked")) {
+                var lv = parseInt($("#skill3-level").val());
+                data.skill3.effect.forEach(function(e) {
+                    fgo.bufMerge("org", context.buf, e.type, e["v"+lv]);
+                });
+            }
+
+            supportBuf(context.buf, "s1");
+            supportBuf(context.buf, "s2");
+            supportBuf(context.buf, "s3");
+            supportBuf(context.buf, "s4");
+            supportBuf(context.buf, "s5");
+
+            data.hogu.effect.filter(function(e) {
+                return e.beforeafter === "before";
+            }).forEach(function(e) {
+                var idx = e.lvoc === "lv" ? hoguLv : hoguOc;
+                fgo.bufMerge("org", context.buf, e.type, e["v"+idx]);
+            });
+
+            $("#result-atk").val(context.atk * context.classHosei);
+            $("#result-hogu-mag").val(context.hoguMag);
+            $("#result-atk-buf").val(context.buf.atk);
+            $("#result-card-buf").val(context.buf.card);
+            $("#result-hogu-buf").val(context.buf.hogu + context.buf.tokkou);
+            $("#result-tokkou-buf").val(context.useTokkou ? context.hoguTokkou : 0);
+            $("#result-damage-buf").val(context.buf.damage);
+            $("#result-np-buf").val(context.buf.np);
         });
 
     })();
