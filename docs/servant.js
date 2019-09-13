@@ -5,7 +5,8 @@ fgo.data([
 			"clazz": "saber",
 			"rare": 5,
 			"cost": 16,
-			"tenchizin": "chi"
+			"tenchizin": "chi",
+			"no": "0002"
 		},
 		"card": {
 			"arts": {
@@ -203,7 +204,8 @@ fgo.data([
 			"clazz": "caster",
 			"rare": 5,
 			"cost": 16,
-			"tenchizin": "hito"
+			"tenchizin": "hito",
+			"no": "0037"
 		},
 		"card": {
 			"arts": {
@@ -493,7 +495,8 @@ fgo.data([
 			"clazz": "caster",
 			"rare": 5,
 			"cost": 16,
-			"tenchizin": "ten"
+			"tenchizin": "ten",
+			"no": "0062"
 		},
 		"card": {
 			"arts": {
@@ -735,7 +738,8 @@ fgo.data([
 			"clazz": "avenger",
 			"rare": 5,
 			"cost": 16,
-			"tenchizin": "hito"
+			"tenchizin": "hito",
+			"no": "0096"
 		},
 		"card": {
 			"arts": {
@@ -1022,7 +1026,8 @@ fgo.data([
 			"clazz": "caster",
 			"rare": 5,
 			"cost": 16,
-			"tenchizin": "chi"
+			"tenchizin": "chi",
+			"no": "0150"
 		},
 		"card": {
 			"arts": {
@@ -1307,7 +1312,8 @@ fgo.data([
 			"clazz": "caster",
 			"rare": 5,
 			"cost": 16,
-			"tenchizin": "ten"
+			"tenchizin": "ten",
+			"no": "0215"
 		},
 		"card": {
 			"arts": {
@@ -1562,7 +1568,8 @@ fgo.data([
 			"clazz": "caster",
 			"rare": 2,
 			"cost": 4,
-			"tenchizin": "hito"
+			"tenchizin": "hito",
+			"no": "0258"
 		},
 		"card": {
 			"arts": {

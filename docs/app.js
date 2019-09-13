@@ -2,6 +2,36 @@
 $(function() {
 
     (function() {
+        var data = fgo.data()
+        var html = "<option selected value=\"\">無し</option>";
+
+        for(var i=0; i<data.length; i++) {
+            var d = data[i];
+            var selected = i === 0 ? "selected" : "";
+            var label = "★"+ (d.servant.rare) + " " + "(" + (fgo.classToLabel(d.servant.clazz)) + ")" + " " + (d.servant.name); 
+            html += "<option value=\""+ (d.servant.no) +"\">"+ label +"</option>";
+        }
+        $(".supporter-select").html(html);
+
+        
+
+        $(document).on("change", ".supporter-select", function() {
+            var index = $(this).val();
+            var id = $(this).attr("id").substring(0, 2);
+            if(index === "") {
+                $("#"+ id + "-skill1-name").text("スキル1");
+                $("#"+ id + "-skill2-name").text("スキル2");
+                $("#"+ id + "-skill3-name").text("スキル3");
+            } else {
+                var data = fgo.data().find(function(d) { return d.servant.no === index});
+                $("#"+ id + "-skill1-name").text(data.skill1.name);
+                $("#"+ id + "-skill2-name").text(data.skill2.name);
+                $("#"+ id + "-skill3-name").text(data.skill3.name);
+            }
+        });
+    })();
+
+    (function() {
         function match(data, f) {
             if(f.length === 0) {
                 return data;
@@ -67,7 +97,7 @@ $(function() {
             for(var i=0; i<data.length; i++) {
                 var d = data[i];
                 var label = "★"+ (d.servant.rare) + " " + "(" + (fgo.classToLabel(d.servant.clazz)) + ")" + " " + (d.servant.name); 
-                html += "<button data-index=\""+i+"\" style=\"margin:5px;\" type=\"button\" class=\"servant-btn btn btn-info btn-sm\">"+ label + "</button>";
+                html += "<button data-index=\""+(d.servant.no)+"\" style=\"margin:5px;\" type=\"button\" class=\"servant-btn btn btn-info btn-sm\">"+ label + "</button>";
             }
 
             $("#filter-result").html(html);
@@ -79,9 +109,9 @@ $(function() {
         var hoguCards = {a : "Arts", q: "Quck", b : "Buster"};
 
         $(document).on("click", ".servant-btn", function() {
-            var index = parseInt($(this).attr("data-index"));
-            var data = fgo.data()[index];
-    
+            var index = $(this).attr("data-index");
+            var data = fgo.data().find(function(d) { return d.servant.no === index});
+
             $("#attacker-name").val(data.servant.name);
     
             var levels = "";
@@ -94,6 +124,12 @@ $(function() {
             $("#attacker-atk").val(data.status[0].atk);
             $("#hogu-type").val(hoguTypes[data.hogu.type]);
             $("#hogu-card").val(hoguCards[data.hogu.card]);
+            $("#hogu-hit").val(data.hogu.hit);
+            $("#hogu-na").val(data.hidden.na);
+
+            $("#skill1-name").text(data.skill1.name);
+            $("#skill2-name").text(data.skill2.name);
+            $("#skill3-name").text(data.skill3.name);
         });
     
         $(document).on("change", "#attacker-level", function() {

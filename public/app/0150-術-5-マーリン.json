@@ -4,7 +4,8 @@
 		"clazz": "caster",
 		"rare": 5,
 		"cost": 16,
-		"tenchizin": "chi"
+		"tenchizin": "chi",
+		"no" : "0150"
 	},
 	"card": {
 		"arts": {

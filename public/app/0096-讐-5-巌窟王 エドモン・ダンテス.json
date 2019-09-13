@@ -4,7 +4,8 @@
 		"clazz": "avenger",
 		"rare": 5,
 		"cost": 16,
-		"tenchizin": "hito"
+		"tenchizin": "hito",
+		"no" : "0096"
 	},
 	"card": {
 		"arts": {
