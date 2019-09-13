@@ -7,11 +7,11 @@ const fs = require('fs');
 
 const port = 8080;
 const publicDir = path.join(__dirname, 'public');
+const docsDir = path.join(__dirname, 'docs');
 
 app.use(express.static(publicDir));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 
 
 app.get('/api/v1/all',function(req,res){
@@ -73,3 +73,15 @@ app.delete('/api/v1/:id',function(req,res){
 
 app.listen(port);
 console.log('listen on port ' + port);
+
+fs.readdir(publicDir + "/app", (err, files) => {
+    files = files.filter(f => f.endsWith(".json"));
+    const datas = [];
+
+    for(var i=0; i<files.length; i++) {
+        const content = fs.readFileSync(publicDir + "/app/" + files[i], 'utf8');
+        datas.push(JSON.parse(content));
+    }
+    const script = "fgo.data(" + JSON.stringify(datas, null , "\t") + ")";
+    fs.writeFileSync(docsDir + "/servant.js", script, 'utf-8');
+});
