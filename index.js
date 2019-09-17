@@ -6,7 +6,7 @@ const app = express();
 const fs = require('fs');
 
 const port = 8080;
-const publicDir = path.join(__dirname, 'public');
+const publicDir = path.join(__dirname, 'docs');
 const docsDir = path.join(__dirname, 'docs');
 
 app.use(express.static(publicDir));
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 app.get('/api/v1/all',function(req,res){
-    fs.readdir(publicDir + "/app", (err, files) => {
+    fs.readdir(publicDir + "/json", (err, files) => {
         files = files.filter(f => f.endsWith(".json"));
         res.json(files);
     });
@@ -23,7 +23,7 @@ app.get('/api/v1/all',function(req,res){
 
 app.get('/api/v1/:id',function(req,res){
     var id = req.params.id;
-    fs.readFile(publicDir + "/app/" + id, 'utf-8', (err, data) => {
+    fs.readFile(publicDir + "/json/" + id, 'utf-8', (err, data) => {
         res.json(JSON.parse(data));
     });
 });
@@ -31,7 +31,7 @@ app.get('/api/v1/:id',function(req,res){
 app.put('/api/v1/:id',function(req,res){
     var id = req.params.id;
     var json = req.body;
-    fs.writeFile(publicDir + "/app/" + id, JSON.stringify(json, null , "\t"), 'utf-8', (err, data) => {
+    fs.writeFile(publicDir + "/json/" + id, JSON.stringify(json, null , "\t"), 'utf-8', (err, data) => {
         res.json({"message":"更新しました"});
     });
 });
@@ -62,7 +62,7 @@ app.post('/api/v1/create',function(req,res){
     var json = req.body;
     var id =　json.servant.no + "-" + clazzTo(json.servant.clazz) + "-" + json.servant.rare + "-" + json.servant.name + ".json";
     
-    fs.writeFile(publicDir + "/app/" + id, JSON.stringify(json, null , "\t"), 'utf-8', (err, data) => {
+    fs.writeFile(publicDir + "/json/" + id, JSON.stringify(json, null , "\t"), 'utf-8', (err, data) => {
         res.json({"message":"作成しました"});
     });
 });
@@ -74,12 +74,12 @@ app.delete('/api/v1/:id',function(req,res){
 app.listen(port);
 console.log('listen on port ' + port);
 
-fs.readdir(publicDir + "/app", (err, files) => {
+fs.readdir(publicDir + "/json", (err, files) => {
     files = files.filter(f => f.endsWith(".json"));
     const datas = [];
 
     for(var i=0; i<files.length; i++) {
-        const content = fs.readFileSync(publicDir + "/app/" + files[i], 'utf8');
+        const content = fs.readFileSync(publicDir + "/json/" + files[i], 'utf8');
         datas.push(JSON.parse(content));
     }
     const script = "fgo.data(" + JSON.stringify(datas, null , "\t") + ")";
