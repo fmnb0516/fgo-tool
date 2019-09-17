@@ -1,5 +1,5 @@
 
-var fgo = (function() {
+(function(exports) {
 
     function min(v1, v2) {
         return v1 > v2 ? v2 : v1;
@@ -58,9 +58,9 @@ var fgo = (function() {
     var getCardMag = function(card) {
         if(card === "a") {
             return 1.0;
-        } else if(clazz === "q") {
+        } else if(card === "q") {
             return 0.8;
-        } else if(clazz === "b") {
+        } else if(card === "b") {
             return 1.5;
         }
     };
@@ -122,17 +122,215 @@ var fgo = (function() {
         };
     });
 
-    var bufMerge = function(mode, context, type, magnification, effect) {
-        console.log(mode + ":" + type + ":" + magnification);
-    };
 
-    return {
-        calcDamage : calcDamage,
-        data : data,
-        classToLabel : classToLabel,
-        getClassHosei: getClassHosei,
-        getCardMag : getCardMag,
-        bufMerge : bufMerge,
-        enableEffect : enableEffect 
-    };
-})();
+    
+
+    var bufMerge = (function() {
+        var efectTypes = [
+            {
+                key : "攻撃",
+                apply : function(card, target, magnification, buf) {}
+            },
+            {
+                key : "Artsカード性能アップ",
+                apply : function(card, target, magnification, buf) {
+                    if(card === "a" && target.indexOf("enemy") === -1) {
+                        buf.card += parseFloat(magnification);
+                    }
+                }
+            },
+            {
+                key : "Busterカード性能アップ",
+                apply : function(card, target, magnification, buf) {
+                    if(card === "b" && target.indexOf("enemy") === -1) {
+                        buf.card += parseFloat(magnification);
+                    }
+                }
+            },
+            {
+                key : "Quickカード性能アップ",
+                apply : function(card, target, magnification, buf) {
+                    if(card === "q" && target.indexOf("enemy") === -1) {
+                        buf.card += parseFloat(magnification);
+                    }
+                }
+            },
+            {
+                key : "攻撃力アップ",
+                apply : function(card, target, magnification, buf) {
+                    if(target.indexOf("enemy") === -1) {
+                        buf.atk += parseFloat(magnification);
+                    }
+                }
+            },
+            {
+                key : "宝具威力アップ",
+                apply : function(card, target, magnification, buf) {
+                    if(target.indexOf("enemy") === -1) {
+                        buf.hogu += parseFloat(magnification);
+                    }
+                }
+            },
+            {
+                key : "防御力アップ",
+                apply : function() {}
+            },
+            {
+                key : "防御力ダウン",
+                apply : function(card, target, magnification, buf) {
+                    alert("");
+                    if(target.indexOf("enemy") !== -1) {
+                        buf.atk += parseFloat(magnification);
+                    }
+                },
+            },
+            {
+                key : "ダメージカット付与",
+                apply : function() {}
+            },
+            {
+                key : "与ダメージプラス付与",
+                apply : function(card, target, magnification, buf) {
+                    if(target.indexOf("enemy") === -1) {
+                        buf.damage += parseFloat(magnification);
+                    }
+                }
+            },
+            {
+                key : "スター獲得",
+                apply : function() {}
+            },
+            {
+                key : "最大HP増加",
+                apply : function() {}
+            },
+            {
+                key : "HP回復",
+                apply : function() {}
+            },
+            {
+                key : "NP増加",
+                apply : function() {}
+            },
+            {
+                key : "NP獲得量アップ",
+                apply : function(card, target, magnification, buf) {
+                    if(target.indexOf("enemy") === -1) {
+                        buf.np += parseFloat(magnification);
+                    }
+                }
+            },
+            {
+                key : "被ダメ獲得量アップ",
+                apply : function() {}
+            },
+            {
+                key : "スキルチャージ",
+                apply : function() {}
+            },
+            {
+                key : "クリティカル威力アップ",
+                apply : function() {}
+            },
+            {
+                key : "(狂のみ)クリティカル威力アップ",
+                apply : function() {}
+            },
+            {
+                key : "(Qのみ)クリティカル威力アップ",
+                apply : function() {}
+            },
+            {
+                key :"クリティカル発生率ダウン",
+                apply : function() {}
+            },
+            {
+                key : "スター発生率アップ",
+                apply : function() {}
+            },
+            {
+                key : "無敵貫通付与",
+                apply : function() {}
+            },
+            {
+                key : "無敵付与",
+                apply : function() {}
+            },
+            {
+                key : "回避付与",
+                apply : function() {}
+            },
+            {
+                key : "弱体解除",
+                apply : function() {}
+            },
+            {
+                key : "弱体耐性アップ",
+                apply : function() {}
+            },
+            {
+                key : "弱体耐性ダウン",
+                apply : function() {}
+            },
+            {
+                key : "弱体付与成功率アップ",
+                apply : function() {}
+            },
+            {
+                key : "チャージ減",
+                apply : function() {}
+            },
+            {
+                key : "スタン付与",
+                apply : function() {}
+            },
+            {
+                key : "呪い付与",
+                apply : function() {}
+            },
+            {
+                key : "呪厄付与",
+                apply : function() {}
+            },
+            {
+                key : "即死",
+                apply : function() {}
+            },
+            {
+                key : "即死無効付与",
+                apply : function() {}
+            },
+            {
+                key : "ターゲット集中付与",
+                apply : function() {}
+            },
+        ];
+
+        return function(mode, context, type, magnification, effect) {
+            var efectType = efectTypes.find(function(e) {
+                return e.key == type;
+            });
+
+            if(efectType === null) {
+                return;
+            }
+
+            var target = effect === undefined ? "self" : effect.target;
+            if(enableEffect(target, mode) === false) {
+                return;
+            }
+
+            var card = context.card;
+            efectType.apply(card, target, magnification, context.buf);
+        };
+
+    })();
+
+    exports.calcDamage = calcDamage;
+    exports.data = data;
+    exports.classToLabel = classToLabel;
+    exports.getClassHosei = getClassHosei;
+    exports.getCardMag = getCardMag;
+    exports.bufMerge = bufMerge;
+
+})(typeof exports === 'undefined' ? window.fgo = {} : exports);
