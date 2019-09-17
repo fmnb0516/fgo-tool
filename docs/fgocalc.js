@@ -18,7 +18,7 @@
 
     var calcDamage = function(atk, hoguMagnification, card, cardBuf, classCorrection, classCompatibility, attrCompatibility, atkBuf, tokkouBuf, tokubouBuf, hoguBuf, tokkou, damageBuf) {
         var hosei = 0.23;
-
+        
         return (atk * hoguMagnification * hosei * (card * min(5, 1 + cardBuf))
             * classCorrection * classCompatibility * attrCompatibility * (1 + atkBuf) 
             * (1 + min(5, tokkouBuf) + (5, tokubouBuf) + min(5, hoguBuf))
@@ -178,7 +178,6 @@
             {
                 key : "防御力ダウン",
                 apply : function(card, target, magnification, buf) {
-                    alert("");
                     if(target.indexOf("enemy") !== -1) {
                         buf.atk += parseFloat(magnification);
                     }
@@ -307,6 +306,8 @@
         ];
 
         return function(mode, context, type, magnification, effect) {
+            console.log(mode + ":" + type);
+
             var efectType = efectTypes.find(function(e) {
                 return e.key == type;
             });

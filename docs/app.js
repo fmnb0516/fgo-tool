@@ -156,7 +156,7 @@ $(function() {
                 });
             }
 
-            if($("#"+index+ + "-skill2-enable").prop("checked")) {
+            if($("#"+index+"-skill2-enable").prop("checked")) {
                 var lv = parseInt($("#"+index+"-skill2-level").val());
                 data.skill2.effect.forEach(function(e) {
                     fgo.bufMerge("support", buf, e.type, e["v"+lv], e);
@@ -172,6 +172,13 @@ $(function() {
         };
 
         $(document).on("click", "#calc-btn", function() {
+            function bufScale(val) {
+                if(val === 0) {
+                    return 0;
+                }
+                return val / 100;
+            };
+
             var index = $("#attacker-name").attr("data-index");
             var data = fgo.data().find(function(d) { return d.servant.no === index});
 
@@ -183,6 +190,7 @@ $(function() {
                 card: parseFloat($("#hosei-card").val()),
                 hogu: parseFloat($("#hosei-hogu").val()),
                 tokkou: parseFloat($("#hosei-tokkou").val()),
+                tokubou : 0,
                 damage: parseFloat($("#hosei-damage").val()),
                 np : parseFloat($("#hosei-np").val())
             };
@@ -204,7 +212,7 @@ $(function() {
             context.enemyNpHosei = parseFloat($("#result-class-select").val());
             context.classHosei = fgo.getClassHosei(data.servant.clazz);
             context.classCompatibility = parseFloat($("#result-compatibility").val());
-            context.hoguTokkou = 0;
+            context.hoguTokkou = 100;
             context.overkill = parseInt($("#result-okhit").val());
             context.useTokkou = $("#result-tokkou").prop("checked");
             context.card = data.hogu.card;
@@ -252,12 +260,28 @@ $(function() {
                 fgo.bufMerge("org", context, e.type, e["v"+idx], e);
             });
 
+            var damage1 = fgo.calcDamage(context.atk, bufScale(context.hoguMag), context.cardMag, bufScale(context.buf.card), context.classHosei, context.classCompatibility, 1.1, bufScale(context.buf.atk), bufScale(context.buf.tokkou), bufScale(context.buf.tokubou), bufScale(context.buf.hogu), bufScale(context.hoguTokkou), context.buf.damage);
+            var damage2 = fgo.calcDamage(context.atk, bufScale(context.hoguMag), context.cardMag, bufScale(context.buf.card), context.classHosei, context.classCompatibility, 1.0, bufScale(context.buf.atk), bufScale(context.buf.tokkou), bufScale(context.buf.tokubou), bufScale(context.buf.hogu), bufScale(context.hoguTokkou), context.buf.damage);
+            var damage3 = fgo.calcDamage(context.atk, bufScale(context.hoguMag), context.cardMag, bufScale(context.buf.card), context.classHosei, context.classCompatibility, 0.9, bufScale(context.buf.atk), bufScale(context.buf.tokkou), bufScale(context.buf.tokubou), bufScale(context.buf.hogu), bufScale(context.hoguTokkou), context.buf.damage);
+            
+            $("#d1-1").text(Math.ceil(damage1 * 0.9));
+            $("#d1-2").text(Math.ceil(damage1 * 1.0));
+            $("#d1-3").text(Math.ceil(damage1 * 1.1));
+
+            $("#d2-1").text(Math.ceil(damage2 * 0.9));
+            $("#d2-2").text(Math.ceil(damage2 * 1.0));
+            $("#d2-3").text(Math.ceil(damage2 * 1.1));
+
+            $("#d3-1").text(Math.ceil(damage3 * 0.9));
+            $("#d3-2").text(Math.ceil(damage3 * 1.0));
+            $("#d3-3").text(Math.ceil(damage3 * 1.1));
+
             $("#result-atk").val(context.atk * context.classHosei);
             $("#result-hogu-mag").val(context.hoguMag);
             $("#result-atk-buf").val(context.buf.atk);
             $("#result-card-buf").val(context.buf.card);
             $("#result-hogu-buf").val(context.buf.hogu + context.buf.tokkou);
-            $("#result-tokkou-buf").val(context.useTokkou ? context.hoguTokkou : 0);
+            $("#result-tokkou-buf").val(context.useTokkou ? context.hoguTokkou : 100);
             $("#result-damage-buf").val(context.buf.damage);
             $("#result-np-buf").val(context.buf.np);
         });
