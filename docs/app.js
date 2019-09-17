@@ -172,6 +172,10 @@ $(function() {
         };
 
         $(document).on("click", "#calc-btn", function() {
+            if($("#attacker-name").val() === "") {
+                return;
+            }
+
             function bufScale(val) {
                 if(val === 0) {
                     return 0;
