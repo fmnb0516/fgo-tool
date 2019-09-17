@@ -16,6 +16,12 @@
         };
     })();
 
+    var calcNp = function(nprate, cardHosei, cardBuf, npBuf, hit, okhit, enemyHosei) {
+        var np1 = nprate * cardHosei * (1 + cardBuf) * (1 + npBuf) * enemyHosei * (hit - okhit) * 1;
+        var np2 = nprate * cardHosei * (1 + cardBuf) * (1 + npBuf) * enemyHosei * okhit * 1.5;
+        return np1 + np2;
+    };
+
     var calcDamage = function(atk, hoguMagnification, card, cardBuf, classCorrection, classCompatibility, attrCompatibility, atkBuf, tokkouBuf, tokubouBuf, hoguBuf, tokkou, damageBuf) {
         var hosei = 0.23;
         
@@ -62,6 +68,16 @@
             return 0.8;
         } else if(card === "b") {
             return 1.5;
+        }
+    };
+
+    var getCardNp = function(card) {
+        if(card === "a") {
+            return 3;
+        } else if(card === "q") {
+            return 1;
+        } else if(card === "b") {
+            return 0;
         }
     };
     
@@ -328,10 +344,12 @@
     })();
 
     exports.calcDamage = calcDamage;
+    exports.calcNp = calcNp;
     exports.data = data;
     exports.classToLabel = classToLabel;
     exports.getClassHosei = getClassHosei;
     exports.getCardMag = getCardMag;
     exports.bufMerge = bufMerge;
+    exports.getCardNp = getCardNp;
 
 })(typeof exports === 'undefined' ? window.fgo = {} : exports);

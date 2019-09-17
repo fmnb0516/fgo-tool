@@ -264,17 +264,22 @@ $(function() {
             var damage2 = fgo.calcDamage(context.atk, bufScale(context.hoguMag), context.cardMag, bufScale(context.buf.card), context.classHosei, context.classCompatibility, 1.0, bufScale(context.buf.atk), bufScale(context.buf.tokkou), bufScale(context.buf.tokubou), bufScale(context.buf.hogu), bufScale(context.hoguTokkou), context.buf.damage);
             var damage3 = fgo.calcDamage(context.atk, bufScale(context.hoguMag), context.cardMag, bufScale(context.buf.card), context.classHosei, context.classCompatibility, 0.9, bufScale(context.buf.atk), bufScale(context.buf.tokkou), bufScale(context.buf.tokubou), bufScale(context.buf.hogu), bufScale(context.hoguTokkou), context.buf.damage);
             
+            var np = fgo.calcNp(context.na, fgo.getCardNp(data.hogu.card), bufScale(context.buf.card), bufScale(context.buf.np), context.hit, context.overkill, context.enemyNpHosei);
+
             $("#d1-1").text(Math.ceil(damage1 * 0.9));
             $("#d1-2").text(Math.ceil(damage1 * 1.0));
             $("#d1-3").text(Math.ceil(damage1 * 1.1));
+            $("#d1-4").text(Math.ceil(np));
 
             $("#d2-1").text(Math.ceil(damage2 * 0.9));
             $("#d2-2").text(Math.ceil(damage2 * 1.0));
             $("#d2-3").text(Math.ceil(damage2 * 1.1));
+            $("#d2-4").text(Math.ceil(np));
 
             $("#d3-1").text(Math.ceil(damage3 * 0.9));
             $("#d3-2").text(Math.ceil(damage3 * 1.0));
             $("#d3-3").text(Math.ceil(damage3 * 1.1));
+            $("#d3-4").text(Math.ceil(np));
 
             $("#result-atk").val(context.atk * context.classHosei);
             $("#result-hogu-mag").val(context.hoguMag);
