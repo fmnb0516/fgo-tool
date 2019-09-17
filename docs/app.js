@@ -253,6 +253,12 @@ $(function() {
             supportBuf(context, "s4");
             supportBuf(context, "s5");
 
+            var reisou = $('#reisou-select option:selected');
+            context.buf.atk += parseFloat(reisou.attr("data-atk"));
+            context.buf.card += parseFloat(reisou.attr("data-card-" + context.card));
+            context.buf.hogu += parseFloat(reisou.attr("data-hogu"));
+            context.buf.np += parseFloat(reisou.attr("data-np"));
+
             data.hogu.effect.filter(function(e) {
                 return e.beforeafter === "before";
             }).forEach(function(e) {
