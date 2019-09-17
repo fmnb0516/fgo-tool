@@ -212,6 +212,10 @@
             apply: function () { }
         },
         {
+            key: "スター集中度アップ",
+            apply: function () { }
+        },
+        {
             key: "最大HP増加",
             apply: function () { }
         },
@@ -221,6 +225,10 @@
         },
         {
             key: "NP増加",
+            apply: function () { }
+        },
+        {
+            key: "(アルゴー号ゆかりの者)NP増加",
             apply: function () { }
         },
         {
@@ -285,6 +293,10 @@
         },
         {
             key: "弱体付与成功率アップ",
+            apply: function () { }
+        },
+        {
+            key: "強化成功率をアップ",
             apply: function () { }
         },
         {
