@@ -21,6 +21,8 @@
   "homepage": "https://github.com/fmnb0516/fgo-tool#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.17.1"
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "request": "^2.88.0"
   }
 }
