@@ -81,6 +81,24 @@
         }
     };
 
+    var classLableFrom = function(label) {
+        if(label === "セイバー") {
+            return "saber";
+        }
+    };
+
+    var tenchizinLabelFrom = function(label) {
+        if(label === "地") {
+            return "chi";
+        } else if(label === "天") {
+            return "ten";
+        } else if(label === "人") {
+            return "jin";
+        } else if(label === "星") {
+            return "hoshi";
+        }
+    };
+
     var classToLabel = function (clazz) {
         if (clazz === "saber") {
             return "剣";
@@ -394,6 +412,8 @@
     exports.getCardMag = getCardMag;
     exports.bufMerge = bufMerge;
     exports.getCardNp = getCardNp;
+    exports.classLableFrom = classLableFrom;
+    exports.tenchizinLabelFrom = tenchizinLabelFrom;
 
     exports.constData = constData;
 
