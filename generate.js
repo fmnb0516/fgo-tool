@@ -418,6 +418,4 @@ fs.readFile(sourceDir + "/" + file + ".html", 'utf-8', (err, data) => {
     parseClassSkillData(json, $);
     parseHoguData(json, $);
     parseSkillData(json, $);
-
-    console.log(JSON.stringify(json, null, "    "))
 });
