@@ -252,7 +252,7 @@
         "type": "Busterカード性能アップ",
         "tern": "1",
         "count": 0,
-        "target": "enemy-all",
+        "target": "self",
         "desc": "＆自身のBusterカード性能をアップ[Lv](1T)",
         "v1": "30",
         "v2": "32",

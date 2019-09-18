@@ -76,7 +76,7 @@
         "type": "追加ダメージ",
         "tern": 0,
         "count": 0,
-        "target": "enemy-single",
+        "target": "self",
         "beforeafter": "after",
         "lvoc": "lv",
         "desc": "＆自身のHPが少ないほど威力の高い追加ダメージ<OC:威力UP>{追加ダメージ倍率*(1-HP/MAXHP)}",

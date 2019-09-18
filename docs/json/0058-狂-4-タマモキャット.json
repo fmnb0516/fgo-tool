@@ -152,7 +152,7 @@
         "type": "無敵付与",
         "tern": "5",
         "count": "1",
-        "target": "enemy-single",
+        "target": "self",
         "desc": "＆自身に無敵状態を付与(1回・5T)",
         "v1": "",
         "v2": "",

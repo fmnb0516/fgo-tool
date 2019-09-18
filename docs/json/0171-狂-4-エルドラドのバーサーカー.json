@@ -189,7 +189,7 @@
         "type": "特攻付与",
         "tern": "3",
         "count": 0,
-        "target": "self-other",
+        "target": "self",
         "desc": "＆自身に〔ギリシャ神話系男性〕特攻状態を付与[Lv](3T)",
         "v1": "50",
         "v2": "55",

@@ -218,7 +218,8 @@ const parseEffectType = (function() {
             return "Artsカード性能アップ";
         }
 
-        if(containAllText(desc, ["Artsカード", "耐性", "ダウン"])) {
+        if(containAllText(desc, ["Artsカード", "耐性", "ダウン"])
+                || containAllText(desc, ["Arts攻撃", "耐性", "ダウン"])) {
             return "Artsカード耐性ダウン";
         }
 
@@ -236,7 +237,8 @@ const parseEffectType = (function() {
             return "Busterカード性能アップ";
         }
 
-        if(containAllText(desc, ["Busterカード", "耐性", "ダウン"])) {
+        if(containAllText(desc, ["Busterカード", "耐性", "ダウン"])
+                || containAllText(desc, ["Buster攻撃", "耐性", "ダウン"])) {
             return "Busterカード耐性ダウン";
         }
 
@@ -268,6 +270,10 @@ const parseEffectType = (function() {
             return "スター発生率アップ";
         }
 
+        if(containAllText(desc, ["スター", "発生率", "ダウン"])) {
+            return "スター発生率ダウン";
+        }
+
         if(containAllText(desc, ["スター", "集中", "付与"]) || containAllText(desc, ["スター", "集中", "アップ"])) {
             return "スター集中アップ";
         }
@@ -280,8 +286,15 @@ const parseEffectType = (function() {
             return "被ダメNP獲得量アップ";
         }
 
-        if(containAllText(desc, ["NP", "増やす"]) || containAllText(desc, ["NP", "リチャージ"])) {
+        if(containAllText(desc, ["NP", "増やす"])
+                || containAllText(desc, ["NP", "リチャージ"])
+                || containAllText(desc, ["NP", "増える"])
+                || containAllText(desc, ["NPを獲得"])) {
             return "NP獲得";
+        }
+
+        if(containAllText(desc, ["NP", "吸収"])) {
+            return "NP吸収";
         }
 
         if(containAllText(desc, ["NP", "減らす"])
@@ -367,7 +380,8 @@ const parseEffectType = (function() {
             return "即死";
         }
 
-        if(containAllText(desc, ["チャージ", "減らす"])) {
+        if(containAllText(desc, ["チャージ", "減らす"])
+                || containAllText(desc, ["チャージ", "減る"])) {
             return "チャージ減";
         }
 
@@ -381,6 +395,10 @@ const parseEffectType = (function() {
 
         if(containAllText(desc, ["スキル封印状態", "付与"])) {
             return "スキル封印付与";
+        }
+
+        if(containAllText(desc, ["スキル封印無効状態", "付与"])) {
+            return "スキル封印無効付与";
         }
 
         if(containAllText(desc, ["混乱状態", "付与"])) {
@@ -413,6 +431,10 @@ const parseEffectType = (function() {
 
         if(containAllText(desc, ["恐怖状態", "付与"])) {
             return "恐怖状態付与";
+        }
+
+        if(containAllText(desc, ["魅了無効", "付与"])) {
+            return "魅了無効状態付与";
         }
 
         if(containAllText(desc, ["魅了耐性", "アップ"])) {
@@ -454,8 +476,20 @@ const parseEffectType = (function() {
             return "(竜)特性付与";
         }
 
+        if(containAllText(desc, ["状態", "付与", "急所判明"])) {
+            return "(急所判明)状態付与";
+        }
+
         if(containAllText(desc, ["豚化状態", "付与"])) {
             return "豚化状態付与";
+        }
+
+        if(containAllText(desc, ["朔月の加護", "状態", "付与"])) {
+            return "朔月の加護状態付与";
+        }
+
+        if(containAllText(desc, ["無限増殖", "解除"])) {
+            return "無限増殖・増殖状態解除";
         }
 
         if(containAllText(desc, ["ヒット数", "2倍", "付与"])) {
@@ -466,10 +500,22 @@ const parseEffectType = (function() {
             return "陽射しフィールド特性付与";
         }
 
+        if(containAllText(desc, ["水辺", "特性にする状態", "付与"])) {
+            return "水辺フィールド特性付与";
+        }
+
+        if(containAllText(desc, ["炎上", "特性にする状態", "付与"])) {
+            return "炎上フィールド特性付与";
+        }
+
         if(containAllText(desc, ["最大HP", "アップ"])
                 || containAllText(desc, ["最大HP", "増やす"])
                 || containAllText(desc, ["最大HP", "増える状態", "付与"])) {
             return "最大HPアップ";
+        }
+
+        if(containAllText(desc, ["最大HP", "減る", "付与"])) {
+            return "最大HPダウン";
         }
 
         if(containAllText(desc, ["与回復量", "アップ"])) {
@@ -484,10 +530,13 @@ const parseEffectType = (function() {
             return "HP回復";
         }
 
+        if(containAllText(desc, ["HP", "吸収する"])) {
+            return "HP吸収";
+        }
+
         if(containAllText(desc, ["HP回復量", "ダウン"])) {
             return "HP回復量ダウン";
         }
-        
 
         if(containAllText(desc, ["HP", "減少"])||containAllText(desc, ["HP", "減らす"])) {
             return "HP減少";
@@ -495,6 +544,18 @@ const parseEffectType = (function() {
 
         if(containAllText(desc, ["クラス相性の防御不利を打ち消す状態", "付与"])) {
             return "クラス相性の防御不利を打ち消す状態付与";
+        }
+
+        if(containAllText(desc, ["キャスター","クラスに対する相性不利を打ち消す状態", "付与"])) {
+            return "キャスターに対する相性不利を打ち消す状態付与";
+        }
+
+        if(containAllText(desc, ["アルターエゴ","クラスに対して相性有利になる状態", "付与"])) {
+            return "キャスターに対する相性有利状態付与";
+        }
+
+        if(containAllText(desc, ["予告状送付", "付与"])) {
+            return "予告状送付状態付与";
         }
 
         if(containAllText(desc, ["宝具使用時のチャージ段階", "引き上げる"])) {
@@ -507,6 +568,14 @@ const parseEffectType = (function() {
 
         if(containAllText(desc, ["自身の人格を入れ替える"])) {
             return "人格入れ替え";
+        }
+
+        if(containAllText(desc, ["コマンドカード", "配り直す"])) {
+            return "コマンドカード配り直し";
+        }
+
+        if(containAllText(desc, ["手札", "固定"])) {
+            return "コマンドカード固定";
         }
 
         if(containAllText(desc, ["追加ダメージ"])) {
@@ -538,14 +607,17 @@ const parseEffectType = (function() {
 const parseEffectTarget = (desc, old) => {
     if(desc.indexOf("敵全体") !== -1) {
         return "enemy-all";
-    } else if(desc.indexOf("敵単体") !== -1) {
+    } else if(desc.indexOf("敵単体") !== -1
+        || (desc.indexOf("予告状送付") !== -1 && desc.indexOf("自身") !== -1)) {
         return "enemy-single";
     } else if(desc.indexOf("自身をのぞく味方全体") !== -1) {
         return "other-all";
-    } else if(desc.indexOf("味方全体") !== -1) {
+    } else if(desc.indexOf("味方全体") !== -1 || desc.indexOf("予告側全体") !== -1) {
         return "self-other";
     } else if(desc.indexOf("味方単体") !== -1) {
         return "other-single";
+    } else if(desc.indexOf("自身") !== -1) {
+        return "self";
     } else if(desc.indexOf("＆") !== -1) {
         return old;
     } else {
@@ -803,19 +875,21 @@ const run = async () => {
         parseSkillData(json, $);
 
         const filename = json.servant.no +"-"+ fgo.classToLabel(json.servant.clazz) + "-" + json.servant.rare + "-" + json.servant.name;
-        console.log(filename);
-        if(LOG.length !== 0) {
-            console.log(f);
-            console.log(LOG);
-            LOG.length = 0;
-        }
-
         allData.push(json);
         await writeFile(publicDir + "/json/" + filename + ".json", JSON.stringify(json, null, "  "), "utf8");
+
+        console.log(filename);
+        if(LOG.length !== 0) {
+            console.log("    " + f);
+            console.log("    " + LOG.join());
+            LOG.length = 0;
+        }
     }
 
     const script = "fgo.data(" + JSON.stringify(allData, null, "  ") + ")"; 
     await writeFile(publicDir + "/servant.js", script, "utf8");
+
+    console.log(LOG);
 };
 
 run();
