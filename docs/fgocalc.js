@@ -81,10 +81,36 @@
         }
     };
 
-    var classLableFrom = function(label) {
-        if(label === "セイバー") {
+    var classLableFrom = function(clazz) {
+        if (clazz === "セイバー") {
             return "saber";
+        } else if (clazz === "アーチャー") {
+            return "archer";
+        } else if (clazz === "ランサー") {
+            return "luncer";
+        } else if (clazz === "キャスター") {
+            return "caster";
+        } else if (clazz === "ライダー") {
+            return "rider";
+        } else if (clazz === "アサシン") {
+            return "asasin";
+        } else if (clazz === "バーサーカー") {
+            return "barserker";
+        } else if (clazz === "ルーラー") {
+            return "ruler";
+        } else if (clazz === "アヴェンジャー") {
+            return "avenger";
+        } else if (clazz === "アルターエゴ") {
+            return "alterego";
+        } else if (clazz === "ムーンキャンサー") {
+            return "monncanser";
+        } else if (clazz === "フォーリナー") {
+            return "foreigner";
+        } else {
+            return clazz;
         }
+
+        
     };
 
     var tenchizinLabelFrom = function(label) {

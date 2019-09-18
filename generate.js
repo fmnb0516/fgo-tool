@@ -10,6 +10,10 @@ const sourceDir = path.join(__dirname, 'source');
 
 const file = process.argv[2];
 
+const zeroPadding　= (num,length) => {
+    return ('0000000000' + num).slice(-length);
+}
+
 const findDataDiv = ($, tag, text, callback) => {
     $(tag).each(function () {
         const selector = $(this);
@@ -565,7 +569,7 @@ const parseSkillData =  (json, $) => {
         const tr = selector.find("tbody tr");
 
         const slikkIndex = "skill" + text.substr(5, 1);
-        const name = text.substring(text.indexOf("：") + 1);
+        const name = text.substring(text.indexOf("：") + 1).replace(/\r?\n/g, '').replace(/\s+/g, "");
         const ct = parseInt(tr.eq(1).find("td").eq(0).text().trim());
         
         const effects = [];
@@ -629,8 +633,8 @@ const parseHoguData = (json, $) => {
         const table = selector.find("table").last();
         const tr = table.find("tbody tr");
 
-        const name = tr.eq(0).find("th").eq(0).contents().first().text().trim();
-        const waname = tr.eq(0).find("th").eq(0).contents().last().text().trim();
+        const name = tr.eq(0).find("th").eq(0).contents().first().text().trim().replace(/\r?\n/g, '').replace(/\s+/g, "");
+        const waname = tr.eq(0).find("th").eq(0).contents().last().text().trim().replace(/\r?\n/g, '').replace(/\s+/g, "");
         hogu.name = waname + "(" + name + ")";
         hogu.card = tr.eq(2).find("td").eq(0).text().trim().substring(0, 1).toLowerCase();
 
@@ -698,7 +702,7 @@ const parseClassSkillData = (json, $) => {
 
         const tr = selector.find("table tbody tr");
 
-        const rank = tr.eq(0).find("td").eq(0).text().trim();
+        const rank = tr.eq(0).find("td").eq(0).text().trim().replace(/\r?\n/g, '').replace(/\s+/g, "");;
         const name = tr.eq(0).find("td").eq(1).text().trim();
 
         const fullname = name + (rank.indexOf(",") !== -1 ? rank.split(",")[1].trim() : rank);
@@ -732,8 +736,8 @@ const parseCommonData = (json, $) => {
     const hidden = {};
 
     findDataDiv($, "h3", "基本情報", (selector) => {
-        servant.no = selector.find("tbody tr").eq(0).find("td").eq(0).text().trim().substring(3);
-        servant.name = selector.find("tbody tr").eq(1).find("td").eq(1).text().trim();
+        servant.no = zeroPadding(parseInt(selector.find("tbody tr").eq(0).find("td").eq(0).text().trim().substring(3)), 4);
+        servant.name = selector.find("tbody tr").eq(1).find("td").eq(1).text().trim().replace(/\r?\n/g, '').replace(/\s+/g, "");
         servant.clazz = fgo.classLableFrom(selector.find("tbody tr").eq(2).find("td").eq(1).text().trim());
         servant.rare = parseInt(selector.find("tbody tr").eq(2).find("td").eq(3).text().trim());
         servant.cost = parseInt(selector.find("tbody tr").eq(2).find("td").eq(5).text().trim());
@@ -803,12 +807,15 @@ const run = async () => {
         parseClassSkillData(json, $);
         parseHoguData(json, $);
         parseSkillData(json, $);
-
+        
+        const filename = json.servant.no +"-"+ json.servant.clazz + "-" + json.servant.name;
+        console.log(filename);
         if(LOG.length !== 0) {
             console.log(f);
             console.log(LOG);
             LOG.length = 0;
         }
+
     }
 };
 
