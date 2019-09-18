@@ -53,14 +53,14 @@
         return function (card) {
             return data[card];
         };
-    });
+    })();
 
     var getCardNp = (function () {
         var data = { "a": 3, "q": 1, "b": 0 };
         return function (card) {
             return data[card];
         };
-    });
+    })();
 
     var classLableFrom = function (desc) {
         var data = constData().servantClass.find(function (d) {
