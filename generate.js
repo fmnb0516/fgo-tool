@@ -781,15 +781,6 @@ const parseCommonData = (json, $) => {
     json.hidden = hidden;
 };
 
-
-/*
-1942.html
-894.html
-127.html
-75.html
-74.html
-*/
-
 const run = async () => {
     const readdir = util.promisify(fs.readdir);
     const readFile = util.promisify(fs.readFile);
