@@ -793,8 +793,11 @@ const parseCommonData = (json, $) => {
 const run = async () => {
     const readdir = util.promisify(fs.readdir);
     const readFile = util.promisify(fs.readFile);
+    const writeFile = util.promisify(fs.writeFile);
 
     const files = await readdir(sourceDir);
+
+    const allData = [];
 
     for (let i = 0; i < files.length; i++) {
         const f = files[i];
@@ -807,7 +810,7 @@ const run = async () => {
         parseClassSkillData(json, $);
         parseHoguData(json, $);
         parseSkillData(json, $);
-        
+
         const filename = json.servant.no +"-"+ json.servant.clazz + "-" + json.servant.name;
         console.log(filename);
         if(LOG.length !== 0) {
@@ -816,7 +819,13 @@ const run = async () => {
             LOG.length = 0;
         }
 
+        allData.push(json);
+
+        await writeFile(publicDir + "/json/" + filename + ".json", JSON.stringify(allData, json, "  "), "utf8");
     }
+
+    const script = "fgo.data(" + JSON.stringify(allData, null, "  ") + ")"; 
+    await writeFile(publicDir + "/servant.js", script, "utf8");
 };
 
 run();
