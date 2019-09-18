@@ -109,6 +109,10 @@ const parseEffectType = (function() {
             return "攻撃";
         }
 
+        if(containAllText(desc, ["OC", "威力アップ"])) {
+            return "威力アップ";
+        }
+
         if(containAllText(desc, ["攻撃強化成功率", "ダウン"])) {
             return "攻撃強化成功率ダウン";
         }
@@ -888,8 +892,6 @@ const run = async () => {
 
     const script = "fgo.data(" + JSON.stringify(allData, null, "  ") + ")"; 
     await writeFile(publicDir + "/servant.js", script, "utf8");
-
-    console.log(LOG);
 };
 
 run();
