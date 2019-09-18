@@ -73,15 +73,3 @@ app.delete('/api/v1/:id',function(req,res){
 
 app.listen(port);
 console.log('listen on port ' + port);
-
-fs.readdir(publicDir + "/json", (err, files) => {
-    files = files.filter(f => f.endsWith(".json"));
-    const datas = [];
-
-    for(var i=0; i<files.length; i++) {
-        const content = fs.readFileSync(publicDir + "/json/" + files[i], 'utf8');
-        datas.push(JSON.parse(content));
-    }
-    const script = "fgo.data(" + JSON.stringify(datas, null , "\t") + ")";
-    fs.writeFileSync(docsDir + "/servant.js", script, 'utf-8');
-});
