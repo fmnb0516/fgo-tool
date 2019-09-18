@@ -89,14 +89,18 @@
             is: function (desc) {
                 return containAllText(desc, ["強力な", "攻撃"]);
             },
-            apply: function (card, target, magnification, buf) { }
+            apply: function (card, target, magnification, buf) {
+                buf.hoguMag += parseFloat(magnification);
+            }
         },
         {
             key: "威力アップ",
             is: function (desc) {
                 return containAllText(desc, ["OC", "威力アップ"]);
             },
-            apply: function (card, target, magnification, buf) { }
+            apply: function (card, target, magnification, buf) {
+                buf.hoguMag += parseFloat(magnification);
+            }
         },
         {
             key: "攻撃強化成功率ダウン",
@@ -215,7 +219,9 @@
             is: function (desc) {
                 return containAllText(desc, ["与ダメージ", "アップ"]);
             },
-            apply: function (card, target, magnification, buf) { }
+            apply: function (card, target, magnification, buf) {
+                buf.damage += parseFloat(magnification);
+            }
         },
         {
             key: "被ダメージアップ",
@@ -236,7 +242,9 @@
             is: function (desc) {
                 return containAllText(desc, ["攻撃力", "アップ"]);
             },
-            apply: function (card, target, magnification, buf) { }
+            apply: function (card, target, magnification, buf) {
+                buf.atk += parseFloat(magnification);
+            }
         },
         {
             key: "攻撃力ダウン",
@@ -257,14 +265,18 @@
             is: function (desc) {
                 return containAllText(desc, ["防御力", "ダウン"]);
             },
-            apply: function (card, target, magnification, buf) { }
+            apply: function (card, target, magnification, buf) {
+                buf.atk += parseFloat(magnification);
+            }
         },
         {
             key: "宝具威力アップ",
             is: function (desc) {
                 return containAllText(desc, ["宝具威力", "アップ"]);
             },
-            apply: function (card, target, magnification, buf) { }
+            apply: function (card, target, magnification, buf) {
+                buf.hogu += parseFloat(magnification);
+            }
         },
         {
             key: "宝具威力ダウン",
@@ -278,42 +290,66 @@
             is: function (desc) {
                 return containAllText(desc, ["Artsカード", "性能", "アップ"]);
             },
-            apply: function (card, target, magnification, buf) { }
+            apply: function (card, target, magnification, buf) {
+                if(card === "a") {
+                    buf.card += parseFloat(magnification);
+                }
+            }
         },
         {
             key: "Artsカード耐性ダウン",
             is: function (desc) {
                 return containAllText(desc, ["Artsカード", "耐性", "ダウン"]) || containAllText(desc, ["Arts攻撃", "耐性", "ダウン"]);
             },
-            apply: function (card, target, magnification, buf) { }
+            apply: function (card, target, magnification, buf) {
+                if(card === "a") {
+                    buf.card += parseFloat(magnification);
+                }
+            }
         },
         {
             key: "Quickカード性能アップ",
             is: function (desc) {
                 return containAllText(desc, ["Quickカード", "性能", "アップ"]) || containAllText(desc, ["クイックカード", "性能", "アップ"]);
             },
-            apply: function (card, target, magnification, buf) { }
+            apply: function (card, target, magnification, buf) {
+                if(card === "q") {
+                    buf.card += parseFloat(magnification);
+                }
+            }
         },
         {
             key: "Quickカード耐性ダウン",
             is: function (desc) {
                 return containAllText(desc, ["Quickカード", "耐性", "ダウン"]) || containAllText(desc, ["Quick攻撃", "耐性", "ダウン"]);
             },
-            apply: function (card, target, magnification, buf) { }
+            apply: function (card, target, magnification, buf) {
+                if(card === "q") {
+                    buf.card += parseFloat(magnification);
+                }
+            }
         },
         {
             key: "Busterカード性能アップ",
             is: function (desc) {
                 return containAllText(desc, ["Busterカード", "性能", "アップ"]);
             },
-            apply: function (card, target, magnification, buf) { }
+            apply: function (card, target, magnification, buf) {
+                if(card === "b") {
+                    buf.card += parseFloat(magnification);
+                }
+            }
         },
         {
             key: "Busterカード耐性ダウン",
             is: function (desc) {
                 return containAllText(desc, ["Busterカード", "耐性", "ダウン"]) || containAllText(desc, ["Buster攻撃", "耐性", "ダウン"]);
             },
-            apply: function (card, target, magnification, buf) { }
+            apply: function (card, target, magnification, buf) {
+                if(card === "b") {
+                    buf.card += parseFloat(magnification);
+                }
+            }
         },
         {
             key: "クリティカル威力アップ",
@@ -341,7 +377,9 @@
             is: function (desc) {
                 return containAllText(desc, ["与ダメージプラス", "付与"]);
             },
-            apply: function (card, target, magnification, buf) { }
+            apply: function (card, target, magnification, buf) {
+                buf.damage += parseFloat(magnification);
+            }
         },
         {
             key: "スター獲得",
@@ -423,7 +461,9 @@
                 return containAllText(desc, ["NP獲得量", "アップ"])
                     || containAllText(desc, ["NP獲得アップ状態", "付与"]);
             },
-            apply: function (card, target, magnification, buf) { }
+            apply: function (card, target, magnification, buf) {
+                buf.np += parseFloat(magnification);
+            }
         },
         {
             key: "NP獲得状態付与",
@@ -910,21 +950,25 @@
             is: function (desc) {
                 return containAllText(desc, ["特攻状態", "付与"]);
             },
-            apply: function (card, target, magnification, buf) { }
+            apply: function (card, target, magnification, buf) {
+                buf.tokubou += parseFloat(magnification);
+            }
         },
         {
             key: "特防付与",
             is: function (desc) {
                 return containAllText(desc, ["特防状態", "付与"]);
             },
-            apply: function (card, target, magnification, buf) { }
+            apply: function (card, target, magnification, buf) {}
         },
         {
             key: "特攻",
             is: function (desc) {
                 return containAllText(desc, ["特攻"]);
             },
-            apply: function (card, target, magnification, buf) { }
+            apply: function (card, target, magnification, buf) {
+                buf.hoguTokkou += parseFloat(magnification);
+            }
         },
     ];
 
