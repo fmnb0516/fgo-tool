@@ -1,4 +1,12 @@
 
+/*
+1942.html
+894.html
+127.html
+75.html
+74.html
+*/
+
 const cheerio = require('cheerio')
 const path = require('path');
 const fs = require('fs');
@@ -85,42 +93,471 @@ const ternCountParse = (desc) => {
     return {tern:tern, count:count};
 };
 
-const containText = (target, finds) => {
+const containAllText = (target, finds) => {
     for (let i = 0; i < finds.length; i++) {
         const f = finds[i];
-        if(target.indexOf(f) !== -1) {
-            return true;
+        if(target.indexOf(f) === -1) {
+            return false;
         }
     }
-    return false;
+
+    return true;
 };
 
+const LOG = [];
 const parseEffectType = (function() {
     return (desc) => {
+
+        if(containAllText(desc, ["強力な", "攻撃"])) {
+            return "攻撃";
+        }
+
+        if(containAllText(desc, ["攻撃強化成功率", "ダウン"])) {
+            return "攻撃強化成功率ダウン";
+        }
+
+        if(containAllText(desc, ["強化成功率", "アップ"])) {
+            return "強化成功率アップ";
+        }
+
+        if(containAllText(desc, ["強化成功率", "ダウン"])) {
+            return "強化成功率ダウン";
+        }
+
+        if(containAllText(desc, ["強化無効状態", "付与"])) {
+            return "強化無効付与";
+        }
+
+        if(containAllText(desc, ["強化状態", "解除"])
+                || containAllText(desc, ["強化全解除"])) {
+            return "強化解除";
+        }
+
+        if(containAllText(desc, ["強化解除耐性", "アップ"])) {
+            return "強化解除耐性アップ";
+        }
+
+        if(containAllText(desc, ["精神異常付与成功率", "アップ"])) {
+            return "精神異常付与成功率アップ";
+        }
+
+        if(containAllText(desc, ["精神異常状態", "解除"])) {
+            return "精神異常状態解除";
+        }
+
+        if(containAllText(desc, ["精神異常無効状態", "付与"])) {
+            return "精神異常無効付与";
+        }
+
+        if(containAllText(desc, ["精神異常耐性", "アップ"])) {
+            return "精神異常耐性アップ";
+        }
+
+        if(containAllText(desc, ["精神異常耐性", "解除"])) {
+            return "精神異常耐性解除";
+        }
+
+        if(containAllText(desc, ["弱体耐性", "アップ"])) {
+            return "弱体耐性アップ";
+        }
+
+        if(containAllText(desc, ["弱体耐性", "ダウン"])) {
+            return "弱体耐性ダウン";
+        }
+
+        if(containAllText(desc, ["弱体状態", "解除"])
+                || containAllText(desc, ["弱体解除"])) {
+            return "弱体解除";
+        }
+
+        if(containAllText(desc, ["弱体付与成功率", "アップ"])
+            || containAllText(desc, ["弱体成功率", "アップ"])) {
+            return "弱体付与成功率アップ";
+        }
+
+        if(containAllText(desc, ["弱体無効状態", "付与"])) {
+            return "弱体無効付与";
+        }
+
+        if(containAllText(desc, ["与ダメージ", "アップ"])) {
+            return "与ダメージアップ";
+        }
+
+        if(containAllText(desc, ["被ダメージ", "増える状態", "付与"])) {
+            return "被ダメージアップ";
+        }
+
+        if(containAllText(desc, ["ダメージカット状態", "付与"])) {
+            return "ダメージカット付与";
+        }
+
+        if(containAllText(desc, ["攻撃力", "アップ"])) {
+            return "攻撃力アップ";
+        }
+
+        if(containAllText(desc, ["攻撃力", "ダウン"])) {
+            return "攻撃力ダウン";
+        }
+
+        if(containAllText(desc, ["防御力", "アップ"])) {
+            return "防御力アップ";
+        }
+        
+
+        if(containAllText(desc, ["防御力", "ダウン"])) {
+            return "防御力ダウン";
+        }
+
+        if(containAllText(desc, ["宝具威力", "アップ"])) {
+            return "宝具威力アップ";
+        }
+
+        if(containAllText(desc, ["宝具威力", "ダウン"])) {
+            return "宝具威力ダウン";
+        }
+
+        if(containAllText(desc, ["Artsカード", "性能", "アップ"])) {
+            return "Artsカード性能アップ";
+        }
+
+        if(containAllText(desc, ["Artsカード", "耐性", "ダウン"])) {
+            return "Artsカード耐性ダウン";
+        }
+
+        if(containAllText(desc, ["Quickカード", "性能", "アップ"])
+                || containAllText(desc, ["クイックカード", "性能", "アップ"])) {
+            return "Quickカード性能アップ";
+        }
+
+        if(containAllText(desc, ["Quickカード", "耐性", "ダウン"])
+                || containAllText(desc, ["Quick攻撃", "耐性", "ダウン"])) {
+            return "Quickカード耐性ダウン";
+        }
+
+        if(containAllText(desc, ["Busterカード", "性能", "アップ"])) {
+            return "Busterカード性能アップ";
+        }
+
+        if(containAllText(desc, ["Busterカード", "耐性", "ダウン"])) {
+            return "Busterカード耐性ダウン";
+        }
+
+        if(containAllText(desc, ["クリティカル威力", "アップ"])) {
+            return "クリティカル威力アップ";
+        }
+
+        if(containAllText(desc, ["クリティカル威力", "ダウン"])) {
+            return "クリティカル威力ダウン";
+        }
+
+        if(containAllText(desc, ["クリティカル発生率", "ダウン"])) {
+            return "クリティカル発生率ダウン";
+        }
+
+        if(containAllText(desc, ["与ダメージプラス", "付与"])) {
+            return "与ダメージプラス付与";
+        }
+
+        if(containAllText(desc, ["スター", "獲得"])) {
+            return "スター獲得";
+        }
+
+        if(containAllText(desc, ["スター", "減らす"])) {
+            return "スター減少";
+        }
+
+        if(containAllText(desc, ["スター", "発生率", "アップ"])) {
+            return "スター発生率アップ";
+        }
+
+        if(containAllText(desc, ["スター", "集中", "付与"]) || containAllText(desc, ["スター", "集中", "アップ"])) {
+            return "スター集中アップ";
+        }
+
+        if(containAllText(desc, ["スター", "集中", "ダウン"])) {
+            return "スター集中ダウン";
+        }
+
+        if(containAllText(desc, ["NPアップ", "被ダメージ時"])) {
+            return "被ダメNP獲得量アップ";
+        }
+
+        if(containAllText(desc, ["NP", "増やす"]) || containAllText(desc, ["NP", "リチャージ"])) {
+            return "NP獲得";
+        }
+
+        if(containAllText(desc, ["NP", "減らす"])
+                || containAllText(desc, ["NP", "減少"])) {
+            return "NP減少";
+        }
+
+        if(containAllText(desc, ["NP獲得量", "アップ"])
+                || containAllText(desc, ["NP獲得アップ状態", "付与"])) {
+            return "NP獲得量アップ";
+        }
+
+        if(containAllText(desc, ["NP獲得状態", "付与"])) {
+            return "NP獲得状態付与";
+        }
+
+        if(containAllText(desc, ["スキルチャージ", "進める"])) {
+            return "スキルチャージ";
+        }
+
+        if(containAllText(desc, ["ガッツ状態", "付与"])) {
+            return "ガッツ付与";
+        }
+
+        if(containAllText(desc, ["ターゲット集中", "付与"])) {
+            return "ターゲット集中付与";
+        }
+
+        if(containAllText(desc, ["回避状態", "付与"])
+                || containAllText(desc, ["回避付与"])
+                || containAllText(desc, ["回避", "確率"])) {
+            return "回避付与";
+        }
+
+        if(containAllText(desc, ["回避状態", "解除"])) {
+            return "回避解除";
+        }
+
+        if(containAllText(desc, ["必中状態", "付与"])) {
+            return "必中付与";
+        }
+
+        if(containAllText(desc, ["無敵状態", "付与"])) {
+            return "無敵付与";
+        }
+
+        if(containAllText(desc, ["無敵状態", "解除"])) {
+            return "無敵解除";
+        }
+
+        if(containAllText(desc, ["無敵貫通状態", "付与"])
+                || containAllText(desc, ["無敵貫通を付与"])) {
+            return "無敵貫通付与";
+        }
+
+        if(containAllText(desc, ["防御無視状態", "付与"])) {
+            return "防御無視付与";
+        }
+
+        if(containAllText(desc, ["スタン状態", "付与"])
+                || containAllText(desc, ["行動不能状態にする"])) {
+            return "スタン付与";
+        }
+
+        if(containAllText(desc, ["即死付与成功率", "アップ"])) {
+            return "即死付与成功率アップ";
+        }
+
+        if(containAllText(desc, ["即死無効状態", "付与"])) {
+            return "即死無効付与";
+        }
+
+        if(containAllText(desc, ["即死耐性", "アップ"])) {
+            return "即死耐性アップ";
+        }
+
+        if(containAllText(desc, ["即死耐性", "ダウン"])) {
+            return "即死耐性ダウン";
+        }
+
+        if(containAllText(desc, ["確率", "即死"])) {
+            return "即死";
+        }
+
+        if(containAllText(desc, ["チャージ", "減らす"])) {
+            return "チャージ減";
+        }
+
+        if(containAllText(desc, ["チャージ", "増やす"])) {
+            return "チャージ増";
+        }
+
+        if(containAllText(desc, ["宝具封印状態", "付与"])) {
+            return "宝具封印付与";
+        }
+
+        if(containAllText(desc, ["スキル封印状態", "付与"])) {
+            return "スキル封印付与";
+        }
+
+        if(containAllText(desc, ["混乱状態", "付与"])) {
+            return "混乱状態付与";
+        }
+
+        if(containAllText(desc, ["通常攻撃時", "呪い状態", "付与する状態を付与"])) {
+            return "呪い付与(通常攻撃時)";
+        }
+
+        if(containAllText(desc, ["呪い状態", "付与"])) {
+            return "呪い付与";
+        }
+
+        if(containAllText(desc, ["呪厄状態", "付与"])) {
+            return "呪厄付与";
+        }
+
+        if(containAllText(desc, ["やけど", "付与"])) {
+            return "やけど状態付与";
+        }
+
+        if(containAllText(desc, ["延焼状態", "付与"])) {
+            return "延焼状態付与";
+        }
+        
+        if(containAllText(desc, ["帯電", "付与"])) {
+            return "帯電状態付与";
+        }
+
+        if(containAllText(desc, ["恐怖状態", "付与"])) {
+            return "恐怖状態付与";
+        }
+
+        if(containAllText(desc, ["魅了耐性", "アップ"])) {
+            return "魅了耐性アップ";
+        }
+
+        if(containAllText(desc, ["魅了耐性", "ダウン"])) {
+            return "魅了耐性ダウン";
+        }
+
+        if(containAllText(desc, ["魅了状態", "付与"])
+                || containAllText(desc, ["魅了付与"])
+                || containAllText(desc, ["魅了状態にする"])) {
+            return "魅了状態付与";
+        }
+
+        if(containAllText(desc, ["毒状態", "付与"])
+                || containAllText(desc, ["毒付与"])) {
+            return "毒状態付与";
+        }
+
+        if(containAllText(desc, ["毒状態", "解除"])) {
+            return "毒状態解除";
+        }
+
+        if(containAllText(desc, ["冥界の護り状態", "付与"])) {
+            return "冥界の護り状態付与";
+        }
+
+        if(containAllText(desc, ["特性", "付与", "悪"])) {
+            return "(悪)特性付与";
+        }
+
+        if(containAllText(desc, ["特性", "付与", "竜"])) {
+            return "(竜)特性付与";
+        }
+
+        if(containAllText(desc, ["豚化状態", "付与"])) {
+            return "豚化状態付与";
+        }
+
+        if(containAllText(desc, ["ヒット数", "2倍", "付与"])) {
+            return "ヒット数2倍状態付与";
+        }
+
+        if(containAllText(desc, ["陽射し", "特性にする状態", "付与"])) {
+            return "陽射しフィールド特性付与";
+        }
+
+        if(containAllText(desc, ["人型", "特防状態", "付与"])) {
+            return "(人型)特防状態付与";
+        }
+
+        if(containAllText(desc, ["竜", "特防状態", "付与"])) {
+            return "(人型)特防状態付与";
+        }
+
+        if(containAllText(desc, ["最大HP", "アップ"])
+                || containAllText(desc, ["最大HP", "増やす"])
+                || containAllText(desc, ["最大HP", "増える状態", "付与"])) {
+            return "最大HPアップ";
+        }
+
+        if(containAllText(desc, ["与回復量", "アップ"])) {
+            return "与回復量アップ";
+        }
+
+        if(containAllText(desc, ["ＨＰ", "回復", "状態", "付与"])) {
+            return "HP回復状態付与";
+        }
+
+        if(containAllText(desc, ["HP", "回復"])) {
+            return "HP回復";
+        }
+
+        if(containAllText(desc, ["HP回復量", "ダウン"])) {
+            return "HP回復量ダウン";
+        }
+        
+
+        if(containAllText(desc, ["HP", "減少"])||containAllText(desc, ["HP", "減らす"])) {
+            return "HP減少";
+        }
+
+        if(containAllText(desc, ["クラス相性の防御不利を打ち消す状態", "付与"])) {
+            return "クラス相性の防御不利を打ち消す状態付与";
+        }
+
+        if(containAllText(desc, ["宝具使用時のチャージ段階", "引き上げる"])) {
+            return "OC増加";
+        }
+
+        if(containAllText(desc, ["効果なし"])) {
+            return "効果なし";
+        }
+
+        if(containAllText(desc, ["自身の人格を入れ替える"])) {
+            return "人格入れ替え";
+        }
+
+        if(containAllText(desc, ["追加ダメージ"])) {
+            return "追加ダメージ";
+        }
+
+        if(containAllText(desc, ["絆獲得量をアップ"])) {
+            return "絆獲得量アップ";
+        }
+
+        if(containAllText(desc, ["特攻"])) {
+            return "特攻";
+        }
+
+        LOG.push(desc);
         return "";
     };
 
 })();
 
 const parseEffectTarget = (desc, old) => {
-    /*
-    "self": true,
-    "other-all": false,
-    "self-other": true,
-    "other-single": true,
-    "enemy-single": true,
-    "enemy-all": true
-    */
-
-    if(desc.indexOf("敵全体に") !== -1) {
+    if(desc.indexOf("敵全体") !== -1) {
         return "enemy-all";
-    } else if(desc.indexOf("味方全体の") !== -1) {
+    } else if(desc.indexOf("敵単体") !== -1) {
+        return "enemy-single";
+    } else if(desc.indexOf("自身をのぞく味方全体") !== -1) {
+        return "other-all";
+    } else if(desc.indexOf("味方全体") !== -1) {
         return "self-other";
+    } else if(desc.indexOf("味方単体") !== -1) {
+        return "other-single";
     } else if(desc.indexOf("＆") !== -1) {
         return old;
     } else {
         return "self";
     }
+};
+
+const contentsText = (contents) => {
+    const ary = [];
+    for (let i = 0; i < contents.length; i++) {
+        const tag = contents.eq(i);
+        const text = contents.eq(i).text().trim();
+        ary.push(tag[0].tagName === "span" ? text.split(",")[1] : text);
+    }
+    return ary.join("");
 };
 
 const parseSkillData =  (json, $) => {
@@ -137,7 +574,7 @@ const parseSkillData =  (json, $) => {
 
         for (let i = 1; i < tr.length; i++) {
             const add = i == 1 ? 1 : 0;
-            const desc = tr.eq(i).find("td").eq(0 + add).contents().first().text().trim();
+            const desc = contentsText(tr.eq(i).find("td").eq(0 + add).contents());
 
             const v1 = tr.eq(i).find("td").eq(1 + add).text().trim();
             const v2 = tr.eq(i).find("td").eq(2 + add).text().trim();
@@ -190,7 +627,8 @@ const parseHoguData = (json, $) => {
     const hogu = {};
 
     betweenLastDataDiv($, from, to, (selector) => {
-        const tr = selector.find("tbody tr");
+        const table = selector.find("table").last();
+        const tr = table.find("tbody tr");
 
         const name = tr.eq(0).find("th").eq(0).contents().first().text().trim();
         const waname = tr.eq(0).find("th").eq(0).contents().last().text().trim();
@@ -207,7 +645,7 @@ const parseHoguData = (json, $) => {
         for (let i = 2; i < tr.length; i++) {
             const add = i == 2 ? 3 : 0;
 
-            const desc = tr.eq(i).find("td").eq(0 + add).contents().first().text().trim();
+            const desc = contentsText(tr.eq(i).find("td").eq(0 + add).contents());
             const v1 = tr.eq(i).find("td").eq(1 + add).text().trim();
             const v2 = tr.eq(i).find("td").eq(2 + add).text().trim();
             const v3 = tr.eq(i).find("td").eq(3 + add).text().trim();
@@ -348,4 +786,7 @@ fs.readFile(sourceDir + "/" + file + ".html", 'utf-8', (err, data) => {
     parseClassSkillData(json, $);
     parseHoguData(json, $);
     parseSkillData(json, $);
+
+    console.log(JSON.stringify(json, null, "  "));
+    console.log(LOG);
 });
