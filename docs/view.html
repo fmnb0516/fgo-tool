@@ -664,7 +664,7 @@
           dataId = decodeURI(hash.substring(1));
 
           $.ajax({
-            url: "/api/v1/" + dataId,
+            url: "./json/" + dataId,
             type: "GET",
             dataType: "json",
           }).done(function (data, textStatus, xhr) {
