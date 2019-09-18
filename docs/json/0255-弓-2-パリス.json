@@ -100,7 +100,7 @@
         "v5": "2000"
       },
       {
-        "type": "特攻",
+        "type": "威力アップ",
         "tern": 0,
         "count": 0,
         "target": "enemy-single",

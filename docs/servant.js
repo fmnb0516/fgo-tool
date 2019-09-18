@@ -40809,7 +40809,7 @@ fgo.data([
           "v5": "1500"
         },
         {
-          "type": "",
+          "type": "威力アップ",
           "tern": 0,
           "count": 0,
           "target": "enemy-all",
@@ -41081,7 +41081,7 @@ fgo.data([
           "v5": "1000"
         },
         {
-          "type": "特攻",
+          "type": "威力アップ",
           "tern": 0,
           "count": 0,
           "target": "enemy-all",
@@ -41889,7 +41889,7 @@ fgo.data([
           "v5": "2000"
         },
         {
-          "type": "特攻",
+          "type": "威力アップ",
           "tern": 0,
           "count": 0,
           "target": "enemy-single",
@@ -47698,7 +47698,7 @@ fgo.data([
       "card": "a",
       "effect": [
         {
-          "type": "宝具威力アップ",
+          "type": "威力アップ",
           "tern": "1",
           "count": 0,
           "target": "self",
@@ -55378,7 +55378,7 @@ fgo.data([
           "v5": "1200"
         },
         {
-          "type": "",
+          "type": "威力アップ",
           "tern": 0,
           "count": 0,
           "target": "enemy-all",

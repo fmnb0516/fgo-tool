@@ -69,7 +69,7 @@
     "card": "a",
     "effect": [
       {
-        "type": "宝具威力アップ",
+        "type": "威力アップ",
         "tern": "1",
         "count": 0,
         "target": "self",
