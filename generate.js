@@ -522,9 +522,11 @@ const parseEffectType = (function() {
             return "絆獲得量アップ";
         }
 
+        /*
         if(containAllText(desc, ["特攻"])) {
             return "特攻";
         }
+        */
 
         LOG.push(desc);
         return "";
