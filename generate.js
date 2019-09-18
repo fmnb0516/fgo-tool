@@ -1,15 +1,8 @@
-
-/*
-1942.html
-894.html
-127.html
-75.html
-74.html
-*/
-
 const cheerio = require('cheerio')
 const path = require('path');
 const fs = require('fs');
+const util = require('util');
+
 const fgo = require(path.join(__dirname, 'docs/fgocalc.js'));
 
 const publicDir = path.join(__dirname, 'docs');
@@ -463,14 +456,6 @@ const parseEffectType = (function() {
             return "陽射しフィールド特性付与";
         }
 
-        if(containAllText(desc, ["人型", "特防状態", "付与"])) {
-            return "(人型)特防状態付与";
-        }
-
-        if(containAllText(desc, ["竜", "特防状態", "付与"])) {
-            return "(人型)特防状態付与";
-        }
-
         if(containAllText(desc, ["最大HP", "アップ"])
                 || containAllText(desc, ["最大HP", "増やす"])
                 || containAllText(desc, ["最大HP", "増える状態", "付与"])) {
@@ -522,11 +507,17 @@ const parseEffectType = (function() {
             return "絆獲得量アップ";
         }
 
-        /*
+        if(containAllText(desc, ["特攻状態", "付与"])) {
+            return "特攻付与";
+        }
+
+        if(containAllText(desc, ["特防状態", "付与"])) {
+            return "特防付与";
+        }
+
         if(containAllText(desc, ["特攻"])) {
             return "特攻";
         }
-        */
 
         LOG.push(desc);
         return "";
@@ -780,13 +771,35 @@ const parseCommonData = (json, $) => {
     json.hidden = hidden;
 };
 
-fs.readFile(sourceDir + "/" + file + ".html", 'utf-8', (err, data) => {
-    const $ = cheerio.load(data);
-    const json = {};
 
-    parseCommonData(json, $);
-    parseClassSkillData(json, $);
-    parseHoguData(json, $);
-    parseSkillData(json, $);
+/*
+1942.html
+894.html
+127.html
+75.html
+74.html
+*/
+
+const run = async () => {
+    const readdir = util.promisify(fs.readdir);
+    const readFile = util.promisify(fs.readFile);
+
+    const files = await readdir(sourceDir);
+
+    for (let i = 0; i < files.length; i++) {
+        const f = files[i];
+        const data = await readFile(sourceDir + "/" + f);
+
+        const $ = cheerio.load(data);
+        const json = {};
+        
+        parseCommonData(json, $);
+        parseClassSkillData(json, $);
+        parseHoguData(json, $);
+        parseSkillData(json, $);
+    }
+
     console.log(LOG);
-});
+};
+
+run();
