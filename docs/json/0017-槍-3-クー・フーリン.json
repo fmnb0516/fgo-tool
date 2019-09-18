@@ -67,10 +67,67 @@
     }
   ],
   "hogu": {
-    "name": "()",
-    "card": "",
-    "effect": [],
-    "type": "support",
+    "name": "刺し穿つ死棘の槍(ゲイ・ボルク)",
+    "card": "q",
+    "effect": [
+      {
+        "type": "必中付与",
+        "tern": "1",
+        "count": 0,
+        "target": "self",
+        "beforeafter": "before",
+        "lvoc": "lv",
+        "desc": "自身に必中状態を付与(1T)",
+        "v1": "",
+        "v2": "",
+        "v3": "",
+        "v4": "",
+        "v5": ""
+      },
+      {
+        "type": "攻撃",
+        "tern": 0,
+        "count": 0,
+        "target": "enemy-single",
+        "beforeafter": "before",
+        "lvoc": "lv",
+        "desc": "＋敵単体に超強力な攻撃[Lv]",
+        "v1": "1600",
+        "v2": "2000",
+        "v3": "2200",
+        "v4": "2300",
+        "v5": "2400"
+      },
+      {
+        "type": "防御力ダウン",
+        "tern": "3",
+        "count": 0,
+        "target": "enemy-single",
+        "beforeafter": "after",
+        "lvoc": "oc",
+        "desc": "＆防御力をダウン(3T)<OC:効果UP>",
+        "v1": "10",
+        "v2": "15",
+        "v3": "20",
+        "v4": "25",
+        "v5": "30"
+      },
+      {
+        "type": "即死",
+        "tern": 0,
+        "count": 0,
+        "target": "enemy-single",
+        "beforeafter": "after",
+        "lvoc": "lv",
+        "desc": "＆中確率で即死効果<OC:確率UP>",
+        "v1": "60",
+        "v2": "70",
+        "v3": "80",
+        "v4": "90",
+        "v5": "100"
+      }
+    ],
+    "type": "single",
     "hit": 1
   },
   "skill1": {

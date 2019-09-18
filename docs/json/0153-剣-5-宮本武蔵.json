@@ -56,10 +56,53 @@
     }
   ],
   "hogu": {
-    "name": "()",
-    "card": "",
-    "effect": [],
-    "type": "support",
+    "name": "六道五輪・倶利伽羅天象(りくどうごりん・くりからてんしょう)",
+    "card": "b",
+    "effect": [
+      {
+        "type": "宝具威力アップ",
+        "tern": "1",
+        "count": 0,
+        "target": "self",
+        "beforeafter": "before",
+        "lvoc": "oc",
+        "desc": "自身の宝具威力をアップ(1T)<OC:効果UP>",
+        "v1": "20",
+        "v2": "30",
+        "v3": "40",
+        "v4": "50",
+        "v5": "60"
+      },
+      {
+        "type": "攻撃",
+        "tern": 0,
+        "count": 0,
+        "target": "enemy-single",
+        "beforeafter": "before",
+        "lvoc": "lv",
+        "desc": "＆敵単体に超強力な攻撃[Lv]",
+        "v1": "600",
+        "v2": "800",
+        "v3": "900",
+        "v4": "950",
+        "v5": "1000"
+      },
+      {
+        "type": "強化解除",
+        "tern": 0,
+        "count": 0,
+        "target": "enemy-single",
+        "beforeafter": "after",
+        "lvoc": "lv",
+        "desc": "＆強化状態を解除",
+        "v1": "",
+        "v2": "",
+        "v3": "",
+        "v4": "",
+        "v5": ""
+      }
+    ],
+    "type": "single",
     "hit": 7
   },
   "skill1": {

@@ -90,26 +90,12 @@
         "target": "enemy-single",
         "beforeafter": "after",
         "lvoc": "lv",
-        "desc": "＆〔毒〕特攻 <OC:特攻威力UP>",
+        "desc": "＆〔毒〕特攻<OC:特攻威力UP>",
         "v1": "200",
         "v2": "212.5",
         "v3": "225",
         "v4": "237.5",
         "v5": "250"
-      },
-      {
-        "type": "毒状態付与",
-        "tern": "5",
-        "count": 0,
-        "target": "self",
-        "beforeafter": "after",
-        "lvoc": "lv",
-        "desc": "+毒付与(5T)",
-        "v1": "",
-        "v2": "",
-        "v3": "",
-        "v4": "",
-        "v5": ""
       }
     ],
     "type": "single",

@@ -49,7 +49,9 @@ const betweenDataDiv = ($, from, to, callback) => {
     let next = start.next();
 
     while (next !== null && next[0].tagName !== to.tag && next.text().trim().indexOf(to.text) === -1) {
-        callback(next);
+        if(next[0].tagName === "div") {
+            callback(next);
+        }
         next = next.next();
     }
 };
@@ -383,6 +385,10 @@ const run = async () => {
             console.log("    " + f);
             console.log("    " + LOG.join());
             LOG.length = 0;
+        }
+
+        if(json.hogu.name === "()") {
+            console.log("    " + f);
         }
     }
 

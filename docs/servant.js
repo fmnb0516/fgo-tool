@@ -4593,10 +4593,67 @@ fgo.data([
       }
     ],
     "hogu": {
-      "name": "()",
-      "card": "",
-      "effect": [],
-      "type": "support",
+      "name": "刺し穿つ死棘の槍(ゲイ・ボルク)",
+      "card": "q",
+      "effect": [
+        {
+          "type": "必中付与",
+          "tern": "1",
+          "count": 0,
+          "target": "self",
+          "beforeafter": "before",
+          "lvoc": "lv",
+          "desc": "自身に必中状態を付与(1T)",
+          "v1": "",
+          "v2": "",
+          "v3": "",
+          "v4": "",
+          "v5": ""
+        },
+        {
+          "type": "攻撃",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-single",
+          "beforeafter": "before",
+          "lvoc": "lv",
+          "desc": "＋敵単体に超強力な攻撃[Lv]",
+          "v1": "1600",
+          "v2": "2000",
+          "v3": "2200",
+          "v4": "2300",
+          "v5": "2400"
+        },
+        {
+          "type": "防御力ダウン",
+          "tern": "3",
+          "count": 0,
+          "target": "enemy-single",
+          "beforeafter": "after",
+          "lvoc": "oc",
+          "desc": "＆防御力をダウン(3T)<OC:効果UP>",
+          "v1": "10",
+          "v2": "15",
+          "v3": "20",
+          "v4": "25",
+          "v5": "30"
+        },
+        {
+          "type": "即死",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-single",
+          "beforeafter": "after",
+          "lvoc": "lv",
+          "desc": "＆中確率で即死効果<OC:確率UP>",
+          "v1": "60",
+          "v2": "70",
+          "v3": "80",
+          "v4": "90",
+          "v5": "100"
+        }
+      ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -10559,10 +10616,39 @@ fgo.data([
       }
     ],
     "hogu": {
-      "name": "()",
-      "card": "",
-      "effect": [],
-      "type": "support",
+      "name": "妄想心音(ザバーニーヤ)",
+      "card": "q",
+      "effect": [
+        {
+          "type": "攻撃",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-single",
+          "beforeafter": "before",
+          "lvoc": "lv",
+          "desc": "敵単体に超強力な攻撃[Lv]",
+          "v1": "1200",
+          "v2": "1600",
+          "v3": "1800",
+          "v4": "1900",
+          "v5": "2000"
+        },
+        {
+          "type": "即死",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-single",
+          "beforeafter": "after",
+          "lvoc": "lv",
+          "desc": "＆高確率で即死効果<OC:確率UP>",
+          "v1": "80",
+          "v2": "90",
+          "v3": "100",
+          "v4": "110",
+          "v5": "120"
+        }
+      ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -12052,10 +12138,53 @@ fgo.data([
       }
     ],
     "hogu": {
-      "name": "()",
-      "card": "",
-      "effect": [],
-      "type": "support",
+      "name": "六道五輪・倶利伽羅天象(りくどうごりん・くりからてんしょう)",
+      "card": "b",
+      "effect": [
+        {
+          "type": "宝具威力アップ",
+          "tern": "1",
+          "count": 0,
+          "target": "self",
+          "beforeafter": "before",
+          "lvoc": "oc",
+          "desc": "自身の宝具威力をアップ(1T)<OC:効果UP>",
+          "v1": "20",
+          "v2": "30",
+          "v3": "40",
+          "v4": "50",
+          "v5": "60"
+        },
+        {
+          "type": "攻撃",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-single",
+          "beforeafter": "before",
+          "lvoc": "lv",
+          "desc": "＆敵単体に超強力な攻撃[Lv]",
+          "v1": "600",
+          "v2": "800",
+          "v3": "900",
+          "v4": "950",
+          "v5": "1000"
+        },
+        {
+          "type": "強化解除",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-single",
+          "beforeafter": "after",
+          "lvoc": "lv",
+          "desc": "＆強化状態を解除",
+          "v1": "",
+          "v2": "",
+          "v3": "",
+          "v4": "",
+          "v5": ""
+        }
+      ],
+      "type": "single",
       "hit": 7
     },
     "skill1": {
@@ -22891,10 +23020,53 @@ fgo.data([
       }
     ],
     "hogu": {
-      "name": "()",
-      "card": "",
-      "effect": [],
-      "type": "support",
+      "name": "穿ちの朱槍(ゲイ・ボルク)",
+      "card": "q",
+      "effect": [
+        {
+          "type": "攻撃",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-single",
+          "beforeafter": "before",
+          "lvoc": "lv",
+          "desc": "敵単体に超強力な攻撃[Lv]",
+          "v1": "1200",
+          "v2": "1600",
+          "v3": "1800",
+          "v4": "1900",
+          "v5": "2000"
+        },
+        {
+          "type": "防御力ダウン",
+          "tern": "3",
+          "count": 0,
+          "target": "enemy-single",
+          "beforeafter": "after",
+          "lvoc": "oc",
+          "desc": "＆防御力をダウン(3T)<OC:効果UP>",
+          "v1": "10",
+          "v2": "15",
+          "v3": "20",
+          "v4": "25",
+          "v5": "30"
+        },
+        {
+          "type": "即死",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-single",
+          "beforeafter": "after",
+          "lvoc": "lv",
+          "desc": "＆中確率で即死効果<OC:確率UP>",
+          "v1": "50",
+          "v2": "62.5",
+          "v3": "75",
+          "v4": "87.5",
+          "v5": "100"
+        }
+      ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -36522,7 +36694,7 @@ fgo.data([
       }
     ],
     "hogu": {
-      "name": "恋もて焦がすは愛ゆえなり(サンサーラ・カーマ)",
+      "name": "愛もてかれるは恋無きなり(カーマ・サンモーハナ)",
       "card": "q",
       "effect": [
         {
@@ -44812,7 +44984,7 @@ fgo.data([
       }
     ],
     "hogu": {
-      "name": "蒼穹三段突き(しののめにきらめくむみょうのひかり)",
+      "name": "ジェット三段突き(じぇっとさんだんづき)",
       "card": "q",
       "effect": [
         {
@@ -45977,10 +46149,53 @@ fgo.data([
       }
     ],
     "hogu": {
-      "name": "()",
-      "card": "",
-      "effect": [],
-      "type": "support",
+      "name": "貫き穿つ死翔の槍(ゲイ・ボルク・オルタナティブ)",
+      "card": "q",
+      "effect": [
+        {
+          "type": "スタン付与",
+          "tern": "1",
+          "count": 0,
+          "target": "enemy-single",
+          "beforeafter": "before",
+          "lvoc": "lv",
+          "desc": "敵単体にスタン状態を付与(1T)",
+          "v1": "",
+          "v2": "",
+          "v3": "",
+          "v4": "",
+          "v5": ""
+        },
+        {
+          "type": "攻撃",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-single",
+          "beforeafter": "before",
+          "lvoc": "lv",
+          "desc": "＆超強力な攻撃[Lv]",
+          "v1": "1600",
+          "v2": "2000",
+          "v3": "2200",
+          "v4": "2300",
+          "v5": "2400"
+        },
+        {
+          "type": "即死",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-single",
+          "beforeafter": "after",
+          "lvoc": "lv",
+          "desc": "＆中確率で即死効果<OC:確率UP>",
+          "v1": "60",
+          "v2": "70",
+          "v3": "80",
+          "v4": "90",
+          "v5": "100"
+        }
+      ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -48176,10 +48391,6 @@ fgo.data([
         ]
       },
       {
-        "name": "",
-        "effect": []
-      },
-      {
         "name": "星見の旅路",
         "effect": [
           {
@@ -48191,7 +48402,7 @@ fgo.data([
       }
     ],
     "hogu": {
-      "name": "いまは脆き夢想の城(モールド・キャメロット)",
+      "name": "仮想宝具疑似展開／人理の礎(ロード・カルデアス)",
       "card": "a",
       "effect": [
         {
@@ -48210,12 +48421,12 @@ fgo.data([
         },
         {
           "type": "ダメージカット付与",
-          "tern": "5",
-          "count": "3",
+          "tern": "3",
+          "count": 0,
           "target": "self-other",
           "beforeafter": "before",
           "lvoc": "lv",
-          "desc": "＆被ダメージカット状態を付与[Lv](3回・5T)",
+          "desc": "＆被ダメージカット状態を付与[Lv](3T)",
           "v1": "100",
           "v2": "550",
           "v3": "775",
@@ -51520,26 +51731,12 @@ fgo.data([
           "target": "enemy-single",
           "beforeafter": "after",
           "lvoc": "lv",
-          "desc": "＆〔毒〕特攻 <OC:特攻威力UP>",
+          "desc": "＆〔毒〕特攻<OC:特攻威力UP>",
           "v1": "200",
           "v2": "212.5",
           "v3": "225",
           "v4": "237.5",
           "v5": "250"
-        },
-        {
-          "type": "毒状態付与",
-          "tern": "5",
-          "count": 0,
-          "target": "self",
-          "beforeafter": "after",
-          "lvoc": "lv",
-          "desc": "+毒付与(5T)",
-          "v1": "",
-          "v2": "",
-          "v3": "",
-          "v4": "",
-          "v5": ""
         }
       ],
       "type": "single",
@@ -54227,10 +54424,53 @@ fgo.data([
       }
     ],
     "hogu": {
-      "name": "()",
-      "card": "",
-      "effect": [],
-      "type": "support",
+      "name": "唯識・直死の魔眼(ゆいしき・ちょくしのまがん)",
+      "card": "a",
+      "effect": [
+        {
+          "type": "攻撃",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-single",
+          "beforeafter": "before",
+          "lvoc": "lv",
+          "desc": "敵単体に超強力な防御力無視攻撃[Lv]",
+          "v1": "1200",
+          "v2": "1500",
+          "v3": "1650",
+          "v4": "1725",
+          "v5": "1800"
+        },
+        {
+          "type": "即死",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-single",
+          "beforeafter": "after",
+          "lvoc": "lv",
+          "desc": "＆確率で即死効果<OC:確率UP>",
+          "v1": "100",
+          "v2": "110",
+          "v3": "120",
+          "v4": "130",
+          "v5": "140"
+        },
+        {
+          "type": "防御力ダウン",
+          "tern": "3",
+          "count": 0,
+          "target": "enemy-single",
+          "beforeafter": "after",
+          "lvoc": "lv",
+          "desc": "＆防御力をダウン[Lv](3T)",
+          "v1": "10",
+          "v2": "15",
+          "v3": "17.5",
+          "v4": "18.8",
+          "v5": "20"
+        }
+      ],
+      "type": "single",
       "hit": 3
     },
     "skill1": {
@@ -54470,10 +54710,67 @@ fgo.data([
       }
     ],
     "hogu": {
-      "name": "()",
-      "card": "",
-      "effect": [],
-      "type": "support",
+      "name": "無垢識・空の境界(むくしき・からのきょうかい)",
+      "card": "a",
+      "effect": [
+        {
+          "type": "攻撃",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-all",
+          "beforeafter": "before",
+          "lvoc": "lv",
+          "desc": "敵全体に強力な防御力無視攻撃[Lv]",
+          "v1": "600",
+          "v2": "750",
+          "v3": "825",
+          "v4": "862.5",
+          "v5": "900"
+        },
+        {
+          "type": "即死",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-all",
+          "beforeafter": "after",
+          "lvoc": "lv",
+          "desc": "＆確率で即死効果<OC:確率UP>",
+          "v1": "60",
+          "v2": "70",
+          "v3": "80",
+          "v4": "90",
+          "v5": "100"
+        },
+        {
+          "type": "弱体解除",
+          "tern": 0,
+          "count": 0,
+          "target": "self-other",
+          "beforeafter": "after",
+          "lvoc": "lv",
+          "desc": "＋味方全体の弱体状態を解除",
+          "v1": "",
+          "v2": "",
+          "v3": "",
+          "v4": "",
+          "v5": ""
+        },
+        {
+          "type": "NP獲得",
+          "tern": 0,
+          "count": 0,
+          "target": "self-other",
+          "beforeafter": "after",
+          "lvoc": "lv",
+          "desc": "＆NPを少し増やす",
+          "v1": "10",
+          "v2": "10",
+          "v3": "10",
+          "v4": "10",
+          "v5": "10"
+        }
+      ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -61762,9 +62059,52 @@ fgo.data([
       }
     ],
     "hogu": {
-      "name": "()",
-      "card": "",
-      "effect": [],
+      "name": "偽り写し記す万象(ヴェルグ・アヴェスター)",
+      "card": "a",
+      "effect": [
+        {
+          "type": "",
+          "tern": "1",
+          "count": 0,
+          "target": "self",
+          "beforeafter": "before",
+          "lvoc": "lv",
+          "desc": "自身に待機状態を付与(1T)【デメリット】",
+          "v1": "",
+          "v2": "",
+          "v3": "",
+          "v4": "",
+          "v5": ""
+        },
+        {
+          "type": "HP回復",
+          "tern": 0,
+          "count": 0,
+          "target": "self",
+          "beforeafter": "before",
+          "lvoc": "oc",
+          "desc": "＆HPを回復<OC:効果UP>",
+          "v1": "1000",
+          "v2": "2000",
+          "v3": "3000",
+          "v4": "4000",
+          "v5": "5000"
+        },
+        {
+          "type": "",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-all",
+          "beforeafter": "before",
+          "lvoc": "lv",
+          "desc": "＆敵のターン終了時に、自身がそのターン中に受けたダメージを、敵全体に倍化して返す[Lv]",
+          "v1": "200",
+          "v2": "250(200)",
+          "v3": "275(200)",
+          "v4": "287.5(200)",
+          "v5": "300"
+        }
+      ],
       "type": "support",
       "hit": 0
     },
@@ -63756,10 +64096,67 @@ fgo.data([
       }
     ],
     "hogu": {
-      "name": "()",
-      "card": "",
-      "effect": [],
-      "type": "support",
+      "name": "不還匕首(ただ、あやめるのみ)",
+      "card": "q",
+      "effect": [
+        {
+          "type": "攻撃",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-single",
+          "beforeafter": "before",
+          "lvoc": "lv",
+          "desc": "敵単体に超強力な攻撃[Lv]",
+          "v1": "1600",
+          "v2": "2000",
+          "v3": "2200",
+          "v4": "2300",
+          "v5": "2400"
+        },
+        {
+          "type": "即死",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-single",
+          "beforeafter": "after",
+          "lvoc": "lv",
+          "desc": "＆中確率で即死効果<OC:確率UP>",
+          "v1": "50",
+          "v2": "62.5",
+          "v3": "75",
+          "v4": "87.5",
+          "v5": "100"
+        },
+        {
+          "type": "スター獲得",
+          "tern": 0,
+          "count": 0,
+          "target": "self",
+          "beforeafter": "after",
+          "lvoc": "oc",
+          "desc": "＋スターを大量獲得<OC:効果UP>",
+          "v1": "20",
+          "v2": "25",
+          "v3": "30",
+          "v4": "35",
+          "v5": "40"
+        },
+        {
+          "type": "HP減少",
+          "tern": 0,
+          "count": 0,
+          "target": "self",
+          "beforeafter": "after",
+          "lvoc": "lv",
+          "desc": "＋自身のHPを減らす【デメリット】",
+          "v1": "1000",
+          "v2": "1000",
+          "v3": "1000",
+          "v4": "1000",
+          "v5": "1000"
+        }
+      ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {

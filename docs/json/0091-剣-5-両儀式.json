@@ -97,10 +97,67 @@
     }
   ],
   "hogu": {
-    "name": "()",
-    "card": "",
-    "effect": [],
-    "type": "support",
+    "name": "無垢識・空の境界(むくしき・からのきょうかい)",
+    "card": "a",
+    "effect": [
+      {
+        "type": "攻撃",
+        "tern": 0,
+        "count": 0,
+        "target": "enemy-all",
+        "beforeafter": "before",
+        "lvoc": "lv",
+        "desc": "敵全体に強力な防御力無視攻撃[Lv]",
+        "v1": "600",
+        "v2": "750",
+        "v3": "825",
+        "v4": "862.5",
+        "v5": "900"
+      },
+      {
+        "type": "即死",
+        "tern": 0,
+        "count": 0,
+        "target": "enemy-all",
+        "beforeafter": "after",
+        "lvoc": "lv",
+        "desc": "＆確率で即死効果<OC:確率UP>",
+        "v1": "60",
+        "v2": "70",
+        "v3": "80",
+        "v4": "90",
+        "v5": "100"
+      },
+      {
+        "type": "弱体解除",
+        "tern": 0,
+        "count": 0,
+        "target": "self-other",
+        "beforeafter": "after",
+        "lvoc": "lv",
+        "desc": "＋味方全体の弱体状態を解除",
+        "v1": "",
+        "v2": "",
+        "v3": "",
+        "v4": "",
+        "v5": ""
+      },
+      {
+        "type": "NP獲得",
+        "tern": 0,
+        "count": 0,
+        "target": "self-other",
+        "beforeafter": "after",
+        "lvoc": "lv",
+        "desc": "＆NPを少し増やす",
+        "v1": "10",
+        "v2": "10",
+        "v3": "10",
+        "v4": "10",
+        "v5": "10"
+      }
+    ],
+    "type": "all",
     "hit": 1
   },
   "skill1": {

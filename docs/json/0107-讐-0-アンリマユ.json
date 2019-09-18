@@ -79,9 +79,52 @@
     }
   ],
   "hogu": {
-    "name": "()",
-    "card": "",
-    "effect": [],
+    "name": "偽り写し記す万象(ヴェルグ・アヴェスター)",
+    "card": "a",
+    "effect": [
+      {
+        "type": "",
+        "tern": "1",
+        "count": 0,
+        "target": "self",
+        "beforeafter": "before",
+        "lvoc": "lv",
+        "desc": "自身に待機状態を付与(1T)【デメリット】",
+        "v1": "",
+        "v2": "",
+        "v3": "",
+        "v4": "",
+        "v5": ""
+      },
+      {
+        "type": "HP回復",
+        "tern": 0,
+        "count": 0,
+        "target": "self",
+        "beforeafter": "before",
+        "lvoc": "oc",
+        "desc": "＆HPを回復<OC:効果UP>",
+        "v1": "1000",
+        "v2": "2000",
+        "v3": "3000",
+        "v4": "4000",
+        "v5": "5000"
+      },
+      {
+        "type": "",
+        "tern": 0,
+        "count": 0,
+        "target": "enemy-all",
+        "beforeafter": "before",
+        "lvoc": "lv",
+        "desc": "＆敵のターン終了時に、自身がそのターン中に受けたダメージを、敵全体に倍化して返す[Lv]",
+        "v1": "200",
+        "v2": "250(200)",
+        "v3": "275(200)",
+        "v4": "287.5(200)",
+        "v5": "300"
+      }
+    ],
     "type": "support",
     "hit": 0
   },

@@ -66,10 +66,53 @@
     }
   ],
   "hogu": {
-    "name": "()",
-    "card": "",
-    "effect": [],
-    "type": "support",
+    "name": "唯識・直死の魔眼(ゆいしき・ちょくしのまがん)",
+    "card": "a",
+    "effect": [
+      {
+        "type": "攻撃",
+        "tern": 0,
+        "count": 0,
+        "target": "enemy-single",
+        "beforeafter": "before",
+        "lvoc": "lv",
+        "desc": "敵単体に超強力な防御力無視攻撃[Lv]",
+        "v1": "1200",
+        "v2": "1500",
+        "v3": "1650",
+        "v4": "1725",
+        "v5": "1800"
+      },
+      {
+        "type": "即死",
+        "tern": 0,
+        "count": 0,
+        "target": "enemy-single",
+        "beforeafter": "after",
+        "lvoc": "lv",
+        "desc": "＆確率で即死効果<OC:確率UP>",
+        "v1": "100",
+        "v2": "110",
+        "v3": "120",
+        "v4": "130",
+        "v5": "140"
+      },
+      {
+        "type": "防御力ダウン",
+        "tern": "3",
+        "count": 0,
+        "target": "enemy-single",
+        "beforeafter": "after",
+        "lvoc": "lv",
+        "desc": "＆防御力をダウン[Lv](3T)",
+        "v1": "10",
+        "v2": "15",
+        "v3": "17.5",
+        "v4": "18.8",
+        "v5": "20"
+      }
+    ],
+    "type": "single",
     "hit": 3
   },
   "skill1": {
