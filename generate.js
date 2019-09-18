@@ -802,7 +802,7 @@ const run = async () => {
         parseHoguData(json, $);
         parseSkillData(json, $);
 
-        const filename = json.servant.no +"-"+ json.servant.clazz + "-" + json.servant.name;
+        const filename = json.servant.no +"-"+ fgo.classToLabel(json.servant.clazz) + "-" + json.servant.rare + "-" + json.servant.name;
         console.log(filename);
         if(LOG.length !== 0) {
             console.log(f);

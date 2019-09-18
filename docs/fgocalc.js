@@ -106,6 +106,8 @@
             return "monncanser";
         } else if (clazz === "フォーリナー") {
             return "foreigner";
+        } else if (clazz === "シールダー") {
+            return "shielder";
         } else {
             return clazz;
         }
@@ -150,6 +152,8 @@
             return "月";
         } else if (clazz === "foreigner") {
             return "降";
+        } else if (clazz === "shielder") {
+            return "盾";
         } else {
             return "UNKOWN";
         }
