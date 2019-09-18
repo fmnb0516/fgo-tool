@@ -13,7 +13,7 @@ const findDataDiv = ($, tag, text, callback) => {
     $(tag).each(function () {
         const selector = $(this);
         if (selector.text().trim().indexOf(text) !== -1) {
-            callback(selector.next());
+            callback(selector.next(), selector.text().trim());
         }
     });
 };
@@ -85,6 +85,16 @@ const ternCountParse = (desc) => {
     return {tern:tern, count:count};
 };
 
+const containText = (target, finds) => {
+    for (let i = 0; i < finds.length; i++) {
+        const f = finds[i];
+        if(target.indexOf(f) !== -1) {
+            return true;
+        }
+    }
+    return false;
+};
+
 const parseEffectType = (function() {
 
     return (desc) => {
@@ -92,8 +102,12 @@ const parseEffectType = (function() {
             return "攻撃";
         }
 
-        if(desc.indexOf("NPをリチャージ") !== -1) {
+        if(containText(desc, ["NPをリチャージ", "NPを増やす"])) {
             return "NP増加";
+        }
+
+        if(containText(desc, ["スターを", "獲得"])) {
+            return "スター獲得";
         }
 
         if(desc.indexOf("Quickカードの性能をアップ") !== -1) {
@@ -116,6 +130,7 @@ const parseEffectType = (function() {
             return "弱体耐性アップ";
         }
 
+        console.log(desc);
         return "";
     };
 
@@ -142,6 +157,61 @@ const parseEffectTarget = (desc, old) => {
 
 const parseSkillData =  (json, $) => {
 
+    findDataDiv($, "h4", "Skill", (selector, text) => {
+        const tr = selector.find("tbody tr");
+
+        const slikkIndex = "skill" + text.substr(5, 1);
+        const name = text.substring(text.indexOf("：") + 1);
+        const ct = parseInt(tr.eq(1).find("td").eq(0).text().trim());
+        
+        const effects = [];
+        const meta = {target : ""};
+
+        for (let i = 1; i < tr.length; i++) {
+            const add = i == 1 ? 1 : 0;
+            const desc = tr.eq(i).find("td").eq(0 + add).contents().first().text().trim();
+
+            const v1 = tr.eq(i).find("td").eq(1 + add).text().trim();
+            const v2 = tr.eq(i).find("td").eq(2 + add).text().trim();
+            const v3 = tr.eq(i).find("td").eq(3 + add).text().trim();
+            const v4 = tr.eq(i).find("td").eq(4 + add).text().trim();
+            const v5 = tr.eq(i).find("td").eq(5 + add).text().trim();
+            const v6 = tr.eq(i).find("td").eq(6 + add).text().trim();
+            const v7 = tr.eq(i).find("td").eq(7 + add).text().trim();
+            const v8 = tr.eq(i).find("td").eq(8 + add).text().trim();
+            const v9 = tr.eq(i).find("td").eq(9 + add).text().trim();
+            const v10 = tr.eq(i).find("td").eq(10 + add).text().trim();
+
+            const type = parseEffectType(desc);
+            const ternCount = ternCountParse(desc);
+
+            meta.target = parseEffectTarget(desc, meta.target);
+
+            effects.push({
+                type : type,
+                tern : ternCount.tern,
+                count : ternCount.count,
+                target: meta.target,
+                desc : desc,
+                v1 : v1,
+                v2 : v2,
+                v3 : v3,
+                v4 : v4,
+                v5 : v5,
+                v6 : v6,
+                v7 : v7,
+                v8 : v8,
+                v9 : v9,
+                v10 : v10,
+            });
+        }
+
+        json[slikkIndex] = {
+            name : name,
+            ct : ct,
+            effects : effects
+        };
+    });
 };
 
 const parseHoguData = (json, $) => {
@@ -183,7 +253,7 @@ const parseHoguData = (json, $) => {
 
             const ternCount = ternCountParse(desc);
             
-            meta.target = parseEffectTarget(desc, meta.target)
+            meta.target = parseEffectTarget(desc, meta.target);
 
             hogu.effect.push({
                 type: type,
