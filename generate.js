@@ -102,12 +102,20 @@ const parseEffectType = (function() {
             return "攻撃";
         }
 
-        if(containText(desc, ["NPをリチャージ", "NPを増やす"])) {
+        if(containText(desc, ["NPをリチャージ", "NPを増やす", "NPを少し増やす"])) {
             return "NP増加";
         }
 
         if(containText(desc, ["スターを", "獲得"])) {
             return "スター獲得";
+        }
+
+        if(containText(desc, ["クリティカル威力をアップ"])) {
+            return "クリティカル威力アップ";
+        }
+
+        if(desc.indexOf("自身のArtsカードの性能をアップ") !== -1) {
+            return "Artsカード性能アップ";
         }
 
         if(desc.indexOf("Quickカードの性能をアップ") !== -1) {
@@ -126,8 +134,36 @@ const parseEffectType = (function() {
             return "弱体耐性アップ";
         }
 
-        if(desc.indexOf("弱体耐性をアップ") !== -1) {
-            return "弱体耐性アップ";
+        if(desc.indexOf("弱体付与成功率をアップ") !== -1) {
+            return "弱体付与成功率アップ";
+        }
+
+        if(desc.indexOf("チャージを減らす") !== -1) {
+            return "チャージ減";
+        }
+
+        if(desc.indexOf("スタン状態を付与") !== -1) {
+            return "スタン付与";
+        }
+
+        if(desc.indexOf("呪い状態を付与") !== -1) {
+            return "呪い付与";
+        }
+
+        if(containText(desc, ["防御力を大ダウン"])) {
+            return "防御力ダウン";
+        }
+
+        if(containText(desc, ["防御力をアップ"])) {
+            return "防御力アップ";
+        }
+
+        if(containText(desc, ["被ダメージカット状態を付与"])) {
+            return "ダメージカット付与";
+        }
+
+        if(containText(desc, ["与ダメージプラス状態を付与"])) {
+            return "与ダメージプラス";
         }
 
         console.log(desc);
@@ -150,6 +186,8 @@ const parseEffectTarget = (desc, old) => {
         return "enemy-all";
     } else if(desc.indexOf("味方全体の") !== -1) {
         return "self-other";
+    } else if(desc.indexOf("＆") !== -1) {
+        return old;
     } else {
         return "self";
     }
@@ -194,15 +232,15 @@ const parseSkillData =  (json, $) => {
                 target: meta.target,
                 desc : desc,
                 v1 : v1,
-                v2 : v2,
-                v3 : v3,
-                v4 : v4,
-                v5 : v5,
-                v6 : v6,
-                v7 : v7,
-                v8 : v8,
-                v9 : v9,
-                v10 : v10,
+                v2 : v2=== "" ? v1 :v2,
+                v3 : v3 === "" ? v1 :v3,
+                v4 : v4 === "" ? v1 :v4,
+                v5 : v5 === "" ? v1 :v5,
+                v6 : v6 === "" ? v1 :v6,
+                v7 : v7 === "" ? v1 :v7,
+                v8 : v8 === "" ? v1 :v8,
+                v9 : v9 === "" ? v1 :v9,
+                v10 : v10 === "" ? v1 :v10,
             });
         }
 
@@ -264,10 +302,10 @@ const parseHoguData = (json, $) => {
                 lvoc: lvoc,
                 desc: desc,
                 v1: v1,
-                v2: v2,
-                v3: v3,
-                v4: v4,
-                v5: v5
+                v2: v2 === "" ? v1 :v2,
+                v3: v3 === "" ? v1 :v3,
+                v4: v4 === "" ? v1 :v4,
+                v5: v5 === "" ? v1 :v5
             });
 
             if (type === "攻撃") {
