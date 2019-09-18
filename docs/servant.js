@@ -99,6 +99,7 @@ fgo.data([
           "v5": "120"
         }
       ],
+      "type": "single",
       "hit": 12
     },
     "skill1": {
@@ -328,6 +329,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -525,6 +527,7 @@ fgo.data([
           "v5": "2000"
         }
       ],
+      "type": "single",
       "hit": 4
     },
     "skill1": {
@@ -760,6 +763,7 @@ fgo.data([
           "v5": "1500"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -1021,6 +1025,7 @@ fgo.data([
           "v5": "500"
         }
       ],
+      "type": "all",
       "hit": 7
     },
     "skill1": {
@@ -1248,6 +1253,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -1474,6 +1480,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -1704,6 +1711,7 @@ fgo.data([
           "v5": "2500"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -1920,6 +1928,7 @@ fgo.data([
           "v5": "60"
         }
       ],
+      "type": "single",
       "hit": 5
     },
     "skill1": {
@@ -2168,6 +2177,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -2390,6 +2400,7 @@ fgo.data([
           "v5": "3000"
         }
       ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -2637,6 +2648,7 @@ fgo.data([
           "v5": "1800"
         }
       ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -2877,6 +2889,7 @@ fgo.data([
           "v5": "600"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -3082,6 +3095,7 @@ fgo.data([
           "v5": "1000"
         }
       ],
+      "type": "all",
       "hit": 10
     },
     "skill1": {
@@ -3289,6 +3303,7 @@ fgo.data([
           "v5": "60"
         }
       ],
+      "type": "all",
       "hit": 2
     },
     "skill1": {
@@ -3491,6 +3506,7 @@ fgo.data([
           "v5": "70"
         }
       ],
+      "type": "single",
       "hit": 7
     },
     "skill1": {
@@ -3747,6 +3763,7 @@ fgo.data([
           "v5": "5000"
         }
       ],
+      "type": "all",
       "hit": 4
     },
     "skill1": {
@@ -3989,6 +4006,7 @@ fgo.data([
           "v5": "1200"
         }
       ],
+      "type": "single",
       "hit": 2
     },
     "skill1": {
@@ -4189,6 +4207,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -4364,6 +4383,7 @@ fgo.data([
           "v5": "35"
         }
       ],
+      "type": "single",
       "hit": 3
     },
     "skill1": {
@@ -4576,6 +4596,7 @@ fgo.data([
       "name": "()",
       "card": "",
       "effect": [],
+      "type": "support",
       "hit": 1
     },
     "skill1": {
@@ -4772,6 +4793,7 @@ fgo.data([
           "v5": "70"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -5006,6 +5028,7 @@ fgo.data([
           "v5": "200"
         }
       ],
+      "type": "single",
       "hit": 4
     },
     "skill1": {
@@ -5361,6 +5384,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "single",
       "hit": 9
     },
     "skill1": {
@@ -5607,6 +5631,7 @@ fgo.data([
           "v5": "90"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -5827,6 +5852,7 @@ fgo.data([
           "v5": "2500"
         }
       ],
+      "type": "single",
       "hit": 6
     },
     "skill1": {
@@ -6043,6 +6069,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "single",
       "hit": 10
     },
     "skill1": {
@@ -6279,6 +6306,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -6491,6 +6519,7 @@ fgo.data([
           "v5": "1200"
         }
       ],
+      "type": "single",
       "hit": 10
     },
     "skill1": {
@@ -6710,6 +6739,7 @@ fgo.data([
           "v5": "3000"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -6941,6 +6971,7 @@ fgo.data([
           "v5": "各10"
         }
       ],
+      "type": "single",
       "hit": 4
     },
     "skill1": {
@@ -7177,6 +7208,7 @@ fgo.data([
           "v5": "60"
         }
       ],
+      "type": "single",
       "hit": 6
     },
     "skill1": {
@@ -7445,6 +7477,7 @@ fgo.data([
           "v5": "2500"
         }
       ],
+      "type": "single",
       "hit": 7
     },
     "skill1": {
@@ -7740,6 +7773,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -8001,6 +8035,7 @@ fgo.data([
           "v5": "25"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -8219,6 +8254,7 @@ fgo.data([
           "v5": "1000"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -8497,6 +8533,7 @@ fgo.data([
           "v5": "200"
         }
       ],
+      "type": "single",
       "hit": 6
     },
     "skill1": {
@@ -8755,6 +8792,7 @@ fgo.data([
           "v5": "60"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -9024,6 +9062,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -9250,6 +9289,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -9442,6 +9482,7 @@ fgo.data([
           "v5": "10"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -9671,6 +9712,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -9877,6 +9919,7 @@ fgo.data([
           "v5": ""
         }
       ],
+      "type": "single",
       "hit": 5
     },
     "skill1": {
@@ -10136,6 +10179,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "single",
       "hit": 8
     },
     "skill1": {
@@ -10368,6 +10412,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "all",
       "hit": 10
     },
     "skill1": {
@@ -10517,6 +10562,7 @@ fgo.data([
       "name": "()",
       "card": "",
       "effect": [],
+      "type": "support",
       "hit": 1
     },
     "skill1": {
@@ -10754,6 +10800,7 @@ fgo.data([
           "v5": "3000"
         }
       ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -11005,6 +11052,7 @@ fgo.data([
           "v5": "15"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -11236,6 +11284,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "single",
       "hit": 2
     },
     "skill1": {
@@ -11516,6 +11565,7 @@ fgo.data([
           "v5": "25"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -11803,6 +11853,7 @@ fgo.data([
           "v5": "200"
         }
       ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -12004,6 +12055,7 @@ fgo.data([
       "name": "()",
       "card": "",
       "effect": [],
+      "type": "support",
       "hit": 7
     },
     "skill1": {
@@ -12216,6 +12268,7 @@ fgo.data([
           "v5": "80"
         }
       ],
+      "type": "all",
       "hit": 4
     },
     "skill1": {
@@ -12425,6 +12478,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "single",
       "hit": 13
     },
     "skill1": {
@@ -12686,6 +12740,7 @@ fgo.data([
           "v5": "200"
         }
       ],
+      "type": "single",
       "hit": 9
     },
     "skill1": {
@@ -12976,6 +13031,7 @@ fgo.data([
           "v5": "1000"
         }
       ],
+      "type": "single",
       "hit": 12
     },
     "skill1": {
@@ -13221,6 +13277,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "single",
       "hit": 11
     },
     "skill1": {
@@ -13504,6 +13561,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "single",
       "hit": 8
     },
     "skill1": {
@@ -13726,6 +13784,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "single",
       "hit": 10
     },
     "skill1": {
@@ -13954,6 +14013,7 @@ fgo.data([
           "v5": "500"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -14149,6 +14209,7 @@ fgo.data([
           "v5": "1200"
         }
       ],
+      "type": "single",
       "hit": 5
     },
     "skill1": {
@@ -14392,6 +14453,7 @@ fgo.data([
           "v5": "2500"
         }
       ],
+      "type": "all",
       "hit": 8
     },
     "skill1": {
@@ -14655,6 +14717,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "single",
       "hit": 5
     },
     "skill1": {
@@ -14945,6 +15008,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "single",
       "hit": 8
     },
     "skill1": {
@@ -15220,6 +15284,7 @@ fgo.data([
           "v5": "7000"
         }
       ],
+      "type": "all",
       "hit": 12
     },
     "skill1": {
@@ -15540,6 +15605,7 @@ fgo.data([
           "v5": "80"
         }
       ],
+      "type": "all",
       "hit": 10
     },
     "skill1": {
@@ -15823,6 +15889,7 @@ fgo.data([
           "v5": "6000"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -16165,6 +16232,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -16423,6 +16491,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "single",
       "hit": 4
     },
     "skill1": {
@@ -16647,6 +16716,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "single",
       "hit": 8
     },
     "skill1": {
@@ -16853,6 +16923,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -17094,6 +17165,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -17306,6 +17378,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "all",
       "hit": 2
     },
     "skill1": {
@@ -17528,6 +17601,7 @@ fgo.data([
           "v5": "1000"
         }
       ],
+      "type": "all",
       "hit": 4
     },
     "skill1": {
@@ -17868,6 +17942,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -18115,6 +18190,7 @@ fgo.data([
           "v5": "200"
         }
       ],
+      "type": "single",
       "hit": 12
     },
     "skill1": {
@@ -18399,6 +18475,7 @@ fgo.data([
           "v5": "500"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -18664,6 +18741,7 @@ fgo.data([
           "v5": "スタン発動率20％"
         }
       ],
+      "type": "single",
       "hit": 5
     },
     "skill1": {
@@ -18949,6 +19027,7 @@ fgo.data([
           "v5": "10"
         }
       ],
+      "type": "single",
       "hit": 6
     },
     "skill1": {
@@ -19202,6 +19281,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "all",
       "hit": 4
     },
     "skill1": {
@@ -19446,6 +19526,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "single",
       "hit": 6
     },
     "skill1": {
@@ -19688,6 +19769,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "all",
       "hit": 4
     },
     "skill1": {
@@ -20000,6 +20082,7 @@ fgo.data([
           "v5": "300"
         }
       ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -20226,6 +20309,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "single",
       "hit": 5
     },
     "skill1": {
@@ -20464,6 +20548,7 @@ fgo.data([
           "v5": ""
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -20689,6 +20774,7 @@ fgo.data([
           "v5": "60"
         }
       ],
+      "type": "single",
       "hit": 4
     },
     "skill1": {
@@ -20918,6 +21004,7 @@ fgo.data([
           "v5": "200"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -21184,6 +21271,7 @@ fgo.data([
           "v5": "4000"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -21455,6 +21543,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "single",
       "hit": 8
     },
     "skill1": {
@@ -21720,6 +21809,7 @@ fgo.data([
           "v5": "200"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -21923,6 +22013,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "single",
       "hit": 8
     },
     "skill1": {
@@ -22177,6 +22268,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -22369,6 +22461,7 @@ fgo.data([
           "v5": "1000"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -22623,6 +22716,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "single",
       "hit": 5
     },
     "skill1": {
@@ -22800,6 +22894,7 @@ fgo.data([
       "name": "()",
       "card": "",
       "effect": [],
+      "type": "support",
       "hit": 1
     },
     "skill1": {
@@ -23051,6 +23146,7 @@ fgo.data([
           "v5": "70"
         }
       ],
+      "type": "single",
       "hit": 5
     },
     "skill1": {
@@ -23274,6 +23370,7 @@ fgo.data([
           "v5": "35"
         }
       ],
+      "type": "all",
       "hit": 10
     },
     "skill1": {
@@ -23494,6 +23591,7 @@ fgo.data([
           "v5": "70"
         }
       ],
+      "type": "single",
       "hit": 4
     },
     "skill1": {
@@ -23716,6 +23814,7 @@ fgo.data([
           "v5": "1000"
         }
       ],
+      "type": "all",
       "hit": 10
     },
     "skill1": {
@@ -23935,6 +24034,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -24249,6 +24349,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "single",
       "hit": 10
     },
     "skill1": {
@@ -24532,6 +24633,7 @@ fgo.data([
           "v5": "200"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -24804,6 +24906,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -25045,6 +25148,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -25277,6 +25381,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -25490,6 +25595,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "single",
       "hit": 3
     },
     "skill1": {
@@ -25765,6 +25871,7 @@ fgo.data([
           "v5": ""
         }
       ],
+      "type": "all",
       "hit": 4
     },
     "skill1": {
@@ -26010,6 +26117,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -26219,6 +26327,7 @@ fgo.data([
           "v5": "2500"
         }
       ],
+      "type": "single",
       "hit": 5
     },
     "skill1": {
@@ -26424,6 +26533,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -26676,6 +26786,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -26881,6 +26992,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -27149,6 +27261,7 @@ fgo.data([
           "v5": "60"
         }
       ],
+      "type": "single",
       "hit": 5
     },
     "skill1": {
@@ -27385,6 +27498,7 @@ fgo.data([
           "v5": "1000"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -27651,6 +27765,7 @@ fgo.data([
           "v5": "60"
         }
       ],
+      "type": "single",
       "hit": 4
     },
     "skill1": {
@@ -27913,6 +28028,7 @@ fgo.data([
           "v5": "750"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -28131,6 +28247,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "single",
       "hit": 4
     },
     "skill1": {
@@ -28326,6 +28443,7 @@ fgo.data([
           "v5": "1500"
         }
       ],
+      "type": "single",
       "hit": 4
     },
     "skill1": {
@@ -28533,6 +28651,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "all",
       "hit": 7
     },
     "skill1": {
@@ -28772,6 +28891,7 @@ fgo.data([
           "v5": "200"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -29026,6 +29146,7 @@ fgo.data([
           "v5": "200"
         }
       ],
+      "type": "single",
       "hit": 7
     },
     "skill1": {
@@ -29246,6 +29367,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "all",
       "hit": 7
     },
     "skill1": {
@@ -29547,6 +29669,7 @@ fgo.data([
           "v5": "1500"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -29769,6 +29892,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "single",
       "hit": 3
     },
     "skill1": {
@@ -30048,6 +30172,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "all",
       "hit": 4
     },
     "skill1": {
@@ -30313,6 +30438,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -30526,6 +30652,7 @@ fgo.data([
           "v5": "5000"
         }
       ],
+      "type": "single",
       "hit": 5
     },
     "skill1": {
@@ -30810,6 +30937,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -31114,6 +31242,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "single",
       "hit": 6
     },
     "skill1": {
@@ -31382,6 +31511,7 @@ fgo.data([
           "v5": "150"
         }
       ],
+      "type": "single",
       "hit": 4
     },
     "skill1": {
@@ -31638,6 +31768,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "single",
       "hit": 10
     },
     "skill1": {
@@ -31942,6 +32073,7 @@ fgo.data([
           "v5": ""
         }
       ],
+      "type": "single",
       "hit": 6
     },
     "skill1": {
@@ -32210,6 +32342,7 @@ fgo.data([
           "v5": "5000"
         }
       ],
+      "type": "single",
       "hit": 13
     },
     "skill1": {
@@ -32444,6 +32577,7 @@ fgo.data([
           "v5": "1000"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -32714,6 +32848,7 @@ fgo.data([
           "v5": "1500"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -32986,6 +33121,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -33275,6 +33411,7 @@ fgo.data([
           "v5": "300"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -33547,6 +33684,7 @@ fgo.data([
           "v5": "2000"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -33762,6 +33900,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "all",
       "hit": 4
     },
     "skill1": {
@@ -34039,6 +34178,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "all",
       "hit": 4
     },
     "skill1": {
@@ -34280,6 +34420,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -34503,6 +34644,7 @@ fgo.data([
           "v5": "2500"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -34770,6 +34912,7 @@ fgo.data([
           "v5": "1500"
         }
       ],
+      "type": "single",
       "hit": 5
     },
     "skill1": {
@@ -35086,6 +35229,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -35384,6 +35528,7 @@ fgo.data([
           "v5": ""
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -35620,6 +35765,7 @@ fgo.data([
           "v5": ""
         }
       ],
+      "type": "all",
       "hit": 6
     },
     "skill1": {
@@ -35891,6 +36037,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -36164,6 +36311,7 @@ fgo.data([
           "v5": "500"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -36420,6 +36568,7 @@ fgo.data([
           "v5": "80"
         }
       ],
+      "type": "single",
       "hit": 10
     },
     "skill1": {
@@ -36733,6 +36882,7 @@ fgo.data([
           "v5": ""
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -37020,6 +37170,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "single",
       "hit": 8
     },
     "skill1": {
@@ -37318,6 +37469,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "all",
       "hit": 4
     },
     "skill1": {
@@ -37597,6 +37749,7 @@ fgo.data([
           "v5": "6000"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -37902,6 +38055,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "all",
       "hit": 4
     },
     "skill1": {
@@ -38190,6 +38344,7 @@ fgo.data([
           "v5": "250"
         }
       ],
+      "type": "single",
       "hit": 3
     },
     "skill1": {
@@ -38413,6 +38568,7 @@ fgo.data([
           "v5": "500"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -38681,6 +38837,7 @@ fgo.data([
           "v5": ""
         }
       ],
+      "type": "single",
       "hit": 5
     },
     "skill1": {
@@ -38930,6 +39087,7 @@ fgo.data([
           "v5": ""
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -39167,6 +39325,7 @@ fgo.data([
           "v5": "200"
         }
       ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -39415,6 +39574,7 @@ fgo.data([
           "v5": "60"
         }
       ],
+      "type": "single",
       "hit": 8
     },
     "skill1": {
@@ -39699,6 +39859,7 @@ fgo.data([
           "v5": "1000"
         }
       ],
+      "type": "all",
       "hit": 6
     },
     "skill1": {
@@ -39957,6 +40118,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -40166,6 +40328,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "single",
       "hit": 5
     },
     "skill1": {
@@ -40412,6 +40575,7 @@ fgo.data([
           "v5": "2000"
         }
       ],
+      "type": "single",
       "hit": 6
     },
     "skill1": {
@@ -40602,6 +40766,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -40838,6 +41003,7 @@ fgo.data([
           "v5": ""
         }
       ],
+      "type": "all",
       "hit": 4
     },
     "skill1": {
@@ -41110,6 +41276,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "all",
       "hit": 6
     },
     "skill1": {
@@ -41353,6 +41520,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -41614,6 +41782,7 @@ fgo.data([
           "v5": "750"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -41904,6 +42073,7 @@ fgo.data([
           "v5": "200"
         }
       ],
+      "type": "single",
       "hit": 5
     },
     "skill1": {
@@ -42193,6 +42363,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "single",
       "hit": 8
     },
     "skill1": {
@@ -42419,6 +42590,7 @@ fgo.data([
           "v5": "400"
         }
       ],
+      "type": "single",
       "hit": 3
     },
     "skill1": {
@@ -42706,6 +42878,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -42998,6 +43171,7 @@ fgo.data([
           "v5": "200"
         }
       ],
+      "type": "all",
       "hit": 4
     },
     "skill1": {
@@ -43311,6 +43485,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "all",
       "hit": 4
     },
     "skill1": {
@@ -43564,6 +43739,7 @@ fgo.data([
           "v5": ""
         }
       ],
+      "type": "all",
       "hit": 4
     },
     "skill1": {
@@ -43840,6 +44016,7 @@ fgo.data([
           "v5": "1500"
         }
       ],
+      "type": "single",
       "hit": 8
     },
     "skill1": {
@@ -44108,6 +44285,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "all",
       "hit": 4
     },
     "skill1": {
@@ -44400,6 +44578,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -44693,6 +44872,7 @@ fgo.data([
           "v5": "60%"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -44964,6 +45144,7 @@ fgo.data([
           "v5": "120"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -45198,6 +45379,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -45455,6 +45637,7 @@ fgo.data([
           "v5": "200"
         }
       ],
+      "type": "all",
       "hit": 10
     },
     "skill1": {
@@ -45646,6 +45829,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "single",
       "hit": 3
     },
     "skill1": {
@@ -45796,6 +45980,7 @@ fgo.data([
       "name": "()",
       "card": "",
       "effect": [],
+      "type": "support",
       "hit": 1
     },
     "skill1": {
@@ -46023,6 +46208,7 @@ fgo.data([
           "v5": "1500"
         }
       ],
+      "type": "single",
       "hit": 2
     },
     "skill1": {
@@ -46226,6 +46412,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -46432,6 +46619,7 @@ fgo.data([
           "v5": "60"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -46659,6 +46847,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -46837,6 +47026,7 @@ fgo.data([
           "v5": "2200"
         }
       ],
+      "type": "single",
       "hit": 4
     },
     "skill1": {
@@ -47046,6 +47236,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -47295,6 +47486,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -47505,6 +47697,7 @@ fgo.data([
           "v5": "900"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -47741,6 +47934,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -48029,6 +48223,7 @@ fgo.data([
           "v5": "1000"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -48286,6 +48481,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -48495,6 +48691,7 @@ fgo.data([
           "v5": ""
         }
       ],
+      "type": "all",
       "hit": 6
     },
     "skill1": {
@@ -48719,6 +48916,7 @@ fgo.data([
           "v5": "80"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -48959,6 +49157,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -49137,6 +49336,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "all",
       "hit": 4
     },
     "skill1": {
@@ -49369,6 +49569,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -49607,6 +49808,7 @@ fgo.data([
           "v5": "25"
         }
       ],
+      "type": "single",
       "hit": 10
     },
     "skill1": {
@@ -49839,6 +50041,7 @@ fgo.data([
           "v5": "25"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -50029,6 +50232,7 @@ fgo.data([
           "v5": "3000"
         }
       ],
+      "type": "all",
       "hit": 4
     },
     "skill1": {
@@ -50264,6 +50468,7 @@ fgo.data([
           "v5": "500"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -50553,6 +50758,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -50814,6 +51020,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -51080,6 +51287,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -51334,6 +51542,7 @@ fgo.data([
           "v5": ""
         }
       ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -51534,6 +51743,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -51741,6 +51951,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -51946,6 +52157,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "single",
       "hit": 4
     },
     "skill1": {
@@ -52167,6 +52379,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -52361,6 +52574,7 @@ fgo.data([
           "v5": "200"
         }
       ],
+      "type": "single",
       "hit": 12
     },
     "skill1": {
@@ -52609,6 +52823,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -52857,6 +53072,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "single",
       "hit": 5
     },
     "skill1": {
@@ -53102,6 +53318,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "single",
       "hit": 12
     },
     "skill1": {
@@ -53339,6 +53556,7 @@ fgo.data([
           "v5": ""
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -53578,6 +53796,7 @@ fgo.data([
           "v5": "2500"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -53816,6 +54035,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "single",
       "hit": 2
     },
     "skill1": {
@@ -54010,6 +54230,7 @@ fgo.data([
       "name": "()",
       "card": "",
       "effect": [],
+      "type": "support",
       "hit": 3
     },
     "skill1": {
@@ -54252,6 +54473,7 @@ fgo.data([
       "name": "()",
       "card": "",
       "effect": [],
+      "type": "support",
       "hit": 1
     },
     "skill1": {
@@ -54520,6 +54742,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -54765,6 +54988,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "all",
       "hit": 10
     },
     "skill1": {
@@ -54961,6 +55185,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -55187,6 +55412,7 @@ fgo.data([
           "v5": "70"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -55407,6 +55633,7 @@ fgo.data([
           "v5": ""
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -55618,6 +55845,7 @@ fgo.data([
           "v5": "2500"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -55832,6 +56060,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "all",
       "hit": 8
     },
     "skill1": {
@@ -56061,6 +56290,7 @@ fgo.data([
           "v5": "70"
         }
       ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -56291,6 +56521,7 @@ fgo.data([
           "v5": "8000"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -56515,6 +56746,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -56712,6 +56944,7 @@ fgo.data([
           "v5": "90"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -56956,6 +57189,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "all",
       "hit": 10
     },
     "skill1": {
@@ -57162,6 +57396,7 @@ fgo.data([
           "v5": "5000"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -57412,6 +57647,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "all",
       "hit": 3
     },
     "skill1": {
@@ -57649,6 +57885,7 @@ fgo.data([
           "v5": "200"
         }
       ],
+      "type": "single",
       "hit": 5
     },
     "skill1": {
@@ -57883,6 +58120,7 @@ fgo.data([
           "v5": "60"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -58069,6 +58307,7 @@ fgo.data([
           "v5": "60"
         }
       ],
+      "type": "single",
       "hit": 3
     },
     "skill1": {
@@ -58262,6 +58501,7 @@ fgo.data([
           "v5": "1000"
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -58509,6 +58749,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -58747,6 +58988,7 @@ fgo.data([
           "v5": "1000"
         }
       ],
+      "type": "single",
       "hit": 12
     },
     "skill1": {
@@ -58968,6 +59210,7 @@ fgo.data([
           "v5": "60"
         }
       ],
+      "type": "single",
       "hit": 5
     },
     "skill1": {
@@ -59228,6 +59471,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "single",
       "hit": 3
     },
     "skill1": {
@@ -59453,6 +59697,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "single",
       "hit": 15
     },
     "skill1": {
@@ -59672,6 +59917,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -59941,6 +60187,7 @@ fgo.data([
           "v5": "2500"
         }
       ],
+      "type": "single",
       "hit": 10
     },
     "skill1": {
@@ -60199,6 +60446,7 @@ fgo.data([
           "v5": ""
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -60362,6 +60610,7 @@ fgo.data([
           "v5": "40"
         }
       ],
+      "type": "single",
       "hit": 10
     },
     "skill1": {
@@ -60568,6 +60817,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "all",
       "hit": 10
     },
     "skill1": {
@@ -60836,6 +61086,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "all",
       "hit": 8
     },
     "skill1": {
@@ -61056,6 +61307,7 @@ fgo.data([
           "v5": "50"
         }
       ],
+      "type": "single",
       "hit": 15
     },
     "skill1": {
@@ -61322,6 +61574,7 @@ fgo.data([
           "v5": ""
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -61512,6 +61765,7 @@ fgo.data([
       "name": "()",
       "card": "",
       "effect": [],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -61769,6 +62023,7 @@ fgo.data([
           "v5": "20"
         }
       ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -61980,6 +62235,7 @@ fgo.data([
           "v5": "3000"
         }
       ],
+      "type": "support",
       "hit": 0
     },
     "skill1": {
@@ -62173,6 +62429,7 @@ fgo.data([
           "v5": ""
         }
       ],
+      "type": "all",
       "hit": 5
     },
     "skill1": {
@@ -62401,6 +62658,7 @@ fgo.data([
           "v5": "6000"
         }
       ],
+      "type": "all",
       "hit": 8
     },
     "skill1": {
@@ -62565,6 +62823,7 @@ fgo.data([
           "v5": "30"
         }
       ],
+      "type": "all",
       "hit": 7
     },
     "skill1": {
@@ -62823,6 +63082,7 @@ fgo.data([
           "v5": "90"
         }
       ],
+      "type": "single",
       "hit": 1
     },
     "skill1": {
@@ -63129,6 +63389,7 @@ fgo.data([
           "v5": "100"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -63348,6 +63609,7 @@ fgo.data([
           "v5": "35"
         }
       ],
+      "type": "all",
       "hit": 1
     },
     "skill1": {
@@ -63497,6 +63759,7 @@ fgo.data([
       "name": "()",
       "card": "",
       "effect": [],
+      "type": "support",
       "hit": 1
     },
     "skill1": {

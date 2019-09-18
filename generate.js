@@ -204,12 +204,14 @@ const parseHoguData = (json, $) => {
         const waname = tr.eq(0).find("th").eq(0).contents().last().text().trim().replace(/\r?\n/g, '').replace(/\s+/g, "");
         hogu.name = waname + "(" + name + ")";
         hogu.card = tr.eq(2).find("td").eq(0).text().trim().substring(0, 1).toLowerCase();
+        hogu.type = 
 
         hogu.effect = [];
 
         const meta = {
             isAtkStart: false,
-            target : ""
+            target : "",
+            type : "support"
         };
 
         for (let i = 2; i < tr.length; i++) {
@@ -223,13 +225,13 @@ const parseHoguData = (json, $) => {
             const v5 = tr.eq(i).find("td").eq(5 + add).text().trim();
 
             const type = parseEffectType(desc);
+            meta.target = parseEffectTarget(desc, meta.target);
 
             const lvoc = desc.indexOf("<OC:効果UP>") !== -1 ? "oc" : "lv";
             const beforeafter = meta.isAtkStart ? "after" : "before";
-
             const ternCount = ternCountParse(desc);
             
-            meta.target = parseEffectTarget(desc, meta.target);
+           
 
             hogu.effect.push({
                 type: type,
@@ -248,13 +250,16 @@ const parseHoguData = (json, $) => {
 
             if (type === "攻撃") {
                 meta.isAtkStart = true;
+                meta.type =  meta.target === "enemy-all" ? "all" : "single";
             }
         }
+        hogu.type = meta.type;
     });
 
     findDataDiv($, "h4", "隠しステータス", (selector) => {
         hogu.hit = parseInt(selector.find("tbody tr").eq(4).find("td").eq(4).text().trim());
     });
+    
 
     json.hogu = hogu;
 };

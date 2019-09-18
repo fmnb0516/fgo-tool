@@ -47,13 +47,13 @@
         <input readonly type="text" class="hogu-count-input" value="{{count}}" style="width: 30px;">
       </td>
       <td>
-        <input readonly type="text" class="hogu-target-input" value="{{target}}" style="width: 150px;">
+        <input readonly type="text" class="hogu-target-input" value="{{effectTarget target}}" style="width: 150px;">
       </td>
       <td>
-        <input readonly type="text" class="hogu-beforeafter-input" value="{{beforeafter}}" style="width: 50px;">
+        <input readonly type="text" class="hogu-beforeafter-input" value="{{beforeafterLabel beforeafter}}" style="width: 50px;">
       </td>
       <td>
-        <input readonly type="text" class="hogu-lvoc-input" value="{{lvoc}}" style="width: 50px;">
+        <input readonly type="text" class="hogu-lvoc-input" value="{{lvocLabel lvoc}}" style="width: 50px;">
       </td>
       <td>
         <input readonly type="text" class="hogu-desc-input" value="{{desc}}" style="width: 300px;">
@@ -88,7 +88,7 @@
         <input readonly type="text" class="skill-count-input" value="{{count}}" style="width: 30px;">
       </td>
       <td>
-        <input readonly type="text" class="skill-target-input" value="{{target}}" style="width: 150px;">
+        <input readonly type="text" class="skill-target-input" value="{{effectTarget target}}" style="width: 150px;">
       </td>
       <td>
         <input readonly type="text" class="skill-desc-input" value="{{desc}}" style="width: 300px;">
@@ -218,7 +218,7 @@
       <div class="col-lg-2">
         <div class="form-group">
           <label for="class-input">クラス</label>
-          <input readonly type="text" class="form-control" id="class-input" value="{{data.servant.clazz}}">
+          <input readonly type="text" class="form-control" id="class-input" value="{{servantClass data.servant.clazz}}">
         </div>
       </div>
       <div class="col-lg-2">
@@ -531,13 +531,13 @@
           <div class="col-lg-2">
             <div class="form-group">
               <label for="hogu-type-input">種別</label>
-              <input readonly type="text" class="form-control" id="hogu-type-input" value="{{data.hogu.type}}">
+              <input readonly type="text" class="form-control" id="hogu-type-input" value="{{hogutype data.hogu.type}}">
             </div>
           </div>
           <div class="col-lg-2">
             <div class="form-group">
               <label for="hogu-card-input">カード</label>
-              <input readonly type="text" class="form-control" id="hogu-card-input" value="{{data.hogu.card}}">
+              <input readonly type="text" class="form-control" id="hogu-card-input" value="{{card data.hogu.card}}">
             </div>
           </div>
           <div class="col-lg-2">
@@ -591,6 +591,48 @@
 
         var hash = location.hash;
         var dataId = null;
+
+        Handlebars.registerHelper('servantClass', function (id) {
+          return fgo.classToLabel(id);
+        });
+
+        Handlebars.registerHelper('card', function (id) {
+          var map = {
+            "a": "Arts",
+            "q": "Quick",
+            "b": "Buster"
+          };
+          return map[id];
+        });
+
+        Handlebars.registerHelper('hogutype', function (v) {
+          var map = {
+            "all":"全体",
+            "single":"単体",
+            "support":"補助"
+          };
+          return map[v];
+        });
+
+        Handlebars.registerHelper('beforeafterLabel', function (v) {
+          return v === "before" ? "前" : "後";
+        });
+
+        Handlebars.registerHelper('lvocLabel', function (v) {
+          return v === "lv" ? "Level" : "OC";
+        });
+
+        Handlebars.registerHelper('effectTarget', function (id) {
+          var map = {
+            "self": "自身",
+            "other-all": "自身を除く全体",
+            "self-other": "全体",
+            "other-single": "味方単体",
+            "enemy-single": "敵単体",
+            "enemy-all": "敵全体"
+          };
+          return map[id];
+        });
 
         Handlebars.registerHelper('include', function (id, data) {
           const tpl = Handlebars.compile($("#" + id).html());

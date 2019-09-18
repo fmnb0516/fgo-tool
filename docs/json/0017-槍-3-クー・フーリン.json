@@ -70,6 +70,7 @@
     "name": "()",
     "card": "",
     "effect": [],
+    "type": "support",
     "hit": 1
   },
   "skill1": {
