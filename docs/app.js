@@ -130,6 +130,11 @@ $(function() {
             $("#skill1-name").text(data.skill1.name);
             $("#skill2-name").text(data.skill2.name);
             $("#skill3-name").text(data.skill3.name);
+
+            var detailUrl = "./view.html#"+ (data.servant.no) +"-" + (fgo.classToLabel(data.servant.clazz)) + "-"
+                + (data.servant.rare) + "-" + (data.servant.name) + ".json";
+
+            $("#detail-link").attr("href", detailUrl);
         });
     
         $(document).on("change", "#attacker-level", function() {
