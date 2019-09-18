@@ -811,8 +811,7 @@ const run = async () => {
         }
 
         allData.push(json);
-
-        await writeFile(publicDir + "/json/" + filename + ".json", JSON.stringify(allData, json, "  "), "utf8");
+        await writeFile(publicDir + "/json/" + filename + ".json", JSON.stringify(json, null, "  "), "utf8");
     }
 
     const script = "fgo.data(" + JSON.stringify(allData, null, "  ") + ")"; 
