@@ -6,7 +6,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -1378,7 +1378,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -1621,7 +1621,7 @@ fgo.data([
       "clazz": "luncer",
       "rare": 2,
       "cost": 4,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -2503,7 +2503,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -2784,7 +2784,7 @@ fgo.data([
       "clazz": "archer",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -4102,7 +4102,7 @@ fgo.data([
       "clazz": "saber",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -4268,7 +4268,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 1,
       "cost": 3,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -5255,7 +5255,7 @@ fgo.data([
       "clazz": "archer",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -5333,7 +5333,7 @@ fgo.data([
           "v5": "1000"
         },
         {
-          "type": "追加ダメージ",
+          "type": "絆獲得量アップ",
           "tern": 0,
           "count": 0,
           "target": "self",
@@ -6173,7 +6173,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -6409,7 +6409,7 @@ fgo.data([
       "clazz": "ruler",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -6604,7 +6604,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 2,
       "cost": 4,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -6806,7 +6806,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -7643,7 +7643,7 @@ fgo.data([
       "clazz": "saber",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -7904,7 +7904,7 @@ fgo.data([
       "clazz": "luncer",
       "rare": 2,
       "cost": 4,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -8097,7 +8097,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -8400,7 +8400,7 @@ fgo.data([
       "clazz": "luncer",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -8644,7 +8644,7 @@ fgo.data([
       "clazz": "luncer",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -9154,7 +9154,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 2,
       "cost": 4,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -9346,7 +9346,7 @@ fgo.data([
       "clazz": "rider",
       "rare": 2,
       "cost": 4,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -9589,7 +9589,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -10249,7 +10249,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -10464,7 +10464,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 2,
       "cost": 4,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -11680,7 +11680,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -11950,7 +11950,7 @@ fgo.data([
       "clazz": "saber",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -12134,7 +12134,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 2,
       "cost": 4,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -12329,7 +12329,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -12884,7 +12884,7 @@ fgo.data([
       "clazz": "archer",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -13123,7 +13123,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -13634,7 +13634,7 @@ fgo.data([
       "clazz": "archer",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -14067,7 +14067,7 @@ fgo.data([
       "clazz": "barserker",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -14135,7 +14135,7 @@ fgo.data([
           "v5": "1200"
         },
         {
-          "type": "追加ダメージ",
+          "type": "絆獲得量アップ",
           "tern": 0,
           "count": 0,
           "target": "self",
@@ -14296,7 +14296,7 @@ fgo.data([
       "clazz": "barserker",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -14539,7 +14539,7 @@ fgo.data([
       "clazz": "monncanser",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -15686,7 +15686,8 @@ fgo.data([
       "name": "殺生院キアラ",
       "clazz": "alterego",
       "rare": 5,
-      "cost": 16
+      "cost": 16,
+      "tenchizin": "juu"
     },
     "card": {
       "arts": {
@@ -16054,7 +16055,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -16311,7 +16312,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -16759,7 +16760,7 @@ fgo.data([
       "clazz": "rider",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -18031,7 +18032,7 @@ fgo.data([
       "clazz": "barserker",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -18278,7 +18279,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -18827,7 +18828,7 @@ fgo.data([
       "clazz": "rider",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -19095,7 +19096,7 @@ fgo.data([
       "clazz": "archer",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -20338,7 +20339,7 @@ fgo.data([
       "clazz": "luncer",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -20593,7 +20594,7 @@ fgo.data([
       "clazz": "saber",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -21347,7 +21348,7 @@ fgo.data([
       "clazz": "alterego",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -21815,7 +21816,7 @@ fgo.data([
       "clazz": "alterego",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -22929,7 +22930,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -24412,7 +24413,7 @@ fgo.data([
       "clazz": "foreigner",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -24950,7 +24951,7 @@ fgo.data([
       "clazz": "barserker",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -25372,7 +25373,7 @@ fgo.data([
       "clazz": "archer",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -25653,7 +25654,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -26331,7 +26332,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -26771,7 +26772,7 @@ fgo.data([
       "clazz": "rider",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -27814,7 +27815,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -28025,7 +28026,7 @@ fgo.data([
       "clazz": "rider",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -28243,7 +28244,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -28438,7 +28439,7 @@ fgo.data([
       "clazz": "alterego",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -29949,7 +29950,7 @@ fgo.data([
       "clazz": "archer",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -30194,7 +30195,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -30442,7 +30443,7 @@ fgo.data([
       "clazz": "barserker",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -32356,7 +32357,7 @@ fgo.data([
       "clazz": "barserker",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -32590,7 +32591,7 @@ fgo.data([
       "clazz": "saber",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -32860,7 +32861,7 @@ fgo.data([
       "clazz": "luncer",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -33149,7 +33150,7 @@ fgo.data([
       "clazz": "ruler",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -34409,7 +34410,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -34984,7 +34985,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -35249,7 +35250,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -35513,7 +35514,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -36540,7 +36541,7 @@ fgo.data([
           "v10": "50"
         },
         {
-          "type": "キャスターに対する相性有利状態付与",
+          "type": "アルターエゴに対する相性有利状態付与",
           "tern": "3",
           "count": 0,
           "target": "self",
@@ -36600,7 +36601,7 @@ fgo.data([
       "clazz": "rider",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -37200,7 +37201,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -37777,7 +37778,7 @@ fgo.data([
       "clazz": "saber",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -38082,7 +38083,7 @@ fgo.data([
       "clazz": "archer",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -38652,7 +38653,7 @@ fgo.data([
           "v5": "1000"
         },
         {
-          "type": "追加ダメージ",
+          "type": "絆獲得量アップ",
           "tern": 0,
           "count": 0,
           "target": "self",
@@ -39296,7 +39297,7 @@ fgo.data([
       "clazz": "luncer",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -39862,7 +39863,7 @@ fgo.data([
       "clazz": "luncer",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -40069,7 +40070,7 @@ fgo.data([
       "clazz": "barserker",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -40329,7 +40330,7 @@ fgo.data([
       "clazz": "rider",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -40397,7 +40398,7 @@ fgo.data([
           "v5": "2400"
         },
         {
-          "type": "追加ダメージ",
+          "type": "絆獲得量アップ",
           "tern": 0,
           "count": 0,
           "target": "self",
@@ -40731,7 +40732,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 2,
       "cost": 4,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -41001,7 +41002,7 @@ fgo.data([
       "clazz": "rider",
       "rare": 1,
       "cost": 3,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -41256,7 +41257,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 1,
       "cost": 3,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -42582,7 +42583,7 @@ fgo.data([
       "clazz": "rider",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -42869,7 +42870,7 @@ fgo.data([
       "clazz": "barserker",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -43744,7 +43745,7 @@ fgo.data([
       "clazz": "saber",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -44546,7 +44547,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -45076,7 +45077,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -45361,7 +45362,7 @@ fgo.data([
       "clazz": "archer",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -45550,7 +45551,7 @@ fgo.data([
       "clazz": "saber",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -46118,7 +46119,7 @@ fgo.data([
       "clazz": "luncer",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -46561,7 +46562,7 @@ fgo.data([
       "clazz": "rider",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -46949,7 +46950,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -47209,7 +47210,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 1,
       "cost": 3,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -47988,7 +47989,7 @@ fgo.data([
         "name": "星見の旅路",
         "effect": [
           {
-            "type": "絆獲得量アップ",
+            "type": "追加ダメージ",
             "desc": "第二部のメインクエストクリア時に味方全体<控え含む>の絆獲得量をアップ(サポート時は無効)",
             "magnification": "20"
           }
@@ -48865,7 +48866,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -49054,7 +49055,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -49498,7 +49499,7 @@ fgo.data([
       "clazz": "saber",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -49719,7 +49720,7 @@ fgo.data([
       "clazz": "saber",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -50444,7 +50445,7 @@ fgo.data([
       "clazz": "saber",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -51226,7 +51227,7 @@ fgo.data([
       "clazz": "archer",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -51446,7 +51447,7 @@ fgo.data([
       "clazz": "saber",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -51836,7 +51837,7 @@ fgo.data([
       "clazz": "rider",
       "rare": 2,
       "cost": 4,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -52058,7 +52059,7 @@ fgo.data([
       "clazz": "rider",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -52490,7 +52491,7 @@ fgo.data([
       "clazz": "rider",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -53690,7 +53691,7 @@ fgo.data([
       "clazz": "saber",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -53945,7 +53946,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -54156,7 +54157,7 @@ fgo.data([
       "clazz": "saber",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -54398,7 +54399,7 @@ fgo.data([
       "clazz": "rider",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -55090,7 +55091,7 @@ fgo.data([
       "clazz": "ruler",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -55696,7 +55697,7 @@ fgo.data([
       "clazz": "avenger",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -55978,7 +55979,7 @@ fgo.data([
       "clazz": "barserker",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -56207,7 +56208,7 @@ fgo.data([
       "clazz": "barserker",
       "rare": 1,
       "cost": 3,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -56627,7 +56628,7 @@ fgo.data([
       "clazz": "barserker",
       "rare": 2,
       "cost": 4,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -56858,7 +56859,7 @@ fgo.data([
       "clazz": "barserker",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -57051,7 +57052,7 @@ fgo.data([
       "clazz": "barserker",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -57291,7 +57292,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -57761,7 +57762,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -57961,7 +57962,7 @@ fgo.data([
       "clazz": "archer",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -58164,7 +58165,7 @@ fgo.data([
       "clazz": "barserker",
       "rare": 2,
       "cost": 4,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -58374,7 +58375,7 @@ fgo.data([
       "clazz": "caster",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -59131,7 +59132,7 @@ fgo.data([
       "clazz": "luncer",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -59565,7 +59566,7 @@ fgo.data([
       "clazz": "saber",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -59818,7 +59819,7 @@ fgo.data([
       "clazz": "avenger",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -60474,7 +60475,7 @@ fgo.data([
       "clazz": "archer",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -60714,7 +60715,7 @@ fgo.data([
       "clazz": "rider",
       "rare": 5,
       "cost": 16,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -60948,7 +60949,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 4,
       "cost": 12,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -61434,7 +61435,7 @@ fgo.data([
       "clazz": "avenger",
       "rare": 0,
       "cost": 4,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -62728,7 +62729,7 @@ fgo.data([
       "clazz": "rider",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -63241,7 +63242,7 @@ fgo.data([
       "clazz": "rider",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {
@@ -63443,7 +63444,7 @@ fgo.data([
       "clazz": "asasin",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "jin"
+      "tenchizin": "hito"
     },
     "card": {
       "arts": {

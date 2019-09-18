@@ -4,7 +4,8 @@
     "name": "殺生院キアラ",
     "clazz": "alterego",
     "rare": 5,
-    "cost": 16
+    "cost": 16,
+    "tenchizin": "juu"
   },
   "card": {
     "arts": {
