@@ -96,77 +96,7 @@ const containText = (target, finds) => {
 };
 
 const parseEffectType = (function() {
-
     return (desc) => {
-        if(desc.indexOf("強力な攻撃") !== -1) {
-            return "攻撃";
-        }
-
-        if(containText(desc, ["NPをリチャージ", "NPを増やす", "NPを少し増やす"])) {
-            return "NP増加";
-        }
-
-        if(containText(desc, ["スターを", "獲得"])) {
-            return "スター獲得";
-        }
-
-        if(containText(desc, ["クリティカル威力をアップ"])) {
-            return "クリティカル威力アップ";
-        }
-
-        if(desc.indexOf("自身のArtsカードの性能をアップ") !== -1) {
-            return "Artsカード性能アップ";
-        }
-
-        if(desc.indexOf("Quickカードの性能をアップ") !== -1) {
-            return "Quickカード性能アップ";
-        }
-        
-        if(desc.indexOf("Busterカード性能をアップ") !== -1) {
-            return "Busterカード性能アップ";
-        }
-
-        if(desc.indexOf("攻撃力をアップ") !== -1) {
-            return "攻撃力アップ";
-        }
-
-        if(desc.indexOf("弱体耐性をアップ") !== -1) {
-            return "弱体耐性アップ";
-        }
-
-        if(desc.indexOf("弱体付与成功率をアップ") !== -1) {
-            return "弱体付与成功率アップ";
-        }
-
-        if(desc.indexOf("チャージを減らす") !== -1) {
-            return "チャージ減";
-        }
-
-        if(desc.indexOf("スタン状態を付与") !== -1) {
-            return "スタン付与";
-        }
-
-        if(desc.indexOf("呪い状態を付与") !== -1) {
-            return "呪い付与";
-        }
-
-        if(containText(desc, ["防御力を大ダウン"])) {
-            return "防御力ダウン";
-        }
-
-        if(containText(desc, ["防御力をアップ"])) {
-            return "防御力アップ";
-        }
-
-        if(containText(desc, ["被ダメージカット状態を付与"])) {
-            return "ダメージカット付与";
-        }
-
-        if(containText(desc, ["与ダメージプラス状態を付与"])) {
-            return "与ダメージプラス";
-        }
-
-        console.log(desc);
         return "";
     };
 
