@@ -180,7 +180,8 @@ const parseEffectType = (function() {
             return "被ダメージアップ";
         }
 
-        if(containAllText(desc, ["ダメージカット状態", "付与"])) {
+        if(containAllText(desc, ["ダメージカット状態", "付与"])
+                || containAllText(desc, ["ダメージ", "カットする状態", "付与"])) {
             return "ダメージカット付与";
         }
 
@@ -357,7 +358,8 @@ const parseEffectType = (function() {
             return "即死耐性ダウン";
         }
 
-        if(containAllText(desc, ["確率", "即死"])) {
+        if(containAllText(desc, ["確率", "即死"])
+                || containAllText(desc, ["即死効果"])) {
             return "即死";
         }
 
@@ -430,6 +432,10 @@ const parseEffectType = (function() {
 
         if(containAllText(desc, ["毒状態", "解除"])) {
             return "毒状態解除";
+        }
+
+        if(containAllText(desc, ["毒耐性", "アップ"])) {
+            return "毒耐性アップ";
         }
 
         if(containAllText(desc, ["冥界の護り状態", "付与"])) {
@@ -797,9 +803,13 @@ const run = async () => {
         parseClassSkillData(json, $);
         parseHoguData(json, $);
         parseSkillData(json, $);
-    }
 
-    console.log(LOG);
+        if(LOG.length !== 0) {
+            console.log(f);
+            console.log(LOG);
+            LOG.length = 0;
+        }
+    }
 };
 
 run();
