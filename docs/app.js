@@ -1,6 +1,7 @@
 
 $(function() {
 
+    /*
     (function() {
         var data = fgo.data()
         var html = "<option selected value=\"\">無し</option>";
@@ -11,9 +12,7 @@ $(function() {
             var label = "★"+ (d.servant.rare) + " " + "(" + (fgo.classToLabel(d.servant.clazz)) + ")" + " " + (d.servant.name); 
             html += "<option value=\""+ (d.servant.no) +"\">"+ label +"</option>";
         }
-        $(".supporter-select").html(html);
-
-        
+        $(".supporter-select").html(html);        
 
         $(document).on("change", ".supporter-select", function() {
             var index = $(this).val();
@@ -30,6 +29,7 @@ $(function() {
             }
         });
     })();
+    */
 
     (function() {
         function match(data, f) {
@@ -154,21 +154,21 @@ $(function() {
 
             if($("#"+index+"-skill1-enable").prop("checked")) {
                 var lv = parseInt($("#"+index+"-skill1-level").val());
-                data.skill1.effect.forEach(function(e) {
+                data.skill1.effects.forEach(function(e) {
                     fgo.bufMerge("support", buf, e.type, e["v"+lv], e);
                 });
             }
 
             if($("#"+index+"-skill2-enable").prop("checked")) {
                 var lv = parseInt($("#"+index+"-skill2-level").val());
-                data.skill2.effect.forEach(function(e) {
+                data.skill2.effects.forEach(function(e) {
                     fgo.bufMerge("support", buf, e.type, e["v"+lv], e);
                 });
             }
 
             if($("#"+index+"-skill3-enable").prop("checked")) {
                 var lv = parseInt($("#"+index+"-skill3-level").val());
-                data.skill3.effect.forEach(function(e) {
+                data.skill3.effects.forEach(function(e) {
                     fgo.bufMerge("support", buf, e.type, e["v"+lv], e);
                 });
             }
