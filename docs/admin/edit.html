@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <title>FGO データ編集</title>
+</head>
+
+<body>
+
+  <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+    <div class="container">
+      <a href="./index.html" class="navbar-brand">FGO データ編集</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="./list.html">サーヴァント一覧</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./edit.html">サーヴァントデータ作成</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top: 70px;" id="container">
+
+  </div>
+
+  <script type="text/x-handlebars" id="template-hogu-effect-input">
+    <tr>
+      <td>
+        <select class="hogu-type-input" style="width: 150px;">
+          {{fgo-buf-type-option type}}
+        </select>
+      </td>
+      <td>
+        <input type="text" class="hogu-tern-input" value="{{tern}}" style="width: 30px;">
+      </td>
+      <td>
+        <input type="text" class="hogu-count-input" value="{{count}}" style="width: 30px;">
+      </td>
+      <td>
+        <select class="hogu-target-input" style="width: 150px;">
+          <option value="self" {{selected "self" target}}>自身</option>
+          <option value="other-all" {{selected "other-all" target}}>自身を除く全体</option>
+          <option value="self-other" {{selected "self-other" target}}>全体</option>
+          <option value="other-single" {{selected "other-single" target}}>味方単体</option>
+          <option value="enemy-single" {{selected "enemy-single" target}}>敵単体</option>
+          <option value="enemy-all" {{selected "enemy-all" target}}>敵全体</option>
+        </select>
+      </td>
+      <td>
+        <select class="hogu-beforeafter-input" style="width: 50px;">
+            <option value="before" {{selected "before" beforeafter}}>前</option>
+            <option value="after" {{selected "after" beforeafter}}>後</option>
+        </select>
+      </td>
+      <td>
+        <select class="hogu-lvoc-input" style="width: 50px;">
+          <option value="lv" {{selected "lv" lvoc}}>Level</option>
+          <option value="oc" {{selected "oc" lvoc}}>OC</option>
+        </select>
+      </td>
+      <td>
+        <input type="text" class="hogu-desc-input" value="{{desc}}" style="width: 300px;">
+      </td>
+      <td>
+        <input type="text" class="hogu-val1-input" value="{{v1}}" style="width: 30px;">
+      </td>
+      <td>
+        <input type="text" class="hogu-val2-input" value="{{v2}}" style="width: 30px;">
+      </td>
+      <td>
+        <input type="text" class="hogu-val3-input" value="{{v3}}" style="width: 30px;">
+      </td>
+      <td>
+        <input type="text" class="hogu-val4-input" value="{{v4}}" style="width: 30px;">
+      </td>
+      <td>
+        <input type="text" class="hogu-val5-input" value="{{v5}}" style="width: 30px;">
+      </td>
+    </tr>
+  </script>
+
+  <script type="text/x-handlebars" id="template-skill-effect-input">
+    <tr>
+      <td>
+        <select class="skill-type-input" style="width: 150px;">
+          {{fgo-buf-type-option type}}
+        </select>
+      </td>
+      <td>
+        <input type="text" class="skill-tern-input" value="{{tern}}" style="width: 30px;">
+      </td>
+      <td>
+        <input type="text" class="skill-count-input" value="{{count}}" style="width: 30px;">
+      </td>
+      <td>
+        <select class="skill-target-input" value="{{target}}" style="width: 150px;">
+          <option value="self" {{selected "self" target}}>自身</option>
+          <option value="other-all" {{selected "other-all" target}}>自身を除く全体</option>
+          <option value="self-other" {{selected "self-other" target}}>全体</option>
+          <option value="other-single" {{selected "other-single" target}}>味方単体</option>
+          <option value="enemy-single" {{selected "enemy-single" target}}>敵単体</option>
+          <option value="enemy-all" {{selected "enemy-all" target}}>敵全体</option>
+        </select>
+      </td>
+      <td>
+        <input type="text" class="skill-desc-input" value="{{desc}}" style="width: 300px;">
+      </td>
+      <td>
+        <input type="text" class="skill-val1-input" value="{{v1}}" style="width: 30px;">
+      </td>
+      <td>
+        <input type="text" class="skill-val2-input" value="{{v2}}" style="width: 30px;">
+      </td>
+      <td>
+        <input type="text" class="skill-val3-input" value="{{v3}}" style="width: 30px;">
+      </td>
+      <td>
+        <input type="text" class="skill-val4-input" value="{{v4}}" style="width: 30px;">
+      </td>
+      <td>
+        <input type="text" class="skill-val5-input" value="{{v5}}" style="width: 30px;">
+      </td>
+      <td>
+        <input type="text" class="skill-val6-input" value="{{v6}}" style="width: 30px;">
+      </td>
+      <td>
+        <input type="text" class="skill-val7-input" value="{{v7}}" style="width: 30px;">
+      </td>
+      <td>
+        <input type="text" class="skill-val8-input" value="{{v8}}" style="width: 30px;">
+      </td>
+      <td>
+        <input type="text" class="skill-val9-input" value="{{v9}}" style="width: 30px;">
+      </td>
+      <td>
+        <input type="text" class="skill-val10-input" value="{{v10}}" style="width: 30px;">
+      </td>     
+    </tr>
+  </script>
+
+  <script type="text/x-handlebars" id="template-classskill-effect-input">
+    <tr>
+      <td>
+        <select class="skill-type-input" style="width: 150px;">
+          {{fgo-buf-type-option type}}
+        </select>
+      </td>
+      <td>
+        <input type="text" class="magnification-input" value="{{magnification}}" style="width: 50px;">
+      </td>
+      <td>
+        <input type="text" class="desc-input" value="{{desc}}" style="width: 300px;">
+      </td>
+      <td>
+          <button type="button" class="btn btn-danger btn-sm delete-row-btn">削除</button>
+      </td>
+    </tr>
+  </script>
+
+  <script type="text/x-handlebars" id="template-classskill-input">
+    <div class="col-lg-12 classskill-entry" style="margin-bottom: 25px;">
+      <div class="card border-primary delete-entry">
+        <div class="card-header">
+          <button type="button" class="btn btn-danger btn-sm delete-entry-btn"
+            style="position: absolute;right: 5px;top: -15px;">削除</button>
+          <input type="text" class="form-control classkill-name-input" value={{name}}>
+        </div>
+        
+        <div class="card-body table-responsive">
+          <table class="table table-hover text-nowrap">
+            <thead>
+              <tr>
+                <th>種別</th>
+                <th>倍率</th>
+                <th>説明文</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each effect}}
+                {{include "template-classskill-effect-input" this}}
+              {{/each}}
+            </tbody>
+          </table>
+          <button type="button" class="btn btn-primary btn-sm class-skill-effect-add-btn">追加</button>
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" id="template-tag-input">
+    <input class="tag-input" style="width: 100px;margin-left: 5px;margin-bottom: 5px;" type="text" value="{{this}}">
+  </script>
+
+  <script type="text/x-handlebars" id="template-status-input">
+    <div class="row alert alert-dismissible alert-secondary delete-entry" style="padding: 10px;">
+        <div style="position: absolute;right: 5px;top: -15px;">
+          <button type="button" class="btn btn-danger btn-sm delete-entry-btn">削除</button>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="form-group">
+            <label>Level</label>
+            <input type="text" class="form-control status-lv-input" value="{{level}}">
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="form-group">
+            <label>HP</label>
+            <input type="text" class="form-control status-hp-input" value="{{hp}}">
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="form-group">
+            <label>ATK</label>
+            <input type="text" class="form-control status-atk-input" value="{{atk}}">
+          </div>
+        </div>
+      </div>
+  </script>
+
+  <script type="text/x-handlebars" id="template-editable-form">
+
+    <button type="button" class="btn btn-outline-primary" id="save-btn">保存</button>
+    <hr/>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="form-group">
+          <label for="name-input">名称</label>
+          <input type="text" class="form-control" id="name-input" value="{{data.servant.name}}">
+        </div>
+      </div>
+
+      <div class="col-lg-2">
+          <div class="form-group">
+            <label for="no-input">No</label>
+            <input type="text" class="form-control" id="no-input" value="{{data.servant.no}}">
+          </div>
+        </div>
+      <div class="col-lg-2">
+        <div class="form-group">
+          <label for="class-input">クラス</label>
+          <select class="form-control" id="class-input"">
+            {{#each constData.servantClass}}
+            <option value="{{id}}" {{selected id @root.data.servant.clazz}}>{{label}}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="form-group">
+          <label for="rare-input">レア度</label>
+          <input type="text" class="form-control" id="rare-input" value="{{data.servant.rare}}">
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="form-group">
+          <label for="cost-input">コスト</label>
+          <input type="text" class="form-control" id="cost-input" value="{{data.servant.cost}}">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        コマンドカード
+        <div class="row" style="padding: 10px;">
+          <div class="col-lg-12"><span class="badge badge-primary">Arts</span></div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="command-arts-count-input">枚数</label>
+              <input type="text" class="form-control" id="command-arts-count-input" value="{{data.card.arts.count}}">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="command-arts-hit-input">ヒット数</label>
+              <input type="text" class="form-control" id="command-arts-hit-input" value="{{data.card.arts.hit}}">
+            </div>
+          </div>
+
+          <div class="col-lg-12"><span class="badge badge-success">Quick</span></div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="command-quick-count-input">枚数</label>
+              <input type="text" class="form-control" id="command-quick-count-input" value="{{data.card.quick.count}}">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="command-quick-hit-input">ヒット数</label>
+              <input type="text" class="form-control" id="command-quick-hit-input" value="{{data.card.quick.hit}}">
+            </div>
+          </div>
+
+          <div class="col-lg-12"><span class="badge badge-danger">Buster</span></div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="command-buster-count-input">枚数</label>
+              <input type="text" class="form-control" id="command-buster-count-input" value="{{data.card.buster.count}}">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="command-buster-hit-input">ヒット数</label>
+              <input type="text" class="form-control" id="command-buster-hit-input" value="{{data.card.buster.hit}}">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        ステータス &nbsp;&nbsp;
+        <button type="button" class="btn btn-primary" id="add-status-btn">追加</button>
+
+        <br /><br />
+        <div id="status-container">
+        {{#each data.status}}
+          {{include "template-status-input" this}}
+        {{/each}}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        隠しステータス
+        <div class="row" style="padding: 10px;">
+          <div class="col-lg-2">
+            <div class="form-group">
+              <label for="tenchizin-input">相性</label>
+              <select class="form-control" id="tenchizin-input">
+                {{#each constData.tenchizin}}
+                <option value="{{id}}" {{selected id @root.data.servant.tenchizin}}>{{label}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+
+
+          <div class="col-lg-2">
+            <div class="form-group">
+              <label for="input-na">N/A</label>
+              <input id="input-na" type="text" class="form-control" value="{{data.hidden.na}}">
+            </div>
+          </div>
+
+          <div class="col-lg-2">
+            <div class="form-group">
+              <label for="input-star-occurrence">スター発生率</label>
+              <input id="input-star-occurrence" type="text" class="form-control" value="{{data.hidden.staroccurrence}}">
+            </div>
+          </div>
+
+          <div class="col-lg-2">
+            <div class="form-group">
+              <label for="input-star-collection">スター集中度</label>
+              <input id="input-star-collection" type="text" class="form-control" value="{{data.hidden.starcollection}}">
+            </div>
+          </div>
+
+          <div class="col-lg-2">
+            <div class="form-group">
+              <label for="input-dr">DR</label>
+              <input id="input-dr" type="text" class="form-control" value="{{data.hidden.dr}}">
+            </div>
+          </div>
+
+          <div class="col-lg-2">
+            <div class="form-group">
+              <label for="input-nd">ND</label>
+              <input id="input-nd" type="text" class="form-control" value="{{data.hidden.nd}}">
+            </div>
+          </div>
+
+          <div class="col-lg-12">
+            <label for="input-tag">属性</label>
+            &nbsp;&nbsp;
+            <button type="button" class="btn btn-primary btn-sm" id="add-tag-btn">追加</button>
+
+            <div style="padding: 5px" id="tag-container">
+              {{#each data.hidden.tag}}
+                {{include "template-tag-input" this}}
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        クラススキル &nbsp;&nbsp;
+        <button type="button" class="btn btn-primary btn-sm" id="class-skill-add-btn">追加</button>
+
+        <div class="row" id="class-skill-container" style="padding: 10px;">
+          {{#each data.classskill}}
+            {{include "template-classskill-input" this}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        スキル1
+        <div class="row" style="padding: 10px;">
+          <div class="col-lg-9">
+            <div class="form-group">
+              <label for="skill-1-name-input">名称</label>
+              <input type="text" class="form-control" id="skill-1-name-input" value="{{data.skill1.name}}">
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <label for="skill-1-ct-input">CT</label>
+              <input type="text" class="form-control" id="skill-1-ct-input" value="{{data.skill1.ct}}">
+            </div>
+          </div>
+          <div class="col-lg-12 skill-effect-entry table-responsive">
+            <table class="table text-nowrap">
+              <thead>
+                <tr>
+                  <th>種別</th>
+                  <th>ターン</th>
+                  <th>回数</th>
+                  <th>対象</th>
+                  <th>説明文</th>
+                  <th>Lv1</th>
+                  <th>Lv2</th>
+                  <th>Lv3</th>
+                  <th>Lv4</th>
+                  <th>Lv5</th>
+                  <th>Lv6</th>
+                  <th>Lv7</th>
+                  <th>Lv8</th>
+                  <th>Lv9</th>
+                  <th>Lv10</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each data.skill1.effects}}
+                  {{include "template-skill-effect-input" this}}
+                {{/each}}
+              </tbody>
+            </table>
+            <button type="button" class="btn btn-primary btn-sm skill-effect-add-btn">追加</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        スキル2
+        <div class="row" style="padding: 10px;">
+          <div class="col-lg-9">
+            <div class="form-group">
+              <label for="skill-2-name-input">名称</label>
+              <input type="text" class="form-control" id="skill-2-name-input" value="{{data.skill2.name}}">
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <label for="skill-1-ct-input">CT</label>
+              <input type="text" class="form-control" id="skill-2-ct-input" value="{{data.skill2.ct}}">
+            </div>
+          </div>
+          <div class="col-lg-12 skill-effect-entry table-responsive">
+            <table class="table text-nowrap">
+              <thead>
+                <tr>
+                  <th>種別</th>
+                  <th>ターン</th>
+                  <th>回数</th>
+                  <th>対象</th>
+                  <th>説明文</th>
+                  <th>Lv1</th>
+                  <th>Lv2</th>
+                  <th>Lv3</th>
+                  <th>Lv4</th>
+                  <th>Lv5</th>
+                  <th>Lv6</th>
+                  <th>Lv7</th>
+                  <th>Lv8</th>
+                  <th>Lv9</th>
+                  <th>Lv10</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each data.skill2.effects}}
+                  {{include "template-skill-effect-input" this}}
+                {{/each}}
+              </tbody>
+            </table>
+            <button type="button" class="btn btn-primary btn-sm skill-effect-add-btn">追加</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        スキル3
+        <div class="row" style="padding: 10px;">
+          <div class="col-lg-9">
+            <div class="form-group">
+              <label for="skill-2-name-input">名称</label>
+              <input type="text" class="form-control" id="skill-3-name-input" value="{{data.skill3.name}}">
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <label for="skill-1-ct-input">CT</label>
+              <input type="text" class="form-control" id="skill-3-ct-input" value="{{data.skill3.ct}}">
+            </div>
+          </div>
+          <div class="col-lg-12 skill-effect-entry table-responsive">
+            <table class="table text-nowrap">
+              <thead>
+                <tr>
+                  <th>種別</th>
+                  <th>ターン</th>
+                  <th>回数</th>
+                  <th>対象</th>
+                  <th>説明文</th>
+                  <th>Lv1</th>
+                  <th>Lv2</th>
+                  <th>Lv3</th>
+                  <th>Lv4</th>
+                  <th>Lv5</th>
+                  <th>Lv6</th>
+                  <th>Lv7</th>
+                  <th>Lv8</th>
+                  <th>Lv9</th>
+                  <th>Lv10</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each data.skill3.effects}}
+                  {{include "template-skill-effect-input" this}}
+                {{/each}}
+              </tbody>
+            </table>
+            <button type="button" class="btn btn-primary btn-sm skill-effect-add-btn">追加</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        宝具
+        <div class="row" style="padding: 10px;">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="hogu-name-input">名称</label>
+              <input type="text" class="form-control" id="hogu-name-input" value="{{data.hogu.name}}">
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              <label for="hogu-type-input">種別</label>
+              <select class="form-control" id="hogu-type-input">
+                <option value="all" {{selected "all" @root.data.hogu.type}}>全体</option>
+                <option value="single" {{selected "single" @root.data.hogu.type}}>単体</option>
+                <option value="support" {{selected "support" @root.data.hogu.type}}>補助</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              <label for="hogu-card-input">カード</label>
+              <select class="form-control" id="hogu-card-input" >
+                <option value="a" {{selected "a" @root.data.hogu.card}}>Arts</option>
+                <option value="q" {{selected "q" @root.data.hogu.card}}>Quick</option>
+                <option value="b" {{selected "b" @root.data.hogu.card}}>Buster</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="form-group">
+              <label for="hogu-hit-input">Hit数</label>
+              <input type="text" class="form-control" id="hogu-hit-input" value="{{data.hogu.hit}}">
+            </div>
+          </div>
+          <div class="col-lg-12 table-responsive hogu-effect-entry">
+            <table class="table text-nowrap">
+              <thead>
+                <tr>
+                  <th>種別</th>
+                  <th>ターン</th>
+                  <th>回数</th>
+                  <th>対象</th>
+                  <th>前・後</th>
+                  <th>OC・Lv</th>
+                  <th>説明文</th>
+                  <th>1</th>
+                  <th>2</th>
+                  <th>3</th>
+                  <th>4</th>
+                  <th>5</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each data.hogu.effect}}
+                  {{include "template-hogu-effect-input" this}}
+                {{/each}}
+              </tbody>
+            </table>
+            <button type="button" class="btn btn-primary btn-sm hogu-effect-add-btn">追加</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </script>
+
+  <div>
+    <script src="../jquery/jquery-3.4.1.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+    <script src="../handlebars/handlebars-v4.2.0.js"></script>
+    <script src="../fgoutil/fgocalc.js"></script>
+
+    <script type="text/javascript">
+
+      $(function () {
+        var template = Handlebars.compile($("#template-editable-form").html());
+        var constData = fgo.constData();
+
+        var hash = location.hash;
+        var dataId = null;
+
+        Handlebars.registerHelper('include', function (id, data) {
+          const tpl = Handlebars.compile($("#" + id).html());
+          return new Handlebars.SafeString(tpl(data));
+        });
+
+        Handlebars.registerHelper('selected', function (v1, v2) {
+          return v1 === v2 ? "selected" : "";
+        });
+
+        Handlebars.registerHelper('fgo-buf-type-option', function (v1) {
+          var html = constData.effects.map(function (t) {
+            var selected = t === v1 ? "selected" : "";
+            return "<option " + selected + " value=\"" + t + "\">" + t + "</option>";
+          });
+
+          return new Handlebars.SafeString(html);
+        });
+
+        if (hash === "" || hash === "#") {
+
+          var html = template({
+            constData: constData
+          });
+          $("#container").html(html);
+
+        } else {
+
+          dataId = decodeURI(hash.substring(1));
+
+          $.ajax({
+            url: "/api/v1/" + dataId,
+            type: "GET",
+            dataType: "json",
+          }).done(function (data, textStatus, xhr) {
+            var html = template({
+              constData: constData,
+              data: data
+            });
+            $("#container").html(html);
+          }).fail(function (xhr, textStatus, e) {
+          });
+
+        }
+
+        $(document).on("click", "#add-status-btn", function () {
+          var tpl = Handlebars.compile($("#template-status-input").html());
+          $("#status-container").append(tpl({}));
+        });
+
+        $(document).on("click", ".delete-entry-btn", function () {
+          $(this).parents(".delete-entry").remove();
+        });
+
+        $(document).on("click", ".delete-row-btn", function () {
+          $(this).parents("tr").remove();
+        });
+
+        $(document).on("click", "#add-tag-btn", function () {
+          var tpl = Handlebars.compile($("#template-tag-input").html());
+          $("#tag-container").append(tpl(""));
+          $(".tag-input").last().focus();
+        });
+
+        $(document).on("blur", ".tag-input", function () {
+          if ($(this).val().trim() === "") {
+            $(this).remove();
+          }
+        });
+
+        $(document).on("click", "#class-skill-add-btn", function () {
+          var tpl = Handlebars.compile($("#template-classskill-input").html());
+          $("#class-skill-container").append(tpl({}));
+        });
+
+        $(document).on("click", ".class-skill-effect-add-btn", function () {
+          var tpl = Handlebars.compile($("#template-classskill-effect-input").html());
+          $(this).parents(".classskill-entry").find("tbody").append(tpl({}));
+        });
+
+        $(document).on("click", ".skill-effect-add-btn", function () {
+          var tpl = Handlebars.compile($("#template-skill-effect-input").html());
+          $(this).parents(".skill-effect-entry").find("tbody").append(tpl({}));
+        });
+
+        $(document).on("click", ".hogu-effect-add-btn", function () {
+          var tpl = Handlebars.compile($("#template-hogu-effect-input").html());
+          $(this).parents(".hogu-effect-entry").find("tbody").append(tpl({}));
+        });
+
+        $(document).on("click", "#save-btn", function () {
+          var data = getData();
+
+          var url = dataId !== null ? "/api/v1/" + dataId : "/api/v1/create";
+          var type = dataId !== null ? "PUT" : "POST";
+          $.ajax({
+            url: url,
+            type: type,
+            dataType: "json",
+            data: JSON.stringify(data),
+            contentType: 'application/json',
+          }).done(function (data, textStatus, xhr) {
+            alert(data.message);
+          }).fail(function (xhr, textStatus, e) {
+            alert(e);
+          });
+
+        });
+
+      });
+
+      function parseSkillEffects(container) {
+        var effect = [];
+
+        container.find("tbody tr").each(function () {
+          effect.push({
+            type: $(this).find(".skill-type-input").val(),
+            tern: parseInt($(this).find(".skill-tern-input").val()),
+            count: parseInt($(this).find(".skill-count-input").val()),
+            target: $(this).find(".skill-target-input").val(),
+            desc: $(this).find(".skill-desc-input").val(),
+            v1: $(this).find(".skill-val1-input").val(),
+            v2: $(this).find(".skill-val2-input").val(),
+            v3: $(this).find(".skill-val3-input").val(),
+            v4: $(this).find(".skill-val4-input").val(),
+            v5: $(this).find(".skill-val5-input").val(),
+            v6: $(this).find(".skill-val6-input").val(),
+            v7: $(this).find(".skill-val7-input").val(),
+            v8: $(this).find(".skill-val8-input").val(),
+            v9: $(this).find(".skill-val9-input").val(),
+            v10: $(this).find(".skill-val10-input").val()
+          });
+        });
+
+        return effect;
+      };
+
+      function getData() {
+        var status = [];
+
+        $("#status-container .delete-entry").each(function () {
+          var lv = $(this).find(".status-lv-input").val();
+          if (lv === "") {
+            return;
+          }
+          status.push({
+            "level": lv,
+            "hp": parseInt($(this).find(".status-hp-input").val()),
+            "atk": parseInt($(this).find(".status-atk-input").val())
+          });
+        });
+
+        var tags = [];
+
+        $("#tag-container input").each(function () {
+          tags.push($(this).val().trim());
+        });
+
+        var classskill = [];
+
+        $(".classskill-entry").each(function () {
+          var name = $(this).find(".classkill-name-input").val();
+          var effect = [];
+
+          $(this).find("tbody tr").each(function () {
+            var type = $(this).find(".skill-type-input").val();
+            var magnification = $(this).find(".magnification-input").val();
+            var desc = $(this).find(".desc-input").val();
+
+            effect.push({
+              type: type,
+              magnification: magnification,
+              desc: desc
+            });
+          });
+
+          classskill.push({
+            name: name,
+            effect: effect
+          });
+        });
+
+        var hoguEffects = [];
+        $(".hogu-effect-entry tbody tr").each(function () {
+          hoguEffects.push({
+            "type": $(this).find(".hogu-type-input").val(),
+            "tern": parseInt($(this).find(".hogu-tern-input").val()),
+            "count": parseInt($(this).find(".hogu-count-input").val()),
+            "target": $(this).find(".hogu-target-input").val(),
+            "beforeafter": $(this).find(".hogu-beforeafter-input").val(),
+            "lvoc": $(this).find(".hogu-lvoc-input").val(),
+            "desc": $(this).find(".hogu-desc-input").val(),
+            "v1": $(this).find(".hogu-val1-input").val(),
+            "v2": $(this).find(".hogu-val2-input").val(),
+            "v3": $(this).find(".hogu-val3-input").val(),
+            "v4": $(this).find(".hogu-val4-input").val(),
+            "v5": $(this).find(".hogu-val5-input").val()
+          });
+
+        });
+
+        return {
+          "servant": {
+            "name": $("#name-input").val(),
+            "clazz": $("#class-input").val(),
+            "rare": parseInt($("#rare-input").val()),
+            "cost": parseInt($("#cost-input").val()),
+            "tenchizin": $("#tenchizin-input").val(),
+            "no": $("#no-input").val()
+          },
+
+          "card": {
+            "arts": {
+              "count": parseInt($("#command-arts-count-input").val()),
+              "hit": parseInt($("#command-arts-hit-input").val())
+            },
+            "quick": {
+              "count": parseInt($("#command-quick-count-input").val()),
+              "hit": parseInt($("#command-quick-hit-input").val())
+            },
+            "buster": {
+              "count": parseInt($("#command-buster-count-input").val()),
+              "hit": parseInt($("#command-buster-hit-input").val())
+            }
+          },
+
+          "status": status,
+
+          "hidden": {
+            "na": parseFloat($("#input-na").val()),
+            "staroccurrence": parseFloat($("#input-star-occurrence").val()),
+            "starcollection": parseFloat($("#input-star-collection").val()),
+            "dr": parseFloat($("#input-dr").val()),
+            "nd": parseFloat($("#input-nd").val()),
+            "tag": tags
+          },
+
+          "classskill": classskill,
+
+          "skill1": {
+            "name": $("#skill-1-name-input").val(),
+            "ct": parseInt($("#skill-1-ct-input").val()),
+            "effects": parseSkillEffects($(".skill-effect-entry:eq(0)"))
+          },
+
+          "skill2": {
+            "name": $("#skill-2-name-input").val(),
+            "ct": parseInt($("#skill-2-ct-input").val()),
+            "effects": parseSkillEffects($(".skill-effect-entry:eq(1)"))
+          },
+
+          "skill3": {
+            "name": $("#skill-3-name-input").val(),
+            "ct": parseInt($("#skill-3-ct-input").val()),
+            "effects": parseSkillEffects($(".skill-effect-entry:eq(2)"))
+          },
+
+          "hogu": {
+            "name": $("#hogu-name-input").val(),
+            "type": $("#hogu-type-input").val(),
+            "card": $("#hogu-card-input").val(),
+            "hit": parseInt($("#hogu-hit-input").val()),
+            "effect": hoguEffects
+          }
+        }
+      };
+
+    </script>
+  </div>
+</body>
+
+</html>
