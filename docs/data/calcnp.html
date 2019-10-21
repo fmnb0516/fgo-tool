@@ -166,7 +166,7 @@
                             <th scope="col">狂(0.8)</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="result-box">
                     </tbody>
                 </table>
             </div>
@@ -191,9 +191,20 @@
                 </div>
             </div>
         </div>
-
-
     </div>
+
+    <script type="text/x-handlebars" id="template-result">
+        {{#each this}}
+        <tr>
+            <td>{{label}}</td>
+            <td>{{d1}} ({{multi 3 d1}})</td>
+            <td>{{d2}} ({{multi 3 d2}})</td>
+            <td>{{d3}} ({{multi 3 d3}})</td>
+            <td>{{d4}} ({{multi 3 d4}})</td>
+            <td>{{d5}} ({{multi 3 d5}})</td>
+        </tr>
+        {{/each}}
+    </script>
 
     <div>
         <script src="../resources/jquery/jquery-3.4.1.min.js"></script>
@@ -206,6 +217,11 @@
         <script type="text/javascript">
 
             $(function () {
+                Handlebars.registerHelper('multi', function (v, d) {
+                    var val = v * d;
+                    return Math.round(val * 10) / 10;
+                });
+
                 function getServantNo(val) {
                     return val.substring(0, val.indexOf("-"));
                 };
@@ -216,8 +232,13 @@
                     });
                 };
 
+                function bufTo(v) {
+                    return v === 0 ? v : v / 100;
+                };
+
                 function calcNp(card, na, hoguHit, overkill, hosei, buf) {
-                    return fgo.calcNp(na, card, buf.cardbuf, buf.npbuf, hoguHit, overkill, hosei);
+                    var val = fgo.calcNp(na, card, bufTo(buf.cardbuf), bufTo(buf.npbuf), hoguHit, overkill, hosei);
+                    return Math.round(val * 10) / 10;
                 };
 
                 function classSkillBuff(card, effect, buf) {
@@ -274,7 +295,7 @@
                     if (effect.target !== "other-single"
                         && effect.target !== "other-all"
                         && effect.target !== "self-other") {
-                        
+
                         return;
                     }
 
@@ -353,7 +374,7 @@
                     var hoguCard = $("#card-input").val();
                     var hoguHit = parseInt($("#hit-input").val());
                     var na = parseFloat($("#na-input").val());
-                    var cardHosei = getCardNp(hoguCard);
+                    var cardHosei = fgo.getCardNp(hoguCard);
 
                     buf.cardbuf += parseFloat($("#target-card-buf-input").val());
                     buf.npbuf += parseFloat($("#target-np-buf-input").val());
@@ -363,7 +384,7 @@
                     buf.npbuf += parseFloat($("#ext-np-buf-input").val());
                     buf.npget += parseFloat($("#ext-np-get-input").val());
 
-                    $("#support-box span").each(function() {
+                    $("#support-box span").each(function () {
                         var no = getServantNo($(this).text().trim());
                         var data = getServantData(no);
 
@@ -383,18 +404,19 @@
                     $("#calc-np-get-input").val(buf.npget);
 
                     const calcResult = [];
-                    for(var i=0; i<hoguHit; i++) {
+                    for (var i = 0; i < hoguHit; i++) {
                         calcResult.push({
-                            label : "OverKill " + (i+1),
-                            d1 : calcNp(cardHosei, na, hoguHit, i+1, 1.0, buf),
-                            d2 : calcNp(cardHosei, na, hoguHit, i+1, 1.2, buf),
-                            d3 : calcNp(cardHosei, na, hoguHit, i+1, 1.1, buf),
-                            d4 : calcNp(cardHosei, na, hoguHit, i+1, 0.9, buf),
-                            d5 : calcNp(cardHosei, na, hoguHit, i+1, 0.8, buf)
+                            label: "OverKill " + (i + 1),
+                            d1: calcNp(cardHosei, na, hoguHit, i + 1, 1.0, buf),
+                            d2: calcNp(cardHosei, na, hoguHit, i + 1, 1.2, buf),
+                            d3: calcNp(cardHosei, na, hoguHit, i + 1, 1.1, buf),
+                            d4: calcNp(cardHosei, na, hoguHit, i + 1, 0.9, buf),
+                            d5: calcNp(cardHosei, na, hoguHit, i + 1, 0.8, buf)
                         });
                     }
 
-                    console.log(calcResult);
+                    var template = Handlebars.compile($("#template-result").html());
+                    $("#result-box").html(template(calcResult));
                 });
             });
         </script>
