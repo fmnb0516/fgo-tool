@@ -32,6 +32,9 @@
     </div>
 
     <div class="container" style="padding-top: 70px;">
+        <button id="generate-json-btn" type="button" class="btn btn-info btn-sm">JSON生成</button>
+        <hr />
+
         <table class="table table-hover table-striped">
             <thead>
                 <tr>
@@ -66,24 +69,24 @@
         <script type="text/javascript">
 
             function convert(data) {
-                var list = data.map(function(d) {
+                var list = data.map(function (d) {
                     var entries = d.split("-");
                     return {
-                        no : entries[0].trim(),
-                        clazz : entries[1].trim(),
-                        rare : entries[2].trim(),
-                        name : entries[3].substring(0, entries[3].indexOf(".")).trim(),
-                        link : "./edit.html#" + d
+                        no: entries[0].trim(),
+                        clazz: entries[1].trim(),
+                        rare: entries[2].trim(),
+                        name: entries[3].substring(0, entries[3].indexOf(".")).trim(),
+                        link: "./edit.html#" + d
                     };
                 });
 
-                list.sort(function(d1, d2) {
+                list.sort(function (d1, d2) {
                     var c1 = parseInt(d1.no) - parseInt(d2.no);
                     var c2 = parseInt(d1.rare) - parseInt(d2.rare);
-                    if(c1 !== 0) {
+                    if (c1 !== 0) {
                         return c1;
                     }
-                    if(c2 !== 0) {
+                    if (c2 !== 0) {
                         return c2;
                     }
                     return d1.name > d2.name ? 1 : -1;
@@ -94,15 +97,31 @@
 
             $(function () {
                 $.ajax({
-                    url:"/api/v1/all",
-                    type:"GET",
-                    dataType:"json",
-                }).done(function(data,textStatus,xhr) {
+                    url: "/api/v1/all",
+                    type: "GET",
+                    dataType: "json",
+                }).done(function (data, textStatus, xhr) {
                     var result = convert(data);
                     var template = Handlebars.compile($("#template-list").html());
                     $("#container").html(template(result));
-                }).fail(function(xhr, textStatus, e ) {
+                }).fail(function (xhr, textStatus, e) {
                 });
+
+                $(document).on("click", "#generate-json-btn", function () {
+                    $.ajax({
+                        url: "/api/v1/generate",
+                        type: "POST",
+                        dataType: "json",
+                        data: JSON.stringify({}),
+                        contentType: 'application/json',
+                    }).done(function (data, textStatus, xhr) {
+                        alert(data.message);
+                    }).fail(function (xhr, textStatus, e) {
+                        alert(e);
+                    });
+                });
+
+
             });
 
         </script>

@@ -71,5 +71,9 @@ app.delete('/api/v1/:id',function(req,res){
     res.json({});
 });
 
+app.post('/api/v1/generate',function(req,res){
+    res.json({"message":"作成しました"});
+});
+
 app.listen(port);
 console.log('listen on port ' + port);
