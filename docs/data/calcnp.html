@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../resources/jquery-ui-1.12.1/jquery-ui.min.css">
     <title>FGO データ編集</title>
 </head>
 
@@ -31,63 +32,21 @@
         </div>
     </div>
 
-    <div class="container" style="padding-top: 70px;">
-        <table class="table table-hover table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">クラス</th>
-                    <th scope="col">レア度</th>
-                    <th scope="col">名称</th>
-                </tr>
-            </thead>
-            <tbody id="container">
-            </tbody>
-        </table>
+    <div class="container" style="padding-top: 70px;" id="container">
     </div>
 
     <script type="text/x-handlebars" id="template-list">
-        {{#each this}}
-        <tr>
-            <td>{{servant.no}}</td>
-            <td>{{servantClass servant.clazz}}</td>
-            <td>{{servant.rare}}</td>
-            <td><a href="./view.html#{{servant.no}}-{{servantClass servant.clazz}}-{{servant.rare}}-{{servant.name}}.json" target="_blank">{{servant.name}}</a></td>
-        </tr>
-        {{/each}}
     </script>
 
     <div>
         <script src="../resources/jquery/jquery-3.4.1.min.js"></script>
+        <script src="../resources/jquery-ui-1.12.1/jquery-ui.min.js"></script>
         <script src="../resources/bootstrap/js/bootstrap.js"></script>
         <script src="../resources/handlebars/handlebars-v4.2.0.js"></script>
         <script src="../resources/fgoutil/fgocalc.js"></script>
         <script src="../servant.js"></script>
 
         <script type="text/javascript">
-            $(function () {
-                Handlebars.registerHelper('servantClass', function (id) {
-                    return fgo.classToLabel(id);
-                });
-
-                var data = fgo.data();
-
-                data.sort(function(d1, d2) {
-                    var c1 = parseInt(d1.servant.no) - parseInt(d2.servant.no);
-                    var c2 = parseInt(d1.servant.rare) - parseInt(d2.servant.rare);
-                    if(c1 !== 0) {
-                        return c1;
-                    }
-                    if(c2 !== 0) {
-                        return c2;
-                    }
-                    return d1.servant.name > d2.servant.name ? 1 : -1;
-                });
-
-                var template = Handlebars.compile($("#template-list").html());
-                $("#container").html(template(data));
-            });
-
         </script>
     </div>
 </body>
