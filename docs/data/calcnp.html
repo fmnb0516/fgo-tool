@@ -86,22 +86,22 @@
 
             <div class="col-lg-4">
                 <div class="form-group">
-                    <label for="card-buf-input">Cardバフ</label>
-                    <input id="card-buf-inpu" type="text" class="form-control" value="">
+                    <label for="target-card-buf-input">Cardバフ</label>
+                    <input id="target-card-buf-input" type="text" class="form-control" value="">
                 </div>
             </div>
 
             <div class="col-lg-4">
                 <div class="form-group">
-                    <label for="np-buf-input">NP獲得量バフ</label>
-                    <input id="np-buf-inpu" type="text" class="form-control" value="">
+                    <label for="target-np-buf-input">NP獲得量バフ</label>
+                    <input id="target-np-buf-input" type="text" class="form-control" value="">
                 </div>
             </div>
 
             <div class="col-lg-4">
                 <div class="form-group">
-                    <label for="np-get-input">ターン後NP獲得</label>
-                    <input id="np-get-inpu" type="text" class="form-control" value="">
+                    <label for="target-np-get-input">ターン後NP獲得</label>
+                    <input id="target-np-get-input" type="text" class="form-control" value="">
                 </div>
             </div>
         </div>
@@ -117,7 +117,7 @@
                         <input autocomplete="off" type="text" class="form-control" id="support-servant-input" value="">
                     </div>
 
-                    <div class="alert alert-dismissible alert-primary">
+                    <div class="alert alert-dismissible alert-primary" id="support-box">
                     </div>
                 </div>
             </div>
@@ -126,21 +126,21 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="ext-card-buf-input">Cardバフ(追加)</label>
-                            <input id="ext-card-buf-input" type="text" class="form-control" value="">
+                            <input id="ext-card-buf-input" type="text" class="form-control" value="0">
                         </div>
                     </div>
 
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="ext-np-buf-input">NP獲得量バフ(追加)</label>
-                            <input id="ext-np-buf-input" type="text" class="form-control" value="">
+                            <input id="ext-np-buf-input" type="text" class="form-control" value="0">
                         </div>
                     </div>
 
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="ext-np-get-input">ターン後NP獲得(追加)</label>
-                            <input id="ext-np-get-input" type="text" class="form-control" value="">
+                            <input id="ext-np-get-input" type="text" class="form-control" value="0">
                         </div>
                     </div>
                 </div>
@@ -152,6 +152,9 @@
                 <h5>獲得NP計算</h5>
             </div>
             <div class="col-lg-12">
+                <button id="calc-btn" type="button" class="btn btn-primary">計算</button>
+                <br /><br />
+
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
@@ -167,13 +170,30 @@
                     </tbody>
                 </table>
             </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="calc-card-buf-input">Cardバフ(累計)</label>
+                    <input readonly id="calc-card-buf-input" type="text" class="form-control" value="0">
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="calc-np-buf-input">NP獲得量バフ(累計)</label>
+                    <input readonly id="calc-np-buf-input" type="text" class="form-control" value="0">
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="calc-np-get-input">ターン後NP獲得(累計)</label>
+                    <input readonly id="calc-np-get-input" type="text" class="form-control" value="0">
+                </div>
+            </div>
         </div>
 
 
     </div>
-
-    <script type="text/x-handlebars" id="template-list">
-    </script>
 
     <div>
         <script src="../resources/jquery/jquery-3.4.1.min.js"></script>
@@ -186,18 +206,195 @@
         <script type="text/javascript">
 
             $(function () {
+                function getServantNo(val) {
+                    return val.substring(0, val.indexOf("-"));
+                };
+
+                function getServantData(no) {
+                    return fgo.data().find(function (d) {
+                        return d.servant.no === no;
+                    });
+                };
+
+                function calcNp(na, hoguHit, overkill, hosei, buf) {
+                    return 1;
+                };
+
+                function classSkillBuff(card, effect, buf) {
+                    var cardbuflabel = {
+                        "a": "Artsカード性能アップ",
+                        "q": "Quickカード性能アップ",
+                        "b": "Busterカード性能アップ"
+                    };
+
+                    if (effect.type === "NP獲得量アップ") {
+                        buf.npbuf += parseFloat(effect.magnification);
+                    }
+
+                    if (effect.type === "NP獲得状態付与") {
+                        buf.npget += parseFloat(effect.magnification);
+                    }
+
+                    if (effect.type === cardbuflabel[card]) {
+                        buf.cardbuf += parseFloat(effect.magnification);
+                    }
+                };
+
+                function orgSkillBuff(card, effect, buf) {
+                    var cardbuflabel = {
+                        "a": "Artsカード性能アップ",
+                        "q": "Quickカード性能アップ",
+                        "b": "Busterカード性能アップ"
+                    };
+
+                    if (effect.target !== "self" && effect.target !== "self-other") {
+                        return;
+                    }
+
+                    if (effect.type === "NP獲得量アップ") {
+                        buf.npbuf += parseFloat(effect.v10);
+                    }
+
+                    if (effect.type === "NP獲得状態付与") {
+                        buf.npget += parseFloat(effect.v10);
+                    }
+
+                    if (effect.type === cardbuflabel[card]) {
+                        buf.cardbuf += parseFloat(effect.v10);
+                    }
+                };
+
+                function supportSkillBuff(card, effect, buf) {
+                    var cardbuflabel = {
+                        "a": "Artsカード性能アップ",
+                        "q": "Quickカード性能アップ",
+                        "b": "Busterカード性能アップ"
+                    };
+
+                    if (effect.target !== "other-single"
+                        && effect.target !== "other-all"
+                        && effect.target !== "self-other") {
+                        
+                        return;
+                    }
+
+                    if (effect.type === "NP獲得量アップ") {
+                        buf.npbuf += parseFloat(effect.v10);
+                    }
+
+                    if (effect.type === "NP獲得状態付与") {
+                        buf.npget += parseFloat(effect.v10);
+                    }
+
+                    if (effect.type === cardbuflabel[card]) {
+                        buf.cardbuf += parseFloat(effect.v10);
+                    }
+                };
+
                 var servantAutoCompleteData = fgo.data().map(function (d) {
                     return d.servant.no + "-星" + d.servant.rare + "-" + fgo.classToLabel(d.servant.clazz) + "-" + d.servant.name;
                 });
 
                 $("#target-servant-input").autocomplete({
-                    source: servantAutoCompleteData
+                    source: servantAutoCompleteData,
+                    select: function (e, d) {
+                        var no = getServantNo(d.item.value);
+                        var data = getServantData(no);
+
+                        $("#na-input").val(data.hidden.na);
+                        $("#hit-input").val(data.hogu.hit);
+                        $("#card-input").val(data.hogu.card);
+                        $("#hogu-type-input").val(data.hogu.type);
+
+                        var buf = { npbuf: 0, cardbuf: 0, npget: 0 };
+
+                        data.classskill.forEach(function (s) {
+                            s.effect.forEach(function (e) {
+                                classSkillBuff(data.hogu.card, e, buf);
+                            });
+                        });
+
+                        data.skill1.effects.forEach(function (e) {
+                            orgSkillBuff(data.hogu.card, e, buf);
+                        });
+                        data.skill2.effects.forEach(function (e) {
+                            orgSkillBuff(data.hogu.card, e, buf);
+                        });
+                        data.skill3.effects.forEach(function (e) {
+                            orgSkillBuff(data.hogu.card, e, buf);
+                        });
+
+                        $("#target-card-buf-input").val(buf.cardbuf);
+                        $("#target-np-buf-input").val(buf.npbuf);
+                        $("#target-np-get-input").val(buf.npget);
+                    }
                 });
 
                 $("#support-servant-input").autocomplete({
-                    source: servantAutoCompleteData
+                    source: servantAutoCompleteData,
+                    select: function (e, d) {
+                        $("#support-box").append($("<span>").attr("class", "badge badge-dark")
+                            .attr("style", "cursor: pointer;padding: 10px;margin: 3px;")
+                            .text(d.item.value));
+                        $("#support-servant-input").blur();
+                    }
                 });
 
+                $("#support-servant-input").focus(function () {
+                    $("#support-servant-input").val("");
+                });
+
+                $(document).on("click", "support-box span", function () {
+                    $(this).remove();
+                });
+
+                $(document).on("click", "#calc-btn", function () {
+                    var buf = { npbuf: 0, cardbuf: 0, npget: 0 };
+                    var hoguCard = $("#card-input").val();
+                    var hoguHit = parseInt($("#hit-input").val());
+                    var na = parseFloat($("#na-input").val());
+
+                    buf.cardbuf += parseFloat($("#target-card-buf-input").val());
+                    buf.npbuf += parseFloat($("#target-np-buf-input").val());
+                    buf.npget += parseFloat($("#target-np-get-input").val());
+
+                    buf.cardbuf += parseFloat($("#ext-card-buf-input").val());
+                    buf.npbuf += parseFloat($("#ext-np-buf-input").val());
+                    buf.npget += parseFloat($("#ext-np-get-input").val());
+
+                    $("#support-box span").each(function() {
+                        var no = getServantNo($(this).text().trim());
+                        var data = getServantData(no);
+
+                        data.skill1.effects.forEach(function (e) {
+                            supportSkillBuff(hoguCard, e, buf);
+                        });
+                        data.skill2.effects.forEach(function (e) {
+                            supportSkillBuff(hoguCard, e, buf);
+                        });
+                        data.skill3.effects.forEach(function (e) {
+                            supportSkillBuff(hoguCard, e, buf);
+                        });
+                    });
+
+                    $("#calc-card-buf-input").val(buf.cardbuf);
+                    $("#calc-np-buf-input").val(buf.npbuf);
+                    $("#calc-np-get-input").val(buf.npget);
+
+                    const calcResult = [];
+                    for(var i=0; i<hoguHit; i++) {
+                        calcResult.push({
+                            label : "OverKill " + (i+1),
+                            d1 : calcNp(na, hoguHit, i+1, 1.0, buf),
+                            d2 : calcNp(na, hoguHit, i+1, 1.2, buf),
+                            d3 : calcNp(na, hoguHit, i+1, 1.1, buf),
+                            d4 : calcNp(na, hoguHit, i+1, 0.9, buf),
+                            d5 : calcNp(na, hoguHit, i+1, 0.8, buf)
+                        });
+                    }
+
+                    console.log(calcResult);
+                });
             });
         </script>
     </div>
