@@ -33,6 +33,143 @@
     </div>
 
     <div class="container" style="padding-top: 70px;" id="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <h5>基礎データ</h5>
+            </div>
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label for="name-input">名称</label>
+                    <input autocomplete="off" type="text" class="form-control" id="target-servant-input" value="">
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="na-input">N/A</label>
+                    <input id="na-input" type="text" class="form-control" value="">
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="hit-input">ヒット数</label>
+                    <input type="text" class="form-control" id="hit-input" value="">
+                </div>
+            </div>
+
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <label for="card-input">Card</label>
+                    <select class="form-control" id="card-input">
+                        <option value=""></option>
+                        <option value="a">Arts</option>
+                        <option value="b">Buster</option>
+                        <option value="q">Quick</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <label for="hogu-type-input">宝具種別</label>
+                    <select class="form-control" id="hogu-type-input">
+                        <option value=""></option>
+                        <option value="support">補助宝具</option>
+                        <option value="all">全体宝具</option>
+                        <option value="single">単体宝具</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="card-buf-input">Cardバフ</label>
+                    <input id="card-buf-inpu" type="text" class="form-control" value="">
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="np-buf-input">NP獲得量バフ</label>
+                    <input id="np-buf-inpu" type="text" class="form-control" value="">
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="np-get-input">ターン後NP獲得</label>
+                    <input id="np-get-inpu" type="text" class="form-control" value="">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h5>サポート</h5>
+            </div>
+            <div class="col-lg-6">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="name-input">名称</label>
+                        <input autocomplete="off" type="text" class="form-control" id="support-servant-input" value="">
+                    </div>
+
+                    <div class="alert alert-dismissible alert-primary">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="ext-card-buf-input">Cardバフ(追加)</label>
+                            <input id="ext-card-buf-input" type="text" class="form-control" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="ext-np-buf-input">NP獲得量バフ(追加)</label>
+                            <input id="ext-np-buf-input" type="text" class="form-control" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="ext-np-get-input">ターン後NP獲得(追加)</label>
+                            <input id="ext-np-get-input" type="text" class="form-control" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h5>獲得NP計算</h5>
+            </div>
+            <div class="col-lg-12">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">OverKill</th>
+                            <th scope="col">剣/弓/槍(1.0)</th>
+                            <th scope="col">術(1.2)</th>
+                            <th scope="col">騎(1.1)</th>
+                            <th scope="col">殺(0.9)</th>
+                            <th scope="col">狂(0.8)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
     </div>
 
     <script type="text/x-handlebars" id="template-list">
@@ -47,6 +184,21 @@
         <script src="../servant.js"></script>
 
         <script type="text/javascript">
+
+            $(function () {
+                var servantAutoCompleteData = fgo.data().map(function (d) {
+                    return d.servant.no + "-星" + d.servant.rare + "-" + fgo.classToLabel(d.servant.clazz) + "-" + d.servant.name;
+                });
+
+                $("#target-servant-input").autocomplete({
+                    source: servantAutoCompleteData
+                });
+
+                $("#support-servant-input").autocomplete({
+                    source: servantAutoCompleteData
+                });
+
+            });
         </script>
     </div>
 </body>
