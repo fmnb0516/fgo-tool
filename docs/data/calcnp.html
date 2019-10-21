@@ -216,8 +216,8 @@
                     });
                 };
 
-                function calcNp(na, hoguHit, overkill, hosei, buf) {
-                    return 1;
+                function calcNp(card, na, hoguHit, overkill, hosei, buf) {
+                    return fgo.calcNp(na, card, buf.cardbuf, buf.npbuf, hoguHit, overkill, hosei);
                 };
 
                 function classSkillBuff(card, effect, buf) {
@@ -353,6 +353,7 @@
                     var hoguCard = $("#card-input").val();
                     var hoguHit = parseInt($("#hit-input").val());
                     var na = parseFloat($("#na-input").val());
+                    var cardHosei = getCardNp(hoguCard);
 
                     buf.cardbuf += parseFloat($("#target-card-buf-input").val());
                     buf.npbuf += parseFloat($("#target-np-buf-input").val());
@@ -385,11 +386,11 @@
                     for(var i=0; i<hoguHit; i++) {
                         calcResult.push({
                             label : "OverKill " + (i+1),
-                            d1 : calcNp(na, hoguHit, i+1, 1.0, buf),
-                            d2 : calcNp(na, hoguHit, i+1, 1.2, buf),
-                            d3 : calcNp(na, hoguHit, i+1, 1.1, buf),
-                            d4 : calcNp(na, hoguHit, i+1, 0.9, buf),
-                            d5 : calcNp(na, hoguHit, i+1, 0.8, buf)
+                            d1 : calcNp(cardHosei, na, hoguHit, i+1, 1.0, buf),
+                            d2 : calcNp(cardHosei, na, hoguHit, i+1, 1.2, buf),
+                            d3 : calcNp(cardHosei, na, hoguHit, i+1, 1.1, buf),
+                            d4 : calcNp(cardHosei, na, hoguHit, i+1, 0.9, buf),
+                            d5 : calcNp(cardHosei, na, hoguHit, i+1, 0.8, buf)
                         });
                     }
 
