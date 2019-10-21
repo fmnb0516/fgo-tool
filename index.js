@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 const fs = require('fs');
+const util = require('util');
 
 const port = 8080;
 const publicDir = path.join(__dirname, 'docs');
@@ -12,7 +13,6 @@ const docsDir = path.join(__dirname, 'docs');
 app.use(express.static(publicDir));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 
 app.get('/api/v1/all',function(req,res){
     fs.readdir(publicDir + "/json", (err, files) => {
@@ -71,8 +71,29 @@ app.delete('/api/v1/:id',function(req,res){
     res.json({});
 });
 
+const run = async () => {
+    const readdir = util.promisify(fs.readdir);
+    const readFile = util.promisify(fs.readFile);
+    const writeFile = util.promisify(fs.writeFile);
+
+    const files = (await readdir(publicDir + "/json")).filter(f => f.endsWith(".json"));
+
+    const allData = [];
+
+    for (let i = 0; i < files.length; i++) {
+        const f = files[i];
+        const data = await readFile(publicDir + "/json/" + f);
+        allData.push(JSON.parse(data));
+    }
+
+    const script = "fgo.data(" + JSON.stringify(allData, null, "  ") + ")"; 
+    await writeFile(publicDir + "/servant.js", script, "utf8");
+};
+
 app.post('/api/v1/generate',function(req,res){
-    res.json({"message":"作成しました"});
+    run().then(() => {
+        res.json({"message":"作成しました"});
+    });
 });
 
 app.listen(port);
