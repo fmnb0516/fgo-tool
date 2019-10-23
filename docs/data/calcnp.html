@@ -268,70 +268,120 @@
                             <small class="form-text text-muted">その他、特攻バフなど</small>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
 
+        <br />
 
+        <div class="row" style="border: 1px solid #f0f0f0;border-radius: 0.25rem;position: relative;">
+            <div style="position: absolute;top: -10px;left: 10px;">
+                <span class="badge badge-primary" style="cursor: pointer">サポート</span>
+            </div>
+
+            <div class="col-lg-12" style="padding-top: 10px;">
+                <div class="form-group">
+                    <label for="name-input">名称</label>
+                    <input autocomplete="off" type="text" class="form-control" id="support-servant-input" value="">
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div style="padding: 10px; " id="support-box">
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row" style="border: 1px solid #f0f0f0;border-radius: 0.25rem;position: relative;">
+            <div style="position: absolute;top: -10px;left: 10px;">
+                <span class="badge badge-primary" style="cursor: pointer">その他</span>
+            </div>
+
+            <div class="col-lg-12" style="padding: 10px;">
+                <div class="form-group">
+                    <label for="target-reisou-input">魔術礼装</label>
+                    <select class="form-control" id="target-reisou-input">
+                        <option value="0" help="無し">マスター礼装無し</option>
+                        <option value="1" help="攻50アップ">魔術礼装・カルデア</option>
+                        <option value="2" help="攻30アップ">カルデア戦闘服</option>
+                        <option value="3" help="B60アップ">アニバーサリー・ブロンド(単体B)</option>
+                        <option value="4" help="Q50アップ">ロイヤルブランド(単体Q)</option>
+                        <option value="5" help="Q30アップ">ブリリアントサマー(全体Q)</option>
+                        <option value="6" help="A50アップ">月の海の記憶(単体A)</option>
+                        <option value="7" help="A30アップ">月の裏側の記憶(全体A)</option>
+                        <option value="8" help="宝具50アップ">2004年の断片(単体宝具)</option>
+                        <option value="9" help="攻30アップ,宝具20アップ">極地用カルデア制服(単体ATK+宝具威力)</option>
+                        <option value="10" help="A30アップ,宝具20アップ">トロピカルサマー(単体A+宝具威力)</option>
+                        <option value="11" help="宝具30アップ">晴れの新年(全体宝具威力)</option>
+                    </select>
+                    <small id="reisou-help" class="form-text text-muted">無し</small>
+                </div>
+            </div>
+
+            <div class="col-lg-12" style="margin-bottom: 10px;">
+                <button type="button" class="btn btn-primary btn-sm toggle-btn"
+                    data-target="#target-other-buf">詳細</button>
+            </div>
+
+            <div class="col-lg-12" id="target-other-buf" style="display: none">
+                <div class="row" style="padding: 15px;">
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="other-atk-input">ATK(追加)</label>
+                            <input id="other-atk-input" type="text" class="form-control" value="0">
+                        </div>
+                    </div>
 
                     <div class="col-lg-2">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--
-        <div class="row">
-            
-        </div>
-
-        <div class="row">
-            <div class="col-lg-12">
-                <h5>サポート</h5>
-            </div>
-            <div class="col-lg-6">
-                <div class="col-lg-12">
-                    <div class="form-group">
-                        <label for="name-input">名称</label>
-                        <input autocomplete="off" type="text" class="form-control" id="support-servant-input" value="">
-                    </div>
-
-                    <div class="alert alert-dismissible alert-primary" id="support-box">
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="row">
-                    <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="ext-card-buf-input">Cardバフ(追加)</label>
-                            <input id="ext-card-buf-input" type="text" class="form-control" value="0">
+                            <label for="other-np-buf-input">NP獲得量バフ</label>
+                            <input id="other-np-buf-input" type="text" class="form-control" value="0">
                         </div>
                     </div>
 
-                    <div class="col-lg-12">
+                    <div class="col-lg-2">
                         <div class="form-group">
-                            <label for="ext-np-buf-input">NP獲得量バフ(追加)</label>
-                            <input id="ext-np-buf-input" type="text" class="form-control" value="0">
+                            <label for="other-np-get-input">ターン後NP獲得</label>
+                            <input id="other-np-get-input" type="text" class="form-control" value="0">
                         </div>
                     </div>
 
-                    <div class="col-lg-12">
+                    <div class="col-lg-2">
                         <div class="form-group">
-                            <label for="ext-np-get-input">ターン後NP獲得(追加)</label>
-                            <input id="ext-np-get-input" type="text" class="form-control" value="0">
+                            <label for="other-card-buf-input">攻バフ・防デバフ</label>
+                            <input id="other-atk-buf-input" type="text" class="form-control" value=""0>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="other-card-buf-input">Cardバフ</label>
+                            <input id="other-card-buf-input" type="text" class="form-control" value="0">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="other-hogu-buf-input">宝具バフ</label>
+                            <input id="other-hogu-buf-input" type="text" class="form-control" value="0">
+                            <small class="form-text text-muted">その他、特攻バフなど</small>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <h5>獲得NP計算</h5>
-            </div>
-            <div class="col-lg-12">
-                <button id="calc-btn" type="button" class="btn btn-primary">計算</button>
-                <br /><br />
+        </br>
 
-                <table class="table table-hover table-striped">
+        <div class="row" style="border: 1px solid #f0f0f0;border-radius: 0.25rem;position: relative;">
+            <div style="position: absolute;top: -10px;left: 10px;">
+                <span class="badge badge-primary" style="cursor: pointer">計算結果</span>
+            </div>
+
+            <div class="col-lg-12" style="padding-top: 20px">
+                <table class="table table-hover table-striped" style="display: none">
                     <thead>
                         <tr>
                             <th scope="col">OverKill</th>
@@ -346,28 +396,8 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-lg-4">
-                <div class="form-group">
-                    <label for="calc-card-buf-input">Cardバフ(累計)</label>
-                    <input readonly id="calc-card-buf-input" type="text" class="form-control" value="0">
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="form-group">
-                    <label for="calc-np-buf-input">NP獲得量バフ(累計)</label>
-                    <input readonly id="calc-np-buf-input" type="text" class="form-control" value="0">
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="form-group">
-                    <label for="calc-np-get-input">ターン後NP獲得(累計)</label>
-                    <input readonly id="calc-np-get-input" type="text" class="form-control" value="0">
-                </div>
-            </div>
         </div>
-        -->
+
     </div>
 
     <script type="text/x-handlebars" id="template-result">
@@ -571,12 +601,23 @@
                     }
                 });
 
+                var supportId = 0;
+
                 $("#support-servant-input").autocomplete({
                     source: servantAutoCompleteData,
                     select: function (e, d) {
+                        var no = getServantNo(d.item.value);
+
                         $("#support-box").append($("<span>").attr("class", "badge badge-dark")
                             .attr("style", "cursor: pointer;padding: 10px;margin: 3px;")
+                            .attr("id", "support-" + supportId)
+                            .attr("data-no", no)
+                            .attr("data-skill1", "v10")
+                            .attr("data-skill2", "v10")
+                            .attr("data-skill3", "v10")
                             .text(d.item.value));
+
+                        supportId += 1;
                         $("#support-servant-input").blur();
                     }
                 });
@@ -587,14 +628,14 @@
 
                 $("#target-skill1-lv-input,#target-skill2-lv-input,#target-skill3-lv-input").change(function () {
                     var no = $("#atackerContainer").attr("no");
-                    if(no !== undefined && no !== null && no !== "") {
+                    if (no !== undefined && no !== null && no !== "") {
                         updateAttackerBuf(no);
                     }
                 });
 
                 $("#atk-input,#for-atk-input,#hogu-lv-input,#hogu-oc-input").change(function () {
                     var no = $("#atackerContainer").attr("no");
-                    if(no !== undefined && no !== null && no !== "") {
+                    if (no !== undefined && no !== null && no !== "") {
                         updateAttackerBuf(no);
                     }
                 });
@@ -602,7 +643,7 @@
                 $("#level-input").change(function () {
                     $("#atk-input").val($(this).val());
                     var no = $("#atackerContainer").attr("no");
-                    if(no !== undefined && no !== null && no !== "") {
+                    if (no !== undefined && no !== null && no !== "") {
                         updateAttackerBuf(no);
                     }
                 });
@@ -615,6 +656,11 @@
                     } else {
                         target.show();
                     }
+                });
+
+                $("#target-reisou-input").change(function() {
+                    var txt = $('#target-reisou-input option:selected').attr("help");
+                    $("#reisou-help").text(txt);
                 });
 
                 /*
