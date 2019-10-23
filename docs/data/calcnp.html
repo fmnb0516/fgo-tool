@@ -33,77 +33,253 @@
     </div>
 
     <div class="container" style="padding-top: 70px;" id="container">
-
-        <div class="row">
-            <div class="col-lg-12">
-
-                <h5>基礎データ</h5>
+        <div id="atackerContainer" class="row"
+            style="border: 1px solid #f0f0f0;border-radius: 0.25rem;position: relative;">
+            <div style="position: absolute;top: -10px;left: 10px;">
+                <span class="badge badge-primary" style="cursor: pointer">アタッカー</span>
             </div>
-            <div class="col-lg-12">
+
+            <div class="col-lg-12" style="padding-top: 10px;">
                 <div class="form-group">
                     <label for="name-input">名称</label>
                     <input autocomplete="off" type="text" class="form-control" id="target-servant-input" value="">
                 </div>
             </div>
 
-            <div class="col-lg-4">
-                <div class="form-group">
-                    <label for="na-input">N/A</label>
-                    <input id="na-input" type="text" class="form-control" value="">
+            <div class="col-lg-12">
+                <div class="row" style="padding: 15px;">
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="level-input">Lv</label>
+                            <select class="form-control" id="level-input">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="atk-input">ATK</label>
+                            <input id="atk-input" type="text" class="form-control" value="">
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="for-atk-input">フォウくん(atk)</label>
+                            <input id="for-atk-input" type="text" class="form-control" value="1000">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="hogu-lv-input">宝具Lv</label>
+                            <select class="form-control" id="hogu-lv-input">
+                                <option value="1">lv1</option>
+                                <option value="2">lv2</option>
+                                <option value="3">lv4</option>
+                                <option value="4">lv4</option>
+                                <option value="5">lv5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="hogu-oc-input">宝具OC</label>
+                            <select class="form-control" id="hogu-oc-input">
+                                <option value="1">oc1</option>
+                                <option value="2">oc2</option>
+                                <option value="3">oc4</option>
+                                <option value="4">oc4</option>
+                                <option value="5">oc5</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="target-skill1-lv-input">スキル1Lv</label>
+                            <select class="form-control" id="target-skill1-lv-input">
+                                <option value="">使用しない</option>
+                                <option value="1">lv1</option>
+                                <option value="2">lv2</option>
+                                <option value="3">lv3</option>
+                                <option value="4">lv4</option>
+                                <option value="5">lv5</option>
+                                <option value="6">lv6</option>
+                                <option value="7">lv7</option>
+                                <option value="8">lv8</option>
+                                <option value="9">lv9</option>
+                                <option value="10">lv10</option>
+                            </select>
+                            <small class="form-text text-muted" id="target-skill1-lv-name"></small>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="target-skill2-lv-input">スキル2Lv</label>
+                            <select class="form-control" id="target-skill2-lv-input">
+                                <option value="">使用しない</option>
+                                <option value="1">lv1</option>
+                                <option value="2">lv2</option>
+                                <option value="3">lv3</option>
+                                <option value="4">lv4</option>
+                                <option value="5">lv5</option>
+                                <option value="6">lv6</option>
+                                <option value="7">lv7</option>
+                                <option value="8">lv8</option>
+                                <option value="9">lv9</option>
+                                <option value="10">lv10</option>
+                            </select>
+                            <small class="form-text text-muted" id="target-skill2-lv-name"></small>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="target-skill3-lv-input">スキル3Lv</label>
+                            <select class="form-control" id="target-skill3-lv-input">
+                                <option value="">使用しない</option>
+                                <option value="1">lv1</option>
+                                <option value="2">lv2</option>
+                                <option value="3">lv3</option>
+                                <option value="4">lv4</option>
+                                <option value="5">lv5</option>
+                                <option value="6">lv6</option>
+                                <option value="7">lv7</option>
+                                <option value="8">lv8</option>
+                                <option value="9">lv9</option>
+                                <option value="10">lv10</option>
+                            </select>
+                            <small class="form-text text-muted" id="target-skill3-lv-name"></small>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-lg-4">
-                <div class="form-group">
-                    <label for="hit-input">ヒット数</label>
-                    <input type="text" class="form-control" id="hit-input" value="">
-                </div>
+            <div class="col-lg-12" style="margin-bottom: 10px;">
+                <button type="button" class="btn btn-primary btn-sm toggle-btn" data-target="#target-detail">詳細</button>
             </div>
 
-            <div class="col-lg-2">
-                <div class="form-group">
-                    <label for="card-input">Card</label>
-                    <select class="form-control" id="card-input">
-                        <option value=""></option>
-                        <option value="a">Arts</option>
-                        <option value="b">Buster</option>
-                        <option value="q">Quick</option>
-                    </select>
-                </div>
-            </div>
+            <div class="col-lg-12" id="target-detail" style="display: none">
+                <div class="row" style="padding: 15px;">
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="na-input">N/A</label>
+                            <input id="na-input" type="text" class="form-control" value="">
+                        </div>
+                    </div>
 
-            <div class="col-lg-2">
-                <div class="form-group">
-                    <label for="hogu-type-input">宝具種別</label>
-                    <select class="form-control" id="hogu-type-input">
-                        <option value=""></option>
-                        <option value="support">補助宝具</option>
-                        <option value="all">全体宝具</option>
-                        <option value="single">単体宝具</option>
-                    </select>
-                </div>
-            </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="hit-input">ヒット数</label>
+                            <input type="text" class="form-control" id="hit-input" value="">
+                        </div>
+                    </div>
 
-            <div class="col-lg-4">
-                <div class="form-group">
-                    <label for="target-card-buf-input">Cardバフ</label>
-                    <input id="target-card-buf-input" type="text" class="form-control" value="">
-                </div>
-            </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="card-input">Card</label>
+                            <select class="form-control" id="card-input">
+                                <option value=""></option>
+                                <option value="a">Arts</option>
+                                <option value="b">Buster</option>
+                                <option value="q">Quick</option>
+                            </select>
+                        </div>
+                    </div>
 
-            <div class="col-lg-4">
-                <div class="form-group">
-                    <label for="target-np-buf-input">NP獲得量バフ</label>
-                    <input id="target-np-buf-input" type="text" class="form-control" value="">
-                </div>
-            </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="hogu-type-input">宝具種別</label>
+                            <select class="form-control" id="hogu-type-input">
+                                <option value=""></option>
+                                <option value="support">補助宝具</option>
+                                <option value="all">全体宝具</option>
+                                <option value="single">単体宝具</option>
+                            </select>
+                        </div>
+                    </div>
 
-            <div class="col-lg-4">
-                <div class="form-group">
-                    <label for="target-np-get-input">ターン後NP獲得</label>
-                    <input id="target-np-get-input" type="text" class="form-control" value="">
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="target-np-buf-input">NP獲得量バフ</label>
+                            <input id="target-np-buf-input" type="text" class="form-control" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="target-np-get-input">ターン後NP獲得</label>
+                            <input id="target-np-get-input" type="text" class="form-control" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="target-tenchizin-input">天地人</label>
+                            <select class="form-control" id="target-tenchizin-input">
+                                <option value="ten">天</option>
+                                <option value="chi">地</option>
+                                <option value="hito">人</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="tokkou-enable-input">特攻宝具</label>
+                            <select class="form-control" id="tokkou-enable-input">
+                                <option value="y">あり</option>
+                                <option value="n">なし</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="target-compatibility-input">有利不利</label>
+                            <select class="form-control" id="target-compatibility-input">
+                                <option value="1.0">等倍</option>
+                                <option value="2.0">2倍</option>
+                                <option value="1.5">1.5倍</option>
+                                <option value="0.5">不利</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="target-card-buf-input">攻バフ・防デバフ</label>
+                            <input id="target-atk-buf-input" type="text" class="form-control" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="target-card-buf-input">Cardバフ</label>
+                            <input id="target-card-buf-input" type="text" class="form-control" value="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="target-hogu-buf-input">宝具バフ</label>
+                            <input id="target-hogu-buf-input" type="text" class="form-control" value="">
+                            <small class="form-text text-muted">その他、特攻バフなど</small>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-lg-2">
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <!--
+        <div class="row">
+            
         </div>
 
         <div class="row">
@@ -191,6 +367,7 @@
                 </div>
             </div>
         </div>
+        -->
     </div>
 
     <script type="text/x-handlebars" id="template-result">
@@ -261,7 +438,7 @@
                     }
                 };
 
-                function orgSkillBuff(card, effect, buf) {
+                function orgSkillBuff(card, lv, effect, buf) {
                     var cardbuflabel = {
                         "a": "Artsカード性能アップ",
                         "q": "Quickカード性能アップ",
@@ -273,15 +450,15 @@
                     }
 
                     if (effect.type === "NP獲得量アップ") {
-                        buf.npbuf += parseFloat(effect.v10);
+                        buf.npbuf += parseFloat(effect["v" + lv]);
                     }
 
                     if (effect.type === "NP獲得状態付与") {
-                        buf.npget += parseFloat(effect.v10);
+                        buf.npget += parseFloat(effect["v" + lv]);
                     }
 
                     if (effect.type === cardbuflabel[card]) {
-                        buf.cardbuf += parseFloat(effect.v10);
+                        buf.cardbuf += parseFloat(effect["v" + lv]);
                     }
                 };
 
@@ -312,6 +489,47 @@
                     }
                 };
 
+                function updateAttackerBuf(no) {
+                    var data = getServantData(no);
+                    var hoguLevel = parseInt($("#hogu-lv-input").val());
+                    var hoguOC = parseInt($("#hogu-oc-input").val());
+                    var skill1 = $("#target-skill1-lv-input").val();
+                    var skill2 = $("#target-skill2-lv-input").val();
+                    var skill3 = $("#target-skill3-lv-input").val();
+
+                    var buf = { npbuf: 0, cardbuf: 0, npget: 0, atkbuf: 0, hogubuf: 0 };
+
+                    data.classskill.forEach(function (s) {
+                        s.effect.forEach(function (e) {
+                            classSkillBuff(data.hogu.card, e, buf);
+                        });
+                    });
+
+                    if (skill1 !== "") {
+                        data.skill1.effects.forEach(function (e) {
+                            orgSkillBuff(data.hogu.card, skill1, e, buf);
+                        });
+                    }
+
+                    if (skill2 !== "") {
+                        data.skill2.effects.forEach(function (e) {
+                            orgSkillBuff(data.hogu.card, skill2, e, buf);
+                        });
+                    }
+
+                    if (skill3 !== "") {
+                        data.skill3.effects.forEach(function (e) {
+                            orgSkillBuff(data.hogu.card, skill3, e, buf);
+                        });
+                    }
+
+                    $("#target-card-buf-input").val(buf.cardbuf);
+                    $("#target-np-buf-input").val(buf.npbuf);
+                    $("#target-np-get-input").val(buf.npget);
+                    $("#target-atk-buf-input").val(buf.atkbuf);
+                    $("#target-hogu-buf-input").val(buf.hogubuf);
+                };
+
                 var servantAutoCompleteData = fgo.data().map(function (d) {
                     return d.servant.no + "-星" + d.servant.rare + "-" + fgo.classToLabel(d.servant.clazz) + "-" + d.servant.name;
                 });
@@ -322,32 +540,34 @@
                         var no = getServantNo(d.item.value);
                         var data = getServantData(no);
 
+                        $("#level-input").html(data.status.map(function (status) {
+                            return "<option value=\"" + (status.atk) + "\">" + (status.level) + "</option>";
+                        }).join());
+                        $("#atk-input").val(data.status[0].atk);
+
+                        $("#hogu-oc-input").val("1");
+                        $("#hogu-lv-input").val(data.servant.rare >= 4 ? "1" : "5");
+
                         $("#na-input").val(data.hidden.na);
                         $("#hit-input").val(data.hogu.hit);
                         $("#card-input").val(data.hogu.card);
                         $("#hogu-type-input").val(data.hogu.type);
 
-                        var buf = { npbuf: 0, cardbuf: 0, npget: 0 };
+                        $("#target-skill1-lv-input").val("10");
+                        $("#target-skill1-lv-name").text(data.skill1.name);
+                        $("#target-skill2-lv-input").val("10");
+                        $("#target-skill2-lv-name").text(data.skill2.name);
+                        $("#target-skill3-lv-input").val("10");
+                        $("#target-skill3-lv-name").text(data.skill3.name);
 
-                        data.classskill.forEach(function (s) {
-                            s.effect.forEach(function (e) {
-                                classSkillBuff(data.hogu.card, e, buf);
-                            });
-                        });
+                        $("#tokkou-enable-input").val("n");
+                        $("#target-compatibility-input").val("1.0");
+                        $("#target-tenchizin-input").val(data.servant.tenchizin);
 
-                        data.skill1.effects.forEach(function (e) {
-                            orgSkillBuff(data.hogu.card, e, buf);
-                        });
-                        data.skill2.effects.forEach(function (e) {
-                            orgSkillBuff(data.hogu.card, e, buf);
-                        });
-                        data.skill3.effects.forEach(function (e) {
-                            orgSkillBuff(data.hogu.card, e, buf);
-                        });
+                        $("#atackerContainer").attr("no", no);
 
-                        $("#target-card-buf-input").val(buf.cardbuf);
-                        $("#target-np-buf-input").val(buf.npbuf);
-                        $("#target-np-get-input").val(buf.npget);
+                        updateAttackerBuf(no);
+                        $("#target-servant-input").blur();
                     }
                 });
 
@@ -365,10 +585,39 @@
                     $("#support-servant-input").val("");
                 });
 
-                $(document).on("click", "support-box span", function () {
-                    $(this).remove();
+                $("#target-skill1-lv-input,#target-skill2-lv-input,#target-skill3-lv-input").change(function () {
+                    var no = $("#atackerContainer").attr("no");
+                    if(no !== undefined && no !== null && no !== "") {
+                        updateAttackerBuf(no);
+                    }
                 });
 
+                $("#atk-input,#for-atk-input,#hogu-lv-input,#hogu-oc-input").change(function () {
+                    var no = $("#atackerContainer").attr("no");
+                    if(no !== undefined && no !== null && no !== "") {
+                        updateAttackerBuf(no);
+                    }
+                });
+
+                $("#level-input").change(function () {
+                    $("#atk-input").val($(this).val());
+                    var no = $("#atackerContainer").attr("no");
+                    if(no !== undefined && no !== null && no !== "") {
+                        updateAttackerBuf(no);
+                    }
+                });
+
+                $(document).on("click", ".toggle-btn", function () {
+                    var targetId = $(this).attr("data-target");
+                    var target = $(targetId);
+                    if (target.is(':visible')) {
+                        target.hide();
+                    } else {
+                        target.show();
+                    }
+                });
+
+                /*
                 $(document).on("click", "#calc-btn", function () {
                     var buf = { npbuf: 0, cardbuf: 0, npget: 0 };
                     var hoguCard = $("#card-input").val();
@@ -418,6 +667,7 @@
                     var template = Handlebars.compile($("#template-result").html());
                     $("#result-box").html(template(calcResult));
                 });
+                */
             });
         </script>
     </div>
