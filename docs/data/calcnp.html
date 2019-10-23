@@ -314,7 +314,7 @@
                         <option value="7">lv7</option>
                         <option value="8">lv8</option>
                         <option value="9">lv9</option>
-                        <option value="10">lv10</option>
+                        <option value="10" selected>lv10</option>
                     </select>
                 </div>
             </div>
@@ -552,6 +552,22 @@
                     return Math.round(val * 10) / 10;
                 };
 
+                function reisouBuf(card, lv, reisou, buf) {
+                    var atkVal = reisou.attr("atk");
+                    var hoguVal = reisou.attr("hogu");
+                    var cardVal = reisou.attr(card);
+
+                    if(atkVal !== "") {
+                        buf.atkbuf += parseInt(atkVal.split(",")[lv-1]);
+                    }
+                    if(hoguVal !== "") {
+                        buf.hogubuf += parseInt(hoguVal.split(",")[lv-1]);
+                    }
+                    if(cardVal !== "") {
+                        buf.cardbuf += parseInt(cardVal.split(",")[lv-1]);
+                    }
+                };
+                
                 function classSkillBuff(card, effect, buf) {
                     var cardbuflabel = {
                         "a": "Artsカード性能アップ",
@@ -753,6 +769,8 @@
                             });
                         }
                     });
+
+                    reisouBuf(hoguCard, parseInt($("#target-reisou-level").val()), $("#target-reisou-input option:selected"), buf);
 
                     const calcResult = [];
                     for (var i = 0; i < hoguHit; i++) {
