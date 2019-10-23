@@ -576,6 +576,36 @@
                     }
                 };
 
+                function orgHoguBuff(card, lv, oc, effect, buf) {
+                    var cardbuflabel = {
+                        "a": "Artsカード性能アップ",
+                        "q": "Quickカード性能アップ",
+                        "b": "Busterカード性能アップ"
+                    };
+
+                    var lvoc = effect.lvoc === "lv" ? "v" + lv : "v" + oc;
+
+                    if (effect.target !== "self" && effect.target !== "self-other") {
+                        return;
+                    }
+
+                    if (effect.type === "NP獲得量アップ" && effect.beforeafter === "before") {
+                        buf.npbuf += parseFloat(effect[lvoc]);
+                    }
+
+                    if (effect.type === "NP獲得状態付与") {
+                        buf.npget += parseFloat(effect[lvoc]);
+                    }
+
+                    if (effect.type === "NP獲得" && effect.beforeafter === "after") {
+                        buf.npget += parseFloat(effect[lvoc]);
+                    }
+
+                    if (effect.type === cardbuflabel[card] && effect.beforeafter === "before") {
+                        buf.cardbuf += parseFloat(effect[lvoc]);
+                    }
+                };
+
                 function supportSkillBuff(card, lv, effect, buf) {
                     var cardbuflabel = {
                         "a": "Artsカード性能アップ",
@@ -777,6 +807,10 @@
                             orgSkillBuff(data.hogu.card, skill3, e, buf);
                         });
                     }
+
+                    data.hogu.effect.forEach(function (e) {
+                        orgHoguBuff(data.hogu.card, hoguLevel, hoguOC, e, buf);
+                    });
 
                     $("#target-card-buf-input").val(buf.cardbuf);
                     $("#target-np-buf-input").val(buf.npbuf);
