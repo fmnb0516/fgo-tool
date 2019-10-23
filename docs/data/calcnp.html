@@ -351,7 +351,7 @@
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="other-card-buf-input">攻バフ・防デバフ</label>
-                            <input id="other-atk-buf-input" type="text" class="form-control" value=""0>
+                            <input id="other-atk-buf-input" type="text" class="form-control" value="" 0>
                         </div>
                     </div>
 
@@ -381,6 +381,9 @@
             </div>
 
             <div class="col-lg-12" style="padding-top: 20px">
+                <div style="padding: 5px;">
+                    <span class="badge badge-dark">獲得NP</span>
+                </div>
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
@@ -392,18 +395,95 @@
                             <th scope="col">狂(0.8)</th>
                         </tr>
                     </thead>
-                    <tbody id="result-box">
+                    <tbody id="result-np-data">
                     </tbody>
                 </table>
             </div>
 
-            <div class="col-lg-12" id="result-data">
+
+            <div class="col-lg-12" id="result-buf-data" style="padding: 10px">
             </div>
-            
-            <br/><br/>
         </div>
 
-        <br/><br/>
+        <br /><br />
+
+        <div class="modal fade" id="support-detail-modal" tabindex="-1" role="dialog"
+            aria-labelledby="support-modal-title" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="support-modal-title"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <label for="support-skill1-lv-input">スキル1Lv</label>
+                                <select class="form-control" id="support-skill1-lv-input" change-target="data-skill1">
+                                    <option value="">使用しない</option>
+                                    <option value="v1">lv1</option>
+                                    <option value="v2">lv2</option>
+                                    <option value="v3">lv3</option>
+                                    <option value="v4">lv4</option>
+                                    <option value="v5">lv5</option>
+                                    <option value="v6">lv6</option>
+                                    <option value="v7">lv7</option>
+                                    <option value="v8">lv8</option>
+                                    <option value="v9">lv9</option>
+                                    <option value="v10">lv10</option>
+                                </select>
+                                <small class="form-text text-muted" id="support-skill1-lv-name"></small>
+                            </div>
+                            <div class="col-lg-4">
+                                <label for="support-skill2-lv-input">スキル2Lv</label>
+                                <select class="form-control" id="support-skill2-lv-input" change-target="data-skill2">
+                                    <option value="">使用しない</option>
+                                    <option value="v1">lv1</option>
+                                    <option value="v2">lv2</option>
+                                    <option value="v3">lv3</option>
+                                    <option value="v4">lv4</option>
+                                    <option value="v5">lv5</option>
+                                    <option value="v6">lv6</option>
+                                    <option value="v7">lv7</option>
+                                    <option value="v8">lv8</option>
+                                    <option value="v9">lv9</option>
+                                    <option value="v10">lv10</option>
+                                </select>
+                                <small class="form-text text-muted" id="support-skill2-lv-name"></small>
+                            </div>
+                            <div class="col-lg-4">
+                                <label for="support-skill3-lv-input">スキル3Lv</label>
+                                <select class="form-control" id="support-skill3-lv-input" change-target="data-skill3">
+                                    <option value="">使用しない</option>
+                                    <option value="v1">lv1</option>
+                                    <option value="v2">lv2</option>
+                                    <option value="v3">lv3</option>
+                                    <option value="v4">lv4</option>
+                                    <option value="v5">lv5</option>
+                                    <option value="v6">lv6</option>
+                                    <option value="v7">lv7</option>
+                                    <option value="v8">lv8</option>
+                                    <option value="v9">lv9</option>
+                                    <option value="v10">lv10</option>
+                                </select>
+                                <small class="form-text text-muted" id="support-skill3-lv-name"></small>
+                            </div>
+
+                            <div class="col-lg-12" id="support-buf-data">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script type="text/x-handlebars" id="template-result">
@@ -523,6 +603,56 @@
                     if (effect.type === cardbuflabel[card]) {
                         buf.cardbuf += parseFloat(effect.v10);
                     }
+                };
+
+                function updateSupportBufDialogData(no) {
+                    var html = "";
+
+                    var data = getServantData(no);
+                    var skill1 = $("#support-skill1-lv-input").val();
+                    var skill2 = $("#support-skill2-lv-input").val();
+                    var skill3 = $("#support-skill3-lv-input").val();
+
+                    if (skill1 !== "") {
+                        data.skill1.effects.forEach(function (e) {
+                            if (e.target !== "other-single"
+                                && e.target !== "other-all"
+                                && e.target !== "self-other") {
+
+                                return;
+                            }
+
+                            html += "<span style=\"margin: 5px;\" class=\"badge badge-primary\">"
+                                + (e.type) + ":" + e[skill1] + "</span>";
+                        });
+                    }
+
+                    if (skill2 !== "") {
+                        data.skill2.effects.forEach(function (e) {
+                            if (e.target !== "other-single"
+                                && e.target !== "other-all"
+                                && e.target !== "self-other") {
+
+                                return;
+                            }
+
+                            html += "<span style=\"margin: 5px;\" class=\"badge badge-primary\">" + (e.type) + ":" + e[skill2] + "</span>";
+                        });
+                    }
+                    if (skill3 !== "") {
+                        data.skill3.effects.forEach(function (e) {
+                            if (e.target !== "other-single"
+                                && e.target !== "other-all"
+                                && e.target !== "self-other") {
+
+                                return;
+                            }
+
+                            html += "<span style=\"margin: 5px;\" class=\"badge badge-primary\">" + (e.type) + ":" + e[skill3] + "</span>";
+                        });
+                    }
+
+                    $("#support-buf-data").html(html);
                 };
 
                 function updateAttackerBuf(no) {
@@ -664,9 +794,45 @@
                     }
                 });
 
-                $("#target-reisou-input").change(function() {
+                $("#target-reisou-input").change(function () {
                     var txt = $('#target-reisou-input option:selected').attr("help");
                     $("#reisou-help").text(txt);
+                });
+
+                $(document).on("click", "#support-box span", function () {
+                    var no = $(this).attr("data-no");
+                    var data = getServantData(no);
+
+                    var domid = $(this).attr("id");
+                    var title = data.servant.no + "-星" + data.servant.rare + "-"
+                        + fgo.classToLabel(data.servant.clazz) + "-" + data.servant.name;
+
+                    $('#support-detail-modal').attr("target-dom-id", domid);
+                    $('#support-detail-modal').attr("data-no", no);
+
+                    $("#support-modal-title").text(title);
+
+                    $("#support-skill1-lv-input").val($(this).attr("data-skill1"));
+                    $("#support-skill2-lv-input").val($(this).attr("data-skill2"));
+                    $("#support-skill3-lv-input").val($(this).attr("data-skill3"));
+
+                    $("#support-skill1-lv-name").text(data.skill1.name);
+                    $("#support-skill2-lv-name").text(data.skill2.name);
+                    $("#support-skill3-lv-name").text(data.skill3.name);
+
+                    updateSupportBufDialogData(no);
+
+                    $('#support-detail-modal').modal('show');
+                });
+
+                $("#support-skill1-lv-input,#support-skill2-lv-input,#support-skill3-lv-input").change(function () {
+                    var no = $('#support-detail-modal').attr("data-no");
+                    if (no !== undefined && no !== null && no !== "") {
+                        updateSupportBufDialogData(no);
+                    }
+
+                    var domid = $('#support-detail-modal').attr("target-dom-id");
+                    $("#" + domid).attr($(this).attr("change-target"), $(this).val());
                 });
 
                 /*
