@@ -17007,12 +17007,12 @@ fgo.data([
   },
   {
     "servant": {
-      "no": "0079",
       "name": "ヴァン・ホーエンハイム・パラケルスス",
       "clazz": "caster",
       "rare": 3,
       "cost": 7,
-      "tenchizin": "hito"
+      "tenchizin": "hito",
+      "no": "0079"
     },
     "card": {
       "arts": {
@@ -17037,10 +17037,10 @@ fgo.data([
     ],
     "hidden": {
       "na": 0.55,
-      "nd": 3,
-      "dr": 36,
-      "starcollection": 50,
       "staroccurrence": 10.8,
+      "starcollection": 50,
+      "dr": 36,
+      "nd": 3,
       "tag": [
         "混沌",
         "善",
@@ -17056,8 +17056,8 @@ fgo.data([
         "effect": [
           {
             "type": "Artsカード性能アップ",
-            "desc": "自身のArtsカードの性能をアップ",
-            "magnification": "10"
+            "magnification": "10",
+            "desc": "自身のArtsカードの性能をアップ"
           }
         ]
       },
@@ -17066,48 +17066,12 @@ fgo.data([
         "effect": [
           {
             "type": "弱体付与成功率アップ",
-            "desc": "自身の弱体付与成功率をアップ",
-            "magnification": "12"
+            "magnification": "12",
+            "desc": "自身の弱体付与成功率をアップ"
           }
         ]
       }
     ],
-    "hogu": {
-      "name": "元素使いの魔剣(ソード・オブ・パラケルスス)",
-      "card": "a",
-      "effect": [
-        {
-          "type": "攻撃",
-          "tern": 0,
-          "count": 0,
-          "target": "enemy-all",
-          "beforeafter": "before",
-          "lvoc": "lv",
-          "desc": "敵全体にやや強力な攻撃[Lv]",
-          "v1": "400",
-          "v2": "500",
-          "v3": "550",
-          "v4": "575",
-          "v5": "600"
-        },
-        {
-          "type": "攻撃力ダウン",
-          "tern": "3",
-          "count": 0,
-          "target": "enemy-all",
-          "beforeafter": "after",
-          "lvoc": "oc",
-          "desc": "＆攻撃力をダウン(3T)<OC:効果UP>",
-          "v1": "10",
-          "v2": "15",
-          "v3": "20",
-          "v4": "25",
-          "v5": "30"
-        }
-      ],
-      "type": "all",
-      "hit": 3
-    },
     "skill1": {
       "name": "高速詠唱A",
       "ct": 10,
@@ -17137,7 +17101,7 @@ fgo.data([
       "effects": [
         {
           "type": "Artsカード性能アップ",
-          "tern": "3",
+          "tern": 3,
           "count": 0,
           "target": "self-other",
           "desc": "味方全体のArtsカード性能をアップ[Lv](3T)",
@@ -17160,8 +17124,8 @@ fgo.data([
       "effects": [
         {
           "type": "ガッツ付与",
-          "tern": "3",
-          "count": "1",
+          "tern": 3,
+          "count": 1,
           "target": "other-single",
           "desc": "味方単体にガッツ状態(1回・3T)を付与[Lv]",
           "v1": "1000",
@@ -17177,9 +17141,9 @@ fgo.data([
         },
         {
           "type": "NP獲得量アップ",
-          "tern": "3",
+          "tern": 3,
           "count": 0,
-          "target": "self",
+          "target": "other-single",
           "desc": "NP獲得アップ状態を付与[Lv](3T)",
           "v1": "30",
           "v2": "32",
@@ -17191,6 +17155,42 @@ fgo.data([
           "v8": "44",
           "v9": "46",
           "v10": "50"
+        }
+      ]
+    },
+    "hogu": {
+      "name": "元素使いの魔剣(ソード・オブ・パラケルスス)",
+      "type": "all",
+      "card": "a",
+      "hit": 3,
+      "effect": [
+        {
+          "type": "攻撃",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-all",
+          "beforeafter": "before",
+          "lvoc": "lv",
+          "desc": "敵全体にやや強力な攻撃[Lv]",
+          "v1": "400",
+          "v2": "500",
+          "v3": "550",
+          "v4": "575",
+          "v5": "600"
+        },
+        {
+          "type": "攻撃力ダウン",
+          "tern": 3,
+          "count": 0,
+          "target": "enemy-all",
+          "beforeafter": "after",
+          "lvoc": "oc",
+          "desc": "＆攻撃力をダウン(3T)<OC:効果UP>",
+          "v1": "10",
+          "v2": "15",
+          "v3": "20",
+          "v4": "25",
+          "v5": "30"
         }
       ]
     }
