@@ -351,7 +351,7 @@
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="other-card-buf-input">攻バフ・防デバフ</label>
-                            <input id="other-atk-buf-input" type="text" class="form-control" value="" 0>
+                            <input id="other-atk-buf-input" type="text" class="form-control" value="0">
                         </div>
                     </div>
 
@@ -581,7 +581,7 @@
                     }
                 };
 
-                function supportSkillBuff(card, effect, buf) {
+                function supportSkillBuff(card, lv, effect, buf) {
                     var cardbuflabel = {
                         "a": "Artsカード性能アップ",
                         "q": "Quickカード性能アップ",
@@ -596,15 +596,15 @@
                     }
 
                     if (effect.type === "NP獲得量アップ") {
-                        buf.npbuf += parseFloat(effect.v10);
+                        buf.npbuf += parseFloat(effect[lv]);
                     }
 
                     if (effect.type === "NP獲得状態付与") {
-                        buf.npget += parseFloat(effect.v10);
+                        buf.npget += parseFloat(effect[lv]);
                     }
 
                     if (effect.type === cardbuflabel[card]) {
-                        buf.cardbuf += parseFloat(effect.v10);
+                        buf.cardbuf += parseFloat(effect[lv]);
                     }
                 };
 
@@ -656,6 +656,75 @@
                     }
 
                     $("#support-buf-data").html(html);
+                };
+
+                function calcHuguNp() {
+                    var no = $("#atackerContainer").attr("no");
+                    if (no === undefined || no === null || no === "") {
+                        return;
+                    }
+
+                    var buf = { npbuf: 0, cardbuf: 0, npget: 0, atkbuf: 0, hogubuf: 0 };
+                    var hoguCard = $("#card-input").val();
+                    var hoguHit = parseInt($("#hit-input").val());
+                    var na = parseFloat($("#na-input").val());
+                    var cardHosei = fgo.getCardNp(hoguCard);
+
+                    buf.cardbuf += parseFloat($("#target-card-buf-input").val());
+                    buf.npbuf += parseFloat($("#target-np-buf-input").val());
+                    buf.npget += parseFloat($("#target-np-get-input").val());
+                    buf.atkbuf += parseFloat($("#target-atk-buf-input").val());
+                    buf.hogubuf += parseFloat($("#target-hogu-buf-input").val());
+
+                    buf.cardbuf += parseFloat($("#other-card-buf-input").val());
+                    buf.npbuf += parseFloat($("#other-np-buf-input").val());
+                    buf.npget += parseFloat($("#other-np-get-input").val());
+                    buf.atkbuf += parseFloat($("#other-atk-buf-input").val());
+                    buf.hogubuf += parseFloat($("#other-hogu-buf-input").val());
+
+                    $("#support-box span").each(function () {
+                        var no = getServantNo($(this).text().trim());
+                        var data = getServantData(no);
+
+                        var skill1 = $(this).attr("data-skill1");
+                        var skill2 = $(this).attr("data-skill2");
+                        var skill3 = $(this).attr("data-skill3");
+
+                        if (skill1 !== "") {
+                            data.skill1.effects.forEach(function (e) {
+                                supportSkillBuff(hoguCard, skill1, e, buf);
+                            });
+                        }
+
+                        if (skill2 !== "") {
+                            data.skill2.effects.forEach(function (e) {
+                                supportSkillBuff(hoguCard, skill2, e, buf);
+                            });
+                        }
+
+                        if (skill3 !== "") {
+                            data.skill3.effects.forEach(function (e) {
+                                supportSkillBuff(hoguCard, skill3, e, buf);
+                            });
+                        }
+                    });
+
+                    /*
+                    const calcResult = [];
+                    for (var i = 0; i < hoguHit; i++) {
+                        calcResult.push({
+                            label: "OverKill " + (i + 1),
+                            d1: calcNp(cardHosei, na, hoguHit, i + 1, 1.0, buf),
+                            d2: calcNp(cardHosei, na, hoguHit, i + 1, 1.2, buf),
+                            d3: calcNp(cardHosei, na, hoguHit, i + 1, 1.1, buf),
+                            d4: calcNp(cardHosei, na, hoguHit, i + 1, 0.9, buf),
+                            d5: calcNp(cardHosei, na, hoguHit, i + 1, 0.8, buf)
+                        });
+                    }
+
+                    var template = Handlebars.compile($("#template-result").html());
+                    $("#result-box").html(template(calcResult));
+                    */
                 };
 
                 function updateAttackerBuf(no) {
@@ -737,6 +806,8 @@
 
                         updateAttackerBuf(no);
                         $("#target-servant-input").blur();
+
+                        calcHuguNp();
                     }
                 });
 
@@ -758,6 +829,8 @@
 
                         supportId += 1;
                         $("#support-servant-input").blur();
+
+                        calcHuguNp();
                     }
                 });
 
@@ -770,6 +843,8 @@
                     if (no !== undefined && no !== null && no !== "") {
                         updateAttackerBuf(no);
                     }
+
+                    calcHuguNp();
                 });
 
                 $("#atk-input,#for-atk-input,#hogu-lv-input,#hogu-oc-input").change(function () {
@@ -777,6 +852,8 @@
                     if (no !== undefined && no !== null && no !== "") {
                         updateAttackerBuf(no);
                     }
+
+                    calcHuguNp();
                 });
 
                 $("#level-input").change(function () {
@@ -785,6 +862,8 @@
                     if (no !== undefined && no !== null && no !== "") {
                         updateAttackerBuf(no);
                     }
+
+                    calcHuguNp();
                 });
 
                 $(document).on("click", ".toggle-btn", function () {
@@ -836,65 +915,17 @@
 
                     var domid = $('#support-detail-modal').attr("target-dom-id");
                     $("#" + domid).attr($(this).attr("change-target"), $(this).val());
+
+                    calcHuguNp();
                 });
 
-                $("#support-delete-btn").click(function() {
+                $("#support-delete-btn").click(function () {
                     $('#support-detail-modal').modal('hide');
                     var domid = $('#support-detail-modal').attr("target-dom-id");
                     $("#" + domid).remove();
+
+                    calcHuguNp();
                 });
-
-                /*
-                $(document).on("click", "#calc-btn", function () {
-                    var buf = { npbuf: 0, cardbuf: 0, npget: 0 };
-                    var hoguCard = $("#card-input").val();
-                    var hoguHit = parseInt($("#hit-input").val());
-                    var na = parseFloat($("#na-input").val());
-                    var cardHosei = fgo.getCardNp(hoguCard);
-
-                    buf.cardbuf += parseFloat($("#target-card-buf-input").val());
-                    buf.npbuf += parseFloat($("#target-np-buf-input").val());
-                    buf.npget += parseFloat($("#target-np-get-input").val());
-
-                    buf.cardbuf += parseFloat($("#ext-card-buf-input").val());
-                    buf.npbuf += parseFloat($("#ext-np-buf-input").val());
-                    buf.npget += parseFloat($("#ext-np-get-input").val());
-
-                    $("#support-box span").each(function () {
-                        var no = getServantNo($(this).text().trim());
-                        var data = getServantData(no);
-
-                        data.skill1.effects.forEach(function (e) {
-                            supportSkillBuff(hoguCard, e, buf);
-                        });
-                        data.skill2.effects.forEach(function (e) {
-                            supportSkillBuff(hoguCard, e, buf);
-                        });
-                        data.skill3.effects.forEach(function (e) {
-                            supportSkillBuff(hoguCard, e, buf);
-                        });
-                    });
-
-                    $("#calc-card-buf-input").val(buf.cardbuf);
-                    $("#calc-np-buf-input").val(buf.npbuf);
-                    $("#calc-np-get-input").val(buf.npget);
-
-                    const calcResult = [];
-                    for (var i = 0; i < hoguHit; i++) {
-                        calcResult.push({
-                            label: "OverKill " + (i + 1),
-                            d1: calcNp(cardHosei, na, hoguHit, i + 1, 1.0, buf),
-                            d2: calcNp(cardHosei, na, hoguHit, i + 1, 1.2, buf),
-                            d3: calcNp(cardHosei, na, hoguHit, i + 1, 1.1, buf),
-                            d4: calcNp(cardHosei, na, hoguHit, i + 1, 0.9, buf),
-                            d5: calcNp(cardHosei, na, hoguHit, i + 1, 0.8, buf)
-                        });
-                    }
-
-                    var template = Handlebars.compile($("#template-result").html());
-                    $("#result-box").html(template(calcResult));
-                });
-                */
             });
         </script>
     </div>
