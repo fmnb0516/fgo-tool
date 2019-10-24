@@ -376,6 +376,9 @@
                         <option value="9">lv9</option>
                         <option value="10" selected>lv10</option>
                     </select>
+                    <small class="form-text text-muted">
+                        使用する魔術礼装のLvを選択します
+                    </small>
                 </div>
             </div>
 
@@ -407,7 +410,9 @@
                         <option atk="" a="" b="" q="" hogu="25,26,27,28,29,30,31,32,33,35" value="11" help="宝具25-35アップ">
                             晴れの新年(全体宝具威力)</option>
                     </select>
-                    <small id="reisou-help" class="form-text text-muted">無し</small>
+                    <small class="form-text text-muted">使用する魔術礼装を選択します</small>
+                    <div id="reisou-help">
+                    </div>
                 </div>
             </div>
 
@@ -1037,8 +1042,38 @@
                 });
 
                 $("#target-reisou-input").change(function () {
-                    var txt = $('#target-reisou-input option:selected').attr("help");
-                    $("#reisou-help").text(txt);
+                    var reisou = $('#target-reisou-input option:selected');
+                    var html = "";
+                    
+                    var atkVal = reisou.attr("atk");
+                    var hoguVal = reisou.attr("hogu");
+                    var aVal = reisou.attr("a");
+                    var bVal = reisou.attr("b");
+                    var qVal = reisou.attr("q");
+
+                    if(atkVal !== "") {
+                        var ary = atkVal.split(",")
+                        html += "<span class=\"badge badge-primary\">攻アップ:"+ary[0] + "-" + ary[ary.length-1] +"</span>";
+                    }
+                    if(hoguVal !== "") {
+                        var ary = hoguVal.split(",")
+                        html += "<span class=\"badge badge-primary\">宝具アップ:"+ary[0] + "-" + ary[ary.length-1] +"</span>";
+                    }
+                    if(aVal !== "") {
+                        var ary = aVal.split(",")
+                        html += "<span class=\"badge badge-primary\">Aアップ:"+ary[0] + "-" + ary[ary.length-1] +"</span>";
+                    }
+                    if(bVal !== "") {
+                        var ary = bVal.split(",")
+                        html += "<span class=\"badge badge-primary\">Bアップ:"+ary[0] + "-" + ary[ary.length-1] +"</span>";
+                    }
+                    if(qVal !== "") {
+                        var ary = qVal.split(",")
+                        html += "<span class=\"badge badge-primary\">Qアップ:"+ary[0] + "-" + ary[ary.length-1] +"</span>";
+                    }
+                    
+
+                    $("#reisou-help").html(html);
                     calcHoguNp();
                 });
 
