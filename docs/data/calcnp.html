@@ -43,12 +43,20 @@
                 <div class="form-group">
                     <label for="name-input">名称</label>
                     <input autocomplete="off" type="text" class="form-control" id="target-servant-input" value="">
+                    <small class="form-text text-muted">
+                        NP計算対象のサーヴァント名を入力してください
+                        <br/>
+                        入力に応じて候補がサジェスト表示されます。
+                    </small>
                 </div>
             </div>
 
             <div class="col-lg-12" style="margin-bottom: 10px;">
                 <button type="button" class="btn btn-primary btn-sm toggle-btn"
                     data-target="#target-basic">基本データ</button>
+                <small class="form-text text-muted">
+                    対象サーヴァントのATK,スキルの使用可否等の基本データを表示します。
+                </small>
             </div>
 
             <div class="col-lg-12" id="target-basic" style="display: none">
@@ -60,19 +68,28 @@
                                     <label for="level-input">Lv</label>
                                     <select class="form-control" id="level-input">
                                     </select>
+                                    <small class="form-text text-muted">
+                                        選択したレベルに応じてATKが切り替わります
+                                    </small>
                                 </div>
                             </div>
 
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label for="atk-input">ATK</label>
-                                    <input id="atk-input" type="text" class="form-control" value="">
+                                    <input id="atk-input" type="number" class="form-control" value="">
+                                    <small class="form-text text-muted">
+                                        サーヴァントのATKを入力してください
+                                    </small>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label for="for-atk-input">フォウくん(atk)</label>
-                                    <input id="for-atk-input" type="text" class="form-control" value="1000">
+                                    <input id="for-atk-input" type="number" class="form-control" value="1000">
+                                    <small class="form-text text-muted">
+                                        フォウくんで追加されるATKを入力してください
+                                    </small>
                                 </div>
                             </div>
 
@@ -86,6 +103,9 @@
                                         <option value="4">lv4</option>
                                         <option value="5">lv5</option>
                                     </select>
+                                    <small class="form-text text-muted">
+                                        宝具レベルを選択してください
+                                    </small>
                                 </div>
                             </div>
                             <div class="col-lg-2">
@@ -98,6 +118,9 @@
                                         <option value="4">oc4</option>
                                         <option value="5">oc5</option>
                                     </select>
+                                    <small class="form-text text-muted">
+                                        宝具のOCを選択してください
+                                    </small>
                                 </div>
                             </div>
 
@@ -160,6 +183,12 @@
                                     <small class="form-text text-muted" id="target-skill3-lv-name"></small>
                                 </div>
                             </div>
+
+                            <div class="col-lg-12">
+                                <small class="form-text text-muted">
+                                    ※「名称」にて表示された候補サーヴァントを選択することでデータが自動で補間されます
+                                </small>
+                            </div>
                         </div>
                     </div>
 
@@ -168,6 +197,9 @@
 
             <div class="col-lg-12" style="margin-bottom: 10px;">
                 <button type="button" class="btn btn-primary btn-sm toggle-btn" data-target="#target-detail">詳細</button>
+                <small class="form-text text-muted">
+                    対象サーヴァントのその他データを表示します。<br/>一部データは編集不可です。
+                </small>
             </div>
 
             <div class="col-lg-12" id="target-detail" style="display: none">
@@ -175,21 +207,22 @@
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="na-input">N/A</label>
-                            <input id="na-input" type="text" class="form-control" value="">
+                            <input readonly id="na-input" type="number" class="form-control" value="">
+                            <small class="form-text text-muted">NP効率</small>
                         </div>
                     </div>
 
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="hit-input">ヒット数</label>
-                            <input type="text" class="form-control" id="hit-input" value="">
+                            <input readonly type="number" class="form-control" id="hit-input" value="">
                         </div>
                     </div>
 
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="card-input">Card</label>
-                            <select class="form-control" id="card-input">
+                            <select disabled class="form-control" id="card-input">
                                 <option value=""></option>
                                 <option value="a">Arts</option>
                                 <option value="b">Buster</option>
@@ -201,7 +234,7 @@
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="hogu-type-input">宝具種別</label>
-                            <select class="form-control" id="hogu-type-input">
+                            <select disabled class="form-control" id="hogu-type-input">
                                 <option value=""></option>
                                 <option value="support">補助宝具</option>
                                 <option value="all">全体宝具</option>
@@ -213,21 +246,21 @@
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="target-np-buf-input">NP獲得量バフ</label>
-                            <input id="target-np-buf-input" type="text" class="form-control" value="">
+                            <input readonly id="target-np-buf-input" type="text" class="form-control" value="">
                         </div>
                     </div>
 
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="target-np-get-input">ターン後NP獲得</label>
-                            <input id="target-np-get-input" type="text" class="form-control" value="">
+                            <input readonly id="target-np-get-input" type="text" class="form-control" value="">
                         </div>
                     </div>
 
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="target-tenchizin-input">天地人</label>
-                            <select class="form-control" id="target-tenchizin-input">
+                            <select disabled class="form-control" id="target-tenchizin-input">
                                 <option value="ten">天</option>
                                 <option value="chi">地</option>
                                 <option value="hito">人</option>
@@ -242,6 +275,9 @@
                                 <option value="y">あり</option>
                                 <option value="n">なし</option>
                             </select>
+                            <small class="form-text text-muted">
+                                宝具ダメージに特攻を反映するか選択します
+                            </small>
                         </div>
                     </div>
 
@@ -254,27 +290,30 @@
                                 <option value="1.5">1.5倍</option>
                                 <option value="0.5">不利</option>
                             </select>
+                            <small class="form-text text-muted">
+                                敵との相性有利・不利を選択します
+                            </small>
                         </div>
                     </div>
 
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="target-card-buf-input">攻バフ・防デバフ</label>
-                            <input id="target-atk-buf-input" type="text" class="form-control" value="">
+                            <input readonly id="target-atk-buf-input" type="text" class="form-control" value="">
                         </div>
                     </div>
 
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="target-card-buf-input">Cardバフ</label>
-                            <input id="target-card-buf-input" type="text" class="form-control" value="">
+                            <input readonly id="target-card-buf-input" type="text" class="form-control" value="">
                         </div>
                     </div>
 
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="target-hogu-buf-input">宝具バフ</label>
-                            <input id="target-hogu-buf-input" type="text" class="form-control" value="">
+                            <input readonly id="target-hogu-buf-input" type="text" class="form-control" value="">
                             <small class="form-text text-muted">その他、特攻バフなど</small>
                         </div>
                     </div>
@@ -293,12 +332,23 @@
                 <div class="form-group">
                     <label for="name-input">名称</label>
                     <input autocomplete="off" type="text" class="form-control" id="support-servant-input" value="">
+                    <small class="form-text text-muted">
+                        サポートサーヴァント名を入力してください
+                        <br/>
+                        入力に応じて候補がサジェスト表示されます。
+                    </small>
                 </div>
             </div>
 
             <div class="col-lg-12">
                 <div style="padding: 10px; " id="support-box">
                 </div>
+
+                <small class="form-text text-muted">
+                        ※サポートサーヴァントの状態(スキルLv,使用可否)を編集する場合、
+                        対象のサーヴァント名のラベルを押下します
+                        <br/><br/>
+                </small>
             </div>
         </div>
 
