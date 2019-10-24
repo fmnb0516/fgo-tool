@@ -39,13 +39,17 @@
                 <span class="badge badge-primary" style="cursor: pointer">アタッカー</span>
             </div>
 
+            <div style="position: absolute;top: -10px;right: 10px;">
+                <button id="clearnBtn" type="button" class="btn btn-primary btn-sm">クリア</button>
+            </div>
+
             <div class="col-lg-12" style="padding-top: 10px;">
                 <div class="form-group">
                     <label for="name-input">名称</label>
                     <input autocomplete="off" type="text" class="form-control" id="target-servant-input" value="">
                     <small class="form-text text-muted">
                         NP計算対象のサーヴァント名を入力してください
-                        <br/>
+                        <br />
                         入力に応じて候補がサジェスト表示されます。
                     </small>
                 </div>
@@ -77,7 +81,7 @@
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label for="atk-input">ATK</label>
-                                    <input id="atk-input" type="number" class="form-control" value="">
+                                    <input readonly id="atk-input" type="number" class="form-control" value="">
                                     <small class="form-text text-muted">
                                         サーヴァントのATKを入力してください
                                     </small>
@@ -99,7 +103,7 @@
                                     <select class="form-control" id="hogu-lv-input">
                                         <option value="1">lv1</option>
                                         <option value="2">lv2</option>
-                                        <option value="3">lv4</option>
+                                        <option value="3">lv3</option>
                                         <option value="4">lv4</option>
                                         <option value="5">lv5</option>
                                     </select>
@@ -114,7 +118,7 @@
                                     <select class="form-control" id="hogu-oc-input">
                                         <option value="1">oc1</option>
                                         <option value="2">oc2</option>
-                                        <option value="3">oc4</option>
+                                        <option value="3">oc3</option>
                                         <option value="4">oc4</option>
                                         <option value="5">oc5</option>
                                     </select>
@@ -198,7 +202,7 @@
             <div class="col-lg-12" style="margin-bottom: 10px;">
                 <button type="button" class="btn btn-primary btn-sm toggle-btn" data-target="#target-detail">詳細</button>
                 <small class="form-text text-muted">
-                    対象サーヴァントのその他データを表示します。<br/>一部データは編集不可です。
+                    対象サーヴァントのその他データを表示します。<br />一部データは編集不可です。
                 </small>
             </div>
 
@@ -334,7 +338,7 @@
                     <input autocomplete="off" type="text" class="form-control" id="support-servant-input" value="">
                     <small class="form-text text-muted">
                         サポートサーヴァント名を入力してください
-                        <br/>
+                        <br />
                         入力に応じて候補がサジェスト表示されます。
                     </small>
                 </div>
@@ -345,9 +349,9 @@
                 </div>
 
                 <small class="form-text text-muted">
-                        ※サポートサーヴァントの状態(スキルLv,使用可否)を編集する場合、
-                        対象のサーヴァント名のラベルを押下します
-                        <br/><br/>
+                    ※サポートサーヴァントの状態(スキルLv,使用可否)を編集する場合、
+                    対象のサーヴァント名のラベルを押下します
+                    <br /><br />
                 </small>
             </div>
         </div>
@@ -374,7 +378,7 @@
                         <option value="7">lv7</option>
                         <option value="8">lv8</option>
                         <option value="9">lv9</option>
-                        <option value="10" selected>lv10</option>
+                        <option value="10">lv10</option>
                     </select>
                     <small class="form-text text-muted">
                         使用する魔術礼装のLvを選択します
@@ -472,7 +476,7 @@
                             <label for="other-card-buf-input">Cardバフ</label>
                             <input id="other-card-buf-input" type="number" class="form-control" value="0">
                             <small class="form-text text-muted">
-                                    追加するカードバフの総計を入力してください
+                                追加するカードバフの総計を入力してください
                             </small>
                         </div>
                     </div>
@@ -482,7 +486,7 @@
                             <label for="other-hogu-buf-input">宝具バフ</label>
                             <input id="other-hogu-buf-input" type="text" class="form-control" value="0">
                             <small class="form-text text-muted">
-                                追加する宝具バフの総計を入力してください 
+                                追加する宝具バフの総計を入力してください
                             </small>
                         </div>
                     </div>
@@ -545,7 +549,7 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <label for="support-skill1-lv-input">スキル1Lv</label>
-                                <select class="form-control" id="support-skill1-lv-input" change-target="data-skill1">
+                                <select class="form-control" id="support-skill1-lv-input" change-target="skill1">
                                     <option value="">使用しない</option>
                                     <option value="v1">lv1</option>
                                     <option value="v2">lv2</option>
@@ -562,7 +566,7 @@
                             </div>
                             <div class="col-lg-4">
                                 <label for="support-skill2-lv-input">スキル2Lv</label>
-                                <select class="form-control" id="support-skill2-lv-input" change-target="data-skill2">
+                                <select class="form-control" id="support-skill2-lv-input" change-target="skill2">
                                     <option value="">使用しない</option>
                                     <option value="v1">lv1</option>
                                     <option value="v2">lv2</option>
@@ -579,7 +583,7 @@
                             </div>
                             <div class="col-lg-4">
                                 <label for="support-skill3-lv-input">スキル3Lv</label>
-                                <select class="form-control" id="support-skill3-lv-input" change-target="data-skill3">
+                                <select class="form-control" id="support-skill3-lv-input" change-target="skill3">
                                     <option value="">使用しない</option>
                                     <option value="v1">lv1</option>
                                     <option value="v2">lv2</option>
@@ -634,529 +638,836 @@
         <script src="../servant.js"></script>
 
         <script type="text/javascript">
+            function reisouHelpHtml() {
+                var reisou = $('#target-reisou-input option:selected');
+                var html = "";
 
-            $(function () {
-                function getServantNo(val) {
-                    return val.substring(0, val.indexOf("-"));
+                var atkVal = reisou.attr("atk");
+                var hoguVal = reisou.attr("hogu");
+                var aVal = reisou.attr("a");
+                var bVal = reisou.attr("b");
+                var qVal = reisou.attr("q");
+
+                if (atkVal !== "") {
+                    var ary = atkVal.split(",")
+                    html += "<span style=\"margin: 5px;\" class=\"badge badge-primary\">攻アップ:" + ary[0] + "-" + ary[ary.length - 1] + "</span>";
+                }
+                if (hoguVal !== "") {
+                    var ary = hoguVal.split(",")
+                    html += "<span style=\"margin: 5px;\" class=\"badge badge-primary\">宝具アップ:" + ary[0] + "-" + ary[ary.length - 1] + "</span>";
+                }
+                if (aVal !== "") {
+                    var ary = aVal.split(",")
+                    html += "<span style=\"margin: 5px;\" class=\"badge badge-primary\">Aアップ:" + ary[0] + "-" + ary[ary.length - 1] + "</span>";
+                }
+                if (bVal !== "") {
+                    var ary = bVal.split(",")
+                    html += "<span style=\"margin: 5px;\" class=\"badge badge-primary\">Bアップ:" + ary[0] + "-" + ary[ary.length - 1] + "</span>";
+                }
+                if (qVal !== "") {
+                    var ary = qVal.split(",")
+                    html += "<span style=\"margin: 5px;\" class=\"badge badge-primary\">Qアップ:" + ary[0] + "-" + ary[ary.length - 1] + "</span>";
+                }
+                return html;
+            };
+
+            function reisouBuf(card, lv, reisou, buf) {
+                var atkVal = reisou.attr("atk");
+                var hoguVal = reisou.attr("hogu");
+                var cardVal = reisou.attr(card);
+
+                if (atkVal !== "") {
+                    buf.atkbuf += parseInt(atkVal.split(",")[lv - 1]);
+                }
+                if (hoguVal !== "") {
+                    buf.hogubuf += parseInt(hoguVal.split(",")[lv - 1]);
+                }
+                if (cardVal !== "") {
+                    buf.cardbuf += parseInt(cardVal.split(",")[lv - 1]);
+                }
+            };
+
+            function supportSkillBuff(card, lv, effect, buf) {
+                var cardbuflabel = {
+                    "a": "Artsカード性能アップ",
+                    "q": "Quickカード性能アップ",
+                    "b": "Busterカード性能アップ"
                 };
 
-                function getServantData(no) {
-                    return fgo.data().find(function (d) {
-                        return d.servant.no === no;
-                    });
+                if (effect.target !== "other-single"
+                    && effect.target !== "other-all"
+                    && effect.target !== "self-other") {
+
+                    return;
+                }
+
+                if (effect.type === "NP獲得量アップ") {
+                    buf.npbuf += parseFloat(effect[lv]);
+                }
+
+                if (effect.type === "NP獲得状態付与") {
+                    buf.npget += parseFloat(effect[lv]);
+                }
+
+                if (effect.type === cardbuflabel[card]) {
+                    buf.cardbuf += parseFloat(effect[lv]);
+                }
+            };
+
+            function classSkillBuff(card, effect, buf) {
+                var cardbuflabel = {
+                    "a": "Artsカード性能アップ",
+                    "q": "Quickカード性能アップ",
+                    "b": "Busterカード性能アップ"
                 };
 
+                if (effect.type === "NP獲得量アップ") {
+                    buf.npbuf += parseFloat(effect.magnification);
+                }
+
+                if (effect.type === "NP獲得状態付与") {
+                    buf.npget += parseFloat(effect.magnification);
+                }
+
+                if (effect.type === cardbuflabel[card]) {
+                    buf.cardbuf += parseFloat(effect.magnification);
+                }
+            };
+
+            function orgSkillBuff(card, lv, effect, buf) {
+                var cardbuflabel = {
+                    "a": "Artsカード性能アップ",
+                    "q": "Quickカード性能アップ",
+                    "b": "Busterカード性能アップ"
+                };
+
+                if (effect.target !== "self" && effect.target !== "self-other") {
+                    return;
+                }
+
+                if (effect.type === "NP獲得量アップ") {
+                    buf.npbuf += parseFloat(effect["v" + lv]);
+                }
+
+                if (effect.type === "NP獲得状態付与") {
+                    buf.npget += parseFloat(effect["v" + lv]);
+                }
+
+                if (effect.type === cardbuflabel[card]) {
+                    buf.cardbuf += parseFloat(effect["v" + lv]);
+                }
+            };
+
+            function orgHoguBuff(card, lv, oc, effect, buf) {
+                var cardbuflabel = {
+                    "a": "Artsカード性能アップ",
+                    "q": "Quickカード性能アップ",
+                    "b": "Busterカード性能アップ"
+                };
+
+                var lvoc = effect.lvoc === "lv" ? "v" + lv : "v" + oc;
+
+                if (effect.target !== "self" && effect.target !== "self-other") {
+                    return;
+                }
+
+                if (effect.type === "NP獲得量アップ" && effect.beforeafter === "before") {
+                    buf.npbuf += parseFloat(effect[lvoc]);
+                }
+
+                if (effect.type === "NP獲得状態付与") {
+                    buf.npget += parseFloat(effect[lvoc]);
+                }
+
+                if (effect.type === "NP獲得" && effect.beforeafter === "after") {
+                    buf.npget += parseFloat(effect[lvoc]);
+                }
+
+                if (effect.type === cardbuflabel[card] && effect.beforeafter === "before") {
+                    buf.cardbuf += parseFloat(effect[lvoc]);
+                }
+            };
+
+            function getServantNo(val) {
+                return val.substring(0, val.indexOf("-"));
+            };
+
+            function servantLabel(d) {
+                return d.servant.no + "-星" + d.servant.rare + "-" + fgo.classToLabel(d.servant.clazz) + "-" + d.servant.name;
+            };
+
+            function getServantData(no) {
+                var data = fgo.data().find(function (d) {
+                    return d.servant.no === no;
+                });
+                return data ? data : null;
+            };
+
+            var calcNp = (function () {
                 function bufTo(v) {
                     return v === 0 ? v : v / 100;
                 };
 
-                function calcNp(card, na, hoguHit, overkill, hosei, buf) {
+                return function (card, na, hoguHit, overkill, hosei, buf) {
                     var val = fgo.calcNp(na, card, bufTo(buf.cardbuf), bufTo(buf.npbuf), hoguHit, overkill, hosei);
                     return Math.round(val * 10) / 10;
                 };
+            })();
 
-                function reisouBuf(card, lv, reisou, buf) {
-                    var atkVal = reisou.attr("atk");
-                    var hoguVal = reisou.attr("hogu");
-                    var cardVal = reisou.attr(card);
+            function parseQuery(str) {
+                var data = {};
+                var entries = str.split("&");
 
-                    if (atkVal !== "") {
-                        buf.atkbuf += parseInt(atkVal.split(",")[lv - 1]);
+                for (var i = 0; i < entries.length; i++) {
+                    var pair = entries[i];
+                    var idx = pair.indexOf("=");
+
+                    if (idx !== -1) {
+                        data[pair.substring(0, idx)] = pair.substring(idx + 1);
                     }
-                    if (hoguVal !== "") {
-                        buf.hogubuf += parseInt(hoguVal.split(",")[lv - 1]);
+                }
+                return data;
+            };
+
+            function notnull(v, def) {
+                return v === undefined || v === null || v === "" ? def : v;
+            };
+
+            function supportvalue(v, support, def) {
+                for (var i = 0; i < support.length; i++) {
+                    if (support[i] === v) {
+                        return v;
                     }
-                    if (cardVal !== "") {
-                        buf.cardbuf += parseInt(cardVal.split(",")[lv - 1]);
+                }
+                return def;
+            };
+
+            var idgen = (function () {
+                var counter = 1;
+                return function () {
+                    return "idx-" + (counter++) + "-dom";
+                };
+            })();
+
+            function setHash(data) {
+                var a = [];
+                a.push(data.target.no);
+                a.push(data.target.skill1);
+                a.push(data.target.skill2);
+                a.push(data.target.skill3);
+                a.push(data.target.tokkou);
+                a.push(data.target.compatibility);
+                a.push(data.target.hlv);
+                a.push(data.target.hoc);
+                a.push(data.target.lv);
+                a.push(data.target.fou);
+
+                var r = [];
+                r.push(data.reisou.id)
+                r.push(data.reisou.lv);
+
+                var e = [];
+                e.push(data.custom.addatk);
+                e.push(data.custom.npbuf);
+                e.push(data.custom.npget);
+                e.push(data.custom.atkbuf);
+                e.push(data.custom.cardbuf);
+                e.push(data.custom.hogubuf);
+
+                var s = [];
+                data.suppurts.forEach(function (support) {
+                    var v = [];
+                    v.push(support.no);
+                    v.push(support.skill1);
+                    v.push(support.skill2);
+                    v.push(support.skill3);
+                    v.push(support.skill4);
+                    s.push(v.join(","));
+                });
+                location.hash = "a=" + a.join(",") + "&s=" + s.join(":") + "&r=" + r.join(",") + "&e=" + e.join(",");
+            };
+
+            function getHash() {
+                var data = {
+                    target: {
+                        no: "",
+                        skill1: "",
+                        skill2: "",
+                        skill3: "",
+                        tokkou: "n",
+                        compatibility: "1.0",
+                        hlv: 1,
+                        hoc: 1,
+                        lv: "",
+                        fou: 1000,
+                        atk: ""
+                    },
+                    suppurts: [],
+                    reisou: {
+                        id: 0,
+                        lv: 1
+                    },
+                    custom: {
+                        addatk: 0,
+                        npbuf: 0,
+                        npget: 0,
+                        atkbuf: 0,
+                        cardbuf: 0,
+                        hogubuf: 0
                     }
                 };
 
-                function classSkillBuff(card, effect, buf) {
-                    var cardbuflabel = {
-                        "a": "Artsカード性能アップ",
-                        "q": "Quickカード性能アップ",
-                        "b": "Busterカード性能アップ"
-                    };
+                var hash = location.hash;
+                if (hash === "") {
+                    return data;
+                }
+                var entries = parseQuery(hash.substring(1));
 
-                    if (effect.type === "NP獲得量アップ") {
-                        buf.npbuf += parseFloat(effect.magnification);
+                if (entries["a"] !== undefined && entries["a"] !== null && entries["a"] !== "") {
+                    var values = entries["a"].split(",");
+                    var servantData = getServantData(notnull(values[0], ""));
+
+                    if (servantData !== null) {
+                        var levels = servantData.status.map(function (s) {
+                            return s.level;
+                        });
+
+                        data.target.no = notnull(values[0], "");
+                        data.target.skill1 = supportvalue(values[1], ["", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], "");
+                        data.target.skill2 = supportvalue(values[2], ["", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], "");
+                        data.target.skill3 = supportvalue(values[3], ["", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], "");
+                        data.target.tokkou = supportvalue(values[4], ["y", "n"], "n");
+                        data.target.compatibility = supportvalue(values[5], ["1.0", "1.5", "2.0", "0.5"], "1.0");
+                        data.target.hlv = supportvalue(values[6], ["1", "2", "3", "4", "5"], servantData.servant.rare >= 4 ? "1" : "5");
+                        data.target.hoc = supportvalue(values[7], ["1", "2", "3", "4", "5"], servantData.servant.rare >= 4 ? "1" : "5");
+                        data.target.lv = supportvalue(values[8], levels, levels[0]);
+                        data.target.fou = isNaN(parseInt(values[9])) ? 1000 : parseInt(values[9]);
+
+                        data.target.atk = servantData.status.find(function (s) {
+                            return s.level === data.target.lv;
+                        }).atk;
                     }
+                }
 
-                    if (effect.type === "NP獲得状態付与") {
-                        buf.npget += parseFloat(effect.magnification);
-                    }
+                if (entries["s"] !== undefined && entries["s"] !== null && entries["s"] !== "") {
+                    var supports = entries["s"].split(":");
+                    for (var i = 0; i < supports.length; i++) {
+                        var values = supports[i].split(",");
 
-                    if (effect.type === cardbuflabel[card]) {
-                        buf.cardbuf += parseFloat(effect.magnification);
-                    }
-                };
+                        var servantData = getServantData(notnull(values[0], ""));
+                        if (servantData === null) {
+                            continue;
+                        }
 
-                function orgSkillBuff(card, lv, effect, buf) {
-                    var cardbuflabel = {
-                        "a": "Artsカード性能アップ",
-                        "q": "Quickカード性能アップ",
-                        "b": "Busterカード性能アップ"
-                    };
-
-                    if (effect.target !== "self" && effect.target !== "self-other") {
-                        return;
-                    }
-
-                    if (effect.type === "NP獲得量アップ") {
-                        buf.npbuf += parseFloat(effect["v" + lv]);
-                    }
-
-                    if (effect.type === "NP獲得状態付与") {
-                        buf.npget += parseFloat(effect["v" + lv]);
-                    }
-
-                    if (effect.type === cardbuflabel[card]) {
-                        buf.cardbuf += parseFloat(effect["v" + lv]);
-                    }
-                };
-
-                function orgHoguBuff(card, lv, oc, effect, buf) {
-                    var cardbuflabel = {
-                        "a": "Artsカード性能アップ",
-                        "q": "Quickカード性能アップ",
-                        "b": "Busterカード性能アップ"
-                    };
-
-                    var lvoc = effect.lvoc === "lv" ? "v" + lv : "v" + oc;
-
-                    if (effect.target !== "self" && effect.target !== "self-other") {
-                        return;
-                    }
-
-                    if (effect.type === "NP獲得量アップ" && effect.beforeafter === "before") {
-                        buf.npbuf += parseFloat(effect[lvoc]);
-                    }
-
-                    if (effect.type === "NP獲得状態付与") {
-                        buf.npget += parseFloat(effect[lvoc]);
-                    }
-
-                    if (effect.type === "NP獲得" && effect.beforeafter === "after") {
-                        buf.npget += parseFloat(effect[lvoc]);
-                    }
-
-                    if (effect.type === cardbuflabel[card] && effect.beforeafter === "before") {
-                        buf.cardbuf += parseFloat(effect[lvoc]);
-                    }
-                };
-
-                function supportSkillBuff(card, lv, effect, buf) {
-                    var cardbuflabel = {
-                        "a": "Artsカード性能アップ",
-                        "q": "Quickカード性能アップ",
-                        "b": "Busterカード性能アップ"
-                    };
-
-                    if (effect.target !== "other-single"
-                        && effect.target !== "other-all"
-                        && effect.target !== "self-other") {
-
-                        return;
-                    }
-
-                    if (effect.type === "NP獲得量アップ") {
-                        buf.npbuf += parseFloat(effect[lv]);
-                    }
-
-                    if (effect.type === "NP獲得状態付与") {
-                        buf.npget += parseFloat(effect[lv]);
-                    }
-
-                    if (effect.type === cardbuflabel[card]) {
-                        buf.cardbuf += parseFloat(effect[lv]);
-                    }
-                };
-
-                function updateSupportBufDialogData(no) {
-                    var html = "";
-
-                    var data = getServantData(no);
-                    var skill1 = $("#support-skill1-lv-input").val();
-                    var skill2 = $("#support-skill2-lv-input").val();
-                    var skill3 = $("#support-skill3-lv-input").val();
-
-                    if (skill1 !== "") {
-                        data.skill1.effects.forEach(function (e) {
-                            if (e.target !== "other-single"
-                                && e.target !== "other-all"
-                                && e.target !== "self-other") {
-
-                                return;
-                            }
-
-                            html += "<span style=\"margin: 5px;\" class=\"badge badge-primary\">"
-                                + (e.type) + ":" + e[skill1] + "</span>";
+                        data.suppurts.push({
+                            no: notnull(values[0], ""),
+                            id: idgen(),
+                            skill1: supportvalue(values[1], ["", "v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10"], ""),
+                            skill2: supportvalue(values[2], ["", "v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10"], ""),
+                            skill3: supportvalue(values[3], ["", "v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10"], "")
                         });
                     }
+                }
 
-                    if (skill2 !== "") {
-                        data.skill2.effects.forEach(function (e) {
-                            if (e.target !== "other-single"
-                                && e.target !== "other-all"
-                                && e.target !== "self-other") {
+                if (entries["r"] !== undefined && entries["r"] !== null && entries["r"] !== "") {
+                    var values = entries["r"].split(",");
+                    data.reisou.id = parseInt(supportvalue(values[0], ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], "0"));
+                    data.reisou.lv = parseInt(supportvalue(values[1], ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], "1"));
+                }
 
-                                return;
-                            }
+                if (entries["e"] !== undefined && entries["e"] !== null && entries["e"] !== "") {
+                    var values = entries["e"].split(",");
 
-                            html += "<span style=\"margin: 5px;\" class=\"badge badge-primary\">" + (e.type) + ":" + e[skill2] + "</span>";
+                    data.custom.addatk = isNaN(parseInt(values[0])) ? 0 : parseFloat(values[0]);
+                    data.custom.npbuf = isNaN(parseInt(values[1])) ? 0 : parseFloat(values[1]);
+                    data.custom.npget = isNaN(parseInt(values[2])) ? 0 : parseFloat(values[2]);
+                    data.custom.atkbuf = isNaN(parseInt(values[3])) ? 0 : parseFloat(values[3]);
+                    data.custom.cardbuf = isNaN(parseInt(values[4])) ? 0 : parseFloat(values[4]);
+                    data.custom.hogubuf = isNaN(parseInt(values[5])) ? 0 : parseFloat(values[5]);
+                }
+
+                return data;
+            };
+
+            function rerender(data) {
+                var servantData = getServantData(data.target.no);
+                $("#target-servant-input").val(servantData !== null ? servantLabel(servantData) : "");
+
+                var status = servantData !== null ? servantData.status : [];
+                $("#level-input").html(status.map(function (sdata) {
+                    return "<option atk=\"" + (sdata.atk) + "\" value=\"" + (sdata.level) + "\">" + (sdata.level) + "</option>";
+                }).join(""));
+                $("#level-input").val(data.target.lv);
+
+                $("#atk-input").val(data.target.atk);
+                $("#for-atk-input").val(data.target.fou);
+                $("#hogu-lv-input").val(data.target.hlv);
+                $("#hogu-oc-input").val(data.target.hoc);
+
+                $("#target-skill1-lv-input").val(data.target.skill1);
+                $("#target-skill1-lv-name").text(servantData != null ? servantData.skill1.name : "");
+                $("#target-skill2-lv-input").val(data.target.skill2);
+                $("#target-skill2-lv-name").text(servantData != null ? servantData.skill2.name : "");
+                $("#target-skill3-lv-input").val(data.target.skill3);
+                $("#target-skill3-lv-name").text(servantData != null ? servantData.skill3.name : "");
+
+
+                $("#tokkou-enable-input").val(data.target.tokkou);
+                $("#target-compatibility-input").val(data.target.compatibility);
+                $("#target-tenchizin-input").val(servantData != null ? servantData.servant.tenchizin : "");
+
+                $("#na-input").val(servantData != null ? servantData.hidden.na : "");
+                $("#hit-input").val(servantData != null ? servantData.hogu.hit : "");
+                $("#card-input").val(servantData != null ? servantData.hogu.card : "");
+                $("#hogu-type-input").val(servantData != null ? servantData.hogu.type : "");
+
+                var atackerbuf = { npbuf: 0, cardbuf: 0, npget: 0, atkbuf: 0, hogubuf: 0 };
+
+                var classskill = servantData != null ? servantData.classskill : [];
+                classskill.forEach(function (s) {
+                    s.effect.forEach(function (e) {
+                        classSkillBuff(servantData.hogu.card, e, atackerbuf);
+                    });
+                });
+
+                if (data.target.skill1 !== "" && servantData != null) {
+                    servantData.skill1.effects.forEach(function (e) {
+                        orgSkillBuff(servantData.hogu.card, data.target.skill1, e, atackerbuf);
+                    });
+                }
+                if (data.target.skill2 !== "" && servantData != null) {
+                    servantData.skill2.effects.forEach(function (e) {
+                        orgSkillBuff(servantData.hogu.card, data.target.skill2, e, atackerbuf);
+                    });
+                }
+
+                if (data.target.skill3 !== "" && servantData != null) {
+                    servantData.skill3.effects.forEach(function (e) {
+                        orgSkillBuff(servantData.hogu.card, data.target.skill3, e, atackerbuf);
+                    });
+                }
+
+                if (servantData !== null) {
+                    servantData.hogu.effect.forEach(function (e) {
+                        orgHoguBuff(servantData.hogu.card, data.target.hlv, data.target.hoc, e, atackerbuf);
+                    });
+                }
+
+                $("#target-card-buf-input").val(atackerbuf.cardbuf);
+                $("#target-np-buf-input").val(atackerbuf.npbuf);
+                $("#target-np-get-input").val(atackerbuf.npget);
+                $("#target-atk-buf-input").val(atackerbuf.atkbuf);
+                $("#target-hogu-buf-input").val(atackerbuf.hogubuf);
+
+                $("#target-reisou-level").val(data.reisou.lv);
+                $("#target-reisou-input").val(data.reisou.id);
+
+                $("#reisou-help").html(reisouHelpHtml());
+
+                $("#other-atk-input").val(data.custom.addatk);
+                $("#other-np-buf-input").val(data.custom.npbuf);
+                $("#other-np-get-input").val(data.custom.npget);
+                $("#other-atk-buf-input").val(data.custom.atkbuf);
+                $("#other-card-buf-input").val(data.custom.cardbuf);
+                $("#other-hogu-buf-input").val(data.custom.hogubuf);
+
+                $("#support-box").html("");
+                for (var i = 0; i < data.suppurts.length; i++) {
+                    var support = data.suppurts[i];
+                    var supportServantData = getServantData(support.no);
+
+                    $("#support-box").append($("<span>").attr("class", "badge badge-dark")
+                        .attr("style", "cursor: pointer;padding: 10px;margin: 3px;")
+                        .attr("id", support.id)
+                        .attr("data-no", support.no)
+                        .attr("skill1", support.skill1)
+                        .attr("skill2", support.skill2)
+                        .attr("skill3", support.skill3)
+                        .text(servantLabel(supportServantData)));
+
+                    if (support.skill1 !== "") {
+                        supportServantData.skill1.effects.forEach(function (e) {
+                            supportSkillBuff(servantData.hogu.card, support.skill1, e, atackerbuf);
                         });
                     }
-                    if (skill3 !== "") {
-                        data.skill3.effects.forEach(function (e) {
-                            if (e.target !== "other-single"
-                                && e.target !== "other-all"
-                                && e.target !== "self-other") {
-
-                                return;
-                            }
-
-                            html += "<span style=\"margin: 5px;\" class=\"badge badge-primary\">" + (e.type) + ":" + e[skill3] + "</span>";
+                    if (support.skill2 !== "") {
+                        supportServantData.skill2.effects.forEach(function (e) {
+                            supportSkillBuff(servantData.hogu.card, support.skill2, e, atackerbuf);
                         });
                     }
-
-                    $("#support-buf-data").html(html);
-                };
-
-                function calcHoguNp() {
-                    var no = $("#atackerContainer").attr("no");
-                    if (no === undefined || no === null || no === "") {
-                        return;
+                    if (support.skill3 !== "") {
+                        supportServantData.skill3.effects.forEach(function (e) {
+                            supportSkillBuff(servantData.hogu.card, support.skill3, e, atackerbuf);
+                        });
                     }
+                }
 
-                    var buf = { npbuf: 0, cardbuf: 0, npget: 0, atkbuf: 0, hogubuf: 0 };
-                    var hoguCard = $("#card-input").val();
-                    var hoguHit = parseInt($("#hit-input").val());
-                    var na = parseFloat($("#na-input").val());
-                    var cardHosei = fgo.getCardNp(hoguCard);
+                atackerbuf.cardbuf += data.custom.cardbuf;
+                atackerbuf.npbuf += data.custom.npbuf;
+                atackerbuf.npget += data.custom.npget;
+                atackerbuf.atkbuf += data.custom.atkbuf;
+                atackerbuf.hogubuf += data.custom.hogubuf;
 
-                    buf.cardbuf += parseFloat($("#target-card-buf-input").val());
-                    buf.npbuf += parseFloat($("#target-np-buf-input").val());
-                    buf.npget += parseFloat($("#target-np-get-input").val());
-                    buf.atkbuf += parseFloat($("#target-atk-buf-input").val());
-                    buf.hogubuf += parseFloat($("#target-hogu-buf-input").val());
+                if(servantData !== null) {
+                    reisouBuf(servantData.hogu.card, data.reisou.lv, $("#target-reisou-input option:selected"), atackerbuf);
+                }
 
-                    buf.cardbuf += parseFloat($("#other-card-buf-input").val());
-                    buf.npbuf += parseFloat($("#other-np-buf-input").val());
-                    buf.npget += parseFloat($("#other-np-get-input").val());
-                    buf.atkbuf += parseFloat($("#other-atk-buf-input").val());
-                    buf.hogubuf += parseFloat($("#other-hogu-buf-input").val());
+                var cardHosei = servantData !== null ? fgo.getCardNp(servantData.hogu.card) : 0;
+                var hoguHit = servantData !== null ? servantData.hogu.hit : 0;
+                var na = servantData !== null ? servantData.hidden.na : 0;
 
-                    $("#support-box span").each(function () {
-                        var no = getServantNo($(this).text().trim());
+                const calcResult = [];
+                for (var i = 0; i < hoguHit; i++) {
+                    var d1 = calcNp(cardHosei, na, hoguHit, i + 1, 1.0, atackerbuf);
+                    var d2 = calcNp(cardHosei, na, hoguHit, i + 1, 1.2, atackerbuf);
+                    var d3 = calcNp(cardHosei, na, hoguHit, i + 1, 1.1, atackerbuf);
+                    var d4 = calcNp(cardHosei, na, hoguHit, i + 1, 0.9, atackerbuf);
+                    var d5 = calcNp(cardHosei, na, hoguHit, i + 1, 0.8, atackerbuf);
+                    calcResult.push({
+                        label: "OverKill " + (i + 1),
+                        d1: d1 + atackerbuf.npget,
+                        d2: d2 + atackerbuf.npget,
+                        d3: d3 + atackerbuf.npget,
+                        d4: d4 + atackerbuf.npget,
+                        d5: d5 + atackerbuf.npget,
+                        a1: Math.round(((d1 * 3) + atackerbuf.npget) * 10) / 10,
+                        a2: Math.round(((d2 * 3) + atackerbuf.npget) * 10) / 10,
+                        a3: Math.round(((d3 * 3) + atackerbuf.npget) * 10) / 10,
+                        a4: Math.round(((d4 * 3) + atackerbuf.npget) * 10) / 10,
+                        a5: Math.round(((d5 * 3) + atackerbuf.npget) * 10) / 10
+                    });
+                }
+                var template = Handlebars.compile($("#template-result").html());
+                $("#result-np-data").html(template(calcResult));
+
+                var cumulative = [];
+
+                if(servantData !== null) {
+                    cumulative.push("基礎倍率:0.23");
+                    cumulative.push("カードNP補正:" + cardHosei);
+                    cumulative.push("カード補正:" + atackerbuf.cardbuf);
+                    cumulative.push("攻防力補正:" + atackerbuf.atkbuf);
+                    cumulative.push("宝具威力補正:" + atackerbuf.hogubuf);
+                    cumulative.push("NP獲得量補正:" + atackerbuf.npbuf);
+                    cumulative.push("ターン後NP獲得:" + atackerbuf.npget);
+                }
+
+                $("#result-buf-data").html(cumulative.map(function (c) {
+                    return "<span style=\"margin: 5px;\" class=\"badge badge-primary\">" + c + "</span>";
+                }).join(""));
+            };
+
+            $(function () {
+                /* 初期化 start */
+                var initialData = (function () {
+                    var d = getHash();
+                    setHash(d);
+                    rerender(d);
+                    return d;
+                })();
+                /* 初期化 end */
+
+                var servantAutoCompleteData = fgo.data().map(function (d) {
+                    return servantLabel(d);
+                });
+
+                /* その他イベント start */
+                (function () {
+                    $(document).on("click", ".toggle-btn", function () {
+                        var targetId = $(this).attr("data-target");
+                        var target = $(targetId);
+                        if (target.is(':visible')) {
+                            target.hide();
+                        } else {
+                            target.show();
+                        }
+                    });
+
+                    $("#clearnBtn").click(function () {
+                        location.hash = "";
+                        initialData = getHash();
+                        setHash(initialData);
+                        rerender(initialData);
+                    });
+                })();
+                /* その他イベント end */
+
+                /* アタッカー部分のイベント start */
+                (function () {
+                    $("#target-servant-input").autocomplete({
+                        source: servantAutoCompleteData,
+                        select: function (e, d) {
+                            var no = getServantNo(d.item.value);
+                            var servantData = getServantData(no);
+
+                            var status = servantData.status[0];
+
+                            initialData.target.no = no;
+                            initialData.target.skill1 = "10";
+                            initialData.target.skill2 = "10";
+                            initialData.target.skill3 = "10";
+                            initialData.target.tokkou = "n";
+                            initialData.target.compatibility = "1.0";
+                            initialData.target.hlv = servantData.servant.rare >= 4 ? "1" : "5";
+                            initialData.target.hoc = servantData.servant.rare >= 4 ? "1" : "5";
+                            initialData.target.lv = status.level;
+                            initialData.target.fou = 1000;
+                            initialData.target.atk = status.atk;
+
+                            $("#target-servant-input").blur();
+                            rerender(initialData);
+                            setHash(initialData);
+                        }
+                    });
+
+                    $("#level-input").change(function () {
+                        var selected = $("#level-input option:selected");
+                        var lv = selected.val("");
+                        var atk = parseInt(selected.attr("atk"));
+
+                        initialData.target.lv = lv;
+                        initialData.target.atk = atk;
+                        $("#for-atk-input").val(atk);
+
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
+
+                    $("#for-atk-input").change(function () {
+                        var val = parseInt($(this).val());
+                        initialData.target.fou = val;
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
+
+                    $("#hogu-lv-input").change(function () {
+                        initialData.target.hlv = $(this).val();
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
+
+                    $("#hogu-oc-input").change(function () {
+                        initialData.target.hoc = $(this).val();
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
+
+                    $("#target-skill1-lv-input").change(function () {
+                        initialData.target.skill1 = $(this).val();
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
+
+                    $("#target-skill2-lv-input").change(function () {
+                        initialData.target.skill2 = $(this).val();
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
+
+                    $("#target-skill3-lv-input").change(function () {
+                        initialData.target.skill3 = $(this).val();
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
+
+                    $("#tokkou-enable-input").change(function () {
+                        initialData.target.tokkou = $(this).val();
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
+
+                    $("#target-compatibility-input").change(function () {
+                        initialData.target.compatibility = $(this).val();
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
+
+                })();
+                /* アタッカー部分のイベント end */
+
+                /* 礼装、その他バフ部分のイベント start */
+                (function () {
+
+                    $("#target-reisou-level").change(function () {
+                        initialData.reisou.lv = parseInt($(this).val());
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
+
+                    $("#target-reisou-input").change(function () {
+                        initialData.reisou.id = $(this).val();
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
+
+                    $("#other-atk-input").change(function () {
+                        initialData.custom.addatk = parseInt($(this).val());
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
+
+                    $("#other-np-buf-input").change(function () {
+                        initialData.custom.npbuf = parseFloat($(this).val());
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
+
+                    $("#other-np-get-input").change(function () {
+                        initialData.custom.npget = parseFloat($(this).val());
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
+
+                    $("#other-atk-buf-input").change(function () {
+                        initialData.custom.atkbuf = parseFloat($(this).val());
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
+
+                    $("#other-card-buf-input").change(function () {
+                        initialData.custom.cardbuf = parseFloat($(this).val());
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
+
+                    $("#other-hogu-buf-input").change(function () {
+                        initialData.custom.hogubuf = parseFloat($(this).val());
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
+                })();
+                /* 礼装、その他バフ部分のイベント end */
+
+                /* サポート部分のイベント start */
+                (function () {
+                    function updateSupportBufDialogData(no) {
+                        var html = "";
+
                         var data = getServantData(no);
-
-                        var skill1 = $(this).attr("data-skill1");
-                        var skill2 = $(this).attr("data-skill2");
-                        var skill3 = $(this).attr("data-skill3");
+                        var skill1 = $("#support-skill1-lv-input").val();
+                        var skill2 = $("#support-skill2-lv-input").val();
+                        var skill3 = $("#support-skill3-lv-input").val();
 
                         if (skill1 !== "") {
                             data.skill1.effects.forEach(function (e) {
-                                supportSkillBuff(hoguCard, skill1, e, buf);
+                                if (e.target !== "other-single"
+                                    && e.target !== "other-all"
+                                    && e.target !== "self-other") {
+
+                                    return;
+                                }
+
+                                html += "<span style=\"margin: 5px;\" class=\"badge badge-primary\">"
+                                    + (e.type) + ":" + e[skill1] + "</span>";
                             });
                         }
 
                         if (skill2 !== "") {
                             data.skill2.effects.forEach(function (e) {
-                                supportSkillBuff(hoguCard, skill2, e, buf);
+                                if (e.target !== "other-single"
+                                    && e.target !== "other-all"
+                                    && e.target !== "self-other") {
+
+                                    return;
+                                }
+
+                                html += "<span style=\"margin: 5px;\" class=\"badge badge-primary\">" + (e.type) + ":" + e[skill2] + "</span>";
                             });
                         }
-
                         if (skill3 !== "") {
                             data.skill3.effects.forEach(function (e) {
-                                supportSkillBuff(hoguCard, skill3, e, buf);
+                                if (e.target !== "other-single"
+                                    && e.target !== "other-all"
+                                    && e.target !== "self-other") {
+
+                                    return;
+                                }
+
+                                html += "<span style=\"margin: 5px;\" class=\"badge badge-primary\">" + (e.type) + ":" + e[skill3] + "</span>";
                             });
+                        }
+
+                        $("#support-buf-data").html(html);
+                    };
+
+                    $("#support-servant-input").autocomplete({
+                        source: servantAutoCompleteData,
+                        select: function (e, d) {
+                            var no = getServantNo(d.item.value);
+
+                            initialData.suppurts.push({
+                                no: no,
+                                id: idgen(),
+                                skill1: "v10",
+                                skill2: "v10",
+                                skill3: "v10"
+                            });
+
+                            $("#support-servant-input").blur();
+                            rerender(initialData);
+                            setHash(initialData);
                         }
                     });
 
-                    reisouBuf(hoguCard, parseInt($("#target-reisou-level").val()), $("#target-reisou-input option:selected"), buf);
-
-                    const calcResult = [];
-                    for (var i = 0; i < hoguHit; i++) {
-                        var d1 = calcNp(cardHosei, na, hoguHit, i + 1, 1.0, buf);
-                        var d2 = calcNp(cardHosei, na, hoguHit, i + 1, 1.2, buf);
-                        var d3 = calcNp(cardHosei, na, hoguHit, i + 1, 1.1, buf);
-                        var d4 = calcNp(cardHosei, na, hoguHit, i + 1, 0.9, buf);
-                        var d5 = calcNp(cardHosei, na, hoguHit, i + 1, 0.8, buf);
-                        calcResult.push({
-                            label: "OverKill " + (i + 1),
-                            d1: d1 + buf.npget,
-                            d2: d2 + buf.npget,
-                            d3: d3 + buf.npget,
-                            d4: d4 + buf.npget,
-                            d5: d5 + buf.npget,
-                            a1: Math.round(((d1 * 3) + buf.npget) * 10) / 10,
-                            a2: Math.round(((d2 * 3) + buf.npget) * 10) / 10,
-                            a3: Math.round(((d3 * 3) + buf.npget) * 10) / 10,
-                            a4: Math.round(((d4 * 3) + buf.npget) * 10) / 10,
-                            a5: Math.round(((d5 * 3) + buf.npget) * 10) / 10
-                        });
-                    }
-
-
-                    var template = Handlebars.compile($("#template-result").html());
-                    $("#result-np-data").html(template(calcResult));
-
-                    var cumulative = [];
-                    cumulative.push("基礎倍率:0.23");
-                    cumulative.push("カードNP補正:" + cardHosei);
-                    cumulative.push("カード補正:" + buf.cardbuf);
-                    cumulative.push("攻防力補正:" + buf.atkbuf);
-                    cumulative.push("宝具威力補正:" + buf.hogubuf);
-                    cumulative.push("NP獲得量補正:" + buf.npbuf);
-                    cumulative.push("ターン後NP獲得:" + buf.npget);
-
-                    $("#result-buf-data").html(cumulative.map(function (c) {
-                        return "<span style=\"margin: 5px;\" class=\"badge badge-primary\">" + c + "</span>";
-                    }).join(""));
-                };
-
-                function updateAttackerBuf(no) {
-                    var data = getServantData(no);
-                    var hoguLevel = parseInt($("#hogu-lv-input").val());
-                    var hoguOC = parseInt($("#hogu-oc-input").val());
-                    var skill1 = $("#target-skill1-lv-input").val();
-                    var skill2 = $("#target-skill2-lv-input").val();
-                    var skill3 = $("#target-skill3-lv-input").val();
-
-                    var buf = { npbuf: 0, cardbuf: 0, npget: 0, atkbuf: 0, hogubuf: 0 };
-
-                    data.classskill.forEach(function (s) {
-                        s.effect.forEach(function (e) {
-                            classSkillBuff(data.hogu.card, e, buf);
-                        });
+                    $("#support-servant-input").focus(function () {
+                        $("#support-servant-input").val("");
                     });
 
-                    if (skill1 !== "") {
-                        data.skill1.effects.forEach(function (e) {
-                            orgSkillBuff(data.hogu.card, skill1, e, buf);
-                        });
-                    }
-
-                    if (skill2 !== "") {
-                        data.skill2.effects.forEach(function (e) {
-                            orgSkillBuff(data.hogu.card, skill2, e, buf);
-                        });
-                    }
-
-                    if (skill3 !== "") {
-                        data.skill3.effects.forEach(function (e) {
-                            orgSkillBuff(data.hogu.card, skill3, e, buf);
-                        });
-                    }
-
-                    data.hogu.effect.forEach(function (e) {
-                        orgHoguBuff(data.hogu.card, hoguLevel, hoguOC, e, buf);
-                    });
-
-                    $("#target-card-buf-input").val(buf.cardbuf);
-                    $("#target-np-buf-input").val(buf.npbuf);
-                    $("#target-np-get-input").val(buf.npget);
-                    $("#target-atk-buf-input").val(buf.atkbuf);
-                    $("#target-hogu-buf-input").val(buf.hogubuf);
-                };
-
-                var servantAutoCompleteData = fgo.data().map(function (d) {
-                    return d.servant.no + "-星" + d.servant.rare + "-" + fgo.classToLabel(d.servant.clazz) + "-" + d.servant.name;
-                });
-
-                $("#target-servant-input").autocomplete({
-                    source: servantAutoCompleteData,
-                    select: function (e, d) {
-                        var no = getServantNo(d.item.value);
+                    $(document).on("click", "#support-box span", function () {
+                        var no = $(this).attr("data-no");
                         var data = getServantData(no);
 
-                        $("#level-input").html(data.status.map(function (status) {
-                            return "<option value=\"" + (status.atk) + "\">" + (status.level) + "</option>";
-                        }).join(""));
-                        $("#atk-input").val(data.status[0].atk);
+                        var domid = $(this).attr("id");
+                        var title = data.servant.no + "-星" + data.servant.rare + "-"
+                            + fgo.classToLabel(data.servant.clazz) + "-" + data.servant.name;
 
-                        $("#hogu-oc-input").val("1");
-                        $("#hogu-lv-input").val(data.servant.rare >= 4 ? "1" : "5");
+                        $('#support-detail-modal').attr("target-dom-id", domid);
+                        $('#support-detail-modal').attr("data-no", no);
 
-                        $("#na-input").val(data.hidden.na);
-                        $("#hit-input").val(data.hogu.hit);
-                        $("#card-input").val(data.hogu.card);
-                        $("#hogu-type-input").val(data.hogu.type);
+                        $("#support-modal-title").text(title);
 
-                        $("#target-skill1-lv-input").val("10");
-                        $("#target-skill1-lv-name").text(data.skill1.name);
-                        $("#target-skill2-lv-input").val("10");
-                        $("#target-skill2-lv-name").text(data.skill2.name);
-                        $("#target-skill3-lv-input").val("10");
-                        $("#target-skill3-lv-name").text(data.skill3.name);
+                        $("#support-skill1-lv-input").val($(this).attr("skill1"));
+                        $("#support-skill2-lv-input").val($(this).attr("skill2"));
+                        $("#support-skill3-lv-input").val($(this).attr("skill3"));
 
-                        $("#tokkou-enable-input").val("n");
-                        $("#target-compatibility-input").val("1.0");
-                        $("#target-tenchizin-input").val(data.servant.tenchizin);
+                        $("#support-skill1-lv-name").text(data.skill1.name);
+                        $("#support-skill2-lv-name").text(data.skill2.name);
+                        $("#support-skill3-lv-name").text(data.skill3.name);
 
-                        $("#atackerContainer").attr("no", no);
-
-                        updateAttackerBuf(no);
-                        $("#target-servant-input").blur();
-
-                        calcHoguNp();
-                    }
-                });
-
-                var supportId = 0;
-
-                $("#support-servant-input").autocomplete({
-                    source: servantAutoCompleteData,
-                    select: function (e, d) {
-                        var no = getServantNo(d.item.value);
-
-                        $("#support-box").append($("<span>").attr("class", "badge badge-dark")
-                            .attr("style", "cursor: pointer;padding: 10px;margin: 3px;")
-                            .attr("id", "support-" + supportId)
-                            .attr("data-no", no)
-                            .attr("data-skill1", "v10")
-                            .attr("data-skill2", "v10")
-                            .attr("data-skill3", "v10")
-                            .text(d.item.value));
-
-                        supportId += 1;
-                        $("#support-servant-input").blur();
-
-                        calcHoguNp();
-                    }
-                });
-
-                $("#support-servant-input").focus(function () {
-                    $("#support-servant-input").val("");
-                });
-
-                $("#target-skill1-lv-input,#target-skill2-lv-input,#target-skill3-lv-input").change(function () {
-                    var no = $("#atackerContainer").attr("no");
-                    if (no !== undefined && no !== null && no !== "") {
-                        updateAttackerBuf(no);
-                    }
-
-                    calcHoguNp();
-                });
-
-                $("#atk-input,#for-atk-input,#hogu-lv-input,#hogu-oc-input").change(function () {
-                    var no = $("#atackerContainer").attr("no");
-                    if (no !== undefined && no !== null && no !== "") {
-                        updateAttackerBuf(no);
-                    }
-
-                    calcHoguNp();
-                });
-
-                $("#level-input").change(function () {
-                    $("#atk-input").val($(this).val());
-                    var no = $("#atackerContainer").attr("no");
-                    if (no !== undefined && no !== null && no !== "") {
-                        updateAttackerBuf(no);
-                    }
-
-                    calcHoguNp();
-                });
-
-                $(document).on("click", ".toggle-btn", function () {
-                    var targetId = $(this).attr("data-target");
-                    var target = $(targetId);
-                    if (target.is(':visible')) {
-                        target.hide();
-                    } else {
-                        target.show();
-                    }
-                });
-
-                $("#target-reisou-input").change(function () {
-                    var reisou = $('#target-reisou-input option:selected');
-                    var html = "";
-                    
-                    var atkVal = reisou.attr("atk");
-                    var hoguVal = reisou.attr("hogu");
-                    var aVal = reisou.attr("a");
-                    var bVal = reisou.attr("b");
-                    var qVal = reisou.attr("q");
-
-                    if(atkVal !== "") {
-                        var ary = atkVal.split(",")
-                        html += "<span class=\"badge badge-primary\">攻アップ:"+ary[0] + "-" + ary[ary.length-1] +"</span>";
-                    }
-                    if(hoguVal !== "") {
-                        var ary = hoguVal.split(",")
-                        html += "<span class=\"badge badge-primary\">宝具アップ:"+ary[0] + "-" + ary[ary.length-1] +"</span>";
-                    }
-                    if(aVal !== "") {
-                        var ary = aVal.split(",")
-                        html += "<span class=\"badge badge-primary\">Aアップ:"+ary[0] + "-" + ary[ary.length-1] +"</span>";
-                    }
-                    if(bVal !== "") {
-                        var ary = bVal.split(",")
-                        html += "<span class=\"badge badge-primary\">Bアップ:"+ary[0] + "-" + ary[ary.length-1] +"</span>";
-                    }
-                    if(qVal !== "") {
-                        var ary = qVal.split(",")
-                        html += "<span class=\"badge badge-primary\">Qアップ:"+ary[0] + "-" + ary[ary.length-1] +"</span>";
-                    }
-                    
-
-                    $("#reisou-help").html(html);
-                    calcHoguNp();
-                });
-
-                $("#target-reisou-level").change(function () {
-                    calcHoguNp();
-                });
-
-                $(document).on("click", "#support-box span", function () {
-                    var no = $(this).attr("data-no");
-                    var data = getServantData(no);
-
-                    var domid = $(this).attr("id");
-                    var title = data.servant.no + "-星" + data.servant.rare + "-"
-                        + fgo.classToLabel(data.servant.clazz) + "-" + data.servant.name;
-
-                    $('#support-detail-modal').attr("target-dom-id", domid);
-                    $('#support-detail-modal').attr("data-no", no);
-
-                    $("#support-modal-title").text(title);
-
-                    $("#support-skill1-lv-input").val($(this).attr("data-skill1"));
-                    $("#support-skill2-lv-input").val($(this).attr("data-skill2"));
-                    $("#support-skill3-lv-input").val($(this).attr("data-skill3"));
-
-                    $("#support-skill1-lv-name").text(data.skill1.name);
-                    $("#support-skill2-lv-name").text(data.skill2.name);
-                    $("#support-skill3-lv-name").text(data.skill3.name);
-
-                    updateSupportBufDialogData(no);
-
-                    $('#support-detail-modal').modal('show');
-                });
-
-                $("#support-skill1-lv-input,#support-skill2-lv-input,#support-skill3-lv-input").change(function () {
-                    var no = $('#support-detail-modal').attr("data-no");
-                    if (no !== undefined && no !== null && no !== "") {
                         updateSupportBufDialogData(no);
-                    }
+                        $('#support-detail-modal').modal('show');
+                    });
 
-                    var domid = $('#support-detail-modal').attr("target-dom-id");
-                    $("#" + domid).attr($(this).attr("change-target"), $(this).val());
+                    $("#support-delete-btn").click(function () {
+                        $('#support-detail-modal').modal('hide');
+                        var domid = $('#support-detail-modal').attr("target-dom-id");
 
-                    calcHoguNp();
-                });
+                        initialData.suppurts = initialData.suppurts.filter(function (d) {
+                            return d.id !== domid;
+                        });
 
-                $("#support-delete-btn").click(function () {
-                    $('#support-detail-modal').modal('hide');
-                    var domid = $('#support-detail-modal').attr("target-dom-id");
-                    $("#" + domid).remove();
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
 
-                    calcHoguNp();
-                });
+                    $("#support-skill1-lv-input,#support-skill2-lv-input,#support-skill3-lv-input").change(function () {
+                        var no = $('#support-detail-modal').attr("data-no");
+                        updateSupportBufDialogData(no);
 
-                $("#other-atk-input,#other-np-buf-input,#other-np-get-input,#other-atk-buf-input,#other-card-buf-input,#other-hogu-buf-input").blur(function () {
-                    calcHoguNp();
-                });
+                        var domid = $('#support-detail-modal').attr("target-dom-id");
+                        var key = $(this).attr("change-target");
+                        var support = initialData.suppurts.find(function (d) {
+                            return d.id == domid;
+                        });
+
+                        support[key] = $(this).val();
+
+                        rerender(initialData);
+                        setHash(initialData);
+                    });
+
+                })();
+                /* サポート部分のイベント end */
             });
         </script>
     </div>
