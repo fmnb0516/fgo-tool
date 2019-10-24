@@ -419,6 +419,10 @@
             <div class="col-lg-12" style="margin-bottom: 10px;">
                 <button type="button" class="btn btn-primary btn-sm toggle-btn"
                     data-target="#target-other-buf">詳細</button>
+                <small class="form-text text-muted">
+                    手動でその他のバフを編集します
+                </small>
+
             </div>
 
             <div class="col-lg-12" id="target-other-buf" style="display: none">
@@ -426,35 +430,50 @@
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="other-atk-input">ATK(追加)</label>
-                            <input id="other-atk-input" type="text" class="form-control" value="0">
+                            <input id="other-atk-input" type="number" class="form-control" value="0">
+                            <small class="form-text text-muted">
+                                追加するATKを入力してください。(礼装など)
+                            </small>
                         </div>
                     </div>
 
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="other-np-buf-input">NP獲得量バフ</label>
-                            <input id="other-np-buf-input" type="text" class="form-control" value="0">
+                            <input id="other-np-buf-input" type="number" class="form-control" value="0">
+                            <small class="form-text text-muted">
+                                NP獲得量アップの値を入力してください
+                            </small>
                         </div>
                     </div>
 
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="other-np-get-input">ターン後NP獲得</label>
-                            <input id="other-np-get-input" type="text" class="form-control" value="0">
+                            <input id="other-np-get-input" type="number" class="form-control" value="0">
+                            <small class="form-text text-muted">
+                                ターン終了時に取得できるNPの値を入力してください
+                            </small>
                         </div>
                     </div>
 
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="other-card-buf-input">攻バフ・防デバフ</label>
-                            <input id="other-atk-buf-input" type="text" class="form-control" value="0">
+                            <input id="other-atk-buf-input" type="number" class="form-control" value="0">
+                            <small class="form-text text-muted">
+                                追加する攻撃バフと防御デバフの総計を入力してください
+                            </small>
                         </div>
                     </div>
 
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label for="other-card-buf-input">Cardバフ</label>
-                            <input id="other-card-buf-input" type="text" class="form-control" value="0">
+                            <input id="other-card-buf-input" type="number" class="form-control" value="0">
+                            <small class="form-text text-muted">
+                                    追加するカードバフの総計を入力してください
+                            </small>
                         </div>
                     </div>
 
@@ -462,8 +481,16 @@
                         <div class="form-group">
                             <label for="other-hogu-buf-input">宝具バフ</label>
                             <input id="other-hogu-buf-input" type="text" class="form-control" value="0">
-                            <small class="form-text text-muted">その他、特攻バフなど</small>
+                            <small class="form-text text-muted">
+                                追加する宝具バフの総計を入力してください 
+                            </small>
                         </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <small class="form-text text-muted">
+                            ※その他、特攻バフなどは宝具バフと合算になります
+                        </small>
                     </div>
                 </div>
             </div>
