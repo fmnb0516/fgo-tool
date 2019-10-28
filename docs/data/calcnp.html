@@ -818,36 +818,50 @@
                 }
             };
 
-            function getTenchizinCompatibility(enemy, atacker) {
-                if(atacker === "ten" && enemy === "hito") {
-                    return 1.1;
-                }
-                if(atacker === "ten" && enemy === "chi") {
-                    return 0.9;
-                }
+            function getDamageLabel(type, tenchizin) {
+                var map = {
+                    "ten" : {
+                        "有利" : "地",
+                        "等倍" : "天・星・獣",
+                        "不利" : "人"
+                    },
+                    "chi" : {
+                        "有利" : "人",
+                        "等倍" : "地・星・獣",
+                        "不利" : "天"
+                    },
+                    "hito" : {
+                        "有利" : "天",
+                        "等倍" : "人・星・獣",
+                        "不利" : "地"
+                    },
+                    "hoshi" : {
+                        "有利" : "獣",
+                        "等倍" : "天・地・人・星",
+                        "不利" : "なし"
+                    },
+                    "juu" : {
+                        "有利" : "星",
+                        "等倍" : "天・地・人・獣",
+                        "不利" : "なし"
+                    },
+                };
 
-                if(atacker === "hito" && enemy === "chi") {
-                    return 1.1;
-                }
-                if(atacker === "hito" && enemy === "ten") {
-                    return 0.9;
-                }
+                return map[tenchizin][type];
+            };
 
-                if(atacker === "chi" && enemy === "ten") {
-                    return 1.1;
-                }
-                if(atacker === "chi" && enemy === "hito") {
-                    return 0.9;
-                }
+            function getHoguMag(effect, hlv, hoc) {
+                var mag = 0;
+                
+                for(var i=0; i<effect.length; i++) {
+                    var e = effect[i];
 
-                if(atacker === "hoshi" && enemy === "juu") {
-                    return 1.1;
+                    if(e.type !== "攻撃" && e.type !== "威力アップ") {
+                        continue;
+                    }
+                    mag += parseInt(e["v" + (e.lvoc === "lv" ? hlv : hoc)]);
                 }
-                if(atacker === "juu" && enemy === "hoshi") {
-                    return 1.1;
-                }
-
-                return 1.0;
+                return mag;
             };
 
             function getServantNo(val) {
@@ -873,6 +887,21 @@
                 return function (card, na, hoguHit, overkill, hosei, buf) {
                     var val = fgo.calcNp(na, card, bufTo(buf.cardbuf), bufTo(buf.npbuf), hoguHit, overkill, hosei);
                     return Math.round(val * 10) / 10;
+                };
+            })();
+
+            var calcDamage = (function() {
+                function bufTo(v) {
+                    return v === 0 ? v : v / 100;
+                };
+                
+                return function (card, atk, clazz, hoguMag, classCompatibility, attrCompatibility, buf) {
+                    var cardMag = fgo.getCardMag(card);
+                    var classHosei = fgo.getClassHosei(clazz);
+
+                    var val = fgo.calcDamage(atk, bufTo(hoguMag), cardMag, bufTo(buf.cardbuf), classHosei,
+                        classCompatibility, attrCompatibility, bufTo(buf.atkbuf), 0, 0, bufTo(buf.hogubuf), 1, 0);
+                    return Math.round(val);
                 };
             })();
 
@@ -1001,7 +1030,7 @@
                         data.target.tokkou = supportvalue(values[4], ["y", "n"], "n");
                         data.target.compatibility = supportvalue(values[5], ["1.0", "1.5", "2.0", "0.5"], "1.0");
                         data.target.hlv = supportvalue(values[6], ["1", "2", "3", "4", "5"], servantData.servant.rare >= 4 ? "1" : "5");
-                        data.target.hoc = supportvalue(values[7], ["1", "2", "3", "4", "5"], servantData.servant.rare >= 4 ? "1" : "5");
+                        data.target.hoc = supportvalue(values[7], ["1", "2", "3", "4", "5"], "1");
                         data.target.lv = supportvalue(values[8], levels, levels[0]);
                         data.target.fou = isNaN(parseInt(values[9])) ? 1000 : parseInt(values[9]);
 
@@ -1179,6 +1208,9 @@
                 var na = servantData !== null ? servantData.hidden.na : 0;
 
                 var lastAtk = data.target.atk + data.target.fou + data.custom.addatk;
+                var hoguMag = servantData !== null ? getHoguMag(servantData.hogu.effect, data.target.hlv, data.target.hoc) : 0;
+
+                var classDmgHosei = servantData !== null ? fgo.getClassHosei(servantData.servant.clazz) : 0;
 
                 var calcNpResult = [];
                 for (var i = 0; i < hoguHit; i++) {
@@ -1203,8 +1235,29 @@
                 }
 
                 var calcDamageResult = [];
-
                 if(servantData !== null) {
+                    var damage1 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, hoguMag, parseFloat(data.target.compatibility), 1.0, atackerbuf);
+                    var damage2 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, hoguMag, parseFloat(data.target.compatibility), 0.9, atackerbuf);
+                    var damage3 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, hoguMag, parseFloat(data.target.compatibility), 1.1, atackerbuf);
+
+                    calcDamageResult.push({
+                        label : getDamageLabel("有利", servantData.servant.tenchizin),
+                        d1 : Math.round(damage2 * 1.1),
+                        d2 : Math.round(damage2 * 1.0),
+                        d3 : Math.round(damage2 * 0.9)
+                    });
+                    calcDamageResult.push({
+                        label : getDamageLabel("等倍", servantData.servant.tenchizin),
+                        d1 : Math.round(damage1 * 1.1),
+                        d2 : Math.round(damage1 * 1.0),
+                        d3 : Math.round(damage1 * 0.9)
+                    });
+                    calcDamageResult.push({
+                        label : getDamageLabel("不利", servantData.servant.tenchizin),
+                        d1 : Math.round(damage3 * 1.1),
+                        d2 : Math.round(damage3 * 1.0),
+                        d3 : Math.round(damage3 * 0.9)
+                    });
                 }
 
                 var template_np = Handlebars.compile($("#template-np-result").html());
@@ -1217,7 +1270,9 @@
 
                 if(servantData !== null) {
                     cumulative.push("基礎倍率:0.23");
+                    cumulative.push("宝具倍率:"+hoguMag);
                     cumulative.push("カードNP補正:" + cardHosei);
+                    cumulative.push("カードダメージ補正:" + classDmgHosei);
                     cumulative.push("カード補正:" + atackerbuf.cardbuf);
                     cumulative.push("攻防力補正:" + atackerbuf.atkbuf);
                     cumulative.push("宝具威力補正:" + atackerbuf.hogubuf);
@@ -1282,7 +1337,7 @@
                             initialData.target.tokkou = "n";
                             initialData.target.compatibility = fgo.getCompatibility(1, servantData.servant.clazz) + "";
                             initialData.target.hlv = servantData.servant.rare >= 4 ? "1" : "5";
-                            initialData.target.hoc = servantData.servant.rare >= 4 ? "1" : "5";
+                            initialData.target.hoc = "1";
                             initialData.target.lv = status.level;
                             initialData.target.fou = 1000;
                             initialData.target.atk = status.atk;

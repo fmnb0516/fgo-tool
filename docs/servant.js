@@ -3287,12 +3287,12 @@ fgo.data([
   },
   {
     "servant": {
-      "no": "0016",
       "name": "アーラシュ",
       "clazz": "archer",
       "rare": 1,
       "cost": 3,
-      "tenchizin": "chi"
+      "tenchizin": "chi",
+      "no": "0016"
     },
     "card": {
       "arts": {
@@ -3317,10 +3317,10 @@ fgo.data([
     ],
     "hidden": {
       "na": 0.84,
-      "nd": 3,
-      "dr": 45,
-      "starcollection": 147,
       "staroccurrence": 8,
+      "starcollection": 147,
+      "dr": 45,
+      "nd": 3,
       "tag": [
         "混沌",
         "中庸",
@@ -3336,8 +3336,8 @@ fgo.data([
         "effect": [
           {
             "type": "弱体耐性アップ",
-            "desc": "自身の弱体耐性を少しアップ",
-            "magnification": "15"
+            "magnification": "15",
+            "desc": "自身の弱体耐性を少しアップ"
           }
         ]
       },
@@ -3346,69 +3346,19 @@ fgo.data([
         "effect": [
           {
             "type": "クリティカル威力アップ",
-            "desc": "自身のクリティカル威力を少しアップ",
-            "magnification": "6"
+            "magnification": "6",
+            "desc": "自身のクリティカル威力を少しアップ"
           }
         ]
       }
     ],
-    "hogu": {
-      "name": "流星一条(ステラ)",
-      "card": "b",
-      "effect": [
-        {
-          "type": "攻撃",
-          "tern": 0,
-          "count": 0,
-          "target": "enemy-all",
-          "beforeafter": "before",
-          "lvoc": "lv",
-          "desc": "敵全体に超強力な攻撃[Lv]",
-          "v1": "800",
-          "v2": "1000",
-          "v3": "1100",
-          "v4": "1150",
-          "v5": "1200"
-        },
-        {
-          "type": "威力アップ",
-          "tern": 0,
-          "count": 0,
-          "target": "enemy-all",
-          "beforeafter": "after",
-          "lvoc": "lv",
-          "desc": "＆<OC:威力アップ>",
-          "v1": "",
-          "v2": "200",
-          "v3": "400",
-          "v4": "600",
-          "v5": "800"
-        },
-        {
-          "type": "即死",
-          "tern": 0,
-          "count": 0,
-          "target": "self",
-          "beforeafter": "after",
-          "lvoc": "lv",
-          "desc": "＋自身に即死効果【デメリット】",
-          "v1": "",
-          "v2": "",
-          "v3": "",
-          "v4": "",
-          "v5": ""
-        }
-      ],
-      "type": "all",
-      "hit": 1
-    },
     "skill1": {
       "name": "頑健EX",
       "ct": 7,
       "effects": [
         {
           "type": "防御力アップ",
-          "tern": "3",
+          "tern": 3,
           "count": 0,
           "target": "self",
           "desc": "自身の防御力をアップ[Lv](3T)",
@@ -3425,7 +3375,7 @@ fgo.data([
         },
         {
           "type": "毒耐性アップ",
-          "tern": "3",
+          "tern": 3,
           "count": 0,
           "target": "self",
           "desc": "＆毒耐性をアップ[Lv](3T)",
@@ -3448,7 +3398,7 @@ fgo.data([
       "effects": [
         {
           "type": "スター発生率アップ",
-          "tern": "3",
+          "tern": 3,
           "count": 0,
           "target": "self",
           "desc": "自身のスター発生率をアップ[Lv](3T)",
@@ -3502,6 +3452,56 @@ fgo.data([
           "v8": "2400",
           "v9": "2600",
           "v10": "3000"
+        }
+      ]
+    },
+    "hogu": {
+      "name": "流星一条(ステラ)",
+      "type": "all",
+      "card": "b",
+      "hit": 1,
+      "effect": [
+        {
+          "type": "攻撃",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-all",
+          "beforeafter": "before",
+          "lvoc": "lv",
+          "desc": "敵全体に超強力な攻撃[Lv]",
+          "v1": "800",
+          "v2": "1000",
+          "v3": "1100",
+          "v4": "1150",
+          "v5": "1200"
+        },
+        {
+          "type": "威力アップ",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-all",
+          "beforeafter": "before",
+          "lvoc": "oc",
+          "desc": "＆<OC:威力アップ>",
+          "v1": "0",
+          "v2": "200",
+          "v3": "400",
+          "v4": "600",
+          "v5": "800"
+        },
+        {
+          "type": "即死",
+          "tern": 0,
+          "count": 0,
+          "target": "self",
+          "beforeafter": "after",
+          "lvoc": "lv",
+          "desc": "＋自身に即死効果【デメリット】",
+          "v1": "",
+          "v2": "",
+          "v3": "",
+          "v4": "",
+          "v5": ""
         }
       ]
     }
