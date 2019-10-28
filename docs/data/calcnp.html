@@ -720,23 +720,23 @@
             function supportSkillBuff(servantData, lv, effect, buf) {
                 var metaData = fgo.getEffectMeta(effect.type);
                 
-                metaData.apply(servantData.hogu.card, "support", "skill", parseFloat(effect.magnification), servantData, buf);
+                metaData.apply(servantData.hogu.card, "support", "skill", effect.target, (effect.magnification), servantData, buf);
             };
 
             function classSkillBuff(servantData, effect, buf) {
                 var metaData = fgo.getEffectMeta(effect.type);
-                metaData.apply(servantData.hogu.card, "own", "classskill", parseFloat(effect.magnification), servantData, buf);
+                metaData.apply(servantData.hogu.card, "own", "classskill", effect.target, parseFloat(effect.magnification), servantData, buf);
             };
 
             function orgSkillBuff(servantData, lv, effect, buf) {
                 var metaData = fgo.getEffectMeta(effect.type);
-                metaData.apply(servantData.hogu.card, "own", "skill", parseFloat(effect["v" + lv]), servantData, buf);
+                metaData.apply(servantData.hogu.card, "own", "skill", effect.target, parseFloat(effect["v" + lv]), servantData, buf);
             };
 
             function orgHoguBuff(servantData, lv, oc, effect, buf) {
                 var metaData = fgo.getEffectMeta(effect.type);
                 var lvoc = effect.lvoc === "lv" ? "v" + lv : "v" + oc;
-                metaData.apply(servantData.hogu.card, "own", "hogu", parseFloat(effect[lvoc]), servantData, buf);
+                metaData.apply(servantData.hogu.card, "own", "hogu", effect.target, parseFloat(effect[lvoc]), servantData, buf);
             };
 
             function getDamageLabel(type, tenchizin) {
