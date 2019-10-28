@@ -717,106 +717,26 @@
                 }
             };
 
-            function supportSkillBuff(card, lv, effect, buf) {
-                var cardbuflabel = {
-                    "a": "Artsカード性能アップ",
-                    "q": "Quickカード性能アップ",
-                    "b": "Busterカード性能アップ"
-                };
-
-                if (effect.target !== "other-single"
-                    && effect.target !== "other-all"
-                    && effect.target !== "self-other") {
-
-                    return;
-                }
-
-                if (effect.type === "NP獲得量アップ") {
-                    buf.npbuf += parseFloat(effect[lv]);
-                }
-
-                if (effect.type === "NP獲得状態付与") {
-                    buf.npget += parseFloat(effect[lv]);
-                }
-
-                if (effect.type === cardbuflabel[card]) {
-                    buf.cardbuf += parseFloat(effect[lv]);
-                }
-            };
-
-            function classSkillBuff(card, effect, buf) {
-                var cardbuflabel = {
-                    "a": "Artsカード性能アップ",
-                    "q": "Quickカード性能アップ",
-                    "b": "Busterカード性能アップ"
-                };
-
-                if (effect.type === "NP獲得量アップ") {
-                    buf.npbuf += parseFloat(effect.magnification);
-                }
-
-                if (effect.type === "NP獲得状態付与") {
-                    buf.npget += parseFloat(effect.magnification);
-                }
-
-                if (effect.type === cardbuflabel[card]) {
-                    buf.cardbuf += parseFloat(effect.magnification);
-                }
-            };
-
-            function orgSkillBuff(card, lv, effect, buf) {
-                var cardbuflabel = {
-                    "a": "Artsカード性能アップ",
-                    "q": "Quickカード性能アップ",
-                    "b": "Busterカード性能アップ"
-                };
-
-                if (effect.target !== "self" && effect.target !== "self-other") {
-                    return;
-                }
-
-                if (effect.type === "NP獲得量アップ") {
-                    buf.npbuf += parseFloat(effect["v" + lv]);
-                }
-
-                if (effect.type === "NP獲得状態付与") {
-                    buf.npget += parseFloat(effect["v" + lv]);
-                }
-
-                if (effect.type === cardbuflabel[card]) {
-                    buf.cardbuf += parseFloat(effect["v" + lv]);
-                }
+            function supportSkillBuff(servantData, lv, effect, buf) {
+                var metaData = fgo.getEffectMeta(effect.type);
                 
+                metaData.apply(servantData.hogu.card, "support", "skill", parseFloat(effect.magnification), servantData, buf);
             };
 
-            function orgHoguBuff(card, lv, oc, effect, buf) {
-                var cardbuflabel = {
-                    "a": "Artsカード性能アップ",
-                    "q": "Quickカード性能アップ",
-                    "b": "Busterカード性能アップ"
-                };
+            function classSkillBuff(servantData, effect, buf) {
+                var metaData = fgo.getEffectMeta(effect.type);
+                metaData.apply(servantData.hogu.card, "own", "classskill", parseFloat(effect.magnification), servantData, buf);
+            };
 
+            function orgSkillBuff(servantData, lv, effect, buf) {
+                var metaData = fgo.getEffectMeta(effect.type);
+                metaData.apply(servantData.hogu.card, "own", "skill", parseFloat(effect["v" + lv]), servantData, buf);
+            };
+
+            function orgHoguBuff(servantData, lv, oc, effect, buf) {
+                var metaData = fgo.getEffectMeta(effect.type);
                 var lvoc = effect.lvoc === "lv" ? "v" + lv : "v" + oc;
-
-                if (effect.target !== "self" && effect.target !== "self-other") {
-                    return;
-                }
-
-                if (effect.type === "NP獲得量アップ" && effect.beforeafter === "before") {
-                    buf.npbuf += parseFloat(effect[lvoc]);
-                }
-
-                if (effect.type === "NP獲得状態付与") {
-                    buf.npget += parseFloat(effect[lvoc]);
-                }
-
-                if (effect.type === "NP獲得" && effect.beforeafter === "after") {
-                    buf.npget += parseFloat(effect[lvoc]);
-                }
-
-                if (effect.type === cardbuflabel[card] && effect.beforeafter === "before") {
-                    buf.cardbuf += parseFloat(effect[lvoc]);
-                }
+                metaData.apply(servantData.hogu.card, "own", "hogu", parseFloat(effect[lvoc]), servantData, buf);
             };
 
             function getDamageLabel(type, tenchizin) {
@@ -1113,35 +1033,35 @@
                 $("#card-input").val(servantData != null ? servantData.hogu.card : "");
                 $("#hogu-type-input").val(servantData != null ? servantData.hogu.type : "");
 
-                var atackerbuf = { npbuf: 0, cardbuf: 0, npget: 0, atkbuf: 0, hogubuf: 0 };
+                var atackerbuf = {hogumag : 0,  npbuf: 0, cardbuf: 0, npget: 0, atkbuf: 0, hogubuf: 0 , tokkoubuf :0, tokkou : 1, damage : 0};
 
                 var classskill = servantData != null ? servantData.classskill : [];
                 classskill.forEach(function (s) {
                     s.effect.forEach(function (e) {
-                        classSkillBuff(servantData.hogu.card, e, atackerbuf);
+                        classSkillBuff(servantData, e, atackerbuf);
                     });
                 });
 
                 if (data.target.skill1 !== "" && servantData != null) {
                     servantData.skill1.effects.forEach(function (e) {
-                        orgSkillBuff(servantData.hogu.card, data.target.skill1, e, atackerbuf);
+                        orgSkillBuff(servantData, data.target.skill1, e, atackerbuf);
                     });
                 }
                 if (data.target.skill2 !== "" && servantData != null) {
                     servantData.skill2.effects.forEach(function (e) {
-                        orgSkillBuff(servantData.hogu.card, data.target.skill2, e, atackerbuf);
+                        orgSkillBuff(servantData, data.target.skill2, e, atackerbuf);
                     });
                 }
 
                 if (data.target.skill3 !== "" && servantData != null) {
                     servantData.skill3.effects.forEach(function (e) {
-                        orgSkillBuff(servantData.hogu.card, data.target.skill3, e, atackerbuf);
+                        orgSkillBuff(servantData, data.target.skill3, e, atackerbuf);
                     });
                 }
 
                 if (servantData !== null) {
                     servantData.hogu.effect.forEach(function (e) {
-                        orgHoguBuff(servantData.hogu.card, data.target.hlv, data.target.hoc, e, atackerbuf);
+                        orgHoguBuff(servantData, data.target.hlv, data.target.hoc, e, atackerbuf);
                     });
                 }
 
@@ -1184,12 +1104,12 @@
                     }
                     if (support.skill2 !== "") {
                         supportServantData.skill2.effects.forEach(function (e) {
-                            supportSkillBuff(servantData.hogu.card, support.skill2, e, atackerbuf);
+                            supportSkillBuff(servantData, support.skill2, e, atackerbuf);
                         });
                     }
                     if (support.skill3 !== "") {
                         supportServantData.skill3.effects.forEach(function (e) {
-                            supportSkillBuff(servantData.hogu.card, support.skill3, e, atackerbuf);
+                            supportSkillBuff(servantData, support.skill3, e, atackerbuf);
                         });
                     }
                 }
@@ -1209,8 +1129,6 @@
                 var na = servantData !== null ? servantData.hidden.na : 0;
 
                 var lastAtk = data.target.atk + data.target.fou + data.custom.addatk;
-                var hoguMag = servantData !== null ? getHoguMag(servantData.hogu.effect, data.target.hlv, data.target.hoc) : 0;
-
                 var classDmgHosei = servantData !== null ? fgo.getClassHosei(servantData.servant.clazz) : 0;
 
                 var calcNpResult = [];
@@ -1237,9 +1155,9 @@
 
                 var calcDamageResult = [];
                 if(servantData !== null) {
-                    var damage1 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, hoguMag, parseFloat(data.target.compatibility), 1.1, atackerbuf);
-                    var damage2 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, hoguMag, parseFloat(data.target.compatibility), 1.0, atackerbuf);
-                    var damage3 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, hoguMag, parseFloat(data.target.compatibility), 0.9, atackerbuf);
+                    var damage1 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, atackerbuf.hogumag, parseFloat(data.target.compatibility), 1.1, atackerbuf);
+                    var damage2 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, atackerbuf.hogumag, parseFloat(data.target.compatibility), 1.0, atackerbuf);
+                    var damage3 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, atackerbuf.hogumag, parseFloat(data.target.compatibility), 0.9, atackerbuf);
 
                     /*
                     calcDamageResult.push({
@@ -1273,7 +1191,7 @@
 
                 if(servantData !== null) {
                     cumulative.push("基礎倍率:0.23");
-                    cumulative.push("宝具倍率:"+hoguMag);
+                    cumulative.push("宝具倍率:"+atackerbuf.hogumag);
                     cumulative.push("カードNP補正:" + cardHosei);
                     cumulative.push("カードダメージ補正:" + classDmgHosei);
                     cumulative.push("カード補正:" + atackerbuf.cardbuf);
