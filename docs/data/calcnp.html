@@ -1236,21 +1236,21 @@
 
                 var calcDamageResult = [];
                 if(servantData !== null) {
-                    var damage1 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, hoguMag, parseFloat(data.target.compatibility), 1.0, atackerbuf);
-                    var damage2 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, hoguMag, parseFloat(data.target.compatibility), 0.9, atackerbuf);
-                    var damage3 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, hoguMag, parseFloat(data.target.compatibility), 1.1, atackerbuf);
+                    var damage1 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, hoguMag, parseFloat(data.target.compatibility), 1.1, atackerbuf);
+                    var damage2 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, hoguMag, parseFloat(data.target.compatibility), 1.0, atackerbuf);
+                    var damage3 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, hoguMag, parseFloat(data.target.compatibility), 0.9, atackerbuf);
 
                     calcDamageResult.push({
                         label : getDamageLabel("有利", servantData.servant.tenchizin),
-                        d1 : Math.round(damage2 * 1.1),
-                        d2 : Math.round(damage2 * 1.0),
-                        d3 : Math.round(damage2 * 0.9)
-                    });
-                    calcDamageResult.push({
-                        label : getDamageLabel("等倍", servantData.servant.tenchizin),
                         d1 : Math.round(damage1 * 1.1),
                         d2 : Math.round(damage1 * 1.0),
                         d3 : Math.round(damage1 * 0.9)
+                    });
+                    calcDamageResult.push({
+                        label : getDamageLabel("等倍", servantData.servant.tenchizin),
+                        d1 : Math.round(damage2 * 1.1),
+                        d2 : Math.round(damage2 * 1.0),
+                        d3 : Math.round(damage2 * 0.9)
                     });
                     calcDamageResult.push({
                         label : getDamageLabel("不利", servantData.servant.tenchizin),
@@ -1278,6 +1278,8 @@
                     cumulative.push("宝具威力補正:" + atackerbuf.hogubuf);
                     cumulative.push("NP獲得量補正:" + atackerbuf.npbuf);
                     cumulative.push("ターン後NP獲得:" + atackerbuf.npget);
+                    cumulative.push("宝具LV:"+data.target.hlv);
+                    cumulative.push("宝具OC:"+data.target.hoc);
                 }
 
                 $("#result-buf-data").html(cumulative.map(function (c) {
