@@ -786,6 +786,7 @@
                 if (effect.type === cardbuflabel[card]) {
                     buf.cardbuf += parseFloat(effect["v" + lv]);
                 }
+                
             };
 
             function orgHoguBuff(card, lv, oc, effect, buf) {
@@ -1240,6 +1241,7 @@
                     var damage2 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, hoguMag, parseFloat(data.target.compatibility), 1.0, atackerbuf);
                     var damage3 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, hoguMag, parseFloat(data.target.compatibility), 0.9, atackerbuf);
 
+                    /*
                     calcDamageResult.push({
                         label : getDamageLabel("有利", servantData.servant.tenchizin),
                         d1 : Math.round(damage1 * 1.1),
@@ -1258,6 +1260,7 @@
                         d2 : Math.round(damage3 * 1.0),
                         d3 : Math.round(damage3 * 0.9)
                     });
+                    */
                 }
 
                 var template_np = Handlebars.compile($("#template-np-result").html());
