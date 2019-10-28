@@ -62,6 +62,29 @@
         };
     })();
 
+    var getCompatibility = (function() {
+
+        var map = {
+            "saber" : [1.0, 2.0, 0.5],
+            "archer" : [1.0, 2.0, 0.5],
+            "luncer" : [1.0, 2.0, 0.5],
+            "rider" : [1.0, 2.0, 0.5],
+            "caster" : [1.0, 2.0, 0.5],
+            "asasin" : [1.0, 2.0, 0.5],
+            "barserker" : [1.0, 1.5, 0.5],
+            "ruler" : [1.0, 2.0, 0.5],
+            "avenger" : [1.0, 2.0, 0.5],
+            "monncanser" : [1.0, 2.0, 0.5],
+            "alterego" : [1.0, 2.0, 0.5],
+            "foreigner" : [1.0, 2.0, 0.5],
+            "shielder" : [1.0, 1.0, 1.0],
+        };
+
+        return function(mode, clazz) {
+            return map[clazz][mode];
+        };
+    })();
+
     var classLableFrom = function (desc) {
         var data = constData().servantClass.find(function (d) {
             return d.desc === desc;
@@ -1079,6 +1102,7 @@
     exports.classLableFrom = classLableFrom;
     exports.tenchizinLabelFrom = tenchizinLabelFrom;
     exports.getEffectType = getEffectType;
+    exports.getCompatibility = getCompatibility;
 
     exports.constData = constData;
 

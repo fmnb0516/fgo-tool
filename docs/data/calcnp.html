@@ -268,6 +268,8 @@
                                 <option value="ten">天</option>
                                 <option value="chi">地</option>
                                 <option value="hito">人</option>
+                                <option value="hoshi">星</option>
+                                <option value="juu">獣</option>
                             </select>
                         </div>
                     </div>
@@ -527,6 +529,23 @@
                 </table>
             </div>
 
+            <div class="col-lg-12" style="padding-top: 20px">
+                <div style="padding: 5px;">
+                    <span class="badge badge-dark">宝具ダメージ</span>
+                </div>
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">最大</th>
+                            <th scope="col">中間</th>
+                            <th scope="col">最低</th>
+                        </tr>
+                    </thead>
+                    <tbody id="result-damage-data">
+                    </tbody>
+                </table>
+            </div>
 
             <div class="col-lg-12" id="result-buf-data" style="padding: 10px">
             </div>
@@ -616,7 +635,7 @@
 
     </div>
 
-    <script type="text/x-handlebars" id="template-result">
+    <script type="text/x-handlebars" id="template-np-result">
         {{#each this}}
         <tr>
             <td>{{label}}</td>
@@ -625,6 +644,17 @@
             <td>{{d3}} ({{a3}})</td>
             <td>{{d4}} ({{a4}})</td>
             <td>{{d5}} ({{a5}})</td>
+        </tr>
+        {{/each}}
+    </script>
+
+    <script type="text/x-handlebars" id="template-damage-result">
+        {{#each this}}
+        <tr>
+            <td>{{label}}</td>
+            <td>{{d1}}</td>
+            <td>{{d2}}</td>
+            <td>{{d3}}</td>
         </tr>
         {{/each}}
     </script>
@@ -786,6 +816,38 @@
                 if (effect.type === cardbuflabel[card] && effect.beforeafter === "before") {
                     buf.cardbuf += parseFloat(effect[lvoc]);
                 }
+            };
+
+            function getTenchizinCompatibility(enemy, atacker) {
+                if(atacker === "ten" && enemy === "hito") {
+                    return 1.1;
+                }
+                if(atacker === "ten" && enemy === "chi") {
+                    return 0.9;
+                }
+
+                if(atacker === "hito" && enemy === "chi") {
+                    return 1.1;
+                }
+                if(atacker === "hito" && enemy === "ten") {
+                    return 0.9;
+                }
+
+                if(atacker === "chi" && enemy === "ten") {
+                    return 1.1;
+                }
+                if(atacker === "chi" && enemy === "hito") {
+                    return 0.9;
+                }
+
+                if(atacker === "hoshi" && enemy === "juu") {
+                    return 1.1;
+                }
+                if(atacker === "juu" && enemy === "hoshi") {
+                    return 1.1;
+                }
+
+                return 1.0;
             };
 
             function getServantNo(val) {
@@ -1116,14 +1178,16 @@
                 var hoguHit = servantData !== null ? servantData.hogu.hit : 0;
                 var na = servantData !== null ? servantData.hidden.na : 0;
 
-                const calcResult = [];
+                var lastAtk = data.target.atk + data.target.fou + data.custom.addatk;
+
+                var calcNpResult = [];
                 for (var i = 0; i < hoguHit; i++) {
                     var d1 = calcNp(cardHosei, na, hoguHit, i + 1, 1.0, atackerbuf);
                     var d2 = calcNp(cardHosei, na, hoguHit, i + 1, 1.2, atackerbuf);
                     var d3 = calcNp(cardHosei, na, hoguHit, i + 1, 1.1, atackerbuf);
                     var d4 = calcNp(cardHosei, na, hoguHit, i + 1, 0.9, atackerbuf);
                     var d5 = calcNp(cardHosei, na, hoguHit, i + 1, 0.8, atackerbuf);
-                    calcResult.push({
+                    calcNpResult.push({
                         label: "OverKill " + (i + 1),
                         d1: d1 + atackerbuf.npget,
                         d2: d2 + atackerbuf.npget,
@@ -1137,8 +1201,17 @@
                         a5: Math.round(((d5 * 3) + atackerbuf.npget) * 10) / 10
                     });
                 }
-                var template = Handlebars.compile($("#template-result").html());
-                $("#result-np-data").html(template(calcResult));
+
+                var calcDamageResult = [];
+
+                if(servantData !== null) {
+                }
+
+                var template_np = Handlebars.compile($("#template-np-result").html());
+                $("#result-np-data").html(template_np(calcNpResult));
+
+                var template_damage = Handlebars.compile($("#template-damage-result").html());
+                $("#result-damage-data").html(template_damage(calcDamageResult));
 
                 var cumulative = [];
 
@@ -1207,7 +1280,7 @@
                             initialData.target.skill2 = "10";
                             initialData.target.skill3 = "10";
                             initialData.target.tokkou = "n";
-                            initialData.target.compatibility = "1.0";
+                            initialData.target.compatibility = fgo.getCompatibility(1, servantData.servant.clazz) + "";
                             initialData.target.hlv = servantData.servant.rare >= 4 ? "1" : "5";
                             initialData.target.hoc = servantData.servant.rare >= 4 ? "1" : "5";
                             initialData.target.lv = status.level;
