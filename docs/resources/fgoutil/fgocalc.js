@@ -315,7 +315,7 @@
             },
             apply: function (context, magnification, servantData, buf) {
                 var check1 = context.beforeafter == "before"
-                    && matchText(context.target, ["self", "enemy-single", "enemy-all"]);
+                    && matchText(context.target, ["enemy-single", "enemy-all"]);
                 if (check1) {
                     buf.atkbuf += magnification;
                 }

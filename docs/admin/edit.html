@@ -88,6 +88,9 @@
       <td>
         <input type="text" class="hogu-val5-input" value="{{v5}}" style="width: 30px;">
       </td>
+      <td>
+        <input type="text" class="hogu-condition-input" value="{{condition}}" style="width: 150px;">
+      </td>
     </tr>
   </script>
 
@@ -146,7 +149,10 @@
       </td>
       <td>
         <input type="text" class="skill-val10-input" value="{{v10}}" style="width: 30px;">
-      </td>     
+      </td>
+      <td>
+        <input type="text" class="skill-condition-input" value="{{condition}}" style="width: 150px;">
+      </td>   
     </tr>
   </script>
 
@@ -452,6 +458,7 @@
                   <th>Lv8</th>
                   <th>Lv9</th>
                   <th>Lv10</th>
+                  <th>条件</th>
                 </tr>
               </thead>
               <tbody>
@@ -502,6 +509,7 @@
                   <th>Lv8</th>
                   <th>Lv9</th>
                   <th>Lv10</th>
+                  <th>条件</th>
                 </tr>
               </thead>
               <tbody>
@@ -552,6 +560,7 @@
                   <th>Lv8</th>
                   <th>Lv9</th>
                   <th>Lv10</th>
+                  <th>条件</th>
                 </tr>
               </thead>
               <tbody>
@@ -619,6 +628,7 @@
                   <th>3</th>
                   <th>4</th>
                   <th>5</th>
+                  <th>条件</th>
                 </tr>
               </thead>
               <tbody>
@@ -779,7 +789,8 @@
             v7: $(this).find(".skill-val7-input").val(),
             v8: $(this).find(".skill-val8-input").val(),
             v9: $(this).find(".skill-val9-input").val(),
-            v10: $(this).find(".skill-val10-input").val()
+            v10: $(this).find(".skill-val10-input").val(),
+            condition: $(this).find(".skill-condition-input").val()
           });
         });
 
@@ -845,7 +856,8 @@
             "v2": $(this).find(".hogu-val2-input").val(),
             "v3": $(this).find(".hogu-val3-input").val(),
             "v4": $(this).find(".hogu-val4-input").val(),
-            "v5": $(this).find(".hogu-val5-input").val()
+            "v5": $(this).find(".hogu-val5-input").val(),
+            "condition": $(this).find(".hogu-condition-input").val()
           });
 
         });
