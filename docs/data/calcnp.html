@@ -660,6 +660,16 @@
     </script>
 
     <div>
+        <script>
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('../sw.js').then(function(registration) {
+                    console.log('ServiceWorker の登録に成功しました。スコープ: ', registration.scope);
+                }).catch(function(err) {
+                    console.log('ServiceWorker の登録に失敗しました。', err);
+                });
+            }
+        </script>
+
         <script src="../resources/jquery/jquery-3.4.1.min.js"></script>
         <script src="../resources/jquery-ui-1.12.1/jquery-ui.min.js"></script>
         <script src="../resources/bootstrap/js/bootstrap.js"></script>
