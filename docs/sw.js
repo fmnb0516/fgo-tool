@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v2';
+const CACHE_VERSION = 'v10';
 const CACHE_NAME = `${registration.scope}!${CACHE_VERSION}`;
 
 const urlsToCache = [
@@ -15,7 +15,7 @@ const urlsToCache = [
     "servant.js",
     "resources/bootstrap/css/bootstrap.min.css",
     "resources/jquery-ui-1.12.1/jquery-ui.min.css",
-    "favicon.ico"
+    "favicon.ico",
 ];
 
 self.addEventListener('install', (event) => {
