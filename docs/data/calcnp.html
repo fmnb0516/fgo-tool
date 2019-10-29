@@ -536,7 +536,7 @@
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">敵属性</th>
                             <th scope="col">最大</th>
                             <th scope="col">中間</th>
                             <th scope="col">最低</th>
@@ -843,12 +843,12 @@
                     return v === 0 ? v : v / 100;
                 };
                 
-                return function (card, atk, clazz, hoguMag, classCompatibility, attrCompatibility, buf) {
+                return function (card, atk, clazz, classCompatibility, attrCompatibility, buf, useTokkou) {
                     var cardMag = fgo.getCardMag(card);
                     var classHosei = fgo.getClassHosei(clazz);
 
-                    var val = fgo.calcDamage(atk, bufTo(hoguMag), cardMag, bufTo(buf.cardbuf), classHosei,
-                        classCompatibility, attrCompatibility, bufTo(buf.atkbuf), 0, 0, bufTo(buf.hogubuf), 1, 0);
+                    var val = fgo.calcDamage(atk, bufTo(buf.hogumag), cardMag, bufTo(buf.cardbuf), classHosei,
+                        classCompatibility, attrCompatibility, bufTo(buf.atkbuf), useTokkou ? bufTo(buf.tokkoubuf) : 0, 0, bufTo(buf.hogubuf), bufTo(buf.tokkou), buf.damage);
                     return Math.round(val);
                 };
             })();
@@ -1185,11 +1185,10 @@
 
                 var calcDamageResult = [];
                 if(servantData !== null) {
-                    var damage1 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, atackerbuf.hogumag, parseFloat(data.target.compatibility), 1.1, atackerbuf);
-                    var damage2 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, atackerbuf.hogumag, parseFloat(data.target.compatibility), 1.0, atackerbuf);
-                    var damage3 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, atackerbuf.hogumag, parseFloat(data.target.compatibility), 0.9, atackerbuf);
+                    var damage1 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, parseFloat(data.target.compatibility), 1.1, atackerbuf, useTokkou);
+                    var damage2 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, parseFloat(data.target.compatibility), 1.0, atackerbuf, useTokkou);
+                    var damage3 = calcDamage(servantData.hogu.card, lastAtk, servantData.servant.clazz, parseFloat(data.target.compatibility), 0.9, atackerbuf, useTokkou);
 
-                    /*
                     calcDamageResult.push({
                         label : getDamageLabel("有利", servantData.servant.tenchizin),
                         d1 : Math.round(damage1 * 1.1),
@@ -1208,7 +1207,6 @@
                         d2 : Math.round(damage3 * 1.0),
                         d3 : Math.round(damage3 * 0.9)
                     });
-                    */
                 }
 
                 var template_np = Handlebars.compile($("#template-np-result").html());
