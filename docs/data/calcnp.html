@@ -719,23 +719,51 @@
 
             function supportSkillBuff(servantData, lv, effect, buf) {
                 var metaData = fgo.getEffectMeta(effect.type);
-                metaData.apply(servantData.hogu.card, "support", "skill", effect.target, (effect.magnification), servantData, buf);
+
+                metaData.apply({
+                    card : servantData.hogu.card,
+                    "mode" : "support",
+                    "type" : "skill",
+                    "target" : effect.target,
+                    "beforeafter" : "before"
+                }, parseFloat(effect[lv]), servantData, buf);
             };
 
             function classSkillBuff(servantData, effect, buf) {
                 var metaData = fgo.getEffectMeta(effect.type);
-                metaData.apply(servantData.hogu.card, "own", "classskill", effect.target, parseFloat(effect.magnification), servantData, buf);
+
+                metaData.apply({
+                    card : servantData.hogu.card,
+                    "mode" : "own",
+                    "type" : "classskil",
+                    "target" : "self",
+                    "beforeafter" : "before"
+                }, parseFloat(effect.magnification), servantData, buf);
             };
 
             function orgSkillBuff(servantData, lv, effect, buf) {
                 var metaData = fgo.getEffectMeta(effect.type);
-                metaData.apply(servantData.hogu.card, "own", "skill", effect.target, parseFloat(effect["v" + lv]), servantData, buf);
+
+                metaData.apply({
+                    card : servantData.hogu.card,
+                    "mode" : "own",
+                    "type" : "skill",
+                    "target" : effect.target,
+                    "beforeafter" : "before"
+                },parseFloat(effect["v" + lv]), servantData, buf);
             };
 
             function orgHoguBuff(servantData, lv, oc, effect, buf) {
                 var metaData = fgo.getEffectMeta(effect.type);
                 var lvoc = effect.lvoc === "lv" ? "v" + lv : "v" + oc;
-                metaData.apply(servantData.hogu.card, "own", "hogu", effect.target, parseFloat(effect[lvoc]), servantData, buf);
+
+                metaData.apply({
+                    card : servantData.hogu.card,
+                    "mode" : "own",
+                    "type" : "hogu",
+                    "target" : effect.target,
+                    "beforeafter" : effect.beforeafter
+                }, parseFloat(effect[lvoc]), servantData, buf);
             };
 
             function getDamageLabel(type, tenchizin) {
@@ -1098,7 +1126,7 @@
 
                     if (support.skill1 !== "") {
                         supportServantData.skill1.effects.forEach(function (e) {
-                            supportSkillBuff(servantData.hogu.card, support.skill1, e, atackerbuf);
+                            supportSkillBuff(servantData, support.skill1, e, atackerbuf);
                         });
                     }
                     if (support.skill2 !== "") {
@@ -1129,6 +1157,7 @@
 
                 var lastAtk = data.target.atk + data.target.fou + data.custom.addatk;
                 var classDmgHosei = servantData !== null ? fgo.getClassHosei(servantData.servant.clazz) : 0;
+                var cardMag = servantData !== null ? fgo.getCardMag(servantData.hogu.card) : 0;
 
                 var calcNpResult = [];
                 for (var i = 0; i < hoguHit; i++) {
@@ -1192,7 +1221,7 @@
                     cumulative.push("基礎倍率:0.23");
                     cumulative.push("宝具倍率:"+atackerbuf.hogumag);
                     cumulative.push("カードNP補正:" + cardHosei);
-                    cumulative.push("カードダメージ補正:" + classDmgHosei);
+                    cumulative.push("カードダメージ補正:" + cardMag);
                     cumulative.push("カード補正:" + atackerbuf.cardbuf);
                     cumulative.push("攻防力補正:" + atackerbuf.atkbuf);
                     cumulative.push("宝具威力補正:" + atackerbuf.hogubuf);
