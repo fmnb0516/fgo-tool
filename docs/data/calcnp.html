@@ -976,7 +976,7 @@
                         data.target.skill2 = supportvalue(values[2], ["", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], "");
                         data.target.skill3 = supportvalue(values[3], ["", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], "");
                         data.target.tokkou = supportvalue(values[4], ["y", "n"], "n");
-                        data.target.compatibility = supportvalue(values[5], ["1.0", "1.5", "2.0", "0.5"], "1.0");
+                        data.target.compatibility = supportvalue(values[5], ["1.0", "1.5", "2.0", "0.5"], fgo.getCompatibility(1, servantData.servant.clazz));
                         data.target.hlv = supportvalue(values[6], ["1", "2", "3", "4", "5"], servantData.servant.rare >= 4 ? "1" : "5");
                         data.target.hoc = supportvalue(values[7], ["1", "2", "3", "4", "5"], "1");
                         data.target.lv = supportvalue(values[8], levels, levels[0]);
@@ -1060,7 +1060,7 @@
                 $("#card-input").val(servantData != null ? servantData.hogu.card : "");
                 $("#hogu-type-input").val(servantData != null ? servantData.hogu.type : "");
 
-                var atackerbuf = {hogumag : 0,  npbuf: 0, cardbuf: 0, npget: 0, atkbuf: 0, hogubuf: 0 , tokkoubuf :0, tokkou : 1, damage : 0};
+                var atackerbuf = {hogumag : 0,  npbuf: 0, cardbuf: 0, npget: 0, atkbuf: 0, hogubuf: 0 , tokkoubuf :0, tokkou : 100, damage : 0};
 
                 var classskill = servantData != null ? servantData.classskill : [];
                 classskill.forEach(function (s) {
@@ -1092,11 +1092,13 @@
                     });
                 }
 
+                var useTokkou = data.target.tokkou === "y";
+
                 $("#target-card-buf-input").val(atackerbuf.cardbuf);
                 $("#target-np-buf-input").val(atackerbuf.npbuf);
                 $("#target-np-get-input").val(atackerbuf.npget);
                 $("#target-atk-buf-input").val(atackerbuf.atkbuf);
-                $("#target-hogu-buf-input").val(atackerbuf.hogubuf);
+                $("#target-hogu-buf-input").val(atackerbuf.hogubuf + (useTokkou ? atackerbuf.tokkoubuf : 0));
 
                 $("#target-reisou-level").val(data.reisou.lv);
                 $("#target-reisou-input").val(data.reisou.id);
@@ -1224,7 +1226,7 @@
                     cumulative.push("カードダメージ補正:" + cardMag);
                     cumulative.push("カード補正:" + atackerbuf.cardbuf);
                     cumulative.push("攻防力補正:" + atackerbuf.atkbuf);
-                    cumulative.push("宝具威力補正:" + atackerbuf.hogubuf);
+                    cumulative.push("宝具威力補正:" + (atackerbuf.hogubuf + (useTokkou ? atackerbuf.tokkoubuf : 0)));
                     cumulative.push("NP獲得量補正:" + atackerbuf.npbuf);
                     cumulative.push("ターン後NP獲得:" + atackerbuf.npget);
                     cumulative.push("宝具LV:"+data.target.hlv);
@@ -1286,7 +1288,7 @@
                             initialData.target.skill2 = "10";
                             initialData.target.skill3 = "10";
                             initialData.target.tokkou = "n";
-                            initialData.target.compatibility = fgo.getCompatibility(1, servantData.servant.clazz) + "";
+                            initialData.target.compatibility = fgo.getCompatibility(1, servantData.servant.clazz);
                             initialData.target.hlv = servantData.servant.rare >= 4 ? "1" : "5";
                             initialData.target.hoc = "1";
                             initialData.target.lv = status.level;
