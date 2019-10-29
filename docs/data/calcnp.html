@@ -719,7 +719,6 @@
 
             function supportSkillBuff(servantData, lv, effect, buf) {
                 var metaData = fgo.getEffectMeta(effect.type);
-                
                 metaData.apply(servantData.hogu.card, "support", "skill", effect.target, (effect.magnification), servantData, buf);
             };
 
