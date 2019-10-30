@@ -703,7 +703,309 @@
                     <div class="tab-pane fade active show" id="view">
                         <div class="row">
                             <div class="col-lg-12" style="padding: 10px;">
+                                
+                                <div class="row"
+                                    style="border: 1px solid #f0f0f0;border-radius: 0.25rem;position: relative;">
+                                    <div style="position: absolute;top: -10px;left: 10px;">
+                                        <span class="badge badge-primary" style="font-size: 150%;cursor: pointer">{{servant.name}}</span>
+                                    </div>
+
+                                    <div class="col-lg-12" style="padding-top: 30px;">
+                                        <button type="button" class="view-toggle-btn btn btn-primary btn-sm" data-target="#bascidata" style="margin-bottom:5px;">基本データ</button>
+                                    </div>
+
+                                    <div class="col-lg-12" id="bascidata">
+                                        <div class="row" style="padding: 15px 30px;">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered" style="font-weight: bold;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="table-primary">NO</td>
+                                                            <td>{{servant.no}}</td>
+                                                            <td class="table-primary">クラス</td>
+                                                            <td>{{servant.clazz}}</td>
+                                                            <td class="table-primary">レア</td>
+                                                            <td>{{servant.rare}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-primary">天地人</td>
+                                                            <td>{{servant.tenchizin}}</td>
+                                                            <td class="table-primary">コスト</td>
+                                                            <td>{{servant.cost}}</td>
+                                                            <td colspan=2 class="table-active"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-primary">na</td>
+                                                            <td>{{hidden.na}}</td>
+                                                            <td class="table-primary">nd</td>
+                                                            <td>{{hidden.nd}}</td>
+                                                            <td class="table-primary">dr</td>
+                                                            <td>{{hidden.dr}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-primary">スター集中率</td>
+                                                            <td>{{hidden.starcollection}}</td>
+                                                            <td class="table-primary">スター発生率</td>
+                                                            <td>{{hidden.staroccurrence}}</td>
+                                                            <td colspan=2 class="table-active"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-primary">属性</td>
+                                                            <td colspan=5>
+                                                                {{#each hidden.tag}}
+                                                                <span style="min-width: 50px;margin:5px;" class="badge badge-pill badge-dark">{{this}}</span>
+                                                                {{/each}}
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                     
+                                    
+                                    <div class="col-lg-12">
+                                        <button type="button" class="view-toggle-btn btn btn-primary btn-sm" data-target="#statusdata" style="margin-bottom:5px;">ステータス</button>
+                                    </div>
+
+                                    <div class="col-lg-12" id="statusdata">
+                                        <div class="row" style="padding: 15px 30px;">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered" style="font-weight: bold;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="table-primary">Lv</td>
+                                                            <td class="table-primary">ATK</td>
+                                                            <td class="table-primary">HP</td>
+                                                        </tr>
+
+                                                        {{#each status}}
+                                                        <tr>
+                                                            <td>{{level}}</td>
+                                                            <td>{{atk}}</td>
+                                                            <td>{{hp}}</td>
+                                                        </tr>
+                                                        {{/each}}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <button type="button" class="view-toggle-btn btn btn-primary btn-sm" data-target="#carddata" style="margin-bottom:5px;">カード情報</button>
+                                    </div>
+
+                                    <div class="col-lg-12" id="carddata">
+                                        <div class="row" style="padding: 15px 30px;">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered" style="font-weight: bold;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="table-primary">#</td>
+                                                            <td class="table-primary">ヒット数</td>
+                                                            <td class="table-primary">枚数</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Arts</td>
+                                                            <td>{{card.arts.hit}}</td>
+                                                            <td>{{card.arts.count}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Buster</td>
+                                                            <td>{{card.buster.hit}}</td>
+                                                            <td>{{card.buster.count}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Quick</td>
+                                                            <td>{{card.quick.hit}}</td>
+                                                            <td>{{card.quick.count}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <button type="button" class="view-toggle-btn btn btn-primary btn-sm" data-target="#classskilldata" style="margin-bottom:5px;">クラススキル</button>
+                                    </div>
+
+                                    <div class="col-lg-12" id="classskilldata">
+                                        <div class="row" style="padding: 15px 30px;">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered" style="font-weight: bold;">
+                                                    <tbody> 
+                                                        {{#each classskill}}
+                                                        <tr>
+                                                            <td class="table-primary">{{name}}</td>
+                                                        </tr>
+                                                        {{#each effect}}
+                                                        <tr>
+                                                            <td>
+                                                                {{desc}}
+                                                                <span style="min-width: 50px;margin:5px;padding:10px;" class="badge badge-pill badge-dark">{{type}}</span>
+                                                                <span style="min-width: 50px;margin:5px;padding:10px;" class="badge badge-pill badge-dark">倍率:{{magnification}}</span>
+                                                            </td>
+                                                        </tr>
+                                                        {{/each}}     
+                                                        {{/each}}      
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <button type="button" class="view-toggle-btn btn btn-primary btn-sm" data-target="#skilldata" style="margin-bottom:5px;">スキル</button>
+                                    </div>
+
+                                    <div class="col-lg-12" id="skilldata">
+                                        <div class="row" style="padding: 15px 30px;">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered" style="font-weight: bold;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan=4 class="table-primary">{{skill1.name}}</td>
+                                                            <td class="table-primary">CT</td>
+                                                            <td>{{skill1.ct}}</td>
+                                                        </tr>
+                                                        {{#each skill1.effects}}
+                                                        <tr>
+                                                            <td rowspan=3 class="table-primary">説明<br/>倍率</td>
+                                                            <td colspan=5>
+                                                                {{desc}}
+                                                                <span style="min-width: 50px;margin:5px;padding:10px;" class="badge badge-pill badge-dark">{{type}}</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>{{v1}}</td>
+                                                            <td>{{v2}}</td>
+                                                            <td>{{v3}}</td>
+                                                            <td>{{v4}}</td>
+                                                            <td>{{v5}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>{{v6}}</td>
+                                                            <td>{{v7}}</td>
+                                                            <td>{{v8}}</td>
+                                                            <td>{{v9}}</td>
+                                                            <td>{{v10}}</td>
+                                                        </tr>
+                                                        {{/each}}
+
+                                                        <tr>
+                                                            <td colspan=6></td>
+                                                        </tr>
+                                                        
+                                                        <tr>
+                                                            <td colspan=4 class="table-primary">{{skill2.name}}</td>
+                                                            <td class="table-primary">CT</td>
+                                                            <td>{{skill2.ct}}</td>
+                                                        </tr>
+                                                        {{#each skill2.effects}}
+                                                        <tr>
+                                                            <td rowspan=3 class="table-primary">説明<br/>倍率</td>
+                                                            <td colspan=5>
+                                                                {{desc}}
+                                                                <span style="min-width: 50px;margin:5px;padding:10px;" class="badge badge-pill badge-dark">{{type}}</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>{{v1}}</td>
+                                                            <td>{{v2}}</td>
+                                                            <td>{{v3}}</td>
+                                                            <td>{{v4}}</td>
+                                                            <td>{{v5}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>{{v6}}</td>
+                                                            <td>{{v7}}</td>
+                                                            <td>{{v8}}</td>
+                                                            <td>{{v9}}</td>
+                                                            <td>{{v10}}</td>
+                                                        </tr>
+                                                        {{/each}}
+                                                        
+                                                        <tr>
+                                                            <td colspan=6></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td colspan=4 class="table-primary">{{skill3.name}}</td>
+                                                            <td class="table-primary">CT</td>
+                                                            <td>{{skill3.ct}}</td>
+                                                        </tr>
+                                                        {{#each skill3.effects}}
+                                                        <tr>
+                                                            <td  rowspan=3 class="table-primary">説明<br/>倍率</td>
+                                                            <td colspan=5>
+                                                                {{desc}}
+                                                                <span style="min-width: 50px;margin:5px;padding:10px;" class="badge badge-pill badge-dark">{{type}}</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>{{v1}}</td>
+                                                            <td>{{v2}}</td>
+                                                            <td>{{v3}}</td>
+                                                            <td>{{v4}}</td>
+                                                            <td>{{v5}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>{{v6}}</td>
+                                                            <td>{{v7}}</td>
+                                                            <td>{{v8}}</td>
+                                                            <td>{{v9}}</td>
+                                                            <td>{{v10}}</td>
+                                                        </tr>
+                                                        {{/each}}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <button type="button" class="view-toggle-btn btn btn-primary btn-sm" data-target="#hogudata" style="margin-bottom:5px;">宝具データ</button>
+                                    </div>
+
+                                    <div class="col-lg-12" id="hogudata">
+                                        <div class="row" style="padding: 15px 30px;">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered" style="font-weight: bold;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="table-primary">名前</td>
+                                                            <td colspan=5>
+                                                                {{hogu.name}}
+                                                                <span style="min-width: 50px;margin:5px;padding:10px;" class="badge badge-pill badge-dark">{{cardLabel hogu.card}}</span>
+                                                                <span style="min-width: 50px;margin:5px;padding:10px;" class="badge badge-pill badge-dark">{{hogutype hogu.type}}</span>
+                                                                <span style="min-width: 50px;margin:5px;padding:10px;" class="badge badge-pill badge-dark">ヒット数:{{hogu.hit}}</span>
+                                                            </td>
+                                                        </tr>
+
+                                                        {{#each hogu.effect}}
+                                                        <tr>
+                                                            <td rowspan=2 class="table-primary">説明<br/>倍率</td>
+                                                            <td colspan=5>
+                                                                {{desc}}
+                                                                <span style="min-width: 50px;margin:5px;padding:10px;" class="badge badge-pill badge-dark">{{type}}</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>{{v1}}</td>
+                                                            <td>{{v2}}</td>
+                                                            <td>{{v3}}</td>
+                                                            <td>{{v4}}</td>
+                                                            <td>{{v5}}</td>
+                                                        </tr>
+                                                        {{/each}}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
