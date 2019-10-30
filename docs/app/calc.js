@@ -1,4 +1,47 @@
 (function () {
+    function supportHelpHtml(servantData, skillData) {
+        var result = [];
+        var skill1 = skillData.skill1;
+        var skill2 = skillData.skill2;
+        var skill3 = skillData.skill2;
+
+        if (skill1 !== "") {
+            servantData.skill1.effects.forEach(function (e) {
+                if (e.target !== "other-single"
+                    && e.target !== "other-all"
+                    && e.target !== "self-other") {
+
+                    return;
+                }
+                result.push((e.type) + ":" + e[skill1]);
+            });
+        }
+
+        if (skill2 !== "") {
+            servantData.skill2.effects.forEach(function (e) {
+                if (e.target !== "other-single"
+                    && e.target !== "other-all"
+                    && e.target !== "self-other") {
+
+                    return;
+                }
+                result.push((e.type) + ":" + e[skill2]);
+            });
+        }
+        if (skill3 !== "") {
+            servantData.skill3.effects.forEach(function (e) {
+                if (e.target !== "other-single"
+                    && e.target !== "other-all"
+                    && e.target !== "self-other") {
+
+                    return;
+                }
+                result.push((e.type) + ":" + e[skill3]);
+            });
+        }
+        return result;
+    };
+
     function reisouHelpHtml(level, data) {
         var result = [];
         var atkVal = data.atk;
@@ -242,6 +285,7 @@
         var u = [];
         u.push(data.ui.visbasic);
         u.push(data.ui.visdetail);
+        u.push(data.ui.visotherbuf);
 
         location.hash = "calc$a=" + a.join(",") + "&s=" + s.join(":") + "&r=" + r.join(",") + "&e=" + e.join(",")
             + "&u=" + u.join(",");
@@ -276,8 +320,9 @@
                 hogubuf: 0
             },
             ui : {
-                basic : 0,
-                detail: 0
+                visbasic : "0",
+                visdetail: "0",
+                visotherbuf: "0"
             }
         };
         if (hash === "") {
@@ -290,6 +335,7 @@
 
             data.ui.visbasic = supportvalue(values[0], ["0", "1"], "0");
             data.ui.visdetail = supportvalue(values[1], ["0", "1"], "0");
+            data.ui.visotherbuf = supportvalue(values[2], ["0", "1"], "0");
         }
 
         if (entries["a"] !== undefined && entries["a"] !== null && entries["a"] !== "") {
@@ -458,6 +504,8 @@
             support.label1 = supportServantData.skill1.name;
             support.label2 = supportServantData.skill2.name;
             support.label3 = supportServantData.skill3.name;
+
+            support.tags = supportHelpHtml(supportServantData, support);
 
             if (support.skill1 !== "") {
                 supportServantData.skill1.effects.forEach(function (e) {
