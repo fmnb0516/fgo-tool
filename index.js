@@ -14,63 +14,6 @@ app.use(express.static(publicDir));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/api/v1/all',function(req,res){
-    fs.readdir(publicDir + "/json", (err, files) => {
-        files = files.filter(f => f.endsWith(".json"));
-        res.json(files);
-    });
-});
-
-app.get('/api/v1/:id',function(req,res){
-    var id = req.params.id;
-    fs.readFile(publicDir + "/json/" + id, 'utf-8', (err, data) => {
-        res.json(JSON.parse(data));
-    });
-});
-
-app.put('/api/v1/:id',function(req,res){
-    var id = req.params.id;
-    var json = req.body;
-    fs.writeFile(publicDir + "/json/" + id, JSON.stringify(json, null , "\t"), 'utf-8', (err, data) => {
-        res.json({"message":"更新しました"});
-    });
-});
-
-const clazzTo = (function() {
-
-    const data = {
-        "saber" : "剣",
-        "archer" : "弓",
-        "luncer" : "槍",
-        "rider" : "騎",
-        "caster" : "術",
-        "asasin" : "殺",
-        "barserker" : "狂",
-        "ruler" : "裁",
-        "avenger" : "讐",
-        "monncanser" : "月",
-        "alterego" : "分",
-        "foreigner" : "降",
-    };
-
-    return function(c) {
-        return data[c];
-    };
-})();
-
-app.post('/api/v1/create',function(req,res){
-    var json = req.body;
-    var id =　json.servant.no + "-" + clazzTo(json.servant.clazz) + "-" + json.servant.rare + "-" + json.servant.name + ".json";
-    
-    fs.writeFile(publicDir + "/json/" + id, JSON.stringify(json, null , "\t"), 'utf-8', (err, data) => {
-        res.json({"message":"作成しました"});
-    });
-});
-
-app.delete('/api/v1/:id',function(req,res){
-    res.json({});
-});
-
 const run = async () => {
     const readdir = util.promisify(fs.readdir);
     const readFile = util.promisify(fs.readFile);
@@ -90,11 +33,8 @@ const run = async () => {
     await writeFile(publicDir + "/servant.js", script, "utf8");
 };
 
-app.post('/api/v1/generate',function(req,res){
-    run().then(() => {
-        res.json({"message":"作成しました"});
-    });
+run().then(() => {
+    app.listen(port);
+    console.log('listen on port ' + port);
 });
 
-app.listen(port);
-console.log('listen on port ' + port);
