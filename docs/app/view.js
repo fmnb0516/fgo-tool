@@ -16,12 +16,8 @@
 
         result.template = Handlebars.compile($("#template-view-page").html());
 
-        Handlebars.registerHelper('fgo-buf-type-option', function (v1) {
-            var html = constData.effects.map(function (t) {
-              var selected = t === v1 ? "selected" : "";
-              return "<option " + selected + " value=\"" + t + "\">" + t + "</option>";
-            });
-            return new Handlebars.SafeString(html);
+        Handlebars.registerHelper('json', function (d) {
+            return JSON.stringify(d, null , "    ");
         });
     };
 
@@ -30,10 +26,7 @@
         var data = getServantData(no);
 
         result.currentData = data;
-        return result.template({
-            data : data,
-            constData: constData,
-        });
+        return result.template(data);
     };
 
     result.rendered = function(query, container) {
