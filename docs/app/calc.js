@@ -127,20 +127,6 @@
         return map[tenchizin][type];
     };
 
-    function getHoguMag(effect, hlv, hoc) {
-        var mag = 0;
-
-        for (var i = 0; i < effect.length; i++) {
-            var e = effect[i];
-
-            if (e.type !== "攻撃" && e.type !== "威力アップ") {
-                continue;
-            }
-            mag += parseInt(e["v" + (e.lvoc === "lv" ? hlv : hoc)]);
-        }
-        return mag;
-    };
-
     function getServantNo(val) {
         return val.substring(0, val.indexOf("-"));
     };
@@ -197,6 +183,13 @@
         return data;
     };
 
+    var idgen = (function () {
+        var counter = 1;
+        return function () {
+            return "idx-" + (counter++) + "-dom";
+        };
+    })();
+
     function notnull(v, def) {
         return v === undefined || v === null || v === "" ? def : v;
     };
@@ -209,13 +202,6 @@
         }
         return def;
     };
-
-    var idgen = (function () {
-        var counter = 1;
-        return function () {
-            return "idx-" + (counter++) + "-dom";
-        };
-    })();
 
     function setHash(data) {
         var a = [];
@@ -249,7 +235,7 @@
             v.push(support.skill1);
             v.push(support.skill2);
             v.push(support.skill3);
-            v.push(support.skill4);
+            v.push(support.visible);
             s.push(v.join(","));
         });
 
@@ -344,9 +330,11 @@
 
                 data.suppurts.push({
                     no: notnull(values[0], ""),
+                    id: idgen(),
                     skill1: supportvalue(values[1], ["", "v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10"], ""),
                     skill2: supportvalue(values[2], ["", "v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10"], ""),
-                    skill3: supportvalue(values[3], ["", "v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10"], "")
+                    skill3: supportvalue(values[3], ["", "v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10"], ""),
+                    visible : supportvalue(values[4], ["0", "1"], "0"),
                 });
             }
         }
@@ -466,6 +454,11 @@
             var support = data.suppurts[i];
             var supportServantData = getServantData(support.no);
 
+            support.name = servantLabel(supportServantData);
+            support.label1 = supportServantData.skill1.name;
+            support.label2 = supportServantData.skill2.name;
+            support.label3 = supportServantData.skill3.name;
+
             if (support.skill1 !== "") {
                 supportServantData.skill1.effects.forEach(function (e) {
                     supportSkillBuff(servantData, support.skill1, e, atackerbuf);
@@ -582,11 +575,6 @@
          (function () {
             Handlebars.registerHelper('selected', function (v1, v2) {
                 return v1 === v2 ? "selected" : "";
-            });
-
-            Handlebars.registerHelper('servantLabel', function (no) {
-                var d = getServantData(no);
-                return servantLabel(d);
             });
 
             Handlebars.registerHelper('idgen', function () {
@@ -735,6 +723,46 @@
         })();
         /* 礼装、その他バフ部分のイベント end */
 
+        /* サポート部分のイベント start */
+        (function () {
+            $(document).on("click", "div[page='calc'] #support-box span", function () {
+                var currentData = result.currentData;
+                var supportid = $(this).attr("id");
+
+                var supportData = currentData.suppurts.find(function(s) {
+                    return s.id === supportid; 
+                });
+                supportData.visible = supportData.visible === "0" ? "1" : "0";
+                setHash(currentData);
+            });
+
+            $(document).on("click", "div[page='calc'] .support-delete-btn", function () {
+                var currentData = result.currentData;
+                var supportid = $(this).attr("supportid");
+
+                var suppurts = currentData.suppurts.filter(function(s) {
+                    return s.id !== supportid; 
+                });
+
+                currentData.suppurts = suppurts;
+                setHash(currentData);
+            });
+            
+            $(document).on("change", "div[page='calc'] .support-skill-select", function () {
+                var currentData = result.currentData;
+                var value = $(this).val();
+                var supportid = $(this).attr("supportid");
+                var skillid = $(this).attr("skillid");
+
+                var supportData = currentData.suppurts.find(function(s) {
+                    return s.id === supportid; 
+                });
+
+                supportData[skillid] = value;
+                setHash(currentData);
+            });
+        })();
+        /* サポート部分のイベント end */
     };
 
     result.rerender = function (query) {
@@ -780,9 +808,11 @@
 
                 currentData.suppurts.push({
                     no: no,
+                    id: idgen(),
                     skill1: "v10",
                     skill2: "v10",
-                    skill3: "v10"
+                    skill3: "v10",
+                    visible: "0"
                 });
                 setHash(currentData);
             }

@@ -367,8 +367,73 @@
             <div class="col-lg-12">
                 <div style="padding: 10px; " id="support-box">
                     {{#each data.suppurts}}
-                    <span id="{{idgen}}" class="badge badge-dark" style="cursor: pointer;padding: 10px;margin: 3px;"
-                        data-no="{{no}}" skill1="{{skill1}}" skill1="{{skill2}}" skill1="{{skill3}}">{{servantLabel no}}</span>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <span id="{{id}}" class="badge badge-dark" style="cursor: pointer;padding: 10px;margin: 3px;"
+                                data-no="{{no}}" skill1="{{skill1}}" skill1="{{skill2}}" skill1="{{skill3}}">{{name}}</span>
+                            <button style="{{visible visible}}" type="button" class="btn btn-danger btn-sm support-delete-btn" supportid="{{id}}">削除</button>
+                        </div>
+
+                        <div class="col-lg-4" style="{{visible visible}}">
+                            <div class="form-group">
+                                <label>スキル1Lv</label>
+                                <select class="form-control support-skill-select" supportid="{{id}}" skillid="skill1">
+                                    <option value=""   {{selected ''   skill1}}>使用しない</option>
+                                    <option value="v1"  {{selected 'v1'  skill1}}>lv1</option>
+                                    <option value="v2"  {{selected 'v2'  skill1}}>lv2</option>
+                                    <option value="v3"  {{selected 'v3'  skill1}}>lv3</option>
+                                    <option value="v4"  {{selected 'v4'  skill1}}>lv4</option>
+                                    <option value="v5"  {{selected 'v5'  skill1}}>lv5</option>
+                                    <option value="v6"  {{selected 'v6'  skill1}}>lv6</option>
+                                    <option value="v7"  {{selected 'v7'  skill1}}>lv7</option>
+                                    <option value="v8"  {{selected 'v8'  skill1}}>lv8</option>
+                                    <option value="v9"  {{selected 'v9'  skill1}}>lv9</option>
+                                    <option value="v10" {{selected 'v10' skill1}}>lv10</option>
+                                </select>
+                                <small class="form-text text-muted">{{label1}}</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4" style="{{visible visible}}">
+                            <div class="form-group">
+                                <label>スキル2Lv</label>
+                                <select class="form-control support-skill-select" supportid="{{id}}" skillid="skill2">
+                                    <option value=""   {{selected ''   skill2}}>使用しない</option>
+                                    <option value="1"  {{selected 'v1'  skill2}}>lv1</option>
+                                    <option value="2"  {{selected 'v2'  skill2}}>lv2</option>
+                                    <option value="3"  {{selected 'v3'  skill2}}>lv3</option>
+                                    <option value="4"  {{selected 'v4'  skill2}}>lv4</option>
+                                    <option value="5"  {{selected 'v5'  skill2}}>lv5</option>
+                                    <option value="6"  {{selected 'v6'  skill2}}>lv6</option>
+                                    <option value="7"  {{selected 'v7'  skill2}}>lv7</option>
+                                    <option value="8"  {{selected 'v8'  skill2}}>lv8</option>
+                                    <option value="9"  {{selected 'v9'  skill2}}>lv9</option>
+                                    <option value="10" {{selected 'v10' skill2}}>lv10</option>
+                                </select>
+                                <small class="form-text text-muted">{{label2}}</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4" style="{{visible visible}}">
+                            <div class="form-group">
+                                <label>スキル3Lv</label>
+                                <select class="form-control support-skill-select" supportid="{{id}}" skillid="skill3">
+                                    <option value=""   {{selected ''   skill3}}>使用しない</option>
+                                    <option value="1"  {{selected 'v1'  skill3}}>lv1</option>
+                                    <option value="2"  {{selected 'v2'  skill3}}>lv2</option>
+                                    <option value="3"  {{selected 'v3'  skill3}}>lv3</option>
+                                    <option value="4"  {{selected 'v4'  skill3}}>lv4</option>
+                                    <option value="5"  {{selected 'v5'  skill3}}>lv5</option>
+                                    <option value="6"  {{selected 'v6'  skill3}}>lv6</option>
+                                    <option value="7"  {{selected 'v7'  skill3}}>lv7</option>
+                                    <option value="8"  {{selected 'v8'  skill3}}>lv8</option>
+                                    <option value="9"  {{selected 'v9'  skill3}}>lv9</option>
+                                    <option value="10" {{selected 'v10' skill3}}>lv10</option>
+                                </select>
+                                <small class="form-text text-muted">{{label3}}</small>
+                            </div>
+                        </div>
+                    </div>
+
                     {{/each}}
                 </div>
 
@@ -578,86 +643,6 @@
         </div>
 
         <br /><br />
-
-        <div class="modal fade" id="support-detail-modal" tabindex="-1" role="dialog"
-            aria-labelledby="support-modal-title" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="support-modal-title"></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <label for="support-skill1-lv-input">スキル1Lv</label>
-                                <select class="form-control" id="support-skill1-lv-input" change-target="skill1">
-                                    <option value="">使用しない</option>
-                                    <option value="v1">lv1</option>
-                                    <option value="v2">lv2</option>
-                                    <option value="v3">lv3</option>
-                                    <option value="v4">lv4</option>
-                                    <option value="v5">lv5</option>
-                                    <option value="v6">lv6</option>
-                                    <option value="v7">lv7</option>
-                                    <option value="v8">lv8</option>
-                                    <option value="v9">lv9</option>
-                                    <option value="v10">lv10</option>
-                                </select>
-                                <small class="form-text text-muted" id="support-skill1-lv-name"></small>
-                            </div>
-                            <div class="col-lg-4">
-                                <label for="support-skill2-lv-input">スキル2Lv</label>
-                                <select class="form-control" id="support-skill2-lv-input" change-target="skill2">
-                                    <option value="">使用しない</option>
-                                    <option value="v1">lv1</option>
-                                    <option value="v2">lv2</option>
-                                    <option value="v3">lv3</option>
-                                    <option value="v4">lv4</option>
-                                    <option value="v5">lv5</option>
-                                    <option value="v6">lv6</option>
-                                    <option value="v7">lv7</option>
-                                    <option value="v8">lv8</option>
-                                    <option value="v9">lv9</option>
-                                    <option value="v10">lv10</option>
-                                </select>
-                                <small class="form-text text-muted" id="support-skill2-lv-name"></small>
-                            </div>
-                            <div class="col-lg-4">
-                                <label for="support-skill3-lv-input">スキル3Lv</label>
-                                <select class="form-control" id="support-skill3-lv-input" change-target="skill3">
-                                    <option value="">使用しない</option>
-                                    <option value="v1">lv1</option>
-                                    <option value="v2">lv2</option>
-                                    <option value="v3">lv3</option>
-                                    <option value="v4">lv4</option>
-                                    <option value="v5">lv5</option>
-                                    <option value="v6">lv6</option>
-                                    <option value="v7">lv7</option>
-                                    <option value="v8">lv8</option>
-                                    <option value="v9">lv9</option>
-                                    <option value="v10">lv10</option>
-                                </select>
-                                <small class="form-text text-muted" id="support-skill3-lv-name"></small>
-                            </div>
-
-                            <div class="col-lg-12" id="support-buf-data">
-                            </div>
-
-                            <div class="col-lg-12" style="margin-top: 10px;">
-                                <button id="support-delete-btn" type="button" class="btn btn-danger btn-sm">削除</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </script>
 
     <script type="text/x-handlebars" id="template-list-page">
