@@ -29,6 +29,7 @@
         var no = query.split("-")[0];
         var data = getServantData(no);
 
+        result.currentData = data;
         return result.template({
             data : data,
             constData: constData,
