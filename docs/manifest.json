@@ -1,39 +1,39 @@
 {
-	"name": "bagelee Web App",
-	"short_name": "bagelee",
+	"name": "FGO Tool App",
+	"short_name": "fgo took",
 	"icons": [
 		{
-			"src": "/config/icons/app-icon-48x48.png",
+			"src": "/icons/app-icon-48x48.png",
 			"type": "image/png",
 			"sizes": "48x48"
 		},
 		{
-			"src": "/config/icons/app-icon-96x96.png",
+			"src": "/icons/app-icon-96x96.png",
 			"type": "image/png",
 			"sizes": "96x96"
 		},
 		{
-			"src": "/config/icons/app-icon-144x144.png",
+			"src": "/icons/app-icon-144x144.png",
 			"type": "image/png",
 			"sizes": "144x144"
 		},
 		{
-			"src": "/config/icons/app-icon-192x192.png",
+			"src": "/icons/app-icon-192x192.png",
 			"type": "image/png",
 			"sizes": "192x192"
 		},
 		{
-			"src": "/config/icons/app-icon-512x512.png",
+			"src": "/icons/app-icon-512x512.png",
 			"type": "image/png",
 			"sizes": "512x512"
 		}
 	],
-	"start_url": "/",
+	"start_url": "/index.html",
 	"display": "standalone",
 	"orientation": "portrait-primary",
 	"background_color": "#fff",
 	"theme_color": "#3f51b5",
-	"description": "bageleeのPWAです。",
+	"description": "FGOの鯖データ確認、宝具獲得NP & ダメージ計算ツールです",
 	"dir": "ltr",
 	"lang": "ja-jp",
 	"related_applications": [],
