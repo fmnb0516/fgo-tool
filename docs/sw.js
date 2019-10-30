@@ -1,28 +1,45 @@
-var CACHE_DYNAMIC_VERSION = 'v1';
+var CACHE_NAME  = "app-version-1.0.0-rev1";
 
-self.addEventListener('fetch', function (event) {
-    console.log('[Service Worker] Fetching something ...');
+var urlsToCache = [
+    "index.html",
+    "favicon.ico",
+    "resources/bootstrap/css/bootstrap.min.css",
+    "resources/jquery-ui-1.12.1/jquery-ui.min.css",
+    "app/list.js",
+    "app/calc.js",
+    "app/view.js",
+    "resources/jquery/jquery-3.4.1.min.js",
+    "resources/jquery-ui-1.12.1/jquery-ui.min.js",
+    "resources/bootstrap/js/bootstrap.js",
+    "resources/handlebars/handlebars-v4.2.0.js",
+    "resources/fgoutil/fgocalc.js",
+    "servant.js",
+    "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic",
+    "https://fonts.gstatic.com/s/sourcesanspro/v13/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7l.woff2",
+    "https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdu.woff2"
+];
+
+self.addEventListener('install', function(event) {
+    event.waitUntil(
+        caches
+        .open(CACHE_NAME)
+        .then(function(cache){
+            return cache.addAll(urlsToCache);
+        })
+    );
+});
+
+self.addEventListener('fetch', function(event) {
     event.respondWith(
-        // キャッシュの存在チェック
-        caches.match(event.request)
-            .then(function (response) {
-                if (response) {
+        caches
+            .match(event.request)
+            .then(function(response) {
+                if(response){
                     return response;
-                } else {
-                    // キャッシュがなければリクエストを投げて、レスポンスをキャッシュに入れる
-                    return fetch(event.request)
-                        .then(function (res) {
-                            return caches.open(CACHE_DYNAMIC_VERSION)
-                                .then(function (cache) {
-                                    // 最後に res を返せるように、ここでは clone() する必要がある
-                                    cache.put(event.request.url, res.clone());
-                                    return res;
-                                })
-                        })
-                        .catch(function () {
-                            // エラーが発生しても何もしない
-                        });
                 }
+
+                console.log(event.request.url);
+                return fetch(event.request);
             })
     );
 });
