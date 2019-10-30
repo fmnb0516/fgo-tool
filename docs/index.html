@@ -366,6 +366,10 @@
 
             <div class="col-lg-12">
                 <div style="padding: 10px; " id="support-box">
+                    {{#each data.suppurts}}
+                    <span id="{{idgen}}" class="badge badge-dark" style="cursor: pointer;padding: 10px;margin: 3px;"
+                        data-no="{{no}}" skill1="{{skill1}}" skill1="{{skill2}}" skill1="{{skill3}}">{{servantLabel no}}</span>
+                    {{/each}}
                 </div>
 
                 <small class="form-text text-muted">

@@ -327,7 +327,6 @@
 
                 data.suppurts.push({
                     no: notnull(values[0], ""),
-                    id: idgen(),
                     skill1: supportvalue(values[1], ["", "v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10"], ""),
                     skill2: supportvalue(values[2], ["", "v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10"], ""),
                     skill3: supportvalue(values[3], ["", "v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10"], "")
@@ -579,6 +578,15 @@
                 return v1 === v2 ? "selected" : "";
             });
 
+            Handlebars.registerHelper('servantLabel', function (no) {
+                var d = getServantData(no);
+                return servantLabel(d);
+            });
+
+            Handlebars.registerHelper('idgen', function () {
+                return idgen();
+            });
+            
             $(document).on("click", ".toggle-btn", function () {
                 var targetId = $(this).attr("data-target");
                 var target = $(targetId);
@@ -758,7 +766,6 @@
 
                 currentData.suppurts.push({
                     no: no,
-                    id: idgen(),
                     skill1: "v10",
                     skill2: "v10",
                     skill3: "v10"
