@@ -1,6 +1,6 @@
 {
 	"name": "FGO Tool App",
-	"short_name": "fgo took",
+	"short_name": "fgo tool",
 	"icons": [
 		{
 			"src": "icons/app-icon-48x48.png",
@@ -30,7 +30,7 @@
 	],
 	"start_url": "index.html",
 	"display": "standalone",
-	"orientation": "portrait-primary",
+	"orientation": "any",
 	"background_color": "#fff",
 	"theme_color": "#3f51b5",
 	"description": "FGOの鯖データ確認、宝具獲得NP & ダメージ計算ツールです",

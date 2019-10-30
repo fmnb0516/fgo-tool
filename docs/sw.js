@@ -1,4 +1,4 @@
-var CACHE_NAME  = "app-version-1.0.0-rev1";
+var CACHE_NAME  = "app-version-1.0.0-rev2";
 
 var urlsToCache = [
     "index.html",
