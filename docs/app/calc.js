@@ -252,7 +252,13 @@
             v.push(support.skill4);
             s.push(v.join(","));
         });
-        location.hash = "calc$a=" + a.join(",") + "&s=" + s.join(":") + "&r=" + r.join(",") + "&e=" + e.join(",");
+
+        var u = [];
+        u.push(data.ui.visbasic);
+        u.push(data.ui.visdetail);
+
+        location.hash = "calc$a=" + a.join(",") + "&s=" + s.join(":") + "&r=" + r.join(",") + "&e=" + e.join(",")
+            + "&u=" + u.join(",");
     };
 
     function getHash(hash) {
@@ -282,12 +288,23 @@
                 atkbuf: 0,
                 cardbuf: 0,
                 hogubuf: 0
+            },
+            ui : {
+                basic : 0,
+                detail: 0
             }
         };
         if (hash === "") {
             return data;
         }
         var entries = parseQuery(hash);
+
+        if (entries["u"] !== undefined && entries["u"] !== null && entries["u"] !== "") {
+            var values = entries["u"].split(",");
+
+            data.ui.visbasic = supportvalue(values[0], ["0", "1"], "0");
+            data.ui.visdetail = supportvalue(values[1], ["0", "1"], "0");
+        }
 
         if (entries["a"] !== undefined && entries["a"] !== null && entries["a"] !== "") {
             var values = entries["a"].split(",");
@@ -449,17 +466,6 @@
             var support = data.suppurts[i];
             var supportServantData = getServantData(support.no);
 
-            /*
-            $("#support-box").append($("<span>").attr("class", "badge badge-dark")
-                .attr("style", "cursor: pointer;padding: 10px;margin: 3px;")
-                .attr("id", support.id)
-                .attr("data-no", support.no)
-                .attr("skill1", support.skill1)
-                .attr("skill2", support.skill2)
-                .attr("skill3", support.skill3)
-                .text(servantLabel(supportServantData)));
-            */
-
             if (support.skill1 !== "") {
                 supportServantData.skill1.effects.forEach(function (e) {
                     supportSkillBuff(servantData, support.skill1, e, atackerbuf);
@@ -586,15 +592,23 @@
             Handlebars.registerHelper('idgen', function () {
                 return idgen();
             });
+
+            Handlebars.registerHelper('visible', function (v) {
+                return v === "0" ? "display:none" : "";
+            });
             
             $(document).on("click", ".toggle-btn", function () {
+                var currentData = result.currentData;
+
                 var targetId = $(this).attr("data-target");
                 var target = $(targetId);
+
                 if (target.is(':visible')) {
-                    target.hide();
+                    currentData.ui[targetId.substring(1)] = 0;
                 } else {
-                    target.show();
+                    currentData.ui[targetId.substring(1)] = 1;
                 }
+                setHash(currentData);
             });
 
             $(document).on("click", "div[page='calc'] #clearnBtn", function () {
