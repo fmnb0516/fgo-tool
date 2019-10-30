@@ -52,11 +52,11 @@
 
         if (atkVal !== "") {
             var ary = atkVal.split(",");
-            result.push("攻アップ:" + art[level-1]);
+            result.push("攻アップ:" + ary[level-1]);
         }
         if (hoguVal !== "") {
             var ary = hoguVal.split(",");
-            result.push("宝具アップ:" + art[level-1]);
+            result.push("宝具アップ:" + ary[level-1]);
         }
         if (aVal !== "") {
             var ary = aVal.split(",");
@@ -622,7 +622,7 @@
          /* その他イベント start */
          (function () {
             Handlebars.registerHelper('selected', function (v1, v2) {
-                return v1 === v2 ? "selected" : "";
+                return (v1+"") === (v2+"") ? "selected" : "";
             });
 
             Handlebars.registerHelper('idgen', function () {
@@ -722,6 +722,7 @@
         (function () {
 
             $(document).on("change", "div[page='calc'] #target-reisou-level", function () {
+                
                 var currentData = result.currentData;
                 currentData.reisou.lv = parseInt($(this).val());
                 setHash(currentData);
