@@ -1,10 +1,11 @@
-var CACHE_NAME  = "app-version-1.0.0-rev4";
+var CACHE_NAME  = "app-version-1.0.0-rev5";
 
 var urlsToCache = [
     "index.html",
     "favicon.ico",
     "resources/bootstrap/css/bootstrap.min.css",
     "resources/jquery-ui-1.12.1/jquery-ui.min.css",
+    "resources/marked/github-markdown.min.css",
     "app/list.js",
     "app/calc.js",
     "app/view.js",

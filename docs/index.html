@@ -10,6 +10,7 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="resources/jquery-ui-1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="resources/marked/github-markdown.min.css">
 
     <script type="text/javascript">
         if ('serviceWorker' in navigator) {
@@ -113,7 +114,9 @@
                         <p class="card-text">{{metadata.teaser}}<a data-target="{{url}}" href="">...続きを読む</a></p>
                     </div>
 
-                    <div class="markdown-content">
+                    <div>
+                        <article class="markdown-body">
+                        </article>
                     </div>
                 </div>
                 {{/each}}
