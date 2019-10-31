@@ -1146,7 +1146,7 @@
                     && context.type === "hogu";
 
                 if(check1) {
-                    buf.tokkoubuf += tokkou;
+                    buf.tokkou = magnification;
                 }
             }
         },

@@ -217,7 +217,7 @@
             var classHosei = fgo.getClassHosei(clazz);
 
             var val = fgo.calcDamage(atk, bufTo(buf.hogumag), cardMag, bufTo(buf.cardbuf), classHosei,
-                classCompatibility, attrCompatibility, bufTo(buf.atkbuf), useTokkou ? bufTo(buf.tokkoubuf) : 0, 0, bufTo(buf.hogubuf), bufTo(buf.tokkou), buf.damage);
+                classCompatibility, attrCompatibility, bufTo(buf.atkbuf), useTokkou ? bufTo(buf.tokkoubuf) : 0, 0, bufTo(buf.hogubuf), useTokkou ? bufTo(buf.tokkou) : 1, buf.damage);
             return Math.round(val);
         };
     })();
