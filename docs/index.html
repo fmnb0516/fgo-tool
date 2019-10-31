@@ -42,6 +42,9 @@
                         <a class="nav-link" href="#calc">FGO 獲得NP計算機</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#article">雑記</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#changelog">変更履歴</a>
                     </li>
                 </ul>
@@ -51,12 +54,6 @@
     </div>
 
     <div class="container" style="padding-top: 80px;height: 100%;">
-        <small class="form-text text-muted">
-            データ、計算結果に誤り誤りがあった場合、直ぐに修正するのでお手数ですが<a href="mailto:fmnb0516.fgo.data@gmail.com">こちら</a>まで連絡をお願いします。
-        </small>
-
-        <br />
-
         <div id="container">
         </div>
 
@@ -64,33 +61,78 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div style="display: inline-block;">
+                        
                         <ul class="list-unstyled">
-                            <li style="display: inline;margin-right: 5px;"><a href="mailto:fmnb0516.fgo.data@gmail.com">Mail</a>
-                            <li style="display: inline;margin-right: 5px;"><a href="">Twitter</a></li>
-                            <li style="display: inline;margin-right: 5px;"><a href="https://github.com/fmnb0516/fgo-tool">GitHub</a></li>
+                            <li style="display: inline;margin-right: 5px;">
+                                <a href="mailto:fmnb0516.fgo.data@gmail.com"><small>Mail</small></a>
+                            </li>
+                            <li style="display: inline;margin-right: 5px;">
+                                <a href=""><small>Twitter</small></a>
+                            </li>
+                            <li style="display: inline;margin-right: 5px;">
+                                <a href="https://github.com/fmnb0516/fgo-tool"><small>GitHub</small></a>
+                            </li>
                         </ul>
-                        <p style="margin-bottom: 0">Made by <a href="https://github.com/fmnb0516/">fmnb0516</a>.</p>
-                        <p style="margin-bottom: 0">Code released under the <a href="https://raw.githubusercontent.com/fmnb0516/fgo-tool/master/LICENSE">Apache License 2.0</a>.</p>
+
+                        <small class="form-text text-muted">
+                            データ、計算結果に誤り誤りがあった場合、直ぐに修正するのでお手数ですが<a href="mailto:fmnb0516.fgo.data@gmail.com">こちら</a>まで連絡をお願いします。
+                        </small>
+                        <small class="form-text text-muted">
+                            Made by <a href="https://github.com/fmnb0516/">fmnb0516</a>
+                        </small>
+                        <small class="form-text text-muted">
+                            Code released under the <a href="https://raw.githubusercontent.com/fmnb0516/fgo-tool/master/LICENSE">Apache License 2.0</a>
+                        </small>
                     </div>
                 </div>
             </div>
-
         </footer>
     </div>
 
-    <script type="text/x-handlebars" id="template-changelog-page">
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <tbody>
-                    {{#each this}}
-                    <tr>
-                        <td style="width: 150px;font-weight: bold;">{{date}}</td>
-                        <td>{{desc}}</td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>    
+    <script type="text/x-handlebars" id="template-article-page">
+        <div class="row" style="margin-bottom: 20px;">
+            <div class="col-lg-12">
+                <div style="margin-bottom: 10px;">
+                    <span style="font-size:100%;" class="badge badge-pill badge-primary">記事一覧</span>
+                </div>
+                <div class="form-group">
+                    <form>
+                        <input type="search" class="form-control" placeholder="記事検索">
+                    </form>
+                </div>
+            </div>
+
+            <br/><br/>
+
+            <div class="col-lg-12">
+                <div class="list-group">
+                </div>
+            </div>
         </div>
+    </script>
+
+    <script type="text/x-handlebars" id="template-changelog-page">
+        <div class="row">
+            <div class="col-lg-12">
+                <span style="font-size:100%;" class="badge badge-pill badge-primary">変更履歴</span>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="table-responsive" style="padding: 10px;">
+                    <table class="table table-hover">
+                        <tbody>
+                        {{#each this}}
+                        <tr>
+                            <td style="width: 150px;font-weight: bold;">{{date}}</td>
+                            <td>{{desc}}</td>
+                        </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>    
+                </div>
+            </div>
+        </div>
+        
     </script>
 
     <script type="text/x-handlebars" id="template-calc-page">
@@ -1170,6 +1212,7 @@
         <script src="app/calc.js"></script>
         <script src="app/view.js"></script>
         <script src="app/changelog.js"></script>
+        <script src="app/article.js"></script>
     </div>
 </body>
 
