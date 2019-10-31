@@ -92,6 +92,21 @@
 
     <script type="text/x-handlebars" id="template-articleview-page">
         <div class="row" style="margin-bottom: 20px;">
+
+            <div class="col-lg-12">
+				<h3 class="article-header">{{meta.metadata.title}}</h3>
+				<div>
+					<span>{{meta.metadata.date}}</span>
+                </div>
+                <div>
+					{{to_tag meta.metadata.tags}}
+				</div>
+
+                <div class="article-body markdown-body" style="overflow-x: hidden; margin-top: 10px;">
+                    {{marked md}}
+				</div>
+            </div>
+            
         </div>
     </script>
 

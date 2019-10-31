@@ -17,6 +17,10 @@
 
     result.load = function() {
         result.template = Handlebars.compile($("#template-articleview-page").html());
+
+        Handlebars.registerHelper('marked', function (data) {
+            return new Handlebars.SafeString(marked(data));
+        });
     };
 
     result.rerender = function(query) {
