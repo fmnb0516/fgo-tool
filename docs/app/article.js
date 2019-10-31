@@ -59,7 +59,7 @@
 
         $(document).on("click", "div[page='article'] .card-text a", function() {
             var url = $(this).attr("data-target");
-            var container = $(this).parents(".card").find(".markdown-body");
+            var card = $(this).parents(".card");
             
             $.ajax({
                 url: url,
@@ -67,7 +67,8 @@
                 data:{},
                 cache: false
             }).done( function(data) {
-                container.html(marked(data));
+                card.find(".card-text").hide();
+                card.find(".markdown-body").html(marked(data));
             });
             return false;
         });
