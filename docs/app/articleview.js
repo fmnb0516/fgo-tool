@@ -26,7 +26,14 @@
                 type: 'GET',
                 data: {}
             }).done(function(data) {
-                resolve(result.template({}));
+
+                var article = ARTICLE_ENTRIES.find(function(d) {
+                    return d.url = query;
+                });
+                resolve(result.template({
+                    meta: article,
+                    md : data
+                }));
             }).fail(function(data) {
                 resolve("");
             });
