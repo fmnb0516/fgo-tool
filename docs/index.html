@@ -1163,9 +1163,17 @@
                     var a = appmap[pageid];
                     if (a !== undefined) {
                         var html = a.rerender(query);
-                        $("#container").html(html).attr("page", pageid);
 
-                        a.rendered(query, $("#container"));
+                        if (html instanceof Promise) {
+                            html.then(function(text) {
+                                $("#container").html(text).attr("page", pageid);
+                                a.rendered(query, $("#container"));
+                            });
+                        } else {
+                            $("#container").html(html).attr("page", pageid);
+                            a.rendered(query, $("#container"));
+                        }
+                        
                     }
                 };
 

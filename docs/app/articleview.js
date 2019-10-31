@@ -20,7 +20,17 @@
     };
 
     result.rerender = function(query) {
-        return result.template({});
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                url: query,
+                type: 'GET',
+                data: {}
+            }).done(function(data) {
+                resolve(result.template({}));
+            }).fail(function(data) {
+                resolve("");
+            });
+        });
     };
 
     result.rendered = function() {
