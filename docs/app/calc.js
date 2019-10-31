@@ -49,6 +49,7 @@
         var aVal = data.a;
         var bVal = data.b;
         var qVal = data.q;
+        var nVal = data.n;
 
         if (atkVal !== "") {
             var ary = atkVal.split(",");
@@ -70,6 +71,12 @@
             var ary = qVal.split(",");
             result.push("Qアップ:" + ary[level-1]);
         }
+
+        if (nVal !== "") {
+            var ary = nVal.split(",");
+            result.push("NP獲得量アップ:" + ary[level-1]);
+        }
+
         return result;
     };
 
@@ -77,6 +84,7 @@
         var atkVal = reisou.atk;
         var hoguVal = reisou.hogu;
         var cardVal = reisou[card];
+        var npVal = reisou.n;
 
         if (atkVal !== "") {
             buf.atkbuf += parseInt(atkVal.split(",")[lv - 1]);
@@ -86,6 +94,9 @@
         }
         if (cardVal !== "") {
             buf.cardbuf += parseInt(cardVal.split(",")[lv - 1]);
+        }
+        if (npVal !== "") {
+            buf.npbuf += parseInt(npVal.split(",")[lv - 1]);
         }
     };
 
@@ -422,6 +433,10 @@
 
         context.servantinput = servantData !== null ? servantLabel(servantData) : "";
 
+        if(data.custom.card !== "" && servantData !== null) {
+            servantData.hogu.card = data.custom.card;
+        }
+
         context.skillLabel = {
             s1 : servantData != null ? servantData.skill1.name : "",
             s2 : servantData != null ? servantData.skill2.name : "",
@@ -474,18 +489,18 @@
         context.ext.margehogubuf =atackerbuf.hogubuf + (useTokkou ? atackerbuf.tokkoubuf : 0);
 
         context.reisou = [
-            {label:"マスター礼装無し", atk:"", a:"", b:"", q:"", hogu:"", value:"0"},
-            {label:"魔術礼装・カルデア", atk:"30,32,34,36,38,40,42,44,46,50", a:"", b:"", q:"", hogu:"", value:"1"},
-            {label: "カルデア戦闘服", atk:"20,21,22,23,24,25,26,27,28,30", a:"", b:"", q:"", hogu:"", value:"2"},
-            {label: "アニバーサリー・ブロンド(単体B)", atk:"", a:"", b:"40,42,44,46,48,50,52,54,56,60", q:"", hogu:"", value:"3"},
-            {label: "ロイヤルブランド(単体Q)", atk:"", a:"", b:"", q:"30,32,34,36,38,40,42,44,46,50", hogu:"", value:"4"},
-            {label: "ブリリアントサマー(全体Q)", atk:"", a:"", b:"", q:"20,21,22,23,24,25,26,27,28,30", hogu:"", value:"5"},
-            {label: "月の海の記憶(単体A)", atk:"", a:"30,32,34,36,38,40,42,44,46,50", b:"", q:"", hogu:"", value:"6"},
-            {label: "月の裏側の記憶(全体A)", atk:"", a:"20,21,22,23,24,25,26,27,28,30", b:"", q:"", hogu:"", value:"7"},
-            {label: "2004年の断片(単体宝具)", atk:"", a:"", b:"", q:"", hogu:"30,32,34,36,38,40,42,44,46,50", value:"8"},
-            {label: "極地用カルデア制服(単体ATK+宝具威力)", atk:"20,22,24,26,28,30,32,34,36,40", a:"", b:"", q:"", hogu:"10,11,12,13,14,15,16,17,18,20", value:"9"},
+            {label:"マスター礼装無し", atk:"", a:"", b:"", q:"", hogu:"", n:"", value:"0"},
+            {label:"魔術礼装・カルデア", atk:"30,32,34,36,38,40,42,44,46,50", a:"", b:"", q:"", hogu:"", n:"", value:"1"},
+            {label: "カルデア戦闘服", atk:"20,21,22,23,24,25,26,27,28,30", a:"", b:"", q:"", hogu:"", n:"", value:"2"},
+            {label: "アニバーサリー・ブロンド(単体B)", atk:"", a:"", b:"40,42,44,46,48,50,52,54,56,60", q:"", hogu:"", n:"", value:"3"},
+            {label: "ロイヤルブランド(単体Q)", atk:"", a:"", b:"", q:"30,32,34,36,38,40,42,44,46,50", hogu:"", n:"", value:"4"},
+            {label: "ブリリアントサマー(全体Q)", atk:"", a:"", b:"", q:"20,21,22,23,24,25,26,27,28,30", hogu:"", n:"", value:"5"},
+            {label: "月の海の記憶(単体A)", atk:"", a:"30,32,34,36,38,40,42,44,46,50", b:"", q:"", hogu:"", n:"", value:"6"},
+            {label: "月の裏側の記憶(全体A)", atk:"", a:"20,21,22,23,24,25,26,27,28,30", b:"", q:"", hogu:"", n:"", value:"7"},
+            {label: "2004年の断片(単体宝具)", atk:"", a:"", b:"", q:"", hogu:"30,32,34,36,38,40,42,44,46,50", n:"30,32,34,36,38,40,42,44,46,50", value:"8"},
+            {label: "極地用カルデア制服(単体ATK+宝具威力)", atk:"20,22,24,26,28,30,32,34,36,40", a:"", b:"", q:"", hogu:"10,11,12,13,14,15,16,17,18,20", n:"", value:"9"},
             {label: "トロピカルサマー(単体A+宝具威力)", atk:"", a:"20,21,22,23,24,25,26,27,28,30", b:"", q:"", hogu:"10,11,12,13,14,15,16,17,18,20", value:"10"},
-            {label: "晴れの新年(全体宝具威力)", atk:"", a:"", b:"", q:"", hogu:"25,26,27,28,29,30,31,32,33,35", value:"11"}
+            {label: "晴れの新年(全体宝具威力)", atk:"", a:"", b:"", q:"", hogu:"25,26,27,28,29,30,31,32,33,35", n:"", value:"11"}
         ];
 
         for(var i=0; i<context.reisou.length; i++) {
