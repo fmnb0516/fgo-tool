@@ -56,6 +56,21 @@
             location.hash="article$0,"+query;
             return false;
         });
+
+        $(document).on("click", "div[page='article'] .card-text a", function() {
+            var url = $(this).attr("data-target");
+            var container = $(this).parents(".card").find(".markdown-content");
+            
+            $.ajax({
+                url: url,
+                type:'GET',
+                data:{},
+                cache: false
+            }).done( function(data) {
+                container.html(marked(data));
+            });
+            return false;
+        });
     };
 
     result.rerender = function(query) {

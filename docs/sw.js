@@ -1,4 +1,4 @@
-var CACHE_NAME  = "app-version-1.0.0-rev3";
+var CACHE_NAME  = "app-version-1.0.0-rev4";
 
 var urlsToCache = [
     "index.html",
@@ -14,6 +14,7 @@ var urlsToCache = [
     "resources/jquery-ui-1.12.1/jquery-ui.min.js",
     "resources/bootstrap/js/bootstrap.js",
     "resources/handlebars/handlebars-v4.2.0.js",
+    "resources/marked/marked.min.js",
     "resources/fgoutil/fgocalc.js",
     "servant.js",
     "articles.js",

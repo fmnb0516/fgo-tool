@@ -110,7 +110,10 @@
                     <div style="margin-bottom: 10px;" class="card-body">
                         <h4 class="card-title">{{metadata.title}}</h4>
                         <h6 class="card-subtitle mb-2 text-muted">{{metadata.date}}</h6>
-                        <p class="card-text">{{metadata.teaser}}<a href="">...続きを読む</a></p>
+                        <p class="card-text">{{metadata.teaser}}<a data-target="{{url}}" href="">...続きを読む</a></p>
+                    </div>
+
+                    <div class="markdown-content">
                     </div>
                 </div>
                 {{/each}}
@@ -1141,6 +1144,7 @@
         <script src="resources/jquery-ui-1.12.1/jquery-ui.min.js"></script>
         <script src="resources/bootstrap/js/bootstrap.js"></script>
         <script src="resources/handlebars/handlebars-v4.2.0.js"></script>
+        <script src="resources/marked/marked.min.js"></script>
         <script src="resources/fgoutil/fgocalc.js"></script>
         <script src="servant.js"></script>
         <script src="articles.js"></script>
