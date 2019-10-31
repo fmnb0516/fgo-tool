@@ -447,6 +447,13 @@
             }
         },
         {
+            key: "ExtraAttack威力アップ",
+            is: function (desc) {
+                return containAllText(desc, ["Extra", "Attack", "威力", "アップ"]);
+            },
+            apply: function (context, magnification, servantData, buf) { }
+        },
+        {
             key: "クリティカル威力アップ",
             is: function (desc) {
                 return containAllText(desc, ["クリティカル威力", "アップ"]);
@@ -1050,6 +1057,13 @@
             key: "コマンドカード固定",
             is: function (desc) {
                 return containAllText(desc, ["手札", "固定"]);
+            },
+            apply: function (context, magnification, servantData, buf) { }
+        },
+        {
+            key: "宝具カード変更",
+            is: function (desc) {
+                return containAllText(desc, ["宝具カード", "変化"]);
             },
             apply: function (context, magnification, servantData, buf) { }
         },
