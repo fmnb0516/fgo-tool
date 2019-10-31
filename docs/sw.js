@@ -8,6 +8,7 @@ var urlsToCache = [
     "app/list.js",
     "app/calc.js",
     "app/view.js",
+    "app/changelog.js",
     "resources/jquery/jquery-3.4.1.min.js",
     "resources/jquery-ui-1.12.1/jquery-ui.min.js",
     "resources/bootstrap/js/bootstrap.js",

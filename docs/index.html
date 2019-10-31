@@ -41,22 +41,57 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#calc">FGO 獲得NP計算機</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#changelog">変更履歴</a>
+                    </li>
                 </ul>
 
             </div>
         </div>
     </div>
 
-    <div class="container" style="padding-top: 80px;height: 100%;" >
+    <div class="container" style="padding-top: 80px;height: 100%;">
         <small class="form-text text-muted">
             データ、計算結果に誤り誤りがあった場合、直ぐに修正するのでお手数ですが<a href="mailto:fmnb0516.fgo.data@gmail.com">こちら</a>まで連絡をお願いします。
         </small>
 
-        <br/>
+        <br />
 
         <div id="container">
         </div>
+
+        <footer id="footer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div style="display: inline-block;">
+                        <ul class="list-unstyled">
+                            <li style="display: inline;margin-right: 5px;"><a href="mailto:fmnb0516.fgo.data@gmail.com">Mail</a>
+                            <li style="display: inline;margin-right: 5px;"><a href="">Twitter</a></li>
+                            <li style="display: inline;margin-right: 5px;"><a href="https://github.com/fmnb0516/fgo-tool">GitHub</a></li>
+                        </ul>
+                        <p style="margin-bottom: 0">Made by <a href="https://github.com/fmnb0516/">fmnb0516</a>.</p>
+                        <p style="margin-bottom: 0">Code released under the <a href="https://raw.githubusercontent.com/fmnb0516/fgo-tool/master/LICENSE">Apache License 2.0</a>.</p>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
     </div>
+
+    <script type="text/x-handlebars" id="template-changelog-page">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <tbody>
+                    {{#each this}}
+                    <tr>
+                        <td style="width: 150px;font-weight: bold;">{{date}}</td>
+                        <td>{{desc}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>    
+        </div>
+    </script>
 
     <script type="text/x-handlebars" id="template-calc-page">
         <div id="atackerContainer" class="row"
@@ -1084,15 +1119,15 @@
                 };
             })();
 
-            var updateCache = (function() {
-                return function() {
+            var updateCache = (function () {
+                return function () {
                     if ('serviceWorker' in navigator && navigator.serviceWorker.controller !== null) {
                         navigator.serviceWorker.controller.postMessage('updateCache');
-                            setTimeout(function(){
+                        setTimeout(function () {
                             location.reload();
                         }, 10);
                     }
-                    
+
                 };
             })();
 
@@ -1113,12 +1148,12 @@
                     repage(hash);
                 });
 
-                $("#cache-clear-btn").click(function() {
+                $("#cache-clear-btn").click(function () {
                     updateCache();
                 });
 
-                $('.navbar-nav>li>a , .dropdown-menu>a').on('click', function(){
-                    if(this.id != 'navbarDropdown'){
+                $('.navbar-nav>li>a , .dropdown-menu>a').on('click', function () {
+                    if (this.id != 'navbarDropdown') {
                         $('.navbar-collapse').collapse('hide');
                     }
                 });
@@ -1127,13 +1162,14 @@
                     var hash = location.hash;
                     repage(hash);
                 })();
-                
+
             });
         </script>
 
         <script src="app/list.js"></script>
         <script src="app/calc.js"></script>
         <script src="app/view.js"></script>
+        <script src="app/changelog.js"></script>
     </div>
 </body>
 
