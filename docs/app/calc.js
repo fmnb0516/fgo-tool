@@ -270,6 +270,7 @@
         e.push(data.custom.atkbuf);
         e.push(data.custom.cardbuf);
         e.push(data.custom.hogubuf);
+        e.push(data.custom.card);
 
         var s = [];
         data.suppurts.forEach(function (support) {
@@ -317,7 +318,8 @@
                 npget: 0,
                 atkbuf: 0,
                 cardbuf: 0,
-                hogubuf: 0
+                hogubuf: 0,
+                card : ""
             },
             ui : {
                 visbasic : "0",
@@ -400,6 +402,7 @@
             data.custom.atkbuf = isNaN(parseInt(values[3])) ? 0 : parseFloat(values[3]);
             data.custom.cardbuf = isNaN(parseInt(values[4])) ? 0 : parseFloat(values[4]);
             data.custom.hogubuf = isNaN(parseInt(values[5])) ? 0 : parseFloat(values[5]);
+            data.custom.card = supportvalue(values[6], ["", "a", "b", "q"], "");
         }
 
         return data;
@@ -767,6 +770,12 @@
             $(document).on("change", "div[page='calc'] #other-hogu-buf-input", function () {
                 var currentData = result.currentData;
                 currentData.custom.hogubuf = parseFloat($(this).val());
+                setHash(currentData);
+            });
+
+            $(document).on("change", "div[page='calc'] #other-change-hogucard-input", function () {
+                var currentData = result.currentData;
+                currentData.custom.card = $(this).val();
                 setHash(currentData);
             });
         })();

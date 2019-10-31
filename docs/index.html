@@ -570,6 +570,18 @@
                         </div>
                     </div>
 
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label for="other-change-hogucard-input">Card</label>
+                            <select class="form-control" id="other-change-hogucard-input">
+                                <option value=""  {{selected '' data.custom.card}}></option>
+                                <option value="a" {{selected 'a' data.custom.card}}>Arts</option>
+                                <option value="b" {{selected 'b' data.custom.card}}>Buster</option>
+                                <option value="q" {{selected 'q' data.custom.card}}>Quick</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="col-lg-12">
                         <small class="form-text text-muted">
                             ※その他、特攻バフなどは宝具バフと合算になります
