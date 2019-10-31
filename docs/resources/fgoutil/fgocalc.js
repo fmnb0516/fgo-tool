@@ -128,6 +128,39 @@
             }
         },
         {
+            key: "A攻撃",
+            is: function (desc) {
+                return containAllText(desc, ["強力な", "攻撃"]);
+            },
+            apply: function (context, magnification, servantData, buf) {
+                if(context.mode === "own" && context.type === "hogu" && context.card === "a") {
+                    buf.hogumag +=  magnification; 
+                }
+            }
+        },
+        {
+            key: "B攻撃",
+            is: function (desc) {
+                return containAllText(desc, ["強力な", "攻撃"]);
+            },
+            apply: function (context, magnification, servantData, buf) {
+                if(context.mode === "own" && context.type === "hogu" && context.card === "b") {
+                    buf.hogumag +=  magnification; 
+                }
+            }
+        },
+        {
+            key: "Q攻撃",
+            is: function (desc) {
+                return containAllText(desc, ["強力な", "攻撃"]);
+            },
+            apply: function (context, magnification, servantData, buf) {
+                if(context.mode === "own" && context.type === "hogu" && context.card === "q") {
+                    buf.hogumag +=  magnification; 
+                }
+            }
+        },
+        {
             key: "威力アップ",
             is: function (desc) {
                 return containAllText(desc, ["OC", "威力アップ"]);

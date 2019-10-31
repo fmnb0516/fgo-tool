@@ -64060,7 +64060,7 @@ fgo.data([
           "v5": "60"
         },
         {
-          "type": "攻撃",
+          "type": "A攻撃",
           "tern": 0,
           "count": 0,
           "target": "enemy-all",
@@ -64072,6 +64072,34 @@ fgo.data([
           "v3": "675",
           "v4": "712.5",
           "v5": "750"
+        },
+        {
+          "type": "B攻撃",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-all",
+          "beforeafter": "before",
+          "lvoc": "lv",
+          "desc": "+敵全体に強力な攻撃[Lv] ",
+          "v1": "300",
+          "v2": "400",
+          "v3": "450",
+          "v4": "475",
+          "v5": "500"
+        },
+        {
+          "type": "Q攻撃",
+          "tern": 0,
+          "count": 0,
+          "target": "enemy-all",
+          "beforeafter": "before",
+          "lvoc": "lv",
+          "desc": "+敵全体に強力な攻撃[Lv] ",
+          "v1": "600",
+          "v2": "800",
+          "v3": "900",
+          "v4": "950",
+          "v5": "1000"
         },
         {
           "type": "ExtraAttack威力アップ",

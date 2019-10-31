@@ -694,7 +694,7 @@
             $(document).on("change", "div[page='calc'] #hogu-lv-input", function () {
                 var currentData = result.currentData;
                 currentData.target.hlv = $(this).val();
-                setHash(initialData);
+                setHash(currentData);
             });
 
             $(document).on("change", "div[page='calc'] #hogu-oc-input", function () {
