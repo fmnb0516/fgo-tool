@@ -6,7 +6,8 @@
     };
 
     result.rerender = function(query) {
-        return result.template({});
+        var data = ARTICLE_ENTRIES;
+        return result.template(data);
     };
 
     result.rendered = function() {

@@ -1,4 +1,4 @@
-var CACHE_NAME  = "app-version-1.0.0-rev2";
+var CACHE_NAME  = "app-version-1.0.0-rev3";
 
 var urlsToCache = [
     "index.html",
@@ -16,6 +16,7 @@ var urlsToCache = [
     "resources/handlebars/handlebars-v4.2.0.js",
     "resources/fgoutil/fgocalc.js",
     "servant.js",
+    "articles.js",
     "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic",
     "https://fonts.gstatic.com/s/sourcesanspro/v13/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7l.woff2",
     "https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdu.woff2"
