@@ -1137,8 +1137,8 @@ fgo.data([
           "tern": 0,
           "count": 0,
           "target": "enemy-all",
-          "beforeafter": "after",
-          "lvoc": "lv",
+          "beforeafter": "before",
+          "lvoc": "oc",
           "desc": "＆〔竜〕特攻<OC:特攻威力UP>",
           "v1": "150",
           "v2": "162.5",
@@ -29736,6 +29736,16 @@ fgo.data([
         "level": "Lv80",
         "hp": 11400,
         "atk": 9212
+      },
+      {
+        "level": "Lv90",
+        "hp": 12606,
+        "atk": 10179
+      },
+      {
+        "level": "Lv100",
+        "hp": 13822,
+        "atk": 11154
       }
     ],
     "hidden": {
@@ -32529,7 +32539,7 @@ fgo.data([
           "tern": 0,
           "count": 0,
           "target": "enemy-single",
-          "beforeafter": "after",
+          "beforeafter": "before",
           "lvoc": "lv",
           "desc": "＆〔人類の脅威〕特攻",
           "v1": "200",
@@ -45683,8 +45693,8 @@ fgo.data([
           "tern": 0,
           "count": 0,
           "target": "enemy-all",
-          "beforeafter": "after",
-          "lvoc": "lv",
+          "beforeafter": "before",
+          "lvoc": "oc",
           "desc": "＆〔人の力を持つ敵〕特攻<OC:特攻威力UP>",
           "v1": "150",
           "v2": "162.5",

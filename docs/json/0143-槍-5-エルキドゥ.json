@@ -91,7 +91,7 @@
         "tern": 0,
         "count": 0,
         "target": "enemy-single",
-        "beforeafter": "after",
+        "beforeafter": "before",
         "lvoc": "lv",
         "desc": "＆〔人類の脅威〕特攻",
         "v1": "200",

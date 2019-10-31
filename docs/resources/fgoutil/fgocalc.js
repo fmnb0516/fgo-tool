@@ -1143,8 +1143,7 @@
             },
             apply: function (context, magnification, servantData, buf) {
                 var check1 = context.mode === "own" && context.beforeafter == "before"
-                    && context.type === "hogu"
-                    && matchText(context.target, ["self", "other-single", "self-other"]);
+                    && context.type === "hogu";
 
                 if(check1) {
                     buf.tokkoubuf += tokkou;
