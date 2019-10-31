@@ -56,22 +56,6 @@
             location.hash="article$0,"+query;
             return false;
         });
-
-        $(document).on("click", "div[page='article'] .card-text a", function() {
-            var url = $(this).attr("data-target");
-            var card = $(this).parents(".card");
-            
-            $.ajax({
-                url: url,
-                type:'GET',
-                data:{},
-                cache: false
-            }).done( function(data) {
-                card.find(".card-text").hide();
-                card.find(".markdown-body").html(marked(data));
-            });
-            return false;
-        });
     };
 
     result.rerender = function(query) {
