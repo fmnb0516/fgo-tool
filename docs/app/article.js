@@ -56,6 +56,13 @@
             location.hash="article$0,"+query;
             return false;
         });
+
+        Handlebars.registerHelper('to_tag', function (data) {
+            var html = data.split(",").map(function(d) {
+                return "<span class=\"badge badge-primary\" style=\"cursor: pointer\">" + d + "</span>";
+            });
+            return new Handlebars.SafeString(html.join("\r\n"));
+        });
     };
 
     result.rerender = function(query) {
