@@ -170,7 +170,7 @@
         "v10": "1000"
       },
       {
-        "type": "NP獲得",
+        "type": "NP獲得状態付与",
         "tern": "3",
         "count": 0,
         "target": "self",

@@ -59949,7 +59949,7 @@ fgo.data([
           "v10": "1000"
         },
         {
-          "type": "NP獲得",
+          "type": "NP獲得状態付与",
           "tern": "3",
           "count": 0,
           "target": "self",
@@ -61230,8 +61230,8 @@ fgo.data([
           "tern": 0,
           "count": 0,
           "target": "enemy-all",
-          "beforeafter": "after",
-          "lvoc": "lv",
+          "beforeafter": "before",
+          "lvoc": "oc",
           "desc": "＆<OC:威力アップ>",
           "v1": "0",
           "v2": "225",

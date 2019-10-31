@@ -622,7 +622,8 @@
         {
             key: "NP獲得状態付与",
             is: function (desc) {
-                return containAllText(desc, ["NP獲得状態", "付与"]);
+                return containAllText(desc, ["NP獲得状態", "付与"])
+                || containAllText(desc, ["NP", "毎ターン", "増やす"]);
             },
             apply: function (context, magnification, servantData, buf) {
                 var check1 = context.mode === "own" && context.beforeafter == "before"
