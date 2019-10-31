@@ -425,9 +425,11 @@
         var servantData = getServantData(data.target.no);
 
         var status = servantData !== null ? servantData.status : [];
+
         status.forEach(function(s) {
-            s.selected = data.target.lv === s.level ? "selected" : "";
+            s.check = data.target.lv === s.level ? "selected" : "";
         });
+
         context.status = status;
         context.data = data;
 
@@ -677,7 +679,7 @@
                 var currentData = result.currentData;
 
                 var selected = $("#level-input option:selected");
-                var lv = selected.val("");
+                var lv = selected.attr("value");
                 var atk = parseInt(selected.attr("atk"));
 
                 currentData.target.lv = lv;
@@ -688,6 +690,8 @@
             $(document).on("change", "div[page='calc'] #for-atk-input", function () {
                 var val = parseInt($(this).val());
                 var currentData = result.currentData;
+
+                currentData.target.fou = val;
                 setHash(currentData);
             });
 
