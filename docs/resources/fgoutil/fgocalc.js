@@ -402,10 +402,10 @@
             apply: function (context, magnification, servantData, buf) {
                 var check1 = context.mode === "own" && context.beforeafter == "before"
                     && context.card === "a"
-                    && matchText(context.target, ["self", "other-single", "self-other"]);
+                    && matchText(context.target, ["enemy-all", "enemy-single"]);
                 var check2 = context.mode === "support" && context.beforeafter == "before"
                     && context.card === "a"
-                    && matchText(context.target, ["self-other", "other-single", "other-all"]);
+                    && matchText(context.target, ["enemy-all", "enemy-single"]);
                 if (check1 || check2) {
                     buf.cardbuf += magnification;
                 }
@@ -436,10 +436,10 @@
             apply: function (context, magnification, servantData, buf) {
                 var check1 = context.mode === "own" && context.beforeafter == "before"
                     && context.card === "q"
-                    && matchText(context.target, ["self", "other-single", "self-other"]);
+                    && matchText(context.target, ["enemy-all", "enemy-single"]);
                 var check2 = context.mode === "support" && context.beforeafter == "before"
                     && context.card === "q"
-                    && matchText(context.target, ["self-other", "other-single", "other-all"]);
+                    && matchText(context.target, ["enemy-all", "enemy-single"]);
                 if (check1 || check2) {
                     buf.cardbuf += magnification;
                 }
@@ -470,10 +470,10 @@
             apply: function (context, magnification, servantData, buf) {
                 var check1 = context.mode === "own" && context.beforeafter == "before"
                     && context.card === "b"
-                    && matchText(context.target, ["self", "other-single", "self-other"]);
+                    && matchText(context.target, ["enemy-all", "enemy-single"]);
                 var check2 = context.mode === "support" && context.beforeafter == "before"
                     && context.card === "b"
-                    && matchText(context.target, ["self-other", "other-single", "other-all"]);
+                    && matchText(context.target, ["enemy-all", "enemy-single"]);
                 if (check1 || check2) {
                     buf.cardbuf += magnification;
                 }
