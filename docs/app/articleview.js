@@ -24,6 +24,8 @@
     };
 
     result.rerender = function(query) {
+        var entries = JSON.parse(JSON.stringify(ARTICLE_ENTRIES));
+
         return new Promise(function (resolve, reject) {
             $.ajax({
                 url: query,
@@ -31,8 +33,8 @@
                 data: {}
             }).done(function(data) {
 
-                var article = ARTICLE_ENTRIES.find(function(d) {
-                    return d.url = query;
+                var article = entries.find(function(d) {
+                    return d.url === query;
                 });
                 resolve(result.template({
                     meta: article,

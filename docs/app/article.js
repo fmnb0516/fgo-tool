@@ -66,9 +66,11 @@
     };
 
     result.rerender = function(query) {
+        var entries = JSON.parse(JSON.stringify(ARTICLE_ENTRIES));
+
         var params = parseQuery(query);
 
-        var data = splitAry(ARTICLE_ENTRIES.filter(function(e) {
+        var data = splitAry(entries.filter(function(e) {
             var check1 = params.query === "" || e.metadata.title.indexOf(params.query) !== -1;
             var check2 = params.query === "" || e.metadata.teaser.indexOf(params.query) !== -1;
             return check1 || check2;
