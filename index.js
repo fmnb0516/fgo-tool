@@ -41,6 +41,9 @@ const articledata_gen = async () => {
     const writeFile = util.promisify(fs.writeFile);
 
     const files = (await readdir(publicDir + "/article")).filter(f => f.endsWith(".md"));
+
+    files.reverse();
+
     for (let i = 0; i < files.length; i++) {
         const f = files[i];
         const data = await readFile(publicDir + "/article/" + f, "utf8");
