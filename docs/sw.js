@@ -9,9 +9,7 @@ var urlsToCache = [
     "app/list.js",
     "app/calc.js",
     "app/view.js",
-    "app/article.js",
     "app/changelog.js",
-    "app/articleview.js",
     "resources/jquery/jquery-3.4.1.min.js",
     "resources/jquery-ui-1.12.1/jquery-ui.min.js",
     "resources/bootstrap/js/bootstrap.js",
@@ -19,7 +17,6 @@ var urlsToCache = [
     "resources/marked/marked.min.js",
     "resources/fgoutil/fgocalc.js",
     "servant.js",
-    "articles.js",
     "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic",
     "https://fonts.gstatic.com/s/sourcesanspro/v13/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7l.woff2",
     "https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdu.woff2"

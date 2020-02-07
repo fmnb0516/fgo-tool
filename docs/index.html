@@ -43,9 +43,6 @@
                         <a class="nav-link" href="#calc">FGO 獲得NP計算機</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#article">雑記</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#changelog">変更履歴</a>
                     </li>
                 </ul>
@@ -89,68 +86,6 @@
             </div>
         </footer>
     </div>
-
-    <script type="text/x-handlebars" id="template-articleview-page">
-        <div class="row" style="margin-bottom: 20px;">
-
-            <div class="col-lg-12">
-				<h3 class="article-header">{{meta.metadata.title}}</h3>
-				<div>
-					<span>{{meta.metadata.date}}</span>
-                </div>
-                <div>
-					{{to_tag meta.metadata.tags}}
-				</div>
-
-                <div class="article-body markdown-body" style="overflow-x: hidden; margin-top: 10px;">
-                    {{marked md}}
-				</div>
-            </div>
-            
-        </div>
-    </script>
-
-    <script type="text/x-handlebars" id="template-article-page">
-        <div class="row" style="margin-bottom: 20px;">
-            <div class="col-lg-12">
-                <div style="margin-bottom: 10px;">
-                    <span style="font-size:100%;" class="badge badge-pill badge-primary">記事一覧</span>
-                </div>
-                <div class="form-group">
-                    <form>
-                        <input type="search" class="form-control" placeholder="記事検索" value="{{query}}">
-                    </form>
-                </div>
-            </div>
-
-            <br/><br/>
-
-            <div class="col-lg-12">
-                {{#each entries}}
-                <div class="card" style="margin-bottom: 10px;">
-                    <div style="margin-bottom: 10px;" class="card-body">
-                        <h4 class="card-title">{{metadata.title}}</h4>
-                        <h6 class="card-subtitle mb-2 text-muted">{{metadata.date}}</h6>
-                        <p class="card-text">{{metadata.teaser}}<a href="#articleview${{url}}">...続きを読む</a></p>
-                        <div>
-                            {{to_tag metadata.tags}}
-                        </div>
-                    </div>
-                </div>
-                {{/each}}
-            </div>
-
-            <div class="col-lg-12" style="margin-top:10px;">
-                <ul class="pagination pagination-sm">
-                    {{#each navi}}
-                    <li class="page-item active">
-                        <a class="page-link active" href="{{link}}">{{label}}</a>
-                    </li>
-                    {{/each}}
-                </ul>
-            </div>
-        </div>
-    </script>
 
     <script type="text/x-handlebars" id="template-changelog-page">
         <div class="row">
@@ -1263,8 +1198,6 @@
         <script src="app/calc.js"></script>
         <script src="app/view.js"></script>
         <script src="app/changelog.js"></script>
-        <script src="app/article.js"></script>
-        <script src="app/articleview.js"></script>
     </div>
 </body>
 
