@@ -270,6 +270,13 @@
             apply: function (context, magnification, servantData, buf) { }
         },
         {
+            key: "毒・呪い・やけど状態解除",
+            is: function (desc) {
+                return containAllText(desc, ["毒・呪い・やけど", "解除"]);
+            },
+            apply: function (context, magnification, servantData, buf) { }
+        },
+        {
             key: "弱体付与成功率アップ",
             is: function (desc) {
                 return containAllText(desc, ["弱体付与成功率", "アップ"]) || containAllText(desc, ["弱体成功率", "アップ"]);
